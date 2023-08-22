@@ -369,7 +369,7 @@ Sia $(X,d)$ uno spazio metrico e sia $x_0$ un fissato punto di $X$. Allora la fu
     e perciò $d(x_k,x_0)\to d(x,x_0)\text{ per } k\to\infty$.
 \end{proof}
 \begin{definizione}[Spazio Normato]
-Sia $V$ uno spazio vettoriale. Una norma su $V$ è una funzione che ad ogni vetore $x\in V$ associa un reale $\|x\|\geq 0$ che verifica le seguenti condizioni:
+Sia $V$ uno spazio vettoriale. Una norma su $V$ è una funzione che ad ogni vettore $x\in V$ associa un reale $\|x\|\geq 0$ che verifica le seguenti condizioni:
 \begin{itemize}
     \item $\|x\|=0 \text{ se e solo se } x=0 \qquad \forall x\in V$
     \item $\|\lambda x\|=|\lambda|\cdot\|x\|\qquad \forall\lambda\in\R,\; \forall x\in V$
@@ -378,7 +378,7 @@ Sia $V$ uno spazio vettoriale. Una norma su $V$ è una funzione che ad ogni veto
 \end{definizione}
 L'ultima disequazione prende il nome di \emph{disuguaglianza triangolare}.
 \begin{definizione}[Spazio di Banach]
-Sia $(X,d)$ uno spazio normato, se esso risulta completo completo come spazio metrico rispetto alla distanza: $$d(x,y)=\|x-y\|_V$$ generata dalla norma $\|\cdot\|_V$, direvo che $V$ è uno spazio di Banach.    
+Sia $(X,d)$ uno spazio normato, se esso risulta completo completo come spazio metrico rispetto alla distanza: $$d(x,y)=\|x-y\|_V$$ generata dalla norma $\|\cdot\|_V$, diremo che $V$ è uno spazio di Banach.    
 \end{definizione}
 \subsection{Funzioni Lipschitziane e teorema delle contrazioni}
 \begin{definizione}[Funzione L-Lip]
@@ -393,8 +393,14 @@ prende il nome di funzione contrattiva (o \emph{contrazione}) sullo spazio $(X,d
 \begin{theorem}[Teorema delle Contrazioni (Banach)]
 Sia $(X,d)$ uno spazio metrico completo e sia $f:X\to X$ una contrazione. Allora esiste uno ed un solo punto $x\in X$ tale che $f(x)=x$. $x$ si chiama \emph{punto fisso}.    
 \end{theorem}
-\begin{proof}
-    
+\begin{proof} A partire da un qualunque $x_0\in X$ possiamo definire una successione a valori in $X$\\ attraverso $x_{n+1}=f(x_n)$. Si ha che 
+$$d(x_{n+2},x_{n+1}) = d(f(x_{n+1}),f(x_n)) \leq L\cdot d(x_{n+1},x_n), $$
+$$d(x_{n+3},x_{n+2}) \leq L\cdot d(x_{n+2},x_{n+1}) \leq L^2\cdot d(x_{n+1},x_n)$$
+e per induzione $d(x_{n+k+1},x_{n+k})\leq L^k\cdot d(x_{n+1},x_{n})$. Dalla disuguaglianza triangolare segue pertanto 
+$$ d(x_{n+k+1},x_{n}) \leq \left(1+L+L^2+\ldots+L^k\right)\cdot d(x_{n+1},x_n)\leq \frac{d(x_{n+1},x_n)}{1-L}\leq \frac{L^n}{1-L}\cdot  d(x_1,x_0).$$
+L'ultima disuguaglianza comporta che $\{x_n\}_{n\geq 0}$ sia una successione di Cauchy e la completezza di $X$ comporta che $x_n\to \overline{x} \in X$. Dalla continuità di $f$ segue inoltre $x_{n+1}=f(x_n)\to f(\overline{x})$, dunque $\overline{x}$ è necessariamente un punto fisso di $f$. Abbiamo infine che $\overline{x}$ non dipende da $x_0$: se $f$ avesse due distinti punti fissi $\overline{x}_1$ e $\overline{x}_2$ avremmo 
+$$ d(\overline{x}_1,\overline{x}_2) = d(f(\overline{x}_1),f(\overline{x}_2)) \leq L\cdot d(\overline{x}_1,\overline{x}_2) < d(\overline{x}_1,\overline{x}_2) $$
+che è una contraddizione. Segue che per qualunque $x_0\in X$ la successione data da $x_{n+1}=f(x_n)$ converge verso l'unico punto fisso di $f$.   
 \end{proof}
 \subsection{Compattezza}
 \begin{definizione}[Insieme Compatto]
