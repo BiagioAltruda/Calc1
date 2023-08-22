@@ -136,12 +136,10 @@ B.A.M \& J.D.A, 2023}}
 La serie di Taylor di una funzione $f(x)$, centrata in $x_0$ è definita come:
 $$\sum_{n\geq 0}^{}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n$$ \\
 in funzione di questa, diamo alcune definizioni importanti:
-$$e^x=\sum_{n\geq 0}\frac{1}{n!}x^n$$ 
-$$\sin x = \sum_{n\geq 0}^{\infty}\frac{(-1)^{2n+1}}{(2n+1)!}x^{2n+1}$$
-$$\cos x = \sum_{n\geq }\frac{(-1)^n}{(2n)!}x^{2n}$$
-
-
- 
+$$e^x=\sum_{n\geq 0}\frac{1}{n!}x^n,$$ 
+$$\sin x = \sum_{n\geq 0}^{\infty}\frac{(-1)^{2n+1}}{(2n+1)!}x^{2n+1},$$
+$$\cos x = \sum_{n\geq }\frac{(-1)^n}{(2n)!}x^{2n}.$$
+Le serie di Taylor centrate nell'origine sono anche dette serie (o \emph{sviluppi}) di Maclaurin.
 
 
 \section{Limiti e Continuità}
@@ -371,28 +369,28 @@ Sia $(X,d)$ uno spazio metrico e sia $x_0$ un fissato punto di $X$. Allora la fu
     e perciò $d(x_k,x_0)\to d(x,x_0)\text{ per } k\to\infty$.
 \end{proof}
 \begin{definizione}[Spazio Normato]
-Sia $V$ uno spazio vettoriale. Una norma su $V$ è una funzione che ad ogni vetore $x\in V$ associa un reale $||x||\geq 0$ che verifica le seguenti condizioni:
+Sia $V$ uno spazio vettoriale. Una norma su $V$ è una funzione che ad ogni vetore $x\in V$ associa un reale $\|x\|\geq 0$ che verifica le seguenti condizioni:
 \begin{itemize}
-    \item $||x||=0 \text{ se e solo se } x=0 \qquad \forall x\in V$
-    \item $||\lambda x||=|\lambda|\cdot||x||\qquad \forall\lambda\in\R,\; \forallx\in V$
-    \item $||x+y||\leq ||x||+||y||\qquad \forall x,y\in V$
+    \item $\|x\|=0 \text{ se e solo se } x=0 \qquad \forall x\in V$
+    \item $\|\lambda x\|=|\lambda|\cdot\|x\|\qquad \forall\lambda\in\R,\; \forall x\in V$
+    \item $\|x+y\|\leq \|x\|+\|y\|\qquad \forall x,y\in V$
 \end{itemize}
 \end{definizione}
 L'ultima disequazione prende il nome di \emph{disuguaglianza triangolare}.
 \begin{definizione}[Spazio di Banach]
-Sia $(X,d)$ uno spazio normato, se esso risulta completo completo come spazio metrico rispetto alla distanza: $$d(x,y)=||x-y||_V$$ generata dalla norma $||\cdot||_V$, direvo che $V$ è uno spazio di Banach.    
+Sia $(X,d)$ uno spazio normato, se esso risulta completo completo come spazio metrico rispetto alla distanza: $$d(x,y)=\|x-y\|_V$$ generata dalla norma $\|\cdot\|_V$, direvo che $V$ è uno spazio di Banach.    
 \end{definizione}
 \subsection{Funzioni Lipschitziane e teorema delle contrazioni}
 \begin{definizione}[Funzione L-Lip]
-Siano $(X,d_X)$ e $(Y,d_Y)$ due spazi metrici e sia $f:X\to Y$ una funzione. Diremo che $f$ è lipschitziana se esiste una costante $L$ tale che: $$d_Y(f(x),f(y))\leq Ld_X(x,y)\qquad \forall x,y\in X$$    
+Siano $(X,d_X)$ e $(Y,d_Y)$ due spazi metrici e sia $f:X\to Y$ una funzione.\\ Diremo che $f$ è lipschitziana se esiste una costante $L$ tale che: $$d_Y(f(x),f(y))\leq L\cdot d_X(x,y)\qquad \forall x,y\in X$$    
 \end{definizione}
 Se $f:X\to Y$ è L-Lip chiaramente è anche continua in $X$.
 \begin{definizione}[Funzione contrattiva]
 Sia $f:X\to X$ Lipschitziana con costante $L<1$ cioè tale che :
-$$d(f(x),f(y))<Ld(x,y)\qquad\forall x,y\in X$$
+$$d(f(x),f(y))<L\cdot d(x,y)\qquad\forall x,y\in X$$
 prende il nome di funzione contrattiva (o \emph{contrazione}) sullo spazio $(X,d)$.
 \end{definizione}
-\begin{theorem}[Teorema delle Contrazioni (Banach-Caccioppoli)]
+\begin{theorem}[Teorema delle Contrazioni (Banach)]
 Sia $(X,d)$ uno spazio metrico completo e sia $f:X\to X$ una contrazione. Allora esiste uno ed un solo punto $x\in X$ tale che $f(x)=x$. $x$ si chiama \emph{punto fisso}.    
 \end{theorem}
 \begin{proof}
@@ -400,7 +398,7 @@ Sia $(X,d)$ uno spazio metrico completo e sia $f:X\to X$ una contrazione. Allora
 \end{proof}
 \subsection{Compattezza}
 \begin{definizione}[Insieme Compatto]
-    Un sottoinsime $K$ dello spazione metrico $(X,d)$ si dice compatto se da ogni successione $x_k$ di punti di $K$ se ne può estrarre una convergente verso un punto $x\in K$
+    Un sottoinsime $K$ dello spazio metrico $(X,d)$ si dice (sequenzialmente) compatto se da ogni successione $\{x_k\}$ di punti di $K$ si può estrarre una sottosuccessione convergente verso un punto $x\in K$.
 \end{definizione}
 Osservimo che, se $K\subseteq X$ è un insieme compatto, si dice, secondo questa definizione, che è \emph{compatto per successioni}, a dispetto della definizione di compattezza data attraverso dei \emph{ricoprimenti aperti}. In ogni caso, le due definizioni risultano equivalenti.
 \begin{theorem}
@@ -413,8 +411,8 @@ Osservimo che, se $K\subseteq X$ è un insieme compatto, si dice, secondo questa
 Un sottoinsieme $K$ di $\R^n$ è compatto se e solo se è chiuso e limitato.    
 \end{theorem}
 \begin{proof}
- Se $K$ è chiuso e limitato, sia $x_k=(x_k1,x_k2,\dots,x_kn)$ una successione di puntidi $K$. le successioni $x_ki$ sono successioni di reali limtate. Per il teorema di Bolzano-Weierstrass dalla successione $x_k$ se ne può estrarre una avente la prima coordinata convergente; da questa un altra con seconda coordinata convergente, e così via fino ad $n$. Si ottiene così una successione srettamente crescente $k_h$ di numeri naturali tale che  $x_{k_h,i}\to x_i$ per ogni $i=2,3,\dots,n$. Pertanto $x_k\to x=(x_1,x_2,\dots,x_n)$.\\
- Essendo $K$ chiuso ne segue che $x\in K$ e quindi $K$ è compatto.\\ Viceversa se $K$ è compatto esso è chiuso per la proposizione precedente. Se $K$ non fosse limitato, esisterebbe una successione $x_k$ di punti di $K$ tale che: $$\lim_{k\to\infty}|x_k|=+\infty$$ e da questa non si potrebbe estrarre alcuna successione convergente, contro l'ipotesi che $K$ sia compatto.
+ Se $K$ è chiuso e limitato, sia $\{x_k\}_{k\geq 1}=\{\left(x_{k_1},x_{k_2},\dots,x_{k_n}\right)\}_{k\geq 1}$ una successione di punti di $K$.\\ Le successioni $\{x_{k_i}\}_{k\geq 1}$ sono successioni limitate di reali. Per il teorema di Bolzano-Weierstrass dalla successione $\{x_k\}_{k\geq 1}$ se ne può estrarre una avente la prima coordinata convergente; da questa un'altra con seconda coordinata convergente, e così via fino ad $n$. Si ottiene così una successione strettamente crescente $\{k_h\}_{h\geq 1}$ di numeri naturali tale che  $x_{k_h,i}\to x_i$ per ogni $i=1,2,3,\dots,n$. Pertanto $x_k\to x=(x_1,x_2,\dots,x_n)$.\\
+ Essendo $K$ chiuso ne segue che $x\in K$ e quindi $K$ è compatto.\\ Viceversa se $K$ è compatto esso è chiuso per la proposizione precedente. Se $K$ non fosse limitato, esisterebbe una successione $\{x_k\}_{k\geq 1}$ di punti di $K$ tale che: $$\lim_{k\to\infty}|x_k|=+\infty$$ e da questa non si potrebbe estrarre alcuna successione convergente, contro l'ipotesi che $K$ sia compatto.
 \end{proof}
 \section{Binomiali \& Friends}
 Come spero sia noto il binomiale $\binom{n}{k}$, letto \emph{$n$ su $k$}, rappresenta il numero di sottoinsiemi di cardinalità $k$ in un insieme di $n$ elementi.
@@ -633,7 +631,7 @@ con $c=e^p$ costante arbitraria
 Il carattere fondamentale di questa reazione è che non si può predire quando avverà, ma si può dare una probabilità a questo evento. Questa probabilità è $pdt$ proporzionale all'intervallo di tempo $dt$, indicando con $n(t)$ il numero di neutroni presenti al tempo $t$ tra $t$ e $t*dt$ se ne disintegreranno $n(t)pdt$. Il numero complessivo di neutroni diminuirà, ottendo quindi:$$\frac{n(p+dt)-n(t)}{dt}=-pn(t)$$
 facendo tendere $dt$ a $0$ otteniamo: $$n'(t)=n_0e^{-pt}$$\\
 il numero di neutroni decresce quindi esponenzialmente e si denota con $\tau=\frac{log2}{p}$ il tempo di dimezzamento
-\subsubsection{L'Oscillatore Armonico}
+\subsubsection{Oscillatore Armonico}
 Con questo termine si indica un sistema costituito da un punto materiale di massa $m$ che si muove su una rett, soggette ad una forza di richiamo, proporzionale alla distanza dal punto $0$. \\
 indicando con $u(t)$ la posizione del corpo al tempo $t$, la forza totale che agisce sul corpo sarà: $f=-ku-hu'$ e l'equazione del moto $f=ma$ si scrive: $$mu''(t)+hu'(t)+ku(t)=0$$\\
 ponendo $\omega_0^2=\frac{k}{m}$ e $a=\frac{h}{2m}$.\\
@@ -641,7 +639,7 @@ $$u''(t)+2au'(t)+\omega_0^2u=0$$ \\
 se cerchiamo soluzioni della forma $e^{\lambda t}$ otteniamo l'equazione $\lambda^2 + \omega_0^2=0$ che ha radici complesse $i\omega_0t$ e $-i\omega_0t$ che corrispondono alle soluzioni : $e^{i\omega_0t}$ e $e^{-i\omega_0t}$\\
 dove  $e^{i\omega_0t}$ e $e^{-i\omega_0t}$ stanno per $cos\omega_0t+isen\omega_0t$ e $cos\omega_0t-isen\omega_0t$ \\
 La soluzione generale della differenziale è quindi: $$u(t)=c_1sen\omega_0t+c_2cos\omega_0t$$\\
-\subsection{Metodi di Risoluzione Eq. non omogenee}
+\subsection{Metodi di Risoluzione di ED non omogenee}
 In generale consideriamo $\Tilde{x_{OM}}$ la soluzione dell'omogenea. Allora la soluzione generale sarà del tipo: $$\Tilde{x}= \Tilde{x_{OM}}+ \Tilde{x_1}$$\\
 dove $\Tilde{x_1}$ è la soluzione generale dell'equazione differenziale.\\
 Per trovarla è utile il \textbf{Metodo di Somiglianza} che consiste nel cercare le soluzioni generali a partire dal termine noto dell'equazione.\\
@@ -806,7 +804,7 @@ $$ I=\int_{0}^{+\infty}\left|\sin x\right| e^{-x}\,dx $$
 \textbf{J45}$(\star\star)$ $f:[0,+\infty)\to\mathbb{R}$ è definita come l'unica soluzione di $f''(x)=x\cdot f(x)$ che soddisfa $f(0)=1$ e $f'(0)=0$.\\ Si dimostri che 
 $$ \lim_{x\to +\infty}\frac{\log f(x)}{x\sqrt{x}} = \frac{2}{3}.$$
 
-\textbf{J46}$(\star\star)$ Si dimostri che per qualunque $f:\mathbb{R}^+\to\mathbb{R}^+$ continua e strettamente crescente si ha che l'integrale\\ $\int_{0}^{+\infty}\sin(x\cdot f(x))\,dx $ è convergente nel senso di Riemann improprio.
+\textbf{J46}$(\star)$ Si dimostri che per qualunque $\alpha > 1$ l'integrale $\int_{0}^{+\infty}\sin(x^\alpha)\,dx $ è convergente nel senso di Riemann improprio.
 
 \textbf{J47}$(\star)$ Si determini per quali $\alpha\in\mathbb{R}^+$ la seguente serie converge:
 $$ \sum_{n\geq 1}\frac{\binom{2n}{n}}{n^\alpha 4^n} $$
@@ -884,6 +882,7 @@ Soluzione del \textbf{J42}($\star$): \url{https://mathb.in/76075} (Prodotto di W
 Soluzione del \textbf{J43}($\star$): \url{https://mathb.in/76076}\\
 Soluzione del \textbf{J44}($\star\star$): \url{https://mathb.in/76078} (Teorema di Banach-Caccioppoli)\\
 Soluzione del \textbf{J45}($\star\star$): \url{https://mathb.in/76083} (Rappresentazioni integrali, stime di momenti)\\
+Soluzione del \textbf{J46}($\star$): \url{https://mathb.in/76120} (Criterio di Abel-Dirichlet)\\
 Soluzione del \textbf{J47}($\star$): \url{https://mathb.in/76090} (OGF dei binomiali centrali normalizzati)\\
 Soluzione del \textbf{J48}($\star$): \url{https://mathb.in/76091} (Moltiplicazione di OGF)\\
 Soluzione del \textbf{J49}($\star\star$): \url{https://mathb.in/76092} (Banach-Caccioppoli, sostituzioni) \\
@@ -891,7 +890,7 @@ Soluzione del \textbf{J50}($\star$): \url{https://mathb.in/76093} \\
 Soluzione del \textbf{J51}($\star\star$): \url{https://mathb.in/76088} (Sostituzioni, integrali della forma $\int_{0}^{1}x^a(1-x)^b\,dx$, serie $\sum_{n\geq 1}\frac{\sin(nx)}{n}$)\\
 Soluzione del \textbf{J52}($\star$): \url{https://mathb.in/76094} (Accenno agli integrali di Beukers)\\
 Soluzione del \textbf{J53}($\star$): \url{https://mathb.in/76113} \\
-
+Soluzione del \textbf{J54}($\star\star$): \url{https://mathb.in/76114} (Disuguaglianza tra le medie, coordinate sferiche)\\
 \end{document}
 
 
