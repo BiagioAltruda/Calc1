@@ -359,7 +359,63 @@ per ogni $x\in I$, cioè se per ogni $\epsilon>0$ e per ogni $x\in I$ esiste $v_
 $$|f_k(x)-f(x)|<\epsilon$$ In generale, fissato $\epsilon$, il numero  $v_{\epsilon,x}$ dipende solo da $x$, se risulta indipendente invece, si dice che la successione di funzioni converge uniformemente a $f(x)$.\\
 La convergenza Uniforme implica quella Puntuale come mostrato nella disuguaglianza: $$|f_k(x) -f(x)|\leq \sup\{|f_k(x)-f(x): x\in I|\}$$
 Per ogni $x\in I$. In generale il viceversa è falso.
-
+\begin{theorem}
+Sia $(X,d)$ uno spazio metrico e sia $x_0$ un fissato punto di $X$. Allora la funzione: $$x\in X\to d(x,x_0)$$
+è continua da $X$ verso $\R$ (dotato della metrica euclidea)
+\end{theorem}
+\begin{proof}
+    Applicando la disuguaglianza di Lipschitzianità della distanza si ha che per $x,y\in A$:
+    $$|d(y,x_0)-d(x,x_0)|\leq d(x,y)$$
+    Allora se $x_0$ è una successione di punti convergenti ad $x$, si ha: 
+    $$|d(x_k,x_0)-d(x,x_0)|\leq d(x_k,x)$$
+    e perciò $d(x_k,x_0)\to d(x,x_0)\text{ per } k\to\infty$.
+\end{proof}
+\begin{definizione}[Spazio Normato]
+Sia $V$ uno spazio vettoriale. Una norma su $V$ è una funzione che ad ogni vetore $x\in V$ associa un reale $||x||\geq 0$ che verifica le seguenti condizioni:
+\begin{itemize}
+    \item $||x||=0 \text{ se e solo se } x=0 \qquad \forall x\in V$
+    \item $||\lambda x||=|\lambda|\cdot||x||\qquad \forall\lambda\in\R,\; \forallx\in V$
+    \item $||x+y||\leq ||x||+||y||\qquad \forall x,y\in V$
+\end{itemize}
+\end{definizione}
+L'ultima disequazione prende il nome di \emph{disuguaglianza triangolare}.
+\begin{definizione}[Spazio di Banach]
+Sia $(X,d)$ uno spazio normato, se esso risulta completo completo come spazio metrico rispetto alla distanza: $$d(x,y)=||x-y||_V$$ generata dalla norma $||\cdot||_V$, direvo che $V$ è uno spazio di Banach.    
+\end{definizione}
+\subsection{Funzioni Lipschitziane e teorema delle contrazioni}
+\begin{definizione}[Funzione L-Lip]
+Siano $(X,d_X)$ e $(Y,d_Y)$ due spazi metrici e sia $f:X\to Y$ una funzione. Diremo che $f$ è lipschitziana se esiste una costante $L$ tale che: $$d_Y(f(x),f(y))\leq Ld_X(x,y)\qquad \forall x,y\in X$$    
+\end{definizione}
+Se $f:X\to Y$ è L-Lip chiaramente è anche continua in $X$.
+\begin{definizione}[Funzione contrattiva]
+Sia $f:X\to X$ Lipschitziana con costante $L<1$ cioè tale che :
+$$d(f(x),f(y))<Ld(x,y)\qquad\forall x,y\in X$$
+prende il nome di funzione contrattiva (o \emph{contrazione}) sullo spazio $(X,d)$.
+\end{definizione}
+\begin{theorem}[Teorema delle Contrazioni (Banach-Caccioppoli)]
+Sia $(X,d)$ uno spazio metrico completo e sia $f:X\to X$ una contrazione. Allora esiste uno ed un solo punto $x\in X$ tale che $f(x)=x$. $x$ si chiama \emph{punto fisso}.    
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+\subsection{Compattezza}
+\begin{definizione}[Insieme Compatto]
+    Un sottoinsime $K$ dello spazione metrico $(X,d)$ si dice compatto se da ogni successione $x_k$ di punti di $K$ se ne può estrarre una convergente verso un punto $x\in K$
+\end{definizione}
+Osservimo che, se $K\subseteq X$ è un insieme compatto, si dice, secondo questa definizione, che è \emph{compatto per successioni}, a dispetto della definizione di compattezza data attraverso dei \emph{ricoprimenti aperti}. In ogni caso, le due definizioni risultano equivalenti.
+\begin{theorem}
+    Se $(X,d)$ è uno spazio metrico e $K\subseteq X$ è un insime compatto, allora $K$ è chiuso.
+\end{theorem}
+\begin{proof}
+    sia $x_k$ una successione di punti di $K$ convergente verso il punto $x\in X$. Dimostriamo che $x\in K$. Essendo $K$ compatto estraiamo da $x_k$ una sottosuccessione $x_{k_h}$, questa è convergente verso il punto $x_0\in K$. Necessariamente $x=x_0$ e si ha che $x\in K$
+\end{proof}
+\begin{theorem}[Heine-Borel]
+Un sottoinsieme $K$ di $\R^n$ è compatto se e solo se è chiuso e limitato.    
+\end{theorem}
+\begin{proof}
+ Se $K$ è chiuso e limitato, sia $x_k=(x_k1,x_k2,\dots,x_kn)$ una successione di puntidi $K$. le successioni $x_ki$ sono successioni di reali limtate. Per il teorema di Bolzano-Weierstrass dalla successione $x_k$ se ne può estrarre una avente la prima coordinata convergente; da questa un altra con seconda coordinata convergente, e così via fino ad $n$. Si ottiene così una successione srettamente crescente $k_h$ di numeri naturali tale che  $x_{k_h,i}\to x_i$ per ogni $i=2,3,\dots,n$. Pertanto $x_k\to x=(x_1,x_2,\dots,x_n)$.\\
+ Essendo $K$ chiuso ne segue che $x\in K$ e quindi $K$ è compatto.\\ Viceversa se $K$ è compatto esso è chiuso per la proposizione precedente. Se $K$ non fosse limitato, esisterebbe una successione $x_k$ di punti di $K$ tale che: $$\lim_{k\to\infty}|x_k|=+\infty$$ e da questa non si potrebbe estrarre alcuna successione convergente, contro l'ipotesi che $K$ sia compatto.
+\end{proof}
 \section{Binomiali \& Friends}
 Come spero sia noto il binomiale $\binom{n}{k}$, letto \emph{$n$ su $k$}, rappresenta il numero di sottoinsiemi di cardinalità $k$ in un insieme di $n$ elementi.
 Questo è esplicitamente:\\
