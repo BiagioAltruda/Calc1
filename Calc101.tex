@@ -29,7 +29,7 @@
 \colorlet{shadecolor}{blue!9}
 \definecolor{Red}{rgb}{0,0,0.3}
 
-\setlength{\headheight}{12pt}
+\setlength{\headheight}{14pt}
 \setlength{\topmargin}{-1cm}
 \setlength{\evensidemargin}{-1cm}
 \setlength{\oddsidemargin}{-1cm}
@@ -409,7 +409,7 @@ $$ \frac{1}{4^n}\binom{2n}{n} = \frac{2}{\pi}\int_{0}^{\pi/2}\left(\cos\theta\ri
 Vale l'identità:
 $$\binom{n+1}{r+1}=\sum_{j=r}^{n}\binom{j}{r}$$
 \begin{proof}
- Fissato $r$, è sufficiente procedere per induzione su $n$.
+ Fissato $r$, è sufficiente procedere per induzione su $n$. In alternativa, è sufficiente catalogare i sottoinsiemi di taglia $r+1$ di $\{1,2,\ldots,n+1\}$ in base al loro elemento massimo.
 \end{proof}
 
     \section{Criteri e Metodi per Serie Numeriche}
@@ -531,7 +531,7 @@ Tipicamente per questo tipo di lavoro bisogna farci l'occhio e sapere un po' dov
 
 \section{Integrali Tricky e Metodi Interessanti}
 Saranno date per note le principali tecniche di integrazione (per sostituzione e per parti), infatti, questo paragrafo si concentrerà nell'illustrare degli integrali più complessi e meritevoli di particolare attenzione, oltre che a tecniche di integrazione un po' più oscure. (Sono a conoscenza che questa sezione è meno utile delle precedenti, visto che è difficile che uno qualunque di questi esempi appaia esplicitamente in una prova. Ma sono comunque ad avviso mio e di Jack abbastanza importanti da avere a portata di mano in caso di necessità). alcune tecniche che verranno illustrate sono l'utilizzo della convergenza dominata (vedere paragrafo sui criteri delle serie), Integrali complessi, abuso di rappresentazioni integrali etc.
-\subsubsection{Un primo Caso interessante}
+\subsection{Un primo Caso interessante}
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n}d\theta=\frac{\pi}{2\cdot4^n}\binom{2n}{n}$$
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n+1}d\theta= \frac{4^n}{(2n+1)\binom{2n}{n}}$$
 inaspettatamente questi due integrali sono strettamente legati ai Binomiali Centrali e sono appunto una loro rappresentazione integrale.
@@ -601,18 +601,20 @@ Un altro metodo per risolvere alcune differenziali (più difficili delle precede
 Gli esercizi proposti sono, appunto, difficili come quelli di compito (in più quelli con 3 stelle sarebbero in grado di indurre in stato comatoso il candidato se incontrati durante una prova ufficiale, si raccomanda cautela).
 \par
 
- \textbf{J1} $\star$ Si dimostri che 
+ \textbf{J1}($\star$). Si dimostri che 
 \begin{equation*}
  \sum_{n\geq 1}\frac{1}{5^n}\binom{2n}{n}   
 \end{equation*}
 è una serie convergente.
 
-\textbf{J2}$\star$. Si determini il valore del seguente integrale: 
+
+\textbf{J2}($\star$). Si determini il valore del seguente integrale: 
 \begin{equation*}
  \int_{0}^{+\infty}\frac{\ln t}{1+t^2}\,dt   
 \end{equation*}
 
-\textbf{J3}$\star$. Si dimostri che per qualunque $k\in\mathbb{N}$ la serie
+
+\textbf{J3}($\star$). Si dimostri che per qualunque $k\in\mathbb{N}$ la serie
 
  \begin{equation*}
     a_k = \sum_{n\geq 1}\frac{n^k}{2^n} 
@@ -623,6 +625,7 @@ $(\star\star\star)$ Si provi che
     a_k\sim \frac{k!}{\ln(2)^{k+1}}
 \end{equation*} quando $k\to +\infty$.
 
+
 \textbf{J4}$(\star)$. Si dimostri che il seguente limite esiste ed è finito:
 
 $$ \lim_{N\to +\infty}\left(-2\sqrt{N}+\sum_{n=1}^{N}\frac{1}{\sqrt{n}}\right).$$
@@ -632,12 +635,12 @@ $$ \sum_{n\geq 1}\left(1-\cos\frac{1}{n}\right)$$
 
 \textbf{J6}$(\star)$. Per ogni $n\in\mathbb{N}^+$ il polinomio $P_n(x)$ è definito come segue:
 $$ P_n(x) = \frac{1}{n!}\cdot\frac{d^n}{dx^n}\left(x(x-1)\right)^n.$$
-Si dimostri che $P_n(x)$ ha $n$ radici reali distinte nell'intervallo $(0,1)$ e si determini, al variare di $n$, la somma dei quadrati di tali radici.
+Si dimostri che $P_n(x)$ ha $n$ radici reali distinte nell'intervallo $(0,1)$ e si determini, al variare di $n$,\\ la somma dei quadrati di tali radici.
 
 \textbf{J7}$(\star\star)$. Si dimostri che per qualunque numero reale $c$ esiste una funzione biunivoca $f:\mathbb{N}^+\to\mathbb{N}^+$ tale che 
 $$ \sum_{n\geq 1}\frac{\sin(f(n))}{\sqrt{f(n)}} = c.$$
 
-\textbf{J8}$(\star\star)$. La successione $\{a_n\}_{n\geq 0}$ è definita tramite $a_n=\int_{0}^{\pi/2}\left(\sin\theta\right)^n\,d\theta$. Si dimostri che è decrescente a zero e che soddisfa $a_{n+1}^2 < a_n a_{n+2}$ per ogni $n\in\mathbb{N}$.
+\textbf{J8}$(\star\star)$. La successione $\{a_n\}_{n\geq 0}$ è definita tramite $a_n=\int_{0}^{\pi/2}\left(\sin\theta\right)^n\,d\theta$.\\ Si dimostri che è decrescente a zero e che soddisfa $a_{n+1}^2 < a_n a_{n+2}$ per ogni $n\in\mathbb{N}$.
 
 \textbf{J9}$(\star\star)$. Si dimostri che 
 $$ f(x) = \int_{2x}^{3x}\frac{t\,dt}{\arctan t} $$
@@ -664,17 +667,17 @@ $$ \lim_{x\to 1^-}\left(\sqrt{1-x}\sum_{n\geq 0}x^{n^2}\right).$$
 
 \textbf{J15}$(\star)$. Si determini la derivata decima nell'origine della funzione $f(x)=\log^2(1-x)$.
 
-\textbf{J16}$(\star\star)$. Si determini lo sviluppo di Taylor della funzione $f(x)=\arctan x$ centrato nel punto $1$ e si dimostri che, più in generale, lo sviluppo di Taylor centrato in $x_0\in\mathbb{R}$ ha raggio di convergenza 
+\textbf{J16}$(\star\star)$. Si determini lo sviluppo di Taylor della funzione $f(x)=\arctan x$ centrato nel punto $1$ e si dimostri che,\\ più in generale, lo sviluppo di Taylor centrato in $x_0\in\mathbb{R}$ ha raggio di convergenza 
 $$ \rho_{x_0} = \sqrt{1+x_0^2}. $$
 
 {\label{J17}\textbf{J17}}$(\star)$ [Disuguaglianza di Huygens] Si dimostri che per ogni $\theta\in\left(0,\frac{\pi}{2}\right)$ vale
 $$ 2\sin\theta + \tan\theta > 3\theta.$$
 
-\textbf{J18}$(\star\star)$ $\{a_n\}_{n\geq 0}$ è una successione per ricorrenza definita attraverso $a_0=2$ e $a_{n+1}=\sqrt{a_n^4-2}$. Si dimostri che la successione diverge positivamente ma la distanza tra $a_n$ e l'intero più vicino tende a zero.
+\textbf{J18}$(\star\star)$ $\{a_n\}_{n\geq 0}$ è una successione per ricorrenza definita attraverso $a_0=2$ e $a_{n+1}=\sqrt{a_n^4-2}$.\\ Si dimostri che la successione diverge positivamente ma la distanza tra $a_n$ e l'intero più vicino tende a zero.
 
 \textbf{J19}$(\star)$. Si dimostri che tra tutti i triangoli di perimetro assegnato, quelli equilateri hanno area massima. 
 
-\textbf{J}20$(\star\star)$. $ABCD$ è un quadrilatero convesso nel piano e i suoi lati misurano nell'ordine $4,5,6,7$.<br> Si determini quanto può valere al massimo l'area di $ABCD$ e si dimostri che le configurazioni che massimizzano l'area sono tutte e sole quelle in cui $ABCD$ è ciclico, ossia ha vertici che giacciono su una circonferenza.
+\textbf{J}20$(\star\star)$. $ABCD$ è un quadrilatero convesso nel piano e i suoi lati misurano nell'ordine $4,5,6,7$. Si determini quanto può valere al massimo l'area di $ABCD$ e si dimostri che le configurazioni che massimizzano l'area sono tutte e sole quelle in cui $ABCD$ è ciclico, ossia ha vertici che giacciono su una circonferenza.
 
 \textbf{J21}$(\star\star\star)$ (Bernstein). Si determini il valore del seguente limite: 
 $$ \lim_{n\to +\infty} \frac{1}{e^n}\sum_{k=0}^{n}\frac{n^k}{k!}.$$
@@ -685,17 +688,153 @@ $$ \forall n\in\mathbb{N}^+,\quad \int_{0}^{1} x^n f(x)\,dx = \frac{1}{\sqrt{n}}
 $$ a_0=\alpha,\qquad a_{n+1} = \frac{1}{2}\left(a_n+n^2\right).$$
 Si determinino gli $\alpha\in\mathbb{R}$ tali per cui $a_{69}$ è strettamente più piccolo di qualunque altro elemento della successione. 
 
-\textbf{J24}$(\star\star\star)$. Per ogni $n\in\mathbb{N}$ definiamo $d_n$ come la derivata di ordine $4n+1$ nell'origine della funzione $f(x)=\tan x$. Si dimostri che per ogni $n\in\mathbb{N}^+$ si ha $d_n \in 10\mathbb{N}+6$.
+\textbf{J24}$(\star\star\star)$. Per ogni $n\in\mathbb{N}$ definiamo $d_n$ come la derivata di ordine $4n+1$ nell'origine della funzione $f(x)=\tan x$.\\ Si dimostri che per ogni $n\in\mathbb{N}^+$ si ha $d_n \in 10\mathbb{N}+6$.
 
-\textbf{J25}$(\star\star)$. Per ogni $n\in\mathbb{N}^+$ poniamo $p_n(x)=1-x-x^n$. Si dimostri che $p_n(x)$ ha un'unica radice reale $\xi_n\in (0,1)$ e si determini il comportamento asintotico di $\xi_n$ per $n\to +\infty$. 
+\textbf{J25}$(\star\star)$. Per ogni $n\in\mathbb{N}^+$ poniamo $p_n(x)=1-x-x^n$. Si dimostri che $p_n(x)$ ha un'unica radice reale $\xi_n\in (0,1)$\\ e si determini il comportamento asintotico di $\xi_n$ per $n\to +\infty$. 
 
 \textbf{J26}$(\star)$ Si determini l'insieme dei $\kappa\in\mathbb{R}$ tali per cui il polinomio $4x^3-\kappa x+1$ ha tre radici reali distinte.
 
 \textbf{J27}$(\star\star)$ Si provi che il seguente limite esiste finito e se ne determini esplicitamente il valore:
 $$ \lim_{n\to +\infty} \sqrt{n}\left(\frac{4}{27}\right)^n \binom{3n}{n}. $$
 
-{\color{red} Qui c'è da finire di inserire gli esercizi, i link alle soluzioni ed eventualmente spendere due parole riguardo i concetti e le tecniche ``extra'' presenti nelle soluzioni.}
+\textbf{J28}$(\star\star)$ (Colpa di Andrea) Una spirale archimedea è parametrizzata da $\gamma:\mathbb{R}^+\to\mathbb{R}^2$ data da
+$$ \gamma(\theta) = \left(\theta\cos\theta,\theta\sin\theta\right). $$
+Per ogni $\theta\in\mathbb{R}^+$ si determinino esplicitamente il centro e il raggio del cerchio osculatore.
 
+\textbf{J29}$(\star\star)$ (Una sorta di problema di Keplero) Si dimostri che esiste un unico $\alpha > 1$ tale per cui la lunghezza del grafico di $f(x)=x^{\alpha}$ sull'intervallo $[0,1]$ è esattamente pari a $\frac{3}{2}$. Si stimi poi il valore di tale $\alpha$ con un errore non superiore al centesimo.
+
+\textbf{J30}$(\star\star)$ Si discuta la convergenza della serie $\sum_{n\geq 1}\frac{\sin(n(n+1))}{n}$. 
+
+\textbf{J31}$(\star\star)$ (Approssimazione di Ramanujan dei poveri) Detto $L(a,b)$ il perimetro di una ellisse di semiassi $a,b > 0$,\\ si dimostri che 
+$$ \frac{L(a,b)}{2\pi}\in\left[\frac{a+b}{2},\sqrt{\frac{a^2+b^2}{2}}\right]. $$
+
+\textbf{J32}$(\star\star\star)$ (Somme di Ramanujan, stavolta per davvero) Detto $\Phi_n(x)$ l'$n$-esimo polinomio ciclotomico, 
+$$\Phi_n(x) = \prod_{\substack{1\leq k\leq n\\\gcd(k,n)=1}}\left(x-\exp\left(\frac{2\pi i k}{n}\right)\right),$$ e detta $\varphi$ la funzione totient di Eulero, $\varphi(n)=\#\left\{k:1\leq k\leq n, \gcd(k,n)=1\right\}$, si determini al variare di $n\in\mathbb{N}^+$\\ il coefficiente di $x^{\varphi(n)-2}$ in $\Phi_n(x)$.
+
+\textbf{J33}$(\star)$ Si dimostri che non tutte le funzioni impropriamente Riemann-integrabili sull'intervallo $(0,1)$ realizzano l'uguaglianza
+$$ \int_{0}^{1}f(x)\,dx = \lim_{N\to +\infty}\frac{1}{N}\sum_{k=1}^{N}f\left(\frac{k}{N}\right).$$
+
+\textbf{J34}$(\star\star\star)$ (Ramanujan once again) Si dimostri l'identità
+$$ 2\pi\sum_{n\geq 0}\left(\sqrt{n+1}-\sqrt{n}\right)^3 = 3\sum_{n\geq 1}\frac{1}{n\sqrt{n}}.$$
+
+\textbf{J35}$(\star)$ Si dimostri che per ogni $x\in\mathbb{R}$ vale
+
+$$ \sqrt{x^2+(x-1)^2}+\sqrt{(x-7)^2+(x-8)^2}\geq 10 $$
+
+e si determini se ci sono $x$ per cui vale l'uguaglianza.
+
+\textbf{J36}$(\star)$ Si dimostri che il seguente limite esiste finito e se ne determini il valore:
+$$ \lim_{N\to +\infty}\sqrt[N]{\sum_{k=0}^{N}\binom{N}{k}\frac{k^2}{2^k}}.$$
+
+\textbf{J37}$(\star)$ Si dimostri che il seguente limite esiste finito e se ne determini il valore:
+$$ \lim_{x\to +\infty} \left(-2^x+\sqrt{4^x+2^x+x^2}\right) $$
+
+\textbf{J38}$(\star)$ Si determini la derivata quarta nell'origine della funzione $f(x)=\cos(1-\cos x)$.
+
+\textbf{J39}$(\star)$ Si determini il valore del seguente integrale:
+$$ \int_{0}^{1}\sin^2(\arctan(\cos(\arcsin x))))\,dx $$ 
+
+\textbf{J40}$(\star\star)$ Jack lancia una moneta equa per infinite volte e pone $a_n=1$ se l'esito dell'$n$-esimo lancio è una testa, $a_n=-1$ se l'esito dell'$n$-esimo lancio è una croce. Si dimostri che quasi certamente (ossia con probabilità $1$) la serie $\sum_{n\geq 1}\frac{a_n}{n}$ è convergente.
+
+\textbf{J41}$(\star)$ Si dimostri che per ogni $\lambda\in\mathbb{R}$ l'equazione $x^2-\sin(x)\sinh(x)=\lambda$ ammette infinite soluzioni reali.
+
+\textbf{J42}$(\star)$ Si determini qual è il più grande esponente $\alpha\in\mathbb{R}$ per cui si ha
+$$ \cos(x)\leq\left(1-\frac{4x^2}{\pi^2}\right)^\alpha $$
+per ogni $x\in\left[0,\frac{\pi}{4}\right]$.
+
+\textbf{J43}$(\star)$ Si determini il valore del seguente integrale:
+$$ I=\int_{0}^{+\infty}\left|\sin x\right| e^{-x}\,dx $$
+
+\textbf{J44}$(\star\star)$ Considerata la successione per ricorrenza definita da $a_0=\sqrt{2}$ e $a_{n+1}=|2a_n-3|$, di dimostri che per ogni $n\in\mathbb{N}$ si ha che $a_n$ è un numero irrazionale appartenente all'intervallo $[0,3]$ e che $\{a_n\}_{n\geq 0}$ non ammette limite.
+
+\textbf{J45}$(\star\star)$ $f:[0,+\infty)\to\mathbb{R}$ è definita come l'unica soluzione di $f''(x)=x\cdot f(x)$ che soddisfa $f(0)=1$ e $f'(0)=0$.\\ Si dimostri che 
+$$ \lim_{x\to +\infty}\frac{\log f(x)}{x\sqrt{x}} = \frac{2}{3}.$$
+
+\textbf{J46}$(\star\star)$ Si dimostri che per qualunque $f:\mathbb{R}^+\to\mathbb{R}^+$ continua e strettamente crescente si ha che l'integrale\\ $\int_{0}^{+\infty}\sin(x\cdot f(x))\,dx $ è convergente nel senso di Riemann improprio.
+
+\textbf{J47}$(\star)$ Si determini per quali $\alpha\in\mathbb{R}^+$ la seguente serie converge:
+$$ \sum_{n\geq 1}\frac{\binom{2n}{n}}{n^\alpha 4^n} $$
+
+\textbf{J48}$(\star)$ Si dimostri che per ogni $n\in\mathbb{N}$ si ha
+$$ \sum_{k=0}^{n}\binom{2k}{k}\binom{2n-2k}{n-k} = 4^n $$
+
+\textbf{J49}$(\star\star)$ La successione $\{a_n\}_{n\geq 0}$ è definita da $a_0=69$ e $a_{n+1}=\log(a_n+1)$.<br> Si provi che $\lim_{n\to +\infty} na_n$ esiste finito e lo si determini esplicitamente. 
+
+\textbf{J50}$(\star)$ Si determini sotto quali condizioni per $\alpha,\beta\in\mathbb{R}^+$ si ha che la serie
+$$ \sum_{n\geq 0}\left((n+1)^\alpha-n^\alpha\right)^\beta $$
+risulta convergente.
+
+\textbf{J51}$(\star\star)$ Si dimostri che il seguente integrale è convergente e se ne determini esplicitamente il valore:
+$$ \int_{0}^{+\infty}\left(\sqrt[3]{x+1}-\sqrt[3]{x}\right)^3\,dx $$
+
+\textbf{J52}$(\star)$ Si determini esplicitamente il valore del seguente integrale e se ne deducano approssimazioni razionali per $e$: $$\int_{0}^{1}x^4(1-x)^4 e^{-x}\,dx. $$
+
+\textbf{J53}$(\star)$ Si determini il polinomio $p(x)\in\mathbb{R}[x]$ di minimo grado il cui grafico ha tutte le seguenti proprietà:
+\begin{itemize}
+\item passa dall'origine e la retta tangente nell'origine ha pendenza $2$
+\item passa da $(1,3)$ ed ha in tal punto un massimo relativo
+\item passa da $(3,1)$ ed ha in tal punto un minimo relativo
+\item passa da $(4,4)$ e in tal punto la retta tangente ha pendenza $4$.
+\end{itemize}
+\textbf{J54}$(\star\star)$ Sul compatto $K=\{(x,y,z)\in\mathbb{R}^3: x,y,z\in[0,1], x+y+z\leq 1\}$ si determinino la più grande costante $\alpha$ e la più piccola costante $\beta$ per cui
+$$\alpha (x^3+y^3+z^3)^2\leq  (x^2+y^2+z^2)^3 \leq \beta (x^3+y^3+z^3)^2$$
+valga per ogni $(x,y,z)\in K$.
+
+\subsection{Soluzioni}
+Segue un elenco delle soluzioni dei precedenti esercizi. Tra parentesi sono indicati trucchi o tecniche specifiche impiegati.\\
+
+Soluzione del \textbf{J1}($\star$): \url{https://mathb.in/75940} (OGF dei binomiali centrali normalizzati)\\
+Soluzione del \textbf{J2}($\star$): \url{https://mathb.in/75941} \\
+Soluzione del \textbf{J3}($\star$): \url{https://mathb.in/75942} (Snake Oil per la parte difficile)\\
+Soluzione del \textbf{J4}($\star$): \url{https://mathb.in/75944} (Hermite-Hadamard)\\
+Soluzione del \textbf{J5}($\star$): \url{https://mathb.in/75945} \\
+Soluzione del \textbf{J6}($\star$): \url{https://mathb.in/75946} (Formule di Viète e Newton, accenno ai polinomi di Legendre)\\
+Soluzione del \textbf{J7}($\star\star$): \url{https://mathb.in/75939} (Riemann-Dini, sommazione per parti) \\
+Soluzione del \textbf{J8}($\star\star$): \url{https://mathb.in/75947} (Cauchy-Schwarz)\\
+Soluzione del \textbf{J9}($\star\star$): \url{https://mathb.in/75951} (Lemmi sulla convessità) \\
+Soluzione del \textbf{J10}($\star\star$): \url{https://mathb.in/75971} (Proprietà dello sviluppo di Maclaurin di $\tan x$)\\
+Soluzione del \textbf{J11}($\star$): \url{https://mathb.in/75958} \\
+Soluzione del \textbf{J12}($\star\star$): \url{https://mathb.in/75972} (Rappresentazioni integrali, polinomi di Legendre)\\
+Soluzione del \textbf{J13}($\star\star$): \url{https://mathb.in/75957} \\
+Soluzione del \textbf{J14}($\star\star\star$): \url{https://mathb.in/75984} (Problema del cerchio di Gauss, un lemma di Analisi complessa)\\
+Soluzione del \textbf{J15}($\star$): \url{https://mathb.in/75968} \\
+Soluzione del \textbf{J16}($\star\star$): \url{https://mathb.in/75978} \\
+Soluzione del \textbf{J17}($\star$): \url{https://mathb.in/75970} (AM-GM)\\
+Soluzione del \textbf{J18}($\star\star$): \url{https://mathb.in/75977} (Polinomi di Chebyshev del primo tipo)\\
+Soluzione del \textbf{J19}($\star$): \url{https://mathb.in/75998} (Principio di dualità) \\
+Soluzione del \textbf{J20}($\star\star$): \url{https://mathb.in/76021} \\
+Soluzione del \textbf{J21}($\star\star\star$): \url{https://mathb.in/75996} (Formula di Taylor con resto integrale, stime di momenti)\\
+Soluzione del \textbf{J22}($\star\star$): \url{https://mathb.in/76009} (Trasformata di Laplace)\\
+Soluzione del \textbf{J23}($\star\star$): \url{https://mathb.in/76024} (Manipolazioni di OGF, convessità)\\
+Soluzione del \textbf{J24}($\star\star\star$): \url{https://mathb.in/76001} (ED non lineari, manipolazioni di EGF) \\
+Soluzione del \textbf{J25}($\star\star$): \url{https://mathb.in/76016} (Metodo di Newton, funzione di Lambert)\\
+Soluzione del \textbf{J26}($\star$): \url{https://mathb.in/76011} (AM-GM, polinomi di Chebyshev del primo tipo) \\
+Soluzione del \textbf{J27}($\star\star$): \url{https://mathb.in/75999} (Integrali della forma $\int_{0}^{1}x^a(1-x)^b\,dx$, stime di momenti)\\
+Soluzione del \textbf{J28}($\star\star$): \url{https://mathb.in/76055} (Manipolazioni di ED non lineari) \\
+Soluzione del \textbf{J29}($\star\star$): \url{https://mathb.in/76052} (Metodo di Newton, un lemma sulla convessità)\\
+Soluzione del \textbf{J30}($\star\star$): \url{https://mathb.in/76038} (Sommazione per parti e trucco di Van Der Corput)\\
+Soluzione del \textbf{J31}($\star\star$): \url{https://mathb.in/76037} (Disuguaglianza di Jensen in forma integrale)\\
+Soluzione del \textbf{J32}($\star\star\star$): \url{https://mathb.in/76053} (Formule di Viète e Newton, formula di inversione di M\"obius)  \\
+Soluzione del \textbf{J33}($\star$): \url{https://mathb.in/76058} (Integrale di Dirichlet)\\
+Soluzione del \textbf{J34}($\star\star\star$): \href{https://math.stackexchange.com/questions/2442091/a-ramanujan-sum/2442175#2442175}{Si veda StackExchange} (Trasformata di Laplace e numerose manipolazioni)\\
+Soluzione del \textbf{J35}($\star$): \url{https://mathb.in/76050} \\
+Soluzione del \textbf{J36}($\star$): \url{https://mathb.in/76036} (Azione dell'operatore $xD$ sulle OGF)\\
+Soluzione del \textbf{J37}($\star$): \url{https://mathb.in/76070}\\
+Soluzione del \textbf{J38}($\star$): \url{https://mathb.in/76071}\\
+Soluzione del \textbf{J39}($\star$): \url{https://mathb.in/76072}\\
+Soluzione del \textbf{J40}($\star\star$): \url{https://mathb.in/76073} (Disuguaglianza di Hoeffding)\\
+Soluzione del \textbf{J41}($\star$): \url{https://mathb.in/76074}\\
+Soluzione del \textbf{J42}($\star$): \url{https://mathb.in/76075} (Prodotto di Weierstrass del coseno)\\
+Soluzione del \textbf{J43}($\star$): \url{https://mathb.in/76076}\\
+Soluzione del \textbf{J44}($\star\star$): \url{https://mathb.in/76078} (Teorema di Banach-Caccioppoli)\\
+Soluzione del \textbf{J45}($\star\star$): \url{https://mathb.in/76083} (Rappresentazioni integrali, stime di momenti)\\
+Soluzione del \textbf{J47}($\star$): \url{https://mathb.in/76090} (OGF dei binomiali centrali normalizzati)\\
+Soluzione del \textbf{J48}($\star$): \url{https://mathb.in/76091} (Moltiplicazione di OGF)\\
+Soluzione del \textbf{J49}($\star\star$): \url{https://mathb.in/76092} (Banach-Caccioppoli, sostituzioni) \\
+Soluzione del \textbf{J50}($\star$): \url{https://mathb.in/76093} \\
+Soluzione del \textbf{J51}($\star\star$): \url{https://mathb.in/76088} (Sostituzioni, integrali della forma $\int_{0}^{1}x^a(1-x)^b\,dx$, serie $\sum_{n\geq 1}\frac{\sin(nx)}{n}$)\\
+Soluzione del \textbf{J52}($\star$): \url{https://mathb.in/76094} (Accenno agli integrali di Beukers)\\
+Soluzione del \textbf{J53}($\star$): \url{https://mathb.in/76113} \\
 
 \end{document}
 
