@@ -122,7 +122,7 @@
 \setlength\parindent{0pt}
 \thispagestyle{empty}
 \begin{center}{\large \textbf{ {\Huge Calculus 101 for Jackchans} \\
-B.A.M \& J.D.A, 2023}}
+B.A.M. \& Jack, 2023}}
 \end{center}
 \rule{\textwidth}{1pt}
 \tableofcontents
@@ -471,6 +471,57 @@ $$\binom{n+1}{r+1}=\sum_{j=r}^{n}\binom{j}{r}$$
 \begin{proof}
  Fissato $r$, è sufficiente procedere per induzione su $n$. In alternativa, è sufficiente catalogare i sottoinsiemi di taglia $r+1$ di $\{1,2,\ldots,n+1\}$ in base al loro elemento massimo.
 \end{proof}
+
+
+\section{Integrale di Riemann}
+\begin{definizione}[Partizione] Dato un intervallo chiuso e limitato della retta reale $[a,b]$, una qualunque sequenza 
+$$ a=a_0 < a_1 < \ldots < a_n = b $$
+definisce una \textbf{partizione} di $[a,b]$:
+$$ [a,b]=\bigcup_{k=1}^{n} I_k,\qquad I_k=[a_{k-1},a_{k}]. $$ 
+\end{definizione}
+\begin{definizione}[Calibro o finezza] Il \emph{calibro} o \emph{finezza} di una partizione è la massima lunghezza degli intervalli che costituiscono la partizione. 
+\end{definizione}
+\begin{definizione}[Ordinamento parziale delle partizioni] Date due partizioni $\mathcal{P}_1$ e $\mathcal{P}_2$ dello stesso intervallo, diciamo che $\mathcal{P}_1$ \emph{è più fine} di $\mathcal{P}_2$, in simboli $\mathcal{P}_1 \geq \mathcal{P}_2$, se gli estremi degli intervalli di $\mathcal{P}_1$ costituiscono una sottosequenza degli estremi degli intervalli di $\mathcal{P}_2$. Questo definisce una relazione d'ordine parziale sull'insieme delle partizioni: date due distinte partizioni $\mathcal{P}_1,\mathcal{P}_2$, non è detto che $\mathcal{P}_1$ sia più fine di $\mathcal{P}_2$ o viceversa. Tuttavia, date due distinte partizioni $\mathcal{P}_1,\mathcal{P}_2$, esiste sempre una partizione $\mathcal{P}_3$ più fine di entrambe: è sufficiente prendere gli estremi degli intervalli di $\mathcal{P}_3$ come quelle quantità che sono un estremo di un intervallo di $\mathcal{P}_1$ o (inclusivo) di $\mathcal{P}_2$.
+\end{definizione}
+
+
+L'\textbf{integrale di Riemann} in senso proprio si definisce a partire da $f:[a,b]\to\R$ limitate.
+
+\begin{definizione}[Somme di Riemann superiori e inferiori]
+Data una $f$ siffatta e una partizione $\mathcal{P}=\bigcup_{k=1}^{n}I_k$ di $[a,b]$, definiamo la \textbf{somma di Riemann superiore} $S^+_{\mathcal{P}}(f)$ e la  \textbf{somma di Riemann inferiore} $S^-_{\mathcal{P}}(f)$ nel seguente modo:
+
+$$ S^+_{\mathcal{P}}(f) = \sum_{k=1}^{n} \mu(I_k) \sup_{x\in I_k} f(x), \qquad S^-_{\mathcal{P}}(f) = \sum_{k=1}^{n} \mu(I_k) \inf_{x\in I_k} f(x)$$
+dove $\mu(I_k)$ denota la lunghezza di $I_k$, ossia $a_{k}-a_{k-1}$.
+\end{definizione}
+
+Seguono alcuni lemmi di immediata dimostrazione ma di cruciale importanza:
+\begin{itemize}
+ \item Per qualunque partizione $\mathcal{P}$ si ha $S^+_{\mathcal{P}}\geq S^-_{\mathcal{P}}$
+ \item Se $\mathcal{P}_2$ è più fine di $\mathcal{P}_1$, $S^+_{\mathcal{P}_2} \leq S^+_{\mathcal{P}_1}$
+ \item  Se $\mathcal{P}_2$ è più fine di $\mathcal{P}_1$, $S^-_{\mathcal{P}_2} \geq S^+_{\mathcal{P}_1}$
+\end{itemize}
+
+\begin{definizione}[Integrale di Riemann]
+I precedenti lemmi comportano l'esistenza e la finitezza sia di $\sup_{\mathcal{P}}S^-_{\mathcal{P}}$, detto \emph{integrale di Riemann inferiore}, che di $\inf_{\mathcal{P}}S^+_{\mathcal{P}}$, detto \emph{integrale di Riemann superiore}. È automatico che l'integrale di Riemann inferiore sia $\leq$ dell'integrale di Riemann superiore, ma non è affatto automatico che tali quantità coincidano. Se coincidono, $f$ è detta \emph{Riemann-integrabile} su $[a,b]$ e il valore di $\sup_{\mathcal{P}}S^-_{\mathcal{P}}=\inf_{\mathcal{P}}S^+_{\mathcal{P}}$ è denotato come 
+$$ \int_{a}^{b} f(x)\,dx. $$
+\end{definizione}
+
+\begin{theorem} Ogni $f\in C^0([a,b])$ è Riemann-integrabile su $[a,b]$ e realizza 
+$$ \int_{a}^{b} f(x)\,dx = \lim_{N\to +\infty}\frac{b-a}{N}\sum_{k=1}^{N}f\left(a+\frac{k}{N}(b-a)\right) = \lim_{N\to +\infty}\frac{b-a}{N}\sum_{k=0}^{N-1}f\left(a+\frac{k}{N}(b-a)\right).$$
+\end{theorem}
+\begin{proof} Per Heine-Cantor $f$ è uniformemente continua su $[a,b]$, ossia per ogni $\epsilon > 0$ esiste un $\delta > 0$ che assicura 
+$$ |x_1-x_2|\leq \delta\quad\Longrightarrow\quad |f(x_1)-f(x_2)|\leq \varepsilon.$$
+Per qualunque partizione $\mathcal{P}$ di calibro $\leq \delta$ si ha pertanto che 
+$$ S^+_{\mathcal{P}}- S^-_{\mathcal{P}} = \sum_{k=1}^{n}\mu(I_k)\left(\sup_{x\in I_k}f(x)-\inf_{x\in I_k}f(x)\right)= \sum_{k=1}^{n}\mu(I_k)\left(\max_{x\in I_k}f(x)-\min_{x\in I_k}f(x)\right)\leq \sum_{k=1}^{n}\mu(I_k)\epsilon = \epsilon (b-a). $$
+Data l'arbitrarietà di $\epsilon$ si ha che l'integrale di Riemann inferiore e l'integrale di Riemann superiore hanno distanza arbitrariamente piccola, cioè nulla, visto che $\R$ è un campo archimedeo, dunque privo di infinitesimi. Ciò comporta la Riemann-integrabilità di $f$. L'uniforme continuità di $f$ comporta anche che l'integrale $\int_{a}^{b} f(x)\,dx$ coincida con il $\sup_{\mathcal{P}\in U} S^-_{\mathcal{P}}$ e con l'$\inf_{\mathcal{P}\in U} S^+_{\mathcal{P}}$ sull'insieme $U$ delle \emph{partizioni uniformi}, ossia quelle in cui tutti gli intervalli hanno lunghezza pari al calibro. All'interno dell'insieme di queste partizioni, nuovamente per uniforme continuità di $f$, sia 
+
+$$ S^+_{\mathcal{P}}-\sum_{k=1}^{n}\mu(I_k) f(\max I_k)\quad\text{che}\quad S^-_{\mathcal{P}}-\sum_{k=1}^{n}\mu(I_k) f(\min I_k) $$
+possono essere resi arbitrariamente vicini a zero in modulo. Questo prova le ultime due uguaglianze. 
+\end{proof}
+
+
+
+
 
     \section{Criteri e Metodi per Serie Numeriche}
     \subsection{Serie Importanti}
@@ -951,6 +1002,11 @@ Soluzione del \textbf{J51}($\star\star$): \url{https://mathb.in/76088} (Sostituz
 Soluzione del \textbf{J52}($\star$): \url{https://mathb.in/76094} (Accenno agli integrali di Beukers)\\
 Soluzione del \textbf{J53}($\star$): \url{https://mathb.in/76113} \\
 Soluzione del \textbf{J54}($\star\star$): \url{https://mathb.in/76121} (Disuguaglianza tra le medie, coordinate sferiche)\\
+Soluzione del \textbf{J55}($\star\star$): \url{https://mathb.in/76131} \\
+Soluzione del \textbf{J59}($\star$): \url{https://mathb.in/76133} \\
+Soluzione del \textbf{J62}($\star$): \url{https://mathb.in/76134} \\
+Soluzione del \textbf{J65}($\star$): \url{https://mathb.in/76135} \\
+Soluzione del \textbf{J66}($\star\star$): \url{https://mathb.in/76132} (Prodotto di Eulero, problema di Basilea)\\
 
 \section{Appendice}
 In questa parte sono presenti collegamenti a brevi schede di approfondimento, e qualche riferimento bibliografico.
@@ -975,6 +1031,8 @@ Formule di \textbf{Viète} - \url{https://mathb.in/75995}
 Elementi di topologia, \textbf{Compattezza} e \textbf{HC} - \url{https://mathb.in/75930}
 
 Tips\&Tricks per l'\textbf{integrazione di funzioni razionali} - \url{https://mathb.in/75931}
+
+Disuguaglianza di \textbf{Hermite-Hadamard} - \url{https://mathb.in/76138}
 
 \textbf{Teorema di approssimazione di Weierstrass} - \href{https://drive.google.com/file/d/1QKCejQNSohMTlZs-MPRndxo5tJ8H48Ez/view?usp=sharing}{Note di Jack} , pagina 115
 
