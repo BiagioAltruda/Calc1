@@ -385,10 +385,10 @@ Sia $(X,d)$ uno spazio normato, se esso risulta completo completo come spazio me
 Siano $(X,d_X)$ e $(Y,d_Y)$ due spazi metrici e sia $f:X\to Y$ una funzione.\\ Diremo che $f$ è lipschitziana se esiste una costante $L$ tale che: $$d_Y(f(x),f(y))\leq L\cdot d_X(x,y)\qquad \forall x,y\in X$$    
 \end{definizione}
 Se $f:X\to Y$ è L-Lip chiaramente è anche continua in $X$.
-\begin{definizione}[Funzione contrattiva]
-Sia $f:X\to X$ Lipschitziana con costante $L<1$ cioè tale che :
-$$d(f(x),f(y))<L\cdot d(x,y)\qquad\forall x,y\in X$$
-prende il nome di funzione contrattiva (o \emph{contrazione}) sullo spazio $(X,d)$.
+\begin{definizione}[Contrazione]
+Una $f:X\to X$ Lipschitziana con costante $L<1$, cioè tale per cui
+$$\exists L\in[0,1): d(f(x),f(y))\leq L\cdot d(x,y)\qquad\forall x,y\in X$$
+prende il nome di \emph{contrazione} sullo spazio $(X,d)$.
 \end{definizione}
 \begin{theorem}[Teorema delle Contrazioni (Banach)]
 Sia $(X,d)$ uno spazio metrico completo e sia $f:X\to X$ una contrazione. Allora esiste uno ed un solo punto $x\in X$ tale che $f(x)=x$. $x$ si chiama \emph{punto fisso}.    
@@ -402,6 +402,24 @@ L'ultima disuguaglianza comporta che $\{x_n\}_{n\geq 0}$ sia una successione di 
 $$ d(\overline{x}_1,\overline{x}_2) = d(f(\overline{x}_1),f(\overline{x}_2)) \leq L\cdot d(\overline{x}_1,\overline{x}_2) < d(\overline{x}_1,\overline{x}_2) $$
 che è una contraddizione. Segue che per qualunque $x_0\in X$ la successione data da $x_{n+1}=f(x_n)$ converge verso l'unico punto fisso di $f$.   
 \end{proof}
+
+La stessi tesi vale in ipotesi leggermente meno forti.
+
+\begin{definizione}[Funzione contrattiva o contrazione debole] Se $(X,d)$ è uno spazio metrico e $f:X\to X$ è tale per cui  $d(f(x),f(y))<d(x,y)$ per ogni $x,y$ distinti in $X$, $f$ è detta \emph{funzione contrattiva} o \emph{contrazione debole}. 
+\end{definizione}
+
+\begin{theorem}[Teorema delle contrazioni deboli (Banach-Caccioppoli)] Se $(X,d)$ è uno spazio metrico compatto (rispetto alla topologia indotta da $d$) e $f:X\to X$ è una contrazione debole, per ogni $x_0\in X$ la successione definita da $x_{n+1}=f(x_n)$ converge all'unico punto fisso di $f$. 
+\end{theorem}
+
+\begin{proof}
+In quanto funzione $1$-Lip, $f$ è uniformemente continua e lo stesso vale per $g(x)=d(f(x),x)$.\\ Per il Teorema di Weierstrass una funzione continua su un compatto ammette minimo, e il minimo di $g(x)$ su $X$ deve essere necessariamente zero. Se infatti il valore minimo di $g$ fosse $m>0$, assunto in $\overline{x}$, per contrattività di $f$ si avrebbe 
+$$ g(f(\overline{x})) = d(f(f(\overline{x})),f(\overline{x})) < d(f(\overline{x}),\overline{x}) = m $$
+contro la minimalità di $m$. Questo prova che $f$ ha necessariamente un punto fisso in $X$, e per discorsi analoghi a quelli appena fatti, il punto fisso deve essere unico. Per Bolzano-Weierstrass qualunque successione $\{x_n\}_{n\geq 0}$ ammette una sottosuccessione $\{x_{n_k}\}_{k\geq 0}$ convergente, e per continuità di $f$ tale sottosuccessione è necessariamente convergente a $\overline{x}$. La contrattività di $f$ comporta ora che l'intera successione $\{x_n\}_{n\geq 0}$ sia convergente a $\overline{x}$. Per ogni $\epsilon > 0$,  dalla convergenza di $\{x_{n_k}\}_{k\geq 0}$ abbiamo che definitivamente, diciamo per $k\geq K$, $x_{n_k}$ è in un intorno di raggio $\epsilon$ di $\overline{x}$.\\ 
+Per contrattività di $f$ la successione $\{g(x_n)\}_{n\geq 0}$ è strettamente decrescente, dunque converge al suo $\inf$.\\ Poiché $g(x_{n_k})\to g(\overline{x}) = 0$, il precedente $\inf$ è nullo e $d(x_n,f(x_n))$ converge a zero.\\ Per unicità del punto fisso di $f$, $x_n\to\overline{x}$.\end{proof}
+
+
+
+
 \subsection{Compattezza}
 \begin{definizione}[Insieme Compatto]
     Un sottoinsime $K$ dello spazio metrico $(X,d)$ si dice (sequenzialmente) compatto se da ogni successione $\{x_k\}$ di punti di $K$ si può estrarre una sottosuccessione convergente verso un punto $x\in K$.
