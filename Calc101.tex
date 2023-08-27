@@ -156,6 +156,15 @@ $$ 2\sin\theta\sin\phi = \cos(\theta-\phi)-\cos(\theta+\phi)\qquad \cos\alpha-\c
 $$ 2\sin\theta\cos\phi = \sin(\theta+\phi)+\sin(\theta-\phi)\qquad \sin\alpha+\sin\beta = 2\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2} $$
 $$ 2\cos\theta\cos\phi = \cos(\theta+\phi)+\cos(\theta-\phi),\qquad \cos\alpha+\cos\beta = 2\cos\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}. $$
 
+\begin{ex} Si dimostri che le somme parziali della successione $\{\sin n\}_{n\geq 1}$ sono limitate e si determini esplicitamente il valore del loro estremo superiore. 
+\end{ex}
+\textbf{Soluzione}. Posto $A_N=\sum_{n=1}^{N}\sin n$, per le formule di prostaferesi si ha 
+$$ 2\sin\tfrac{1}{2}\sum_{n=1}^{N}\sin n = \sum_{n=1}^{N}\left(\cos\left(n-\tfrac{1}{2}\right)-\cos\left(n+\tfrac{1}{2}\right)\right)=\cos\left(\tfrac{1}{2}\right)-\cos\left(N+\tfrac{1}{2}\right) ,$$
+$$ A_N = \frac{\cos\left(\tfrac{1}{2}\right)-\cos\left(N+\tfrac{1}{2}\right)}{2\sin\tfrac{1}{2}} $$
+e poiché la successione $\{\cos\left(N+\frac{1}{2}\right)\}_{N\geq 0}$ è densa in $[-1,1]$, dalle formule di duplicazione si ha 
+$$ \sup_N A_N = \frac{1+\cos\tfrac{1}{2}}{2\sin\tfrac{1}{2}} = \frac{2\cos^2\tfrac{1}{4}}{4\sin\tfrac{1}{4}\cos\tfrac{1}{4}} = {\color{blue}\tfrac{1}{2}\cot\tfrac{1}{4}}<2.$$
+
+
 
 \section{Limiti e Continuità}
 \subsection{Limiti di Successioni}
@@ -164,7 +173,7 @@ Saranno date per buone le definizioni di Spazio Metrico e Topologico.
 \begin{definizione}
 Una successione $\{a_n\}_{n\in\N}$ si dice: \\
 \textit{inferiormente limitata} se  esiste $m$ tale che $\forall n, a_n\geq m$ \\
-\textit{superiormente limitata} se  esiste $m$ tale che $\forall n, a_n\leq m$ \\
+\textit{superiormente limitata} se  esiste $m$ tale che $\forall n, a_n\leq M$ \\
 \textit{limitata} se eistono due numeri $m$ ed $M$ tali che $\forall n, m\leq a_n\leq M$
 \end{definizione}
 
@@ -1044,12 +1053,12 @@ Soluzione del \textbf{J60}($\star\star$): \url{https://mathb.in/76144} (Lemmi di
 Soluzione del \textbf{J61}($\star\star$): \url{https://mathb.in/76145} \\
 Soluzione del \textbf{J62}($\star$): \url{https://mathb.in/76134} \\
 Soluzione del \textbf{J63}($\star$): \url{https://mathb.in/76146} \\
-Soluzione del \textbf{J64}($\star$): \url{https://mathb.in/761} (Laplaciano discreto)\\
+Soluzione del \textbf{J64}($\star$): \url{https://mathb.in/76151} (Principio del massimo modulo, Hales-Jewett)\\
 Soluzione del \textbf{J65}($\star$): \url{https://mathb.in/76135} \\
 Soluzione del \textbf{J66}($\star\star$): \url{https://mathb.in/76132} (Prodotto di Eulero, problema di Basilea)\\
 Soluzione del \textbf{J67}($\star$): \url{https://mathb.in/76147} (Sommazione per parti ripetuta)\\
-Soluzione del \textbf{J68}($\star\star$): \url{https://mathb.in/761} (Diversi trucchi trigonometrici)\\
-Soluzione del \textbf{J69}($\star\star$): \url{https://mathb.in/761} (Prodotti scalari, formula di Cramer)\\
+Soluzione del \textbf{J68}($\star\star$): \url{https://mathb.in/76152} (Diversi trucchi trigonometrici, Maclaurin di $x\cot x$)\\
+Soluzione del \textbf{J69}($\star\star$): \url{https://mathb.in/76156} (Formula di Cramer, prodotti scalari, polinomi di Legendre)
 
 
 \newpage
