@@ -132,14 +132,29 @@ B.A.M. \& Jack, 2023}}
     \\
     Per la natura del materiale presente, queste note non saranno da sole (immagino) sufficienti a preparare l'esame in questione, a causa della possibile brevità di alcune sezioni e spiegazioni.
     \\
-    \section{Definizioni e Richiami}
-La serie di Taylor di una funzione $f(x)$, centrata in $x_0$ è definita come:
-$$\sum_{n\geq 0}^{}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n$$ \\
-in funzione di questa, diamo alcune definizioni importanti:
-$$e^x=\sum_{n\geq 0}\frac{1}{n!}x^n,$$ 
-$$\sin x = \sum_{n\geq 0}^{\infty}\frac{(-1)^{2n+1}}{(2n+1)!}x^{2n+1},$$
-$$\cos x = \sum_{n\geq }\frac{(-1)^n}{(2n)!}x^{2n}.$$
-Le serie di Taylor centrate nell'origine sono anche dette serie (o \emph{sviluppi}) di Maclaurin.
+\section{Definizioni e Richiami}
+La serie di Taylor di una funzione $f(x)\in C^{\infty}$, centrata in $x_0$, è definita come:
+$$\sum_{n\geq 0}^{}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n.$$
+Se i \emph{coefficienti} $a_n=\frac{f^{(n)}(x_0)}{n!}$ soddisfano definitivamente $|a_n|=O(M^n)$ per qualche $M\in\R^+$, nella palla $|x-x_0|<\frac{1}{M}$ la precedente serie converge puntualmente a $f(x)$, e converge uniformemente su tutti i compatti contenuti nella palla, per confronto con la serie geometrica $\sum_{n\geq 0}M^n z^n = \frac{1}{1-Mz}$. Le serie di Taylor centrate nell'origine sono anche dette serie (o \emph{sviluppi}) di Maclaurin. In termini di quest'ultime, diamo alcune definizioni importanti.
+\begin{itemize}
+\item La funzione esponenziale può essere definita attraverso $$e^x=\sum_{n\geq 0}\frac{1}{n!}x^n$$ 
+e soddisfa l'equazione funzionale $f(x)f(y)=f(x+y)$, nonché l'equazione differenziale $f'(x)=f(x)$\\ con dato iniziale $f(0)=1$.
+\item Il seno può essere definito attraverso $$\sin x = \sum_{n\geq 0}\frac{(-1)^{2n+1}}{(2n+1)!}x^{2n+1}$$
+ed è soluzione dell'equazione differenziale $f''(x)+f(x)=0$ con dati iniziali $f(0)=0, f'(0)=1$.
+\item Il coseno può essere definito attraverso $$\cos x = \sum_{n\geq }\frac{(-1)^n}{(2n)!}x^{2n}$$
+ed è soluzione di $f''(x)+f(x)=0$ con dati iniziali $f(0)=1, f'(0)=0$.
+\end{itemize}
+Le tre serie elencate si estendono impunemente al campo complesso definendo funzioni analitiche e intere (il raggio di convergenza della serie di Taylor, centrata in qualunque punto, è $+\infty$). Con le definizioni adottate è immediato verificare che vale l'\textbf{identità di Eulero-De Moivre} $e^{i\theta}=\cos\theta+i\sin\theta$ per ogni $\theta\in\C$. Restringendosi al caso $\theta\in\R$ si ha che $f(\theta)=e^{i\theta}$ fornisce una parametrizzazione per lunghezza d'arco della circonferenza goniometrica, recuperando così l'usuale definizione ``scolastica'' delle funzioni trigonometriche elementari. Dall'identità di Eulero, considerando la parte reale o la parte immaginaria di $e^{i(\theta+\phi)}=e^{i\theta}\cdot e^{i\phi}$, si ottengono le \textbf{formule di addizione/sottrazione} del seno e del coseno:
+$$ \sin(\theta\pm\phi)=\sin\theta\cos\phi \pm \cos\theta\sin\phi $$
+$$ \cos(\theta\pm\phi)=\cos\theta\cos\phi \mp \sin\theta\sin\phi $$
+e dal caso $\theta=\phi$ si ottengono le \textbf{formule di duplicazione/bisezione}:
+$$ \sin(2\theta) = 2\sin\theta\cos\theta $$
+$$ \cos(2\theta) = \cos^2\theta-\sin^2\theta = 2\cos^2\theta - 1 = 1-2\sin^2\theta $$
+$$ \cos\frac{\theta}{2}=\pm\sqrt{\frac{1+\cos\theta}{2}},\qquad \sin\frac{\theta}{2}=\pm\sqrt{\frac{1-\cos\theta}{2}}.$$
+Dalle formule di addizione/sottrazione si ottengono altresì le \textbf{formule di prostaferesi}, che permettono di convertire somme di seni o coseni in prodotti di seni o coseni e viceversa:
+$$ 2\sin\theta\sin\phi = \cos(\theta-\phi)-\cos(\theta+\phi)\qquad \cos\alpha-\cos\beta = 2\sin\frac{\alpha+\beta}{2}\sin\frac{\beta-\alpha}{2} $$
+$$ 2\sin\theta\cos\phi = \sin(\theta+\phi)+\sin(\theta-\phi)\qquad \sin\alpha+\sin\beta = 2\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2} $$
+$$ 2\cos\theta\cos\phi = \cos(\theta+\phi)+\cos(\theta-\phi),\qquad \cos\alpha+\cos\beta = 2\cos\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}. $$
 
 
 \section{Limiti e Continuità}
