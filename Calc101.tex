@@ -340,6 +340,12 @@ Se $f:[a,b]\to\R$ è continua, allora è Riemann-integrabile su $[a,b]$.
 Data una partizione di $[a,b]$ di calibro $\epsilon$, l'uniforme continuità di $f$ assicura che su ogni componente della partizione si abbia $\sup f-\inf f \leq \epsilon$. In particolare la differenza tra l'$\inf$ delle somme di Riemann superiori e il $\sup$ delle somme di Riemann superiori è controllato da $\epsilon(b-a)$. Dall'arbitrarietà di $\epsilon$ segue la Riemann-integrabilità di $f$. 
 \end{proof}
 
+Per quanto la dimostrazione richieda elementi di Teoria della Misura, è importante sapere che vale anche una sorta di viceversa:
+
+\begin{theorem}[Riemann-Lebesgue] Se $f:[a,b]\to\mathbb{R}$ è Riemann-integrabile, l'insieme dei punti di discontinuità di $f$ ha misura di Lebesgue nulla. 
+\end{theorem}
+
+
 
 \subsection{Spazi metrici e di Banach}
 Sia $X$ un insieme e sia $d:X \times X\to [0,+\infty]$ una funzione che ad ogni coppia $(x,y)$ di punti in $X$ associa un numero reale $d(x,y)\geq0$. Si dice che $d$ è una distanza o metrica su $X$ se sono verificate le seguenti:
@@ -688,30 +694,54 @@ Saranno date per note le principali tecniche di integrazione (per sostituzione e
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n}d\theta=\frac{\pi}{2\cdot4^n}\binom{2n}{n}$$
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n+1}d\theta= \frac{4^n}{(2n+1)\binom{2n}{n}}$$
 inaspettatamente questi due integrali sono strettamente legati ai Binomiali Centrali e sono appunto una loro rappresentazione integrale.
-\subsection{Metodo di Ostrogradsky}
-(Da Revisionare)
-Questo metodo aiuta nell'integrazione di funzioni razionalili, si basa sulla decomposizione in fratti semplici ma grazie alla sua natura algoritmica risulta utile nei casi un po' più ostici (tipicamente quando il denominatore ha radici multiple)immaginiamo di voler integrare:
-$$\int\frac{P(x)}{Q(x)dx}$$
-con $P(x)$ e $Q(x)$ Polinomi e $deg(P)<deg(Q)$ \\
+\subsection{Decomposizione in fratti semplici}
+L'integrazione di funzioni razionali (quozienti di polinomi) è puramente algoritmica, in quanto sempre riconducibile all'integrazione di funzioni della forma $\frac{1}{(x-\alpha)^n}$ (eventualmente con $\alpha\in\C$). Analizziamo la situazione attraverso un paio di esempi concreti.
+\begin{ex} Si determini esplicitamente
+$$ \int_{0}^{1}\frac{x^6}{(x+1)^2(x+2)(x^2+1)}\,dx $$ 
+\end{ex}
+\textbf{Soluzione}. Un primo step è ricondursi all'integrazione di $\frac{p(x)}{q(x)}$ dove $p(x),q(x)$ non hanno fattori comuni e $\deg p < \deg q$. Nel nostro caso il grado di $x^6$ supera di $1$ il grado di $(x+1)^2(x+2)(x^2+1)$, dunque 
+$$ \frac{x^6}{(x+1)^2(x+2)(x^2+1)} = (Ax+B)+\frac{p(x)}{(x+1)^2(x+2)(x^2+1)}$$
+dove $(Ax+B)$ è il quoziente e $p(x)$ è il resto della divisione tra $x^6$ e $(x+1)^2(x+2)(x^2+1)$. I coefficienti $A$ e $B$ possono essere determinati eseguendo la divisione in colonna, ricorrendo al Teorema cinese del resto o anche attraverso stratagemmi \emph{ad hoc}. Nel nostro caso possiamo ad esempio osservare che $x^6$ differisce di $1$ da un multiplo di $x^2+1$, via $x^6+1=(x^2+1)(x^4-x^2+1)$. Rappresentando $x^6$ come $(x^6+1)-1$ abbiamo pertanto 
+$$ \frac{x^6}{(x+1)^2(x+2)(x^2+1)} = \frac{x^4-x^2+1}{(x+1)^2(x+2)}-\frac{1}{(x+1)^2(x+2)(x^2+1)}$$
+e possiamo nuovamente osservare che $x^4-x^2$ è un multiplo di $x+1$, via $x^4-x^2=x^2(x-1)(x+1)$. Ciò conduce a 
+$$ \frac{x^6}{(x+1)^2(x+2)(x^2+1)} = \frac{x^2(x-1)}{(x+1)(x+2)}+\frac{1}{(x+1)^2(x+2)}-\frac{1}{(x+1)^2(x+2)(x^2+1)}$$
+da cui facilmente segue 
+$$ \frac{x^6}{(x+1)^2(x+2)(x^2+1)} = (x-4)-\frac{2}{x+1}+\frac{12}{x+2}+\frac{1}{(x+1)^2(x+2)}-\frac{1}{(x+1)^2(x+2)(x^2+1)}.$$
+L'integrazione su $[0,1]$ dei primi tre addendi del membro destro è immediata.\\ Il problema è così ricondotto alla determinazione di 
+$$I_1=\int_{0}^{1}\frac{dx}{(x+1)^2(x+2)},\qquad I_2=\int_{0}^{1}\frac{dx}{(x+1)^2(x+2)(x^2+1)}.$$
+Rammentiamo che $$\frac{1}{(n+a)(n+b)}=\frac{1}{b-a}\left(\frac{1}{n+a}-\frac{1}{n+b}\right),$$
+da cui segue 
+\begin{eqnarray*} \frac{1}{(x+1)^2(x+2)}&=&\frac{1}{x+1}\left(\frac{1}{x+1}-\frac{1}{x+2}\right)=\frac{1}{(x+1)^2}-\frac{1}{x+1}+\frac{1}{x+2}\end{eqnarray*}
+che prova immediatamente $I_1=\frac{1}{2}-\log\left(\frac{4}{3}\right)$. Infine 
+$$ \frac{1}{(x+1)^2(x+2)(x^2+1)}=\frac{C}{x+1}+\frac{D}{x+2}+\frac{E}{x+i}+\frac{F}{x-i}+\frac{G}{(x+1)^2}.$$
+Con sufficiente pazienza i coefficienti $C,D,E,F,G$ possono essere determinati risolvendo un sistema lineare in $5$ equazioni e $5$ incognite. Ma anche se, come in un noto proverbio africano, \emph{Dio è lento e voi avete fretta}, le strategie abbondano. Il coefficiente $G$ può essere determinato moltiplicando ambo i membri per $(x+1)^2$ e poi considerando il limite per $x\to -1$: segue che $G=\frac{1}{2}$. Analogamente, moltiplicando ambo i membri per $(x+2)$ e considerando il limite per $x\to -2$ abbiamo $D=\frac{1}{5}$. I coefficienti $E,F$ sono necessariamente coniugati, per cui da $F=\lim_{x\to i}(x-i)f(x)=-\frac{1}{10}+\frac{i}{20}$ discende $E=-\frac{1}{10}-\frac{i}{20}$. Infine, poiché moltiplicando ambo i membri per $x$ e considerando il limite per $x\to +\infty$ si ottiene $0$, $C+D+E+F=0$, da cui $C=0$. In conclusione 
+$$ \frac{1}{(x+1)^2(x+2)(x^2+1)} = \frac{1}{5}\cdot\frac{1}{x+2}-\frac{1}{10}\cdot\frac{1}{x^2+1}-\frac{1}{5}\cdot\frac{x}{x^2+1}+\frac{1}{2}\cdot\frac{1}{(x+1)^2} $$
+che comporta $I_2=\frac{1}{40}\left(10-\pi+8\log 3-12\log 2\right)$ e 
+$$ \int_{0}^{1}\frac{x^6\,dx}{(x+1)^2(x+2)(x^2+1)}=\frac{1}{40}\left(\pi-130-628\log 2+512\log 3\right).\qed $$
+\begin{ex} Si determini esplicitamente il valore dell'integrale 
+$$ I=\int_{0}^{1}\frac{dx}{(x^2+1)(x^2+3)}. $$
+\end{ex}
+\textbf{Soluzione}. Analogamente a prima potremmo determinare i \emph{residui} di $f(x)=\frac{1}{(x^2+1)(x^2+3)}$ in corrispondenza di $x=\pm i$ e $x=\pm i\sqrt{3}$, ma possiamo anche solo constatare che 
+$$ \frac{1}{(x^2+1)(x^2+3)} = \frac{1}{2}\left(\frac{1}{x^2+1}-\frac{1}{x^2+3}\right) $$
+da cui, immediatamente:
+$$ I = \frac{1}{2}\int_{0}^{1}\frac{dx}{x^2+1}-\frac{1}{2}\int_{0}^{1}\frac{dx}{x^2+3}=\frac{\pi}{8}-\frac{1}{2\sqrt{3}}\int_{0}^{1/\sqrt{3}}\frac{dz}{z^2+1} = \frac{\pi}{8}-\frac{\pi}{12\sqrt{3}}.\qed$$
 
-definiamo: $$Q_1(x)=MCD(Q(x),Q'(x))$$ \\
-e poi:
-$$Q_2(x)=\frac{Q(x)}{Q'(x)}$$ \\
-allora possiamo scrivere che:
-$$\int\frac{P(x)}{Q(x)dx}=\frac{P_1(x)}{Q_1(x)}+\int\frac{P_2(x)}{Q''(x)}$$ \\
-Dove $P_1$ e $P_2$ sono polinomi ignoti di grado $deg(P_1)=deg(Q_1)-1$ e $deg(P_2)=deg(Q_2)-1$
-Adesso per ottenere i polinomi mancanti basta derivare l'espressione ottenuta sopra ad ambo i membri e utilizzare i fratti semplici per ottenere poi i coefficienti. \\
-se ad esempio volessimo integrare:
-$$\int\frac{x+2}{(x+3)^3}dx$$
-iniziamo calcolando $Q_1$ e $Q_2$
-$$Q_1=MCD((x+3)^3, 3(x+3)^2)=(x+3)^2$$  $$Q_2=\frac{Q}{Q_1}=\frac{(x+3)^3}{(x+3)^2}=x+3$$
-abbiamo quindi che l'integrale di partenza si scompone come:
-$$\int\frac{x+2}{(x+3)^3}dx =\frac{Ax+B}{(x+3)^2} + \int\frac{C}{x+3}$$
-Derivando si ottiene:
-$$\frac{x+2}{(x+3)^3}=\frac{A(x+3)^2-3(Ax+B)(x+3)}{(x+3)^4} $$ \\
-$$\frac{-2Ax^2+6Ax+6A-3Bx-9B-x^2-5x-6}{(x+3)^4}=0$$
-\\
-Da cui non resta che ricavare A,B e C.
+La decomposizione in fratti semplici è utile non solo nel contesto dell'integrazione di funzioni razionali, ma anche nell'approssimazione numerica (o nel calcolo esplicito) di serie.
+
+\begin{ex} Si determini esplicitamente 
+$$ S=\sum_{n\geq 1}\frac{1}{n(n+1)(n+4)}.$$
+\end{ex}
+\textbf{Soluzione}. La decomposizione in fratti semplici di $f(x)=\frac{1}{x(x+1)(x+4)}$ può essere ottenuta come segue:
+$$ f(x)=\frac{1}{x+4}\left(\frac{1}{x}-\frac{1}{x+1}\right) = \frac{1}{4}\left(\frac{1}{x}-\frac{1}{x+4}\right)-\frac{1}{3}\left(\frac{1}{x+1}-\frac{1}{x+4}\right) $$
+e ciò comporta immediatamente 
+$$ S = \frac{1}{4}\sum_{n\geq 1}\left(\frac{1}{n}-\frac{1}{n+4}\right)-\frac{1}{3}\sum_{n\geq 1}\left(\frac{1}{n+1}-\frac{1}{n+4}\right) = \frac{H_4}{4}-\frac{H_4-1}{3} = \frac{1}{3}-\frac{H_4}{12} = \frac{23}{144}.\qed$$
+\textbf{Soluzione alternativa}. A partire da 
+$$ \sum_{n\geq 1}\frac{x^{n+3}}{n(n+1)} = x^3+x^2(1-x)\log(1-x), $$
+valida per ogni $x\in(-1,1)$, integrando ambo i membri su $(0,1)$ otteniamo 
+$$ S = \frac{1}{4}+\int_{0}^{1}x^2(1-x)\log(1-x)\,dx = \frac{1}{4}+\int_{0}^{1}(1-z)^2 z \log(z)\,dz  $$
+e per integrazione per parti 
+$$ S = \frac{1}{4}+\left[\left(\frac{z^2}{2}-\frac{2z^3}{3}+\frac{z^4}{4}\right)\log z\right]_{0}^{1}-\int_{0}^{1}\left(\frac{z}{2}-\frac{2z^2}{3}+\frac{z^3}{4}\right)\,dz=\frac{1}{4}-\frac{1}{4}+\frac{2}{9}-\frac{1}{16} = \frac{23}{144}.\qed$$
+
 \section{Equazioni Differenziali}
 Per il Teorema Fondamentale del Calcolo Integrale (T.F.C.I.) possiamo risalire alla funzione $u(t)$ se se ne conosce la derivata, infatti l'equazione $$u'(t)=f(t)$$ ha soluzione $$u(t)=\int_{a}^{t}f(s)ds$$
 In generale, data una funzione di due variabili $f(t,u)$ possiamo porci il problema di trovare una funzione $u(t)$ che verifichi l'equazione differenziale:$$u'(t)=f(t,u(t))$$
@@ -1091,6 +1121,8 @@ Disuguaglianza di \textbf{Hermite-Hadamard} - \url{https://mathb.in/76138}
 \textbf{Teorema di approssimazione di Weierstrass} - \href{https://drive.google.com/file/d/1QKCejQNSohMTlZs-MPRndxo5tJ8H48Ez/view?usp=sharing}{Note di Jack} , pagina 115
 
 \textbf{Teoremi di punto fisso} (Banach e Banach-Caccioppoli) - \url{https://mathb.in/75936}
+
+\textbf{Illimitatezza e impropria Riemann-integrabilità} - \url{https://mathb.in/76177}
 
 Formula di \textbf{Taylor con resto integrale} - \href{https://www2.math.upenn.edu/~kazdan/361F15/Notes/Taylor-integral.pdf}{Appunto di Kazdan}
 
