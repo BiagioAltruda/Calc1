@@ -93,7 +93,7 @@
 \newtheorem{definizione}[theorem]{Definizione}
 \newtheorem{esempio}[theorem]{Esempio}
 \newtheorem{ex}[theorem]{Esercizio}
-
+\newtheorem{oss}{\underline{\textrm Osservazione}}
 \numberwithin{theorem}{section}
 
 \makeatletter
@@ -438,7 +438,7 @@ La stessi tesi vale in ipotesi leggermente meno forti.
 \begin{definizione}[Funzione contrattiva o contrazione debole] Se $(X,d)$ è uno spazio metrico e $f:X\to X$ è tale per cui  $d(f(x),f(y))<d(x,y)$ per ogni $x,y$ distinti in $X$, $f$ è detta \emph{funzione contrattiva} o \emph{contrazione debole}. 
 \end{definizione}
 
-\begin{theorem}[Teorema delle contrazioni deboli (Banach-Caccioppoli)] Se $(X,d)$ è uno spazio metrico compatto (rispetto alla topologia indotta da $d$) e $f:X\to X$ è una contrazione debole, per ogni $x_0\in X$ la successione definita da $x_{n+1}=f(x_n)$ converge all'unico punto fisso di $f$. 
+\begin{theorem}[Teorema delle contrazioni deboli (Banach-Caccioppoli)] Se $(X,d)$ è uno spazio metrico compatto rispetto alla topologia indotta da $d$) e $f:X\to X$ è una contrazione debole, per ogni $x_0\in X$ la successione definita da $x_{n+1}=f(x_n)$ converge all'unico punto fisso di $f$. 
 \end{theorem}
 
 \begin{proof}
@@ -446,9 +446,6 @@ In quanto funzione $1$-Lip, $f$ è uniformemente continua e lo stesso vale per $
 $$ g(f(\overline{x})) = d(f(f(\overline{x})),f(\overline{x})) < d(f(\overline{x}),\overline{x}) = m $$
 contro la minimalità di $m$. Questo prova che $f$ ha necessariamente un punto fisso in $X$, e per discorsi analoghi a quelli appena fatti, il punto fisso deve essere unico. Per Bolzano-Weierstrass qualunque successione $\{x_n\}_{n\geq 0}$ ammette una sottosuccessione $\{x_{n_k}\}_{k\geq 0}$ convergente, e per continuità di $f$ tale sottosuccessione è necessariamente convergente a $\overline{x}$. La contrattività di $f$ comporta ora che l'intera successione $\{x_n\}_{n\geq 0}$ sia convergente a $\overline{x}$. Per ogni $\epsilon > 0$,  dalla convergenza di $\{x_{n_k}\}_{k\geq 0}$ abbiamo che definitivamente, diciamo per $k\geq K$, $x_{n_k}$ è in un intorno di raggio $\epsilon$ di $\overline{x}$.\\ 
 Per contrattività di $f$ la successione $\{g(x_n)\}_{n\geq 0}$ è strettamente decrescente, dunque converge al suo $\inf$.\\ Poiché $g(x_{n_k})\to g(\overline{x}) = 0$, il precedente $\inf$ è nullo e $d(x_n,f(x_n))$ converge a zero.\\ Per unicità del punto fisso di $f$, $x_n\to\overline{x}$.\end{proof}
-
-
-
 
 \subsection{Compattezza}
 \begin{definizione}[Insieme Compatto]
@@ -467,6 +464,56 @@ Un sottoinsieme $K$ di $\R^n$ è compatto se e solo se è chiuso e limitato.
 \begin{proof}
  Se $K$ è chiuso e limitato, sia $\{x_k\}_{k\geq 1}=\{\left(x_{k_1},x_{k_2},\dots,x_{k_n}\right)\}_{k\geq 1}$ una successione di punti di $K$.\\ Le successioni $\{x_{k_i}\}_{k\geq 1}$ sono successioni limitate di reali. Per il teorema di Bolzano-Weierstrass dalla successione $\{x_k\}_{k\geq 1}$ se ne può estrarre una avente la prima coordinata convergente; da questa un'altra con seconda coordinata convergente, e così via fino ad $n$. Si ottiene così una successione strettamente crescente $\{k_h\}_{h\geq 1}$ di numeri naturali tale che  $x_{k_h,i}\to x_i$ per ogni $i=1,2,3,\dots,n$. Pertanto $x_k\to x=(x_1,x_2,\dots,x_n)$.\\
  Essendo $K$ chiuso ne segue che $x\in K$ e quindi $K$ è compatto.\\ Viceversa se $K$ è compatto esso è chiuso per la proposizione precedente. Se $K$ non fosse limitato, esisterebbe una successione $\{x_k\}_{k\geq 1}$ di punti di $K$ tale che: $$\lim_{k\to\infty}|x_k|=+\infty$$ e da questa non si potrebbe estrarre alcuna successione convergente, contro l'ipotesi che $K$ sia compatto.
+\end{proof}
+\subsection{Calcolo differenziale}
+Saranno elencati i principali risultati sulle funzioni continue e derivabili in intervalli, dei must have in ogni corso di analisi 1.
+\begin{theorem}[Rolle]
+Sia $f:[a,b]\to\R$ una funzione continua e derivabile in $(a,b)$ e tale che $f(a)=f(b)$. Allora esiste un punto $c\in[a,b]$ tale che $f'(c)=0$.   
+\end{theorem}
+\begin{proof}
+    Per il teorema di Weierstrass f ammette massimo e minimo in $[a,b]$, rispettivamente $x_M$ e $x_m$. Abbiamo quindi 2 casi:
+    il minimo e il massimo sono prorprio gli estremi dell'intervallo $[a,b]$, allora il massimo di $f$ coincide col suo minimo, quindi la funzione vale costantemente $f(x_M)=f(x_m)=k$, cioè ha derivata costantemente nulla. \\
+    Alternativamente uno tra $x_m$ e $x_M$ cade in $(a,b)$, quindi la derivata si annulla in almeno in quel punto.
+\end{proof}
+\begin{theorem}[Lagrange o Valor Medio]
+Sia $f:[a,b]\to\R$ e derivabile in $(a,b)$. Esiste u punto $\xi\in(a,b)$ tale che: $$f(b)-f(a)=f'(\xi)(b-a)$$
+\end{theorem}
+\begin{proof}
+    La funzione $$g(x)=f(x)-f(a)-\frac{f(b)-f(a)}{b-a}(x-a)$$ è continua in $[a,b]$ e derivabile in $(a,b)$ e. Inoltre si ha $g(a)=g(b)=0$ quindi per il teorema di Rolle, esiste un punto $\xi\in(a,b)$ take che $g'(\xi)=0$ da cui: $$f'(\xi)\frac{f(b)-f(a)}{b-a}$$
+\end{proof}
+\begin{oss}
+    Il teorema di Lagrange ha un interessante interpretazion geometrica; la retta che unisce i punti $(a,f(a))$ e $(b,f(b))$ ha equazione $y=f(a)+\frac{f(b)-f(a)}{b-a}(x-a)$, dunque di coefficiente angolare $\frac{f(b)-f(a)}{b-a}$, mentre $f'(\xi)$ è il coefficiente angoalare della retta tangente ad $f$ nel punto $\xi$. Il teorema di Lagrange assicura che esiste un punto che dove la tangente alla funzione in quel punto ha lo stesso coefficiente angolare della retta che unisce gli estremi dell'intervallo.
+\end{oss}
+\begin{theorem}[Cauchy]
+    Siano $f(x)$ e $g(x)$ continue in $[a,b]$ e derivabili in $(a,b)$. Esiste un punto $\xi\in(a,b)$ in cui:
+    $$[g(b)-g(a)]f'(\xi)=[f(b)-f(a)]g'(\xi)$$
+\end{theorem}
+\begin{proof}
+    La funzione: $$h(x)=[g(b)-g(a)]f(x)-[f(b)-f(a)]g(x)$$ verifica tutte le ipotesi del teorema di Rolle, allora esiste un punto $\xi\in(a,b)$ in cui questa si annulla. 
+\end{proof}
+\begin{theorem}[De l'Hopital 1]
+    Siano $f(x)$ e $g(x)$ continue in $[a,b]$ e derivabili in $(a,b)$, con la possibile eccezione di un punto $x_0$. Supponiamo $f(x_0)=g(x_0)=0$ e che $g(x)$ e $g'(x)$ non si annullino mai $x\neq x_0$. Supponiamo anche che il limite del rapporto delle derivate: $$\lim_{x\to x_0}\frac{f'(x)}{g'(x)}=L$$ Allora esiste anche il rapporto delle funzioni ed è uguale al precedente $$\lim_{x\to x_0}\frac{f(x)}{g(x)}=L$$ 
+\end{theorem}
+\begin{proof}
+    Sia $x\in(a,b)$, per Cauchy, esiste un punto $\xi(x)\in(x_0,x)$ (anche se dipende da $x$ lo chiameremo semplicemente $\xi$ per non appesantire la notazione) tale che $$\frac{f(x)}{g(x)}=\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\frac{f'(\xi)}{g'(\xi)}$$ quando $x\to x_0$ anche $\xi\to x_0$ si ha dunque $$\lim_{x\to x_0}\frac{f(x)}{g(x)}=\lim_{x\to x_0}\frac{f'(\xi)}{g'(\xi)}$$
+\end{proof}
+\begin{theorem}[De l'Hopital 2]
+    Siano $f(x)$ e $g(x)$ due funzioni derivabili in $[a,b]-{x_0}$. Supponiamo che per $x\to x_0$ entrambe tendano a $+\infty$ e che $g'(x)$ non si annulli mai in un intorno di $x_0$. Supponiamo infine che esiste il rapporto delle derivate $$\lim_{x\to x_0}\frac{f'(x)}{g'(x)}=L$$
+    Allora esiste anche il rapporto delle funzioni ed è uguale al precedente $$\lim_{x\to x_0}\frac{f(x)}{g(x)}=L$$
+\end{theorem}
+\begin{proof}
+    Iniziamo dimostrando il caso in cui $x_0$ sia uno degli estremi, ad esempio $a$. Il caso generale segue considrando separatamente il limite destro e sinistro. Dato che $x\to a$ possiamo restringerci ad un intorno in cui sia $g'(x)$ che $g(x)$ siano diversi da 0 (per la permanenza del segno).
+    Supponiamo che $L$ sia finito. $\forall \epsilon,0<\epsilon<1$, esiste un $x_1>a$ tale che $\forall\xi\in(a,b)$ risulta $$L-\epsilon<\frac{f'(\xi)}{g'(\xi)}<L+\epsilon$$ se $x\in(a,x_1)$, per il teorema di Cauchy esiste $\xi\in(x,x_1)$ tale che $$\frac{f(x)-f(x_1)}{g(x)-g(x_1)}=\frac{f'(\xi)}{g'(\xi)}$$
+    e quindi $\forall x\in(a,x_1)$ $$L-\epsilon<\frac{f(x)-f(x_1)}{g(x)-g(x_1)}< L+\epsilon$$ D'altronde $$\frac{f(x)-f(x_1)}{g(x)-g(x_1)}=\frac{f(x)}{g(x)}\ \frac{1-\frac{f(x_1)}{f(x)}}{1-\frac{g(x_1)}{g(x)}}.$$ 
+    e quindi $$\frac{f(x)}{g(x)}=\frac{f(x)-f(x_1)}{g(x)-g(x_1)}\ \frac{1-\frac{g(x_1)}{g(x)}}{1-\frac{f(x_1)}{f(x)}}$$
+    Dato che $x\to a$ sia $f(x)$ che $g(x)$ tendono a $+\infty$ , la quantità: $$Q(x)=\frac{1-\frac{g(x_1)}{g(x)}}{1-\frac{f(x_1)}{f(x)}}$$
+    tende ad 1. Esisterà dunque un punto $x_2\leq x_1$ tale che $\forall x\in(a,x_2)$ risulta $1-\epsilon<Q(x)<1+\epsilon$ Di conseguenza (per la stima precedentemente fatta su $L\pm\epsilon$)
+    $$(1-\epsilon)(L-\epsilon)z\frac{f(x)}{g(x)}<L+(L+\epsilon)(1+\epsilon)$$
+    Per ogni $x\in(a,x_2)$ abbiamo $$(L+\epsilon)(1+\epsilon)=L+(L+1)\epsilon + \epsilon^2<L+(L+2)\epsilon$$
+    e
+    $$(L-\epsilon)(1-\epsilon)=L-(L+1)\epsilon + \epsilon^2<L-(L+2)\epsilon$$
+    e quindi in conclusione
+    $$L-(L+2)\epsilon<\frac{f(x)}{g(x)}<L+(L+2)\epsilon$$ e pertanto il rapporto $\frac{f(x)}{g(x)}$ tende ad $L$.
 \end{proof}
 \section{Binomiali \& Friends}
 Come spero sia noto il binomiale $\binom{n}{k}$, letto \emph{$n$ su $k$}, rappresenta il numero di sottoinsiemi di cardinalità $k$ in un insieme di $n$ elementi.
@@ -496,7 +543,6 @@ $$ \sum_{n\geq 0} n^2 x^n = \frac{2}{(1-x)^3}-\frac{3}{(1-x)^2}+\frac{1}{1-x} $$
 e valutando ambo i membri in corrispondenza di $x=\frac{1}{4}$ si ha immediatamente 
 
 $$ \sum_{n\geq 0}\frac{n^2}{4^n} = 2\left(\frac{4}{3}\right)^3-3\left(\frac{4}{3}\right)^2+\left(\frac{4}{3}\right)=\frac{20}{27}.$$
-
 \subsection{Forma Binomiale}
 Ogni potenza $n^k$ è combinazione lineare di coefficienti binomiali della forma $\binom{n}{j}$ con $j\leq k$. i coefficienti di queste combinazioni lineari sono ottenute per differenze in avanti ($\ast\ast$ da completare$\ast\ast$).
 \\
