@@ -130,7 +130,7 @@ B.A.M. \& Jack, 2023}}
 \section{Sproloquio Introduttivo}
     Queste note hanno lo scopo di essere una raccolta degli esercizi, dei fatti notevoli, dei fatti meno notevoli ma altrettando interessanti appresi, grazie a Jack, durante lo studio per l'esame di Analisi 1 presso l'università di Pisa.
     \\
-    Per la natura del materiale presente, queste note non saranno da sole (immagino) sufficienti a preparare l'esame in questione, a causa della possibile brevità di alcune sezioni e spiegazioni.
+    Per la natura del materiale presente, queste note non saranno da sole (immagino) sufficienti a preparare l'esame in questione, a causa della possibile brevità di alcune sezioni e spiegazioni. Sono a nostro avviso comunque del buon materiale anche se un $\epsilon$ più tecnico.  
     \\
 \section{Definizioni e Richiami}
 La serie di Taylor di una funzione $f(x)\in C^{\infty}$, centrata in $x_0$, è definita come:
@@ -163,8 +163,7 @@ $$ 2\sin\tfrac{1}{2}\sum_{n=1}^{N}\sin n = \sum_{n=1}^{N}\left(\cos\left(n-\tfra
 $$ A_N = \frac{\cos\left(\tfrac{1}{2}\right)-\cos\left(N+\tfrac{1}{2}\right)}{2\sin\tfrac{1}{2}} $$
 e poiché la successione $\{\cos\left(N+\frac{1}{2}\right)\}_{N\geq 0}$ è densa in $[-1,1]$, dalle formule di duplicazione si ha 
 $$ \sup_N A_N = \frac{1+\cos\tfrac{1}{2}}{2\sin\tfrac{1}{2}} = \frac{2\cos^2\tfrac{1}{4}}{4\sin\tfrac{1}{4}\cos\tfrac{1}{4}} = {\color{blue}\tfrac{1}{2}\cot\tfrac{1}{4}}<2.$$
-
-
+\\
 
 \section{Limiti e Continuità}
 \subsection{Limiti di Successioni}
@@ -379,14 +378,6 @@ Si può definire la convergenza di successioni e di funzioni continue attraverso
 $$d(a_k,x_0)<\epsilon.$$
 
 Si prova in maniera analoga a come si fa in $\R$ che vale il \textbf{Teorema di unicità del limite}.
-
-\subsection{*AN2* Successioni e Serie di Funzioni}
-\textbf{Definizione}\\
-Sia $I$ un insieme di numeri reali e sia $f_k:I\to\R$ una successione di funzioni reali. Si dice che $f_k$ converge puntualmente in $I$ verso la funzione $f:I\to\R$ se vale $$\lim_{k\to\infty} f_k(x)=f(x)$$
-per ogni $x\in I$, cioè se per ogni $\epsilon>0$ e per ogni $x\in I$ esiste $v_{\epsilon,x}\in\N$ tale che:
-$$|f_k(x)-f(x)|<\epsilon$$ In generale, fissato $\epsilon$, il numero  $v_{\epsilon,x}$ dipende solo da $x$, se risulta indipendente invece, si dice che la successione di funzioni converge uniformemente a $f(x)$.\\
-La convergenza Uniforme implica quella Puntuale come mostrato nella disuguaglianza: $$|f_k(x) -f(x)|\leq \sup\{|f_k(x)-f(x): x\in I|\}$$
-Per ogni $x\in I$. In generale il viceversa è falso.
 \begin{theorem}
 Sia $(X,d)$ uno spazio metrico e sia $x_0$ un fissato punto di $X$. Allora la funzione: $$x\in X\to d(x,x_0)$$
 è continua da $X$ verso $\R$ (dotato della metrica euclidea)
@@ -556,10 +547,8 @@ $$ \sum_{n\geq 0} n^2 x^n = \frac{2}{(1-x)^3}-\frac{3}{(1-x)^2}+\frac{1}{1-x} $$
 e valutando ambo i membri in corrispondenza di $x=\frac{1}{4}$ si ha immediatamente 
 
 $$ \sum_{n\geq 0}\frac{n^2}{4^n} = 2\left(\frac{4}{3}\right)^3-3\left(\frac{4}{3}\right)^2+\left(\frac{4}{3}\right)=\frac{20}{27}.$$
-\subsection{Forma Binomiale}
-Ogni potenza $n^k$ è combinazione lineare di coefficienti binomiali della forma $\binom{n}{j}$ con $j\leq k$. i coefficienti di queste combinazioni lineari sono ottenute per differenze in avanti ($\ast\ast$ da completare$\ast\ast$).
 \\
-\\
+
 \subsection{Binomiale Centrale}
 I coefficienti binomiali centrali sono i binomiali del tipo:
 $$\binom{2n}{n}=\frac{(2n)!}{n!^2}=\frac{2^n(2n-1)!!}{n!}$$
@@ -653,6 +642,7 @@ Ha il seguente comportamento:
 Ogni somma/serie in cui il termine generale si può esprimere come differenza di termini consecutivi (o quasi) si calcola, infatti vale
 $$\sum_{n=0}^{N}\left(a_n - a_{n+1}\right) = a_0 - a_{N+1}$$
 per massiccia cancellazione: il membro sinistro corrisponde alla differenza tra la prima quantità sommata e l'ultima quantità sottratta.
+\newpage
 \subsection{Criteri}
 Seguiranno i principali criteri di convergenza per le Serie.
 \subsubsection{Serie a termini definitivamente non negativi}
@@ -743,13 +733,30 @@ Per il \textbf{Criterio di Convergenza Dominata} tutte Le serie che convergono \
 $$\sum_{n\geq 0}^{}\int_{a}^{b}f(x)dx =\int_{a}^{b}\sum_{n\geq 0}^{}f(x) dx.$$ 
 Questo torna utile in quanto è moderatamente comune sostituire ad una funzione una sua \textbf{Rappresentazione integrale}.
 (Non esattamente collegato, ma per farsi un'idea dell'utilità di questo fatto vedere l'esercizio \textbf{J17})
-\subsection{Creative Telescoping}
+\subsection{Creatività e Serie Telescopiche}
 Un metodo importante è quello di trasformare Serie apparentemente complesse in Serie Telescopiche o combinazioni lineari di serie telescopiche.
 Tipicamente per questo tipo di lavoro bisogna farci l'occhio e sapere un po' dove mettere le mani, ma diventa abbastanza intuitivo velocemente.\\ (serve appunto un po' di creatività)\\
 
-\section{Integrali Tricky e Metodi Interessanti}
-Saranno date per note le principali tecniche di integrazione (per sostituzione e per parti), infatti, questo paragrafo si concentrerà nell'illustrare degli integrali più complessi e meritevoli di particolare attenzione, oltre che a tecniche di integrazione un po' più oscure. (Sono a conoscenza che questa sezione è meno utile delle precedenti, visto che è difficile che uno qualunque di questi esempi appaia esplicitamente in una prova. Ma sono comunque ad avviso mio e di Jack abbastanza importanti da avere a portata di mano in caso di necessità). alcune tecniche che verranno illustrate sono l'utilizzo della convergenza dominata (vedere paragrafo sui criteri delle serie), Integrali complessi, abuso di rappresentazioni integrali etc.
-\subsection{Un primo Caso interessante}
+\section{Integrazione}
+Questo paragrafo, dopo un breve recap, si concentrerà nell'illustrare degli integrali più complessi e meritevoli di particolare attenzione, oltre che a tecniche di integrazione un po' più oscure. Ad avviso mio e di Jack, i metodi che mostreremo sono abbastanza importanti da avere a portata di mano in caso di necessità. Alcuni argomenti che saranno trattati sono l'utilizzo della convergenza dominata (vedere paragrafo sui criteri delle serie), Integrali complessi, abuso di rappresentazioni integrali etc.
+\subsection{Sostituzioni da ricordare}
+Se l'integrale contiene:
+\begin{itemize}
+    \item $\sqrt{a^2-x^2}$
+    \qquad Porre $x=a\sin{t}$, Infatti $\sqrt{a^2-x^2}=a\cos{t}$
+        \item $\sqrt{x^2-a^2}$
+    \qquad Porre $x=a\frac{1}{\cos{t}}$, Infatti $\sqrt{x^2-a^2}=a\tan{t}$
+        \item $\sqrt{a^2+x^2}$
+    \qquad Porre $x=a\tan{t}$, Infatti $\sqrt{a^2+x^2}=\frac{a}{\cos{t}}$
+\end{itemize}
+Se ad esempio volessimo integrare $$\int{\frac{\sqrt{x^2-1}}{x^2} dx}$$
+Utilizziamo la sostituzione $x=\tan{t}$, e $dx=\frac{dt}{\cos^2{t}}$
+$$\int{\frac{\sqrt{x^2-1}}{x^2} dx}=\int{\frac{\sqrt{\tan^2{t}+1}}{\tan^2{t}}}\frac{dt}{\cos^2{t}}=\int{\frac{dt}{\sin^2{t}\cos{t}}}=\int{\frac{\sin^2{t}+\cos^2{t}}{\sin^2{t}\cos{t}}}=$$ $$\int{\frac{dt}{\cos{t}}}+\int{\frac{\cos{t}}{\sin^2{t}}}=\log\bigg|{ \tan{t}+\frac{1}{\cos{t}}\bigg| +c=$$
+$$=\log\bigg|x+\sqrt{x^2+1}{\bigg|}-\frac{\sqrt{x^2+1}}{x}+C$$
+\subsection{Integrazione per Parti}
+Se $u=\phi(x)$ e $v=\psi(x)$ sono derivabili allora si ha che: $$\int u\;dv = uv - \int v\;du$$
+\subsection{Un Caso Interessante}
+Seguono gli integrali delle potenze del coseno, \emph{talvolta} utili:
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n}d\theta=\frac{\pi}{2\cdot4^n}\binom{2n}{n}$$
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n+1}d\theta= \frac{4^n}{(2n+1)\binom{2n}{n}}$$
 inaspettatamente questi due integrali sono strettamente legati ai Binomiali Centrali e sono appunto una loro rappresentazione integrale.
@@ -794,6 +801,8 @@ $$ S=\sum_{n\geq 1}\frac{1}{n(n+1)(n+4)}.$$
 $$ f(x)=\frac{1}{x+4}\left(\frac{1}{x}-\frac{1}{x+1}\right) = \frac{1}{4}\left(\frac{1}{x}-\frac{1}{x+4}\right)-\frac{1}{3}\left(\frac{1}{x+1}-\frac{1}{x+4}\right) $$
 e ciò comporta immediatamente 
 $$ S = \frac{1}{4}\sum_{n\geq 1}\left(\frac{1}{n}-\frac{1}{n+4}\right)-\frac{1}{3}\sum_{n\geq 1}\left(\frac{1}{n+1}-\frac{1}{n+4}\right) = \frac{H_4}{4}-\frac{H_4-1}{3} = \frac{1}{3}-\frac{H_4}{12} = \frac{23}{144}.\qed$$
+(Dove $H_n$ rappresenta l'\emph{n-}esimo numero armonico)\\
+
 \textbf{Soluzione alternativa}. A partire da 
 $$ \sum_{n\geq 1}\frac{x^{n+3}}{n(n+1)} = x^3+x^2(1-x)\log(1-x), $$
 valida per ogni $x\in(-1,1)$, integrando ambo i membri su $(0,1)$ otteniamo 
@@ -1219,5 +1228,3 @@ Per quanto concerne gli esercizi consigliamo, oltre ai $69$ sovrastanti,
 
 
 \end{document}
-
-
