@@ -517,7 +517,35 @@ Vediamo ora un risultato per certi versi sorprendente. Le funzioni derivabili no
 \begin{proof} Supponiamo che $f:[a,b]\to\R$ sia una funzione derivabile e che si abbia $f'(a)\neq f'(b)$ (se questi valori coincidono non c'è alcunché da dimostrare). Senza perdita di generalità possiamo assumere $f'(b) > f'(a)$ e considerare un qualunque elemento $m\in(f'(a),f'(b))$. Proviamo ora che per qualche $\xi\in(a,b)$ si ha $f'(\xi)=m$. La funzione $g(x)=f(x)-mx$ è derivabile su $[a,b]$ e per Weierstrass ha un punto di minimo in $[a,b]$. Per il principio di Fermat tale punto non può essere collocato né in $a$ né in $b$, poiché $g'(a)=f'(a)-m < 0$ e $g'(b)=f'(b)-m > 0$. Ma allora, detta $\xi$ l'ascissa del punto di minimo, si hanno $\xi\in(a,b)$ e $g'(\xi)=0$, dove l'ultima identità è equivalente a $f'(\xi)=m$. 
 \end{proof}
 
+\subsection{Teorema di Taylor e Resto Integrale}
+\begin{theorem}[Taylor]
+ Siano $I$ un Intervallo, $x_0\in I$ e $f:I\to\R$.\\
+ $d=0,1,...;$\\
+ $f$ derivabile $d-1$ volte su $I$ e $d$ volte in $x_0$
+ Si definisce quindi $P_d(h)$ il \textbf{polinomio di Taylor} di $f$ in $x_0$ di grado $d$:
+ $$P_d(h)\sum_{n\geq 0}^{}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n.$$
+E sia inoltre $R_d$ un \textbf{resto}, tale che $f(x_0+h)=P_d(h) + R_d(h)$. \\
 
+Ci sono due tipi di resto che verificano il teorema, quelli di Peano e Lagrange. Assumiamo le ipotesi più forti ed enunciamo la formula integrale del resto di Lagrange. \\
+
+Sia $f\in C^{d+1}$ in $I$ allora
+$$R_d(h)=\frac{1}{d!}\int_{0}^{h}(h-t)^d f^{(d+1)}(x_0+t)dt$$
+\end{theorem}
+\begin{proof}
+    Imposto un'induzione su $d$, il grado del Polinomio di Taylor.\\
+    Voglio dimostrare che: 
+    $$f(h)=P_d(h)+R_d(h)= P_d(h)+\frac{1}{d!}\int_{0}^{h}(h-t)^d f^{(d+1)}(x_0+t)dt$$
+    per $d=0$: $\star_1$
+    $$f(h)=f(0)+\int_{0}^{h}f'(t)dt$$
+    vero per il \emph{T.F.C.I.}.
+ svolgo un passaggio in più e provo con $d=1$:$\star_2$\\
+ Integrando l'espressione di sopra per parti ottengo:
+ $$f(h)=f(0)+\int_{0}^{h}f(t)\cdot 1 dt=f(0)+\left|(h-t)f'(t)\right|_0^h + \int_{0}^{h}(h-t)f''(t)dt=f(0)+f'(0)h+\int_{0}^{h}(h-t)f''(t)dt$$
+ Ora, col passo induttivo, derivo $\star_d$ da $\star_{d-1}:$
+ $$f(h)=P_{d-1}(h)+\frac{1}{(d-1)!}\int_{0}^{h}(h-t)^{d-1}f^{(d)}(h)dt = P_{d-1}(h)+\frac{1}{(d-1)!}\left|-\frac{(h-t)^d}{d}f^{(d)}(h)\right|_0^h-\frac{1}{d!}\int_{0}^{h}-(h-t)^df^{(d+1)}(h)dt=$$
+ $$=P_{d-1}(h)+\frac{1}{d!}f^{d}(0)h^d$$
+\end{proof}
+[controllare questa cosa \emph{abominevole}]
 
 \section{Binomiali \& Friends}
 Come spero sia noto il binomiale $\binom{n}{k}$, letto \emph{$n$ su $k$}, rappresenta il numero di sottoinsiemi di cardinalità $k$ in un insieme di $n$ elementi.
