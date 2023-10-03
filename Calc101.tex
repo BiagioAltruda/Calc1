@@ -517,35 +517,28 @@ Vediamo ora un risultato per certi versi sorprendente. Le funzioni derivabili no
 \begin{proof} Supponiamo che $f:[a,b]\to\R$ sia una funzione derivabile e che si abbia $f'(a)\neq f'(b)$ (se questi valori coincidono non c'è alcunché da dimostrare). Senza perdita di generalità possiamo assumere $f'(b) > f'(a)$ e considerare un qualunque elemento $m\in(f'(a),f'(b))$. Proviamo ora che per qualche $\xi\in(a,b)$ si ha $f'(\xi)=m$. La funzione $g(x)=f(x)-mx$ è derivabile su $[a,b]$ e per Weierstrass ha un punto di minimo in $[a,b]$. Per il principio di Fermat tale punto non può essere collocato né in $a$ né in $b$, poiché $g'(a)=f'(a)-m < 0$ e $g'(b)=f'(b)-m > 0$. Ma allora, detta $\xi$ l'ascissa del punto di minimo, si hanno $\xi\in(a,b)$ e $g'(\xi)=0$, dove l'ultima identità è equivalente a $f'(\xi)=m$. 
 \end{proof}
 
-\subsection{Teorema di Taylor e Resto Integrale}
-\begin{theorem}[Taylor]
- Siano $I$ un Intervallo, $x_0\in I$ e $f:I\to\R$.\\
- $d=0,1,...;$\\
- $f$ derivabile $d-1$ volte su $I$ e $d$ volte in $x_0$
- Si definisce quindi $P_d(h)$ il \textbf{polinomio di Taylor} di $f$ in $x_0$ di grado $d$:
- $$P_d(h)\sum_{n\geq 0}^{}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n.$$
-E sia inoltre $R_d$ un \textbf{resto}, tale che $f(x_0+h)=P_d(h) + R_d(h)$. \\
+\subsection{Teorema di Taylor e resto integrale}
+Sia $I$ un intorno aperto dell'origine e $f$ una funzione di classe $C^d$ su $I$, con $d\geq 1$. Per un qualunque $t\in I$, possiamo considerare che l'applicazione della formula di integrazione produce quanto segue:
 
-Ci sono due tipi di resto che verificano il teorema, quelli di Peano e Lagrange. Assumiamo le ipotesi più forti ed enunciamo la formula integrale del resto di Lagrange. \\
+\begin{eqnarray*} \int_{0}^{t} (t-x)^{d-1} f^{(d)}(x)\,dx &=&\left[(t-x)^{d-1} f^{(d-1)}(x)\right]_{0}^{t}+(d-1)\int_{0}^{t}(t-x)^{d-2}f^{(d-1)}(x)\,dx\\ &=&-f^{(d-1)}(0)t^{d-1}+(d-1)\int_{0}^{t}(t-x)^{d-2}f^{(d-1)}(x)\,dx. \end{eqnarray*}
+Applicando induzione su $d$ ne deduciamo:
 
-Sia $f\in C^{d+1}$ in $I$ allora
-$$R_d(h)=\frac{1}{d!}\int_{0}^{h}(h-t)^d f^{(d+1)}(x_0+t)dt$$
+$$ \int_{0}^{t} (t-x)^{d-1} f^{(d)}(x)\,dx = -\sum_{k=1}^{d-1}f^{(d-k)}(0) t^{d-k}(d-1)_k + (d-1)!\int_{0}^{t}f'(x)\,dx $$
+dove $(d-1)_k$ indica il simbolo di Pochhammer decrescente, ossia $k!\binom{d-1}{k}$.\\ Dividendo ambo i membri per $(d-1)!$ abbiamo quanto segue:
+
+$$ \frac{1}{(d-1)!}\int_{0}^{t}(t-x)^{d-1}f^{(d)}(x)\,dx = -\sum_{j=1}^{d-1}\frac{f^{(j)}(0)}{j!}\,t^j + f(t)-f(0). $$
+
+Una immediata conseguenza è la \textbf{formula di Taylor con resto integrale} per funzioni di classe $C^d$ in un intorno dell'origine:
+\begin{theorem}
+ $$ f(t) = \sum_{j=0}^{d-1}\frac{f^{(j)}(0)}{j!}\,t^j + \frac{1}{(d-1)!}\int_{0}^{t}(t-x)^{d-1}f^{(d)}(x)\,dx. $$
 \end{theorem}
-\begin{proof}
-    Imposto un'induzione su $d$, il grado del Polinomio di Taylor.\\
-    Voglio dimostrare che: 
-    $$f(h)=P_d(h)+R_d(h)= P_d(h)+\frac{1}{d!}\int_{0}^{h}(h-t)^d f^{(d+1)}(x_0+t)dt$$
-    per $d=0$: $\star_1$
-    $$f(h)=f(0)+\int_{0}^{h}f'(t)dt$$
-    vero per il \emph{T.F.C.I.}.
- svolgo un passaggio in più e provo con $d=1$:$\star_2$\\
- Integrando l'espressione di sopra per parti ottengo:
- $$f(h)=f(0)+\int_{0}^{h}f(t)\cdot 1 dt=f(0)+\left|(h-t)f'(t)\right|_0^h + \int_{0}^{h}(h-t)f''(t)dt=f(0)+f'(0)h+\int_{0}^{h}(h-t)f''(t)dt$$
- Ora, col passo induttivo, derivo $\star_d$ da $\star_{d-1}:$
- $$f(h)=P_{d-1}(h)+\frac{1}{(d-1)!}\int_{0}^{h}(h-t)^{d-1}f^{(d)}(h)dt = P_{d-1}(h)+\frac{1}{(d-1)!}\left|-\frac{(h-t)^d}{d}f^{(d)}(h)\right|_0^h-\frac{1}{d!}\int_{0}^{h}-(h-t)^df^{(d+1)}(h)dt=$$
- $$=P_{d-1}(h)+\frac{1}{d!}f^{d}(0)h^d$$
-\end{proof}
-[controllare questa cosa \emph{abominevole}]
+Il primo addendo nel membro destro è detto \emph{polinomio di Taylor} di ordine $d-1$, ed è l'unico polinomio di grado $\leq (d-1)$ le cui derivate nell'origine, fino alla $(d-1)$-esima, coincidono con quelle di $f$.\\
+Supponendo che $f^{(d)}(x)$ su $[0,t]$ assuma valori compresi tra $m$ ed $M$ abbiamo che il termine di resto è compreso tra $m$ volte ed $M$ volte la seguente quantità:
+$$ \frac{1}{(d-1)!}\int_{0}^{t}(t-x)^{d-1}\,dx = \frac{t^d}{d!}. $$
+Poiché le funzioni continue hanno la proprietà dei valori intermedi si ha
+$$ f(t) = \sum_{j=0}^{d-1}\frac{f^{(j)}(0)}{j!}\,t^j + \frac{t^d}{d!}f^{(d)}(\xi)\quad\text{per qualche }\xi\in(0,t) $$
+che è noto anche come \emph{sviluppo di Taylor con resto di Lagrange}. Sottolineiamo che la precedente identità continua a valere sotto ipotesi meno restrittive di quelle qui assunte: è sufficiente che $f^{(d)}$ esista, non è necessario che sia continua. Abbiamo comunque già visto che se $f^{(d)}$ esiste ha automaticamente la proprietà dei valori intermedi (MVP), e sebbene la MVP non comporti automaticamente la Riemann-integrabilità di $(t-x)^{d-1}f^{(d)}(x)$, nei casi concreti è assai raro imbattersi in funzioni che siano derivabili ma non abbiano derivata continua. Inoltre questa impostazione semplicemente basata su integrazione per parti e induzione ha il pregio di produrre una rappresentazione esplicita del resto ed evitare fastidiosi tecnicismi legati alla dimostrazione e all'applicazione del Teorema di De l'H\^opital.\\
+Una forma ulteriormente indebolita del resto di Lagrange è data dal resto di Peano, dove la differenza tra $f(t)$ e il suo polinomio di Taylor di ordine $d-1$ è semplicemente espressa come $O(t^d)$. Nei casi in cui si voglia trattare uno sviluppo centrato in un punto $t_0$ diverso dall'origine è sufficiente traslare opportunamente la variabile $t$ e gli argomenti delle derivate di $f$.
 
 \section{Binomiali \& Friends}
 Come spero sia noto il binomiale $\binom{n}{k}$, letto \emph{$n$ su $k$}, rappresenta il numero di sottoinsiemi di cardinalità $k$ in un insieme di $n$ elementi.
@@ -778,9 +771,7 @@ Se l'integrale contiene:
     \qquad Porre $x=a\tan{t}$, Infatti $\sqrt{a^2+x^2}=\frac{a}{\cos{t}}$
 \end{itemize}
 Se ad esempio volessimo integrare $$\int{\frac{\sqrt{x^2-1}}{x^2} dx}$$
-Utilizziamo la sostituzione $x=\tan{t}$, e $dx=\frac{dt}{\cos^2{t}}$
-$$\int{\frac{\sqrt{x^2-1}}{x^2} dx}=\int{\frac{\sqrt{\tan^2{t}+1}}{\tan^2{t}}}\frac{dt}{\cos^2{t}}=\int{\frac{dt}{\sin^2{t}\cos{t}}}=\int{\frac{\sin^2{t}+\cos^2{t}}{\sin^2{t}\cos{t}}}=$$ $$\int{\frac{dt}{\cos{t}}}+\int{\frac{\cos{t}}{\sin^2{t}}}=\log\bigg|{ \tan{t}+\frac{1}{\cos{t}}\bigg| +c=$$
-$$=\log\bigg|x+\sqrt{x^2+1}{\bigg|}-\frac{\sqrt{x^2+1}}{x}+C$$
+Utilizziamo la sostituzione 
 \subsection{Integrazione per Parti}
 Se $u=\phi(x)$ e $v=\psi(x)$ sono derivabili allora si ha che: $$\int u\;dv = uv - \int v\;du$$
 \subsection{Un Caso Interessante}
