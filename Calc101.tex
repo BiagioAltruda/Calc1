@@ -761,19 +761,41 @@ Tipicamente per questo tipo di lavoro bisogna farci l'occhio e sapere un po' dov
 \section{Integrazione}
 Questo paragrafo, dopo un breve recap, si concentrerà nell'illustrare degli integrali più complessi e meritevoli di particolare attenzione, oltre che a tecniche di integrazione un po' più oscure. Ad avviso mio e di Jack, i metodi che mostreremo sono abbastanza importanti da avere a portata di mano in caso di necessità. Alcuni argomenti che saranno trattati sono l'utilizzo della convergenza dominata (vedere paragrafo sui criteri delle serie), Integrali complessi, abuso di rappresentazioni integrali etc.
 \subsection{Sostituzioni da ricordare}
-Se l'integrale contiene:
+Nella pratica è piuttosto frequente imbattersi in integrali dove la funzione integranda coinvolge la radice quadrata di un polinomio di secondo grado. A seconda che tale polinomio abbia discriminante positivo o negativo è opportuno ricordare alcune sostituzioni notevoli.
 \begin{itemize}
-    \item $\sqrt{a^2-x^2}$
-    \qquad Porre $x=a\sin{t}$, Infatti $\sqrt{a^2-x^2}=a\cos{t}$
-        \item $\sqrt{x^2-a^2}$
-    \qquad Porre $x=a\frac{1}{\cos{t}}$, Infatti $\sqrt{x^2-a^2}=a\tan{t}$
-        \item $\sqrt{a^2+x^2}$
-    \qquad Porre $x=a\tan{t}$, Infatti $\sqrt{a^2+x^2}=\frac{a}{\cos{t}}$
+ \item (Discriminante negativo) La gestione del termine $\sqrt{x^2+1}$ è semplificata dalla sostituzione $x=\tan\theta$ o dalla sostituzione $x=\sinh t$. In un intorno dell'origine abbiamo infatti $\sqrt{\tan^2\theta+1}=\frac{1}{\cos\theta}$ mentre per il Teorema di Pitagora in versione iperbolica vale $\sqrt{\sinh^2 t+1}=\cosh t$, con $d\left(\tan\theta\right)=\frac{d\theta}{\cos^2\theta}$ e $d\left(\sinh t\right)=\cosh(t)\,dt$. 
+ \item(Discriminante positivo) La gestione del termine $\sqrt{1-x^2}$ è semplificata dalla sostituzione $x=\sin\theta$ o dalla sostituzione $x=\cos\theta$. Per il Teorema di Pitagora $\sin^2\theta+\cos^2\theta=1$ e si ha $d\left(\sin\theta\right)=\cos(\theta)\,d\theta$, $d\left(\cos\theta\right)=-\sin(\theta)\,d\theta$. La gestione del termine $\sqrt{x^2-1}$ è semplificata dalla sostituzione $x=\cosh t$: per il Teorema di Pitagora in versione iperbolica $\sqrt{\cosh^2 t-1}=\sinh t$ e inoltre $d\left(\cosh t\right)=\sinh(t)\,dt$.
 \end{itemize}
-Se ad esempio volessimo integrare $$\int{\frac{\sqrt{x^2-1}}{x^2} dx}$$
-Utilizziamo la sostituzione 
+Attraverso sostituzioni della forma $x\mapsto \frac{1}{x}$ o $x\mapsto mx+q$ qualunque integrale della forma $\int_{a}^{b}\sqrt{p(x)}\,dx$ (o simili) è riconducibile ad uno dei casi esposti.
+\begin{ex} Si determini la distanza media dal centro per un punto scelto a caso (rispetto ad una distribuzione di probabilità uniforme) all'interno di un quadrato unitario. 
+\end{ex}
+\textbf{Soluzione}. Quanto richiesto dal testo è 
+$$ I = \int_{-1/2}^{1/2}\int_{-1/2}^{1/2}\sqrt{x^2+y^2}\,dx\,dy \stackrel{\text{simmetria}}{=} \int_{0}^{1}\int_{0}^{1}\sqrt{u^2+v^2}\,du\,dv\stackrel{\text{simmetria}}{=} 2 \int_{0}^{1}\int_{0}^{u}\sqrt{u^2+v^2}\,dv\,du.$$
+L'integrale più interno nel membro destro è a sua volta esprimibile come 
+$$\int_{0}^{u}\sqrt{u^2+v^2}\,dv = u^2\int_{0}^{1}\sqrt{1+z^2}\,dz $$
+e il problema è così ricondotto alla determinazione di 
+$$ \frac{2}{3}\int_{0}^{1}\sqrt{1+z^2}\,dz \stackrel{z\mapsto \sinh t}{=} \frac{2}{3}\int_{0}^{\arcsinh 1}\cosh^2(t)\,dt=\frac{1}{3}\int_{0}^{\arcsinh 1}\left(1+\cosh(2t)\right)\,dt=\frac{1}{3}\left[t+\sinh(t)\cosh(t)\right]_{0}^{\arcsinh 1}$$
+che equivale a 
+$$ \frac{1}{3}\left(\arcsinh{1}+\cosh(\arcsinh{1})\right) = \frac{\sqrt{2}+\arcsinh{1}}{3}={\color{blue}\frac{\sqrt{2}+\log(1+\sqrt{2})}{3}}\approx 0.7652. $$
+
+
+
 \subsection{Integrazione per Parti}
-Se $u=\phi(x)$ e $v=\psi(x)$ sono derivabili allora si ha che: $$\int u\;dv = uv - \int v\;du$$
+Nell'ipotesi che le funzioni integrande in ambo i membri siano continue su $[a,b]$ si ha che 
+$$ \int_{a}^{b} f(x)g(x) = \left[ F(x)g(x)\right]_{a}^{b}-\int_{a}^{b} F(x)g'(x)\,dx $$
+dove $F(x)$ denota \emph{una} primitiva (alias antiderivata) di $f(x)$.
+\begin{ex} Si dimostri che per ogni $t\in\R^+$ la quantità 
+$$ \int_{0}^{t}\frac{\sin x}{x}\,dx $$
+è positiva. 
+\end{ex}
+\textbf{Soluzione}. Scegliendo $1-\cos x = 2\sin^2\frac{x}{2}$ come antiderivata del seno ed applicando integrazione per parti si ha che 
+$$ \int_{0}^{t}\frac{\sin x}{x}\,dx = \frac{1-\cos t}{t}+2\int_{0}^{t}\left(\frac{\sin\frac{x}{2}}{x}\right)^2\,dx $$
+dove il primo addendo nel membro destro è sicuramente non negativo e il secondo addendo è sicuramente positivo.
+
+
+
+
+
 \subsection{Un Caso Interessante}
 Seguono gli integrali delle potenze del coseno, \emph{talvolta} utili:
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n}d\theta=\frac{\pi}{2\cdot4^n}\binom{2n}{n}$$
