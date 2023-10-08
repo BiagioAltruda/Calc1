@@ -574,7 +574,17 @@ In questo contesto è bene non esagerare con l'ottimismo: per una generica funzi
 $$ g(x) = \left\{\begin{array}{rcl}\exp(-1/x^2)&\text{se}&x\neq 0\\ 0 &\text{se}&x=0\end{array}\right. $$
 è una funzione di classe $C^\infty$ sull'intera retta reale che ha tutte le derivate nell'origine pari a zero. Tuttavia è palese che $g(x)$ non sia la funzione identicamente nulla, dunque che la successione costantemente nulla non sia associata ad un'unica funzione $C^\infty$ in un intorno dell'origine, ma ad un'intera classe di equivalenza di funzioni $C^\infty$, detta \emph{germe}.\\
 
-Per nostra fortuna \emph{si può} recuperare una corrispondenza biunivoca tra alcune successioni ed alcune funzioni, restringendo opportunamente il grado di regolarità degli oggetti coinvolti. Diciamo che una funzione $f$ è \emph{analitica} (o di classe $C^\omega$) in un intorno $U$ dell'origine se è di classe $C^\infty$ su $U$ e per ogni $x\in U$ esiste una costante $\rho_x > 0$ tale da garantire definitivamente $|f^{(n)}(x)|\leq n! \rho_x^n$. Le quantità $\rho_x$ sono legate a quello che è il \emph{raggio di convergenza} di una serie di potenze, e la limitazione sul modulo delle derivate ci permette di guadagnare uniformità nel termine di resto dell'espansione di Maclaurin. Così facendo ogni successione ``che in modulo non cresce troppo in fretta'' (non più in fretta delle derivate nell'origine di $\frac{1}{1-Rx}$, per qualche $R>0$) risulta essere la successione delle derivate nell'origine di \emph{un'unica} funzione analitica in un intorno dell'origine. Tutto questo sarebbe poco più di una capriola concettuale se le funzioni d'impiego comune non fossero funzioni analitiche (ossia localmente coincidenti con la propria serie di Taylor), ma per fortuna \emph{lo sono}.\hfill \textsc{[Va introdotto qualche esercizio]}
+Per nostra fortuna \emph{si può} recuperare una corrispondenza biunivoca tra alcune successioni ed alcune funzioni, restringendo opportunamente il grado di regolarità degli oggetti coinvolti. Diciamo che una funzione $f$ è \emph{analitica} (o di classe $C^\omega$) in un intorno $U$ dell'origine se è di classe $C^\infty$ su $U$ e per ogni $x\in U$ esiste una costante $\rho_x > 0$ tale da garantire definitivamente $|f^{(n)}(x)|\leq n! \rho_x^n$. Le quantità $\rho_x$ sono legate a quello che è il \emph{raggio di convergenza} di una serie di potenze, e la limitazione sul modulo delle derivate ci permette di guadagnare uniformità nel termine di resto dell'espansione di Maclaurin. Così facendo ogni successione ``che in modulo non cresce troppo in fretta'' (non più in fretta delle derivate nell'origine di $\frac{1}{1-Rx}$, per qualche $R>0$) risulta essere la successione delle derivate nell'origine di \emph{un'unica} funzione analitica in un intorno dell'origine. Tutto questo sarebbe poco più di una capriola concettuale se le funzioni d'impiego comune non fossero funzioni analitiche (ossia localmente coincidenti con la propria serie di Taylor), ma per fortuna \emph{lo sono}.
+
+\begin{ex} Si determinino la derivata quarta e la derivata quinta nell'origine di $f(x)=\sin(x)\arcsin(x)$. 
+\end{ex}
+\textbf{Soluzione}. $f(x)$ è una funzione analitica su $(-1,1)$ e pari: in particolare $f^{(V)}(0)={\color{blue}0}$. Il valore di $f^{(IV)}(0)$ è fissato dallo sviluppo di Maclaurin al quart'ordine, ricostruibile a partire da $\sin(x)=x-\frac{x^3}{6}+o(x^4)$ e dallo sviluppo al quart'ordine di $\arcsin x$. Poiché $\frac{d}{dx}\arcsin x = (1-x^2)^{-1/2}$, da 
+$$ \frac{1}{\sqrt{1-x}} = \sum_{n\geq 0}\binom{2n}{n}x^n $$
+segue 
+$$ \frac{1}{\sqrt{1-x^2}}= \sum_{n\geq 0}\binom{2n}{n} x^{2n} $$
+e 
+$$ \arcsin x = \sum_{n\geq 0}\frac{\binom{2n}{n}}{2n+1}x^{2n+1} = x + \frac{x^3}{6} + o(x^4).$$
+Da quanto collezionato segue che al quart'ordine $\sin(x)\arcsin(x)$ è indistinguibile da $\left(x-\frac{x^3}{6}\right)\left(x+\frac{x^3}{6}\right)=x^2+o(x^4)$, dunque anche il valore di $f^{(IV)}(0)$ è $\color{blue}0$.
 
 \section{Binomiali \& Friends}
 Come spero sia noto il binomiale $\binom{n}{k}$, letto \emph{$n$ su $k$}, rappresenta il numero di sottoinsiemi di cardinalità $k$ in un insieme di $n$ elementi.
@@ -609,8 +619,9 @@ $$ \sum_{n\geq 0}\frac{n^2}{4^n} = 2\left(\frac{4}{3}\right)^3-3\left(\frac{4}{3
 \subsection{Binomiale Centrale}
 I coefficienti binomiali centrali sono i binomiali del tipo:
 $$\binom{2n}{n}=\frac{(2n)!}{n!^2}=\frac{2^n(2n-1)!!}{n!}$$
-così chiamati perché occupano le posizioni centrali del triangolo di Tartaglia.\\
-Seguono disuguaglianze utili per la stima dei binomiali centrali:
+così chiamati perché occupano le posizioni centrali del triangolo di Tartaglia.\\ I binomiali centrali figurano nell'\emph{identità di Vandermonde}
+$$ \sum_{k=0}^{n}\binom{n}{k}^2 = \sum_{k=0}^{n}\binom{n}{k}\binom{n}{n-k}=[x^n](1+x)^n (1+x)^n = [x^n](1+x)^{2n} = \binom{2n}{n} $$
+ed hanno un ruolo chiave nella dimostrazione di Chebyshev della forma debole del Teorema dei numeri primi,\\ $\pi(x)\frac{x}{\ln x}\in [c_1,c_2]$. Seguono disuguaglianze utili per la stima dei binomiali centrali:
     \begin{itemize}
         \item $\frac{4^n}{n+1}\leq\binom{2n}{n}\leq4^n$
         \item $\frac{4^n}{2\sqrt{n}}\leq\binom{2n}{n}\leq\frac{4^n}{\sqrt{3n+1}}$
