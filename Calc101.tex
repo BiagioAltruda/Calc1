@@ -336,7 +336,7 @@ Il modulo di Continuità misura l'uniforme continuità di $f$, in particolare va
 Se $f:[a,b]\to\R$ è continua, allora è Riemann-integrabile su $[a,b]$.
 \end{theorem}
 \begin{proof}
-Data una partizione di $[a,b]$ di calibro $\epsilon$, l'uniforme continuità di $f$ assicura che su ogni componente della partizione si abbia $\sup f-\inf f \leq \epsilon$. In particolare la differenza tra l'$\inf$ delle somme di Riemann superiori e il $\sup$ delle somme di Riemann superiori è controllato da $\epsilon(b-a)$. Dall'arbitrarietà di $\epsilon$ segue la Riemann-integrabilità di $f$. 
+Data una partizione di $[a,b]$ di calibro $\delta$, l'uniforme continuità di $f$ assicura che su ogni componente della partizione si abbia $\sup f-\inf f \leq \epsilon$. In particolare la differenza tra l'$\inf$ delle somme di Riemann superiori e il $\sup$ delle somme di Riemann superiori è controllato da $\epsilon(b-a)$. Dall'arbitrarietà di $\epsilon$ segue la Riemann-integrabilità di $f$. 
 \end{proof}
 
 Per quanto la dimostrazione richieda elementi di Teoria della Misura, è importante sapere che vale anche una sorta di viceversa:
@@ -538,7 +538,43 @@ $$ \frac{1}{(d-1)!}\int_{0}^{t}(t-x)^{d-1}\,dx = \frac{t^d}{d!}. $$
 Poiché le funzioni continue hanno la proprietà dei valori intermedi si ha
 $$ f(t) = \sum_{j=0}^{d-1}\frac{f^{(j)}(0)}{j!}\,t^j + \frac{t^d}{d!}f^{(d)}(\xi)\quad\text{per qualche }\xi\in(0,t) $$
 che è noto anche come \emph{sviluppo di Taylor con resto di Lagrange}. Sottolineiamo che la precedente identità continua a valere sotto ipotesi meno restrittive di quelle qui assunte: è sufficiente che $f^{(d)}$ esista, non è necessario che sia continua. Abbiamo comunque già visto che se $f^{(d)}$ esiste ha automaticamente la proprietà dei valori intermedi (MVP), e sebbene la MVP non comporti automaticamente la Riemann-integrabilità di $(t-x)^{d-1}f^{(d)}(x)$, nei casi concreti è assai raro imbattersi in funzioni che siano derivabili ma non abbiano derivata continua. Inoltre questa impostazione semplicemente basata su integrazione per parti e induzione ha il pregio di produrre una rappresentazione esplicita del resto ed evitare fastidiosi tecnicismi legati alla dimostrazione e all'applicazione del Teorema di De l'H\^opital.\\
-Una forma ulteriormente indebolita del resto di Lagrange è data dal resto di Peano, dove la differenza tra $f(t)$ e il suo polinomio di Taylor di ordine $d-1$ è semplicemente espressa come $O(t^d)$. Nei casi in cui si voglia trattare uno sviluppo centrato in un punto $t_0$ diverso dall'origine è sufficiente traslare opportunamente la variabile $t$ e gli argomenti delle derivate di $f$.
+Una forma ulteriormente indebolita del resto di Lagrange è data dal resto di Peano, dove la differenza tra $f(t)$ e il suo polinomio di Taylor di ordine $d-1$ è semplicemente espressa come $O(t^d)$. Nei casi in cui si voglia trattare uno sviluppo centrato in un punto $t_0$ diverso dall'origine è sufficiente traslare opportunamente la variabile $t$ e gli argomenti delle derivate di $f$.\\
+
+\emph{Perché gli sviluppi di Taylor sono di fondamentale importanza in Analisi?} Perché permettono di ricondurre l'algebra delle funzioni sufficientemente regolari all'algebra dei polinomi. Nello specifico, perché permettono di
+\begin{itemize}
+ \item determinare limiti senza dover ricorrere a ripetuti confronti o applicazioni di De l'H\^opital
+ \item rappresentare serie come integrali o viceversa (si veda a tal proposito l'esercizio $\textbf{J21}$)
+ \item legare il comportamento delle derivate in un punto al comportamento locale o globale della funzione considerata. Il viceversa è ad esempio il problema-cardine in combinatoria analitica, ossia quello di ricostruire il comportamento asintotico di una successione unicamente dalle informazioni algebriche sulla classe combinatoria considerata. All'interno di questo punto rientra anche il problema-cardine della teoria analitica dei numeri, ossia quello di ricostruire la collocazione degli zeri (o dei poli) di certe funzioni a partire dalle equazioni differenziali o funzionali soddisfatte.
+\end{itemize}
+
+Prima di avventurarsi in Matematica raffinata è opportuno familiarizzare con i fondamentali, in questo frangente gli sviluppi di Maclaurin (ossia gli sviluppi di Taylor centrati nell'origine) delle funzioni di classe $C^{\infty}$ d'uso comune.
+
+\begin{itemize}
+ \item \textbf{Serie geometrica}. Per ogni $x\in(-1,1)$ si ha 
+ $$ \frac{1}{1-x}=1+x+x^2+x^3+\ldots = \sum_{n\geq 0}x^n $$
+ e in particolare $\left.\frac{d^n}{dx^n}\left(\frac{1}{1-x}\right)\right|_{x=0}=n!$. Rimpiazzando $x$ con $\pm x^d$ si ha che su $(-1,1)$ vale l'identità 
+ $$ \frac{1}{1\pm x^d} = \sum_{n\geq 0}(\mp 1)^n x^{nd}. $$
+ \item \textbf{Esponenziale, seno e coseno}. Sono funzioni già trattate nell'introduzione, che per ogni $x\in\R$ realizzano 
+ $$ e^x = \sum_{n\geq 0}\frac{x^n}{n!},\quad \sin x=\sum_{n\geq 0}\frac{(-1)^n x^{2n+1}}{(2n+1)!}, \quad \cos x=\sum_{n\geq 0}\frac{(-1)^n x^{2n}}{(2n)!}. $$
+ Rimuovendo le alternanze di segno nelle ultime due serie si ottengono gli sviluppi di Maclaurin di $\cosh x=\frac{e^x+e^{-x}}{2}$ e $\sinh x=\frac{e^x-e^{-x}}{2}$.
+ \item \textbf{Potenze di $1\pm x$}. Dal calcolo esplicito delle derivate nell'origine di $(1+x)^{a}$ si ha che per ogni $x\in(-1,1)$ vale 
+ $$ (1+x)^a = \sum_{k\geq 0}\frac{(a)_k}{k!} x^k\qquad\text{dove }(a)_k = a(a-1)\cdot\ldots\cdot (a-k+1) $$
+ generalizzando il binomio di Newton a esponenti qualunque. Nel caso di esponenti interi e negativi l'identità 
+ $$ \frac{1}{(1-x)^{m+1}} = \sum_{n\geq 0}\binom{n+m}{m} x^n $$
+ può anche essere vista come conseguenza dell'espediente combinatorio noto come \emph{stars\&bars}.
+ \item \textbf{Logaritmo naturale}. Su $(-1,1)$ abbiamo $\frac{d}{dx}\left(-\ln(1-x)\right)=\frac{1}{1-x}$. Per integrazione termine a termine della serie geometrica segue che sul precedente intervallo vale 
+ $$ -\ln(1-x) = \sum_{n\geq 1}\frac{x^n}{n}. $$
+ Per sommazione per parti (alias \emph{lemma di Abel}) l'identità continua a valere anche nell'estremo sinistro del dominio di convergenza, producendo $\ln 2 = \sum_{n\geq 1}\frac{(-1)^{n+1}}{n}$.
+ 
+\end{itemize}
+
+Alcune considerazioni di simmetria hanno un certo rilievo anche nel contesto delle serie di Fourier: se una funzione di classe $C^\infty$ in un intorno dell'origine è dispari, le sue derivate nell'origine d'ordine pari sono tutte nulle. Analogamente, se una funzione di classe $C^\infty$ in un intorno dell'origine è pari, le sue derivate nell'origine d'ordine dispari sono tutte nulle. La dimostrazione è immediata: è sufficiente considerare l'identità $f(-x)=\pm f(x)$, derivare ambo i membri il corretto numero di volte e infine valutarli in $x=0$.\\
+
+In questo contesto è bene non esagerare con l'ottimismo: per una generica funzione di classe $C^{\infty}$ in un intorno dell'origine, la successione delle derivate nell'origine in generale \textbf{non} fissa la funzione. Consideriamo $\exp(-x^2)$: non è difficile dimostrare che qualunque derivata ha limite zero per $x\to +\infty$ o $x\to -\infty$. Eseguendo la sostituzione $x\to \frac{1}{x}$ ne consegue che 
+$$ g(x) = \left\{\begin{array}{rcl}\exp(-1/x^2)&\text{se}&x\neq 0\\ 0 &\text{se}&x=0\end{array}\right. $$
+è una funzione di classe $C^\infty$ sull'intera retta reale che ha tutte le derivate nell'origine pari a zero. Tuttavia è palese che $g(x)$ non sia la funzione identicamente nulla, dunque che la successione costantemente nulla non sia associata ad un'unica funzione $C^\infty$ in un intorno dell'origine, ma ad un'intera classe di equivalenza di funzioni $C^\infty$, detta \emph{germe}.\\
+
+Per nostra fortuna \emph{si può} recuperare una corrispondenza biunivoca tra alcune successioni ed alcune funzioni, restringendo opportunamente il grado di regolarità degli oggetti coinvolti. Diciamo che una funzione $f$ è \emph{analitica} (o di classe $C^\omega$) in un intorno $U$ dell'origine se è di classe $C^\infty$ su $U$ e per ogni $x\in U$ esiste una costante $\rho_x > 0$ tale da garantire definitivamente $|f^{(n)}(x)|\leq n! \rho_x^n$. Le quantità $\rho_x$ sono legate a quello che è il \emph{raggio di convergenza} di una serie di potenze, e la limitazione sul modulo delle derivate ci permette di guadagnare uniformità nel termine di resto dell'espansione di Maclaurin. Così facendo ogni successione ``che in modulo non cresce troppo in fretta'' (non più in fretta delle derivate nell'origine di $\frac{1}{1-Rx}$, per qualche $R>0$) risulta essere la successione delle derivate nell'origine di \emph{un'unica} funzione analitica in un intorno dell'origine. Tutto questo sarebbe poco più di una capriola concettuale se le funzioni d'impiego comune non fossero funzioni analitiche (ossia localmente coincidenti con la propria serie di Taylor), ma per fortuna \emph{lo sono}.\hfill \textsc{[Va introdotto qualche esercizio]}
 
 \section{Binomiali \& Friends}
 Come spero sia noto il binomiale $\binom{n}{k}$, letto \emph{$n$ su $k$}, rappresenta il numero di sottoinsiemi di cardinalità $k$ in un insieme di $n$ elementi.
@@ -770,13 +806,13 @@ Attraverso sostituzioni della forma $x\mapsto \frac{1}{x}$ o $x\mapsto mx+q$ qua
 \begin{ex} Si determini la distanza media dal centro per un punto scelto a caso (rispetto ad una distribuzione di probabilità uniforme) all'interno di un quadrato unitario. 
 \end{ex}
 \textbf{Soluzione}. Quanto richiesto dal testo è 
-$$ I = \int_{-1/2}^{1/2}\int_{-1/2}^{1/2}\sqrt{x^2+y^2}\,dx\,dy \stackrel{\text{simmetria}}{=} \int_{0}^{1}\int_{0}^{1}\sqrt{u^2+v^2}\,du\,dv\stackrel{\text{simmetria}}{=} 2 \int_{0}^{1}\int_{0}^{u}\sqrt{u^2+v^2}\,dv\,du.$$
+$$ I = \int_{-1/2}^{1/2}\int_{-1/2}^{1/2}\sqrt{x^2+y^2}\,dx\,dy \stackrel{\text{simmetria}}{=} \frac{1}{2}\int_{0}^{1}\int_{0}^{1}\sqrt{u^2+v^2}\,du\,dv\stackrel{\text{simmetria}}{=} \int_{0}^{1}\int_{0}^{u}\sqrt{u^2+v^2}\,dv\,du.$$
 L'integrale più interno nel membro destro è a sua volta esprimibile come 
 $$\int_{0}^{u}\sqrt{u^2+v^2}\,dv = u^2\int_{0}^{1}\sqrt{1+z^2}\,dz $$
 e il problema è così ricondotto alla determinazione di 
-$$ \frac{2}{3}\int_{0}^{1}\sqrt{1+z^2}\,dz \stackrel{z\mapsto \sinh t}{=} \frac{2}{3}\int_{0}^{\arcsinh 1}\cosh^2(t)\,dt=\frac{1}{3}\int_{0}^{\arcsinh 1}\left(1+\cosh(2t)\right)\,dt=\frac{1}{3}\left[t+\sinh(t)\cosh(t)\right]_{0}^{\arcsinh 1}$$
+$$ \frac{1}{3}\int_{0}^{1}\sqrt{1+z^2}\,dz \stackrel{z\mapsto \sinh t}{=} \frac{1}{3}\int_{0}^{\arcsinh 1}\cosh^2(t)\,dt=\frac{1}{6}\int_{0}^{\arcsinh 1}\left(1+\cosh(2t)\right)\,dt=\frac{1}{6}\left[t+\sinh(t)\cosh(t)\right]_{0}^{\arcsinh 1}$$
 che equivale a 
-$$ \frac{1}{3}\left(\arcsinh{1}+\cosh(\arcsinh{1})\right) = \frac{\sqrt{2}+\arcsinh{1}}{3}={\color{blue}\frac{\sqrt{2}+\log(1+\sqrt{2})}{3}}\approx 0.7652. $$
+$$ \frac{1}{6}\left(\arcsinh{1}+\cosh(\arcsinh{1})\right) = \frac{\sqrt{2}+\arcsinh{1}}{6}={\color{blue}\frac{\sqrt{2}+\log(1+\sqrt{2})}{6}}\approx 0.3826. $$
 
 
 
