@@ -517,6 +517,118 @@ Vediamo ora un risultato per certi versi sorprendente. Le funzioni derivabili no
 \begin{proof} Supponiamo che $f:[a,b]\to\R$ sia una funzione derivabile e che si abbia $f'(a)\neq f'(b)$ (se questi valori coincidono non c'è alcunché da dimostrare). Senza perdita di generalità possiamo assumere $f'(b) > f'(a)$ e considerare un qualunque elemento $m\in(f'(a),f'(b))$. Proviamo ora che per qualche $\xi\in(a,b)$ si ha $f'(\xi)=m$. La funzione $g(x)=f(x)-mx$ è derivabile su $[a,b]$ e per Weierstrass ha un punto di minimo in $[a,b]$. Per il principio di Fermat tale punto non può essere collocato né in $a$ né in $b$, poiché $g'(a)=f'(a)-m < 0$ e $g'(b)=f'(b)-m > 0$. Ma allora, detta $\xi$ l'ascissa del punto di minimo, si hanno $\xi\in(a,b)$ e $g'(\xi)=0$, dove l'ultima identità è equivalente a $f'(\xi)=m$. 
 \end{proof}
 
+
+\subsection{Convessità}
+\begin{definizione}
+ Diciamo che un sottoinsieme $E\subseteq \R^n$ è \emph{convesso} se ogni coppia di punti di $E$ definisce un segmento interamente contenuto in $E$: 
+ $$ \forall x,y\in E,\forall \lambda\in [0,1],\quad (1-\lambda)x+\lambda y \in E. $$
+\end{definizione}
+\begin{definizione}
+ Dato un intervallo $I\subseteq\R$ e una funzione $f:I\to\R$, diciamo che $f$ è \emph{convessa} su $I$ se ha epigrafico convesso, ossia se soddisfa 
+ $$ \forall x,y\in I,\forall \lambda\in[0,1],\quad f((1-\lambda)x + \lambda y) \leq (1-\lambda)f(x) + \lambda f(y) $$
+ detta \emph{disuguaglianza di Jensen}.
+\end{definizione}
+\begin{definizione} $f:I\to\R$ è detta \emph{convessa per punti medi} se soddisfa la disuguaglianza di Jensen per $\lambda=\frac{1}{2}$.
+\end{definizione}
+\begin{lemma} Una $f:I\to\R$ è convessa se e solo se, per ogni $x,y,z\in I$ con $x\leq y\leq z$, si ha 
+$$ \det \begin{pmatrix}1 & x & f(x) \\ 1 & y & f(y) \\ 1 & z & f(z) \end{pmatrix}\geq 0.$$
+\end{lemma}
+\begin{proof} Ogni $y\in[x,z]$ è combinazione convessa degli estremi e ogni combinazione convessa degli estremi è compresa tra questi. In particolare il Lemma è immediata conseguenza della riscrittura della disuguaglianza di Jensen per $y=(1-\lambda)x + \lambda z$. 
+\end{proof}
+\begin{cor} Ogni funzione convessa su $I$ è continua sulla parte interna di $I$. 
+\end{cor}
+\begin{cor} Data una $f$ convessa su $I$ è possibile definire su $\{(x,y)\in I^2: x\neq y\}$\\ la funzione \emph{rapporto incrementale} 
+$$ \Delta(x,y) = \frac{f(y)-f(x)}{y-x} $$
+e questa risulta debolmente crescente rispetto a ciascuno dei suoi parametri. Viceversa, una $f$ definita su $I$ è convessa solo se il corrispondente rapporto incrementale $\Delta$ è debolmente crescente nel precedente senso.
+\end{cor}
+
+\begin{cor} Se $f:I\to\R$ è derivabile e convessa, l'epigrafico di $f$ giace al di sopra di qualunque retta tangente, ossia 
+$$ \forall x,y\in I,\qquad f(x)\geq f(y) + f'(y)(x-y).$$
+\end{cor}
+
+\begin{cor} Una $f:I\to\R$ derivabile è convessa se e solo se $f'$ è debolmente crescente su $I$. 
+\end{cor}
+
+\begin{cor} Una $f:I\to\R$ derivabile due volte è convessa se e solo se $f''\geq 0$.\end{cor}
+
+\begin{theorem} Ogni $f:I\to\R$ continua e convessa per punti medi è convessa. 
+\end{theorem}
+\begin{proof} Ogni $y\in[x,z]$ può essere espresso come limite di una successione di combinazioni convesse $(1-\lambda_n)x+\lambda_n z$ dove $\lambda_n$ è un razionale diadico, ossia una frazione della forma $\frac{d}{2^m}$ con $d$ intero dispari e $m$ intero non negativo. Nelle ipotesi si ha pertanto che la disuguaglianza di Jensen per $\lambda=\frac{1}{2}$ comporta quella generale.
+\end{proof}
+
+Gli ultimi due risultati sono i principali strumenti per il riconoscimento della convessità di una funzione.\\
+E la convessità è la madre delle principali disuguaglianze, sia in Analisi che in Algebra.
+
+\begin{lemma}[Disuguaglianza di Jensen generalizzata] Se $f:I\to\R$ è convessa, per ogni $n$-upla $x_1,\ldots,x_n$\\ di elementi di $I$ e per ogni combinazione convessa di questi si ha 
+$$ f\left(\sum_{k=1}^{n}\lambda_k x_k\right)\leq \sum_{k=1}^{n}\lambda_k f(x_k) $$
+dove $\lambda_k\in[0,1]$ e $\sum_{k=1}^{n}\lambda_k = 1$. 
+\end{lemma}
+\begin{proof}
+ È sufficiente procedere per induzione su $n$ componendo più istanze della disuguaglianza di Jensen in forma standard.
+\end{proof}
+
+\begin{lemma}[Disuguaglianza di Jensen in forma integrale] Se $\varphi:\R\to\R$ è convessa e $f$ è continua su $[a,b]$ si ha 
+$$ \varphi\left(\frac{1}{b-a}\int_{a}^{b}f(x)\,dx\right) \leq \frac{1}{b-a}\int_{a}^{b}\varphi(f(x))\,dx.$$
+\end{lemma}
+\begin{proof} Segue dal risultato precedente interpretando gli integrali come limiti di somme di Riemann.\\ In Probabilità la disuguaglianza è spesso espressa in forma più concisa come $\varphi(\mathbb{E}[X])\leq \mathbb{E}[\varphi(X)]$. 
+\end{proof}
+
+\begin{ex}[AM-GM] Si dimostri che se $a_1,\ldots,a_n$ sono quantità positive si ha 
+$$ \text{AM}\left(a_1,\ldots,a_n\right) = \frac{1}{n}\sum_{k=1}^{n}a_k \geq \sqrt[n]{\prod_{k=1}^{n}a_k} = \text{GM}\left(a_1,\ldots,a_n\right). $$ 
+\end{ex}
+\textbf{Soluzione}. Posto $a_k = \exp\left(b_k\right)$ si ha che la disuguaglianza in questione è la disuguaglianza di Jensen generalizzata per $f(x)=e^x$ e $\lambda_1=\ldots=\lambda_n=\frac{1}{n}$. In particolare è sufficiente invocare il fatto che $e^x$ è una funzione convessa, poiché continua e convessa per punti medi, o poiché positiva e coincidente con la propria derivata seconda.\qed
+
+\begin{ex}[Cauchy-Schwarz] Si provi che per ogni $\vec{a},\vec{b}\in\R^n$ si ha $\langle \vec{a},\vec{b}\rangle^2 \leq \|\vec{a}\|^2\|\vec{b}\|^2$, ossia 
+$$ \left(\sum_{k=1}^{n} a_k b_k\right)^2 \leq \sum_{k=1}^{n} a_k^2 \sum_{k=1}^{n} b_k^2. $$
+\end{ex}
+\textbf{Soluzione}. La distanza dall'origine è una funzione convessa in quanto ha per epigrafico un cono. Ne consegue che 
+$$\forall \lambda\in[0,1],\qquad \|\lambda\vec{a}+(1-\lambda)\vec{b}\| \leq \lambda\|\vec{a}\|+(1-\lambda)\|\vec{b}\|. $$
+Elevando al quadrato ambo i membri (certamente non negativi) abbiamo che 
+$$ 2\lambda(1-\lambda)\langle\vec{a},\vec{b}\rangle\leq 2\lambda(1-\lambda)\|\vec{a}\|\|\vec{b}\|. $$
+A meno di rimpiazzare $\vec{a}$ con $-\vec{a}$ possiamo certamente supporre che $\langle\vec{a},\vec{b}\rangle$ sia non negativo, alché la tesi segue da un ulteriore elevamento al quadrato.\qed 
+
+\begin{ex}[Disuguaglianza tra le medie] Date $n$ quantità positive $a_1,\ldots,a_n$ definiamo la \emph{media di ordine $p>0$} di queste come 
+$$ M_p\left(a_1,\ldots,a_n\right) = \text{AM}\left(a_1^p,\ldots,a_n^p\right)^{1/p}.$$
+Si provi che se $p>q>0$ allora $M_p \geq M_q$. 
+\end{ex}
+\textbf{Soluzione}. A meno di opportune sostituzioni la disuguaglianza si rivela equivalente a $M_{p/q}\geq M_1$, che è immediata conseguenza della disuguaglianza di Jensen generalizzata per $f(x)=x^{p/q}$ (definita su $\R^+$) e $\lambda_1=\ldots=\lambda_n=\frac{1}{n}$.\qed
+
+
+
+\begin{theorem}[Disuguaglianza di Hermite-Hadamard]
+Se $f:[a,b]\to\mathbb{R}$ è una funzione convessa,
+$$ f\left(\frac{a+b}{2}\right) \leq \frac{1}{b-a}\int_{a}^{b}f(x)\,dx \leq \frac{f(a)+f(b)}{2}.$$
+\end{theorem}
+\begin{proof} La convessità di $f$ comporta la sua continuità su $(a,b)$, da cui la sua Riemann-integrabilità. A meno di rimpiazzare $f(x)$ con $f(x)+c$ possiamo assumere senza perdita di generalità che si abbia $f\geq 0$ su $[a,b]$. Sempre per convessità, il sottografico di $f$ su $[a,b]$ è contenuto all'interno del trapezio avente vertici in $(a,0),(b,0),(b,f(b)),(a,f(a))$, da cui la maggiorazione.
+E nuovamente per convessità, esiste una retta per $\left(\frac{a+b}{2},f\left(\frac{a+b}{2}\right)\right)$ che sull'intervallo $[a,b]$ giace al di sotto del grafico della funzione (se $f$ è derivabile nel punto medio dell'intervallo $[a,b]$, basta considerare la retta con coefficiente angolare $f'\left(\frac{a+b}{2}\right)$). L'area del trapezio delimitato dall'asse delle $x$, da $x=a$, da $x=b$ e dalla precedente retta ha area $(b-a)f\left(\frac{a+b}{2}\right)$, il che prova la minorazione.\end{proof}
+
+
+\begin{ex} Si fornisca una decorosa approssimazione numerica del valore della serie $$\zeta(2)=\sum_{n\geq 1}\frac{1}{n^2}.$$
+\end{ex}
+
+\textbf{Soluzione}. La funzione $f(x)=\frac{1}{x^2}$ è convessa su $\mathbb{R}^+$. Per Hermite-Hadamard
+$$ \frac{1}{n^2}\leq \int_{n-\frac{1}{2}}^{n+\frac{1}{2}}\frac{dx}{x^2}=\frac{1}{n-\frac{1}{2}}-\frac{1}{n+\frac{1}{2}} $$
+vale per ogni $n\in\mathbb{N}^+$, da cui
+$$\zeta(2)=\sum_{n\geq 1}\frac{1}{n^2}\leq 1+\int_{\frac{3}{2}}^{+\infty}\frac{dx}{x^2}=\frac{5}{3}, $$
+che è una stima piuttosto accurata della serie.\qed
+
+
+
+Oltre che nella fabbricazione di stime accurate, la convessità è di grande ausilio in molte altre circostanze: la \emph{Lemmata} conclusiva di questa sezione è lasciata come esercizio. Come prima, supponiamo tacitamente che $f:I\to\R$ sia convessa.\\
+
+
+
+\textbf{Considerazioni di rilievo}. 
+\begin{itemize}
+ \item $f$ assume massimo negli estremi di $I$.
+ \item Se $I$ è chiuso l'insieme dei punti di minimo di $f$ su $I$ è un convesso.\\ Più in generale, è convesso qualunque sottolivello non vuoto.
+ \item L'equazione $f(x)=\kappa$ ha al più due soluzioni distinte in $I$.
+ \item Se $f$ è composta o sommata a qualunque altra funzione convessa resta convessa.
+\end{itemize}
+
+
+
+
 \subsection{Teorema di Taylor e resto integrale}
 Sia $I$ un intorno aperto dell'origine e $f$ una funzione di classe $C^d$ su $I$, con $d\geq 1$. Per un qualunque $t\in I$, possiamo considerare che l'applicazione della formula di integrazione produce quanto segue:
 
@@ -1172,7 +1284,7 @@ $$ \log(x) > \frac{6(x-1)}{1+x+4\sqrt{x}}. $$
 \item per l'invarianza del determinante sotto mosse di Gauss, la risoluzione del precedente problema esplicita il rapporto tra $\det H^{(n)}$ e $\det H^{(n-1)}$.
 \end{itemize}
 
-Infine tre simulazioni di pre-test, con soluzioni allegate:\\
+Infine quattro simulazioni di pre-test, con soluzioni allegate:\\
 
 \textbf{Simulazione di pre-test \#1}, \url{https://mathb.in/76160}, soluzioni presso \url{https://mathb.in/76167}\\
 \textbf{Simulazione di pre-test \#2}, \url{https://mathb.in/76170}, soluzioni presso \url{https://mathb.in/76175}\\
