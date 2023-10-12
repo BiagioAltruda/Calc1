@@ -748,57 +748,6 @@ $$\binom{n+1}{r+1}=\sum_{j=r}^{n}\binom{j}{r}$$
  Fissato $r$, è sufficiente procedere per induzione su $n$. In alternativa, è sufficiente catalogare i sottoinsiemi di taglia $r+1$ di $\{1,2,\ldots,n+1\}$ in base al loro elemento massimo.
 \end{proof}
 
-
-\section{Integrale di Riemann}
-\begin{definizione}[Partizione] Dato un intervallo chiuso e limitato della retta reale $[a,b]$, una qualunque sequenza 
-$$ a=a_0 < a_1 < \ldots < a_n = b $$
-definisce una \textbf{partizione} di $[a,b]$:
-$$ [a,b]=\bigcup_{k=1}^{n} I_k,\qquad I_k=[a_{k-1},a_{k}]. $$ 
-\end{definizione}
-\begin{definizione}[Calibro o finezza] Il \emph{calibro} o \emph{finezza} di una partizione è la massima lunghezza degli intervalli che costituiscono la partizione. 
-\end{definizione}
-\begin{definizione}[Ordinamento parziale delle partizioni] Date due partizioni $\mathcal{P}_1$ e $\mathcal{P}_2$ dello stesso intervallo, diciamo che $\mathcal{P}_1$ \emph{è più fine} di $\mathcal{P}_2$, in simboli $\mathcal{P}_1 \geq \mathcal{P}_2$, se gli estremi degli intervalli di $\mathcal{P}_1$ costituiscono una sottosequenza degli estremi degli intervalli di $\mathcal{P}_2$. Questo definisce una relazione d'ordine parziale sull'insieme delle partizioni: date due distinte partizioni $\mathcal{P}_1,\mathcal{P}_2$, non è detto che $\mathcal{P}_1$ sia più fine di $\mathcal{P}_2$ o viceversa. Tuttavia, date due distinte partizioni $\mathcal{P}_1,\mathcal{P}_2$, esiste sempre una partizione $\mathcal{P}_3$ più fine di entrambe: è sufficiente prendere gli estremi degli intervalli di $\mathcal{P}_3$ come quelle quantità che sono un estremo di un intervallo di $\mathcal{P}_1$ o (inclusivo) di $\mathcal{P}_2$.
-\end{definizione}
-
-
-L'\textbf{integrale di Riemann} in senso proprio si definisce a partire da $f:[a,b]\to\R$ limitate.
-
-\begin{definizione}[Somme di Riemann superiori e inferiori]
-Data una $f$ siffatta e una partizione $\mathcal{P}=\bigcup_{k=1}^{n}I_k$ di $[a,b]$, definiamo la \textbf{somma di Riemann superiore} $S^+_{\mathcal{P}}(f)$ e la  \textbf{somma di Riemann inferiore} $S^-_{\mathcal{P}}(f)$ nel seguente modo:
-
-$$ S^+_{\mathcal{P}}(f) = \sum_{k=1}^{n} \mu(I_k) \sup_{x\in I_k} f(x), \qquad S^-_{\mathcal{P}}(f) = \sum_{k=1}^{n} \mu(I_k) \inf_{x\in I_k} f(x)$$
-dove $\mu(I_k)$ denota la lunghezza di $I_k$, ossia $a_{k}-a_{k-1}$.
-\end{definizione}
-
-Seguono alcuni lemmi di immediata dimostrazione ma di cruciale importanza:
-\begin{itemize}
- \item Per qualunque partizione $\mathcal{P}$ si ha $S^+_{\mathcal{P}}\geq S^-_{\mathcal{P}}$
- \item Se $\mathcal{P}_2$ è più fine di $\mathcal{P}_1$, $S^+_{\mathcal{P}_2} \leq S^+_{\mathcal{P}_1}$
- \item  Se $\mathcal{P}_2$ è più fine di $\mathcal{P}_1$, $S^-_{\mathcal{P}_2} \geq S^+_{\mathcal{P}_1}$
-\end{itemize}
-
-\begin{definizione}[Integrale di Riemann]
-I precedenti lemmi comportano l'esistenza e la finitezza sia di $\sup_{\mathcal{P}}S^-_{\mathcal{P}}$, detto \emph{integrale di Riemann inferiore}, che di $\inf_{\mathcal{P}}S^+_{\mathcal{P}}$, detto \emph{integrale di Riemann superiore}. È automatico che l'integrale di Riemann inferiore sia $\leq$ dell'integrale di Riemann superiore, ma non è affatto automatico che tali quantità coincidano. Se coincidono, $f$ è detta \emph{Riemann-integrabile} su $[a,b]$ e il valore di $\sup_{\mathcal{P}}S^-_{\mathcal{P}}=\inf_{\mathcal{P}}S^+_{\mathcal{P}}$ è denotato come 
-$$ \int_{a}^{b} f(x)\,dx. $$
-\end{definizione}
-
-\begin{theorem} Ogni $f\in C^0([a,b])$ è Riemann-integrabile su $[a,b]$ e realizza 
-$$ \int_{a}^{b} f(x)\,dx = \lim_{N\to +\infty}\frac{b-a}{N}\sum_{k=1}^{N}f\left(a+\frac{k}{N}(b-a)\right) = \lim_{N\to +\infty}\frac{b-a}{N}\sum_{k=0}^{N-1}f\left(a+\frac{k}{N}(b-a)\right).$$
-\end{theorem}
-\begin{proof} Per Heine-Cantor $f$ è uniformemente continua su $[a,b]$, ossia per ogni $\epsilon > 0$ esiste un $\delta > 0$ che assicura 
-$$ |x_1-x_2|\leq \delta\quad\Longrightarrow\quad |f(x_1)-f(x_2)|\leq \varepsilon.$$
-Per qualunque partizione $\mathcal{P}$ di calibro $\leq \delta$ si ha pertanto che 
-$$ S^+_{\mathcal{P}}- S^-_{\mathcal{P}} = \sum_{k=1}^{n}\mu(I_k)\left(\sup_{x\in I_k}f(x)-\inf_{x\in I_k}f(x)\right)= \sum_{k=1}^{n}\mu(I_k)\left(\max_{x\in I_k}f(x)-\min_{x\in I_k}f(x)\right)\leq \sum_{k=1}^{n}\mu(I_k)\epsilon = \epsilon (b-a). $$
-Data l'arbitrarietà di $\epsilon$ si ha che l'integrale di Riemann inferiore e l'integrale di Riemann superiore hanno distanza arbitrariamente piccola, cioè nulla, visto che $\R$ è un campo archimedeo, dunque privo di infinitesimi. Ciò comporta la Riemann-integrabilità di $f$. L'uniforme continuità di $f$ comporta anche che l'integrale $\int_{a}^{b} f(x)\,dx$ coincida con il $\sup_{\mathcal{P}\in U} S^-_{\mathcal{P}}$ e con l'$\inf_{\mathcal{P}\in U} S^+_{\mathcal{P}}$ sull'insieme $U$ delle \emph{partizioni uniformi}, ossia quelle in cui tutti gli intervalli hanno lunghezza pari al calibro. All'interno dell'insieme di queste partizioni, nuovamente per uniforme continuità di $f$, sia 
-
-$$ S^+_{\mathcal{P}}-\sum_{k=1}^{n}\mu(I_k) f(\max I_k)\quad\text{che}\quad S^-_{\mathcal{P}}-\sum_{k=1}^{n}\mu(I_k) f(\min I_k) $$
-possono essere resi arbitrariamente vicini a zero in modulo. Questo prova le ultime due uguaglianze. 
-\end{proof}
-
-
-
-
-
     \section{Criteri e Metodi per Serie Numeriche}
     \subsection{Serie Importanti}
 Seguono le più importanti Serie Numeriche convergenti, utili nella stima di altre serie e nella verifica della loro convergenza.\\
@@ -916,9 +865,98 @@ Questo torna utile in quanto è moderatamente comune sostituire ad una funzione 
 \subsection{Creatività e Serie Telescopiche}
 Un metodo importante è quello di trasformare Serie apparentemente complesse in Serie Telescopiche o combinazioni lineari di serie telescopiche.
 Tipicamente per questo tipo di lavoro bisogna farci l'occhio e sapere un po' dove mettere le mani, ma diventa abbastanza intuitivo velocemente.\\ (serve appunto un po' di creatività)\\
+\newpage
+\section{Integrazione secondo Riemann}
+Questo paragrafo, dopo un breve recap, si concentrerà nell'illustrare degli integrali più complessi e meritevoli di particolare attenzione, oltre che a tecniche di integrazione un po' più oscure. Ad avviso mio e di Jack, i metodi che mostreremo sono abbastanza importanti da avere a portata di mano in caso di necessità. Alcuni argomenti che saranno trattati sono l'utilizzo della convergenza dominata (vedere paragrafo sui criteri delle serie), Integrali complessi, \emph{abuso} di rappresentazioni integrali etc.
+\begin{definizione}[Partizione] Dato un intervallo chiuso e limitato della retta reale $[a,b]$, una qualunque sequenza 
+$$ a=a_0 < a_1 < \ldots < a_n = b $$
+definisce una \textbf{partizione} di $[a,b]$:
+$$ [a,b]=\bigcup_{k=1}^{n} I_k,\qquad I_k=[a_{k-1},a_{k}]. $$ 
+\end{definizione}
+\begin{definizione}[Calibro o finezza] Il \emph{calibro} o \emph{finezza} di una partizione è la massima lunghezza degli intervalli che costituiscono la partizione. 
+\end{definizione}
+\begin{definizione}[Ordinamento parziale delle partizioni] Date due partizioni $\mathcal{P}_1$ e $\mathcal{P}_2$ dello stesso intervallo, diciamo che $\mathcal{P}_1$ \emph{è più fine} di $\mathcal{P}_2$, in simboli $\mathcal{P}_1 \geq \mathcal{P}_2$, se gli estremi degli intervalli di $\mathcal{P}_1$ costituiscono una sottosequenza degli estremi degli intervalli di $\mathcal{P}_2$. Questo definisce una relazione d'ordine parziale sull'insieme delle partizioni: date due distinte partizioni $\mathcal{P}_1,\mathcal{P}_2$, non è detto che $\mathcal{P}_1$ sia più fine di $\mathcal{P}_2$ o viceversa. Tuttavia, date due distinte partizioni $\mathcal{P}_1,\mathcal{P}_2$, esiste sempre una partizione $\mathcal{P}_3$ più fine di entrambe: è sufficiente prendere gli estremi degli intervalli di $\mathcal{P}_3$ come quelle quantità che sono un estremo di un intervallo di $\mathcal{P}_1$ o (inclusivo) di $\mathcal{P}_2$.
+\end{definizione}
+L'\textbf{integrale di Riemann} in senso proprio si definisce a partire da $f:[a,b]\to\R$ limitate.
 
-\section{Integrazione}
-Questo paragrafo, dopo un breve recap, si concentrerà nell'illustrare degli integrali più complessi e meritevoli di particolare attenzione, oltre che a tecniche di integrazione un po' più oscure. Ad avviso mio e di Jack, i metodi che mostreremo sono abbastanza importanti da avere a portata di mano in caso di necessità. Alcuni argomenti che saranno trattati sono l'utilizzo della convergenza dominata (vedere paragrafo sui criteri delle serie), Integrali complessi, abuso di rappresentazioni integrali etc.
+\begin{definizione}[Somme di Riemann superiori e inferiori]
+Data una $f$ siffatta e una partizione $\mathcal{P}=\bigcup_{k=1}^{n}I_k$ di $[a,b]$, definiamo la \textbf{somma di Riemann superiore} $S^+_{\mathcal{P}}(f)$ e la  \textbf{somma di Riemann inferiore} $S^-_{\mathcal{P}}(f)$ nel seguente modo:
+
+$$ S^+_{\mathcal{P}}(f) = \sum_{k=1}^{n} \mu(I_k) \sup_{x\in I_k} f(x), \qquad S^-_{\mathcal{P}}(f) = \sum_{k=1}^{n} \mu(I_k) \inf_{x\in I_k} f(x)$$
+dove $\mu(I_k)$ denota la lunghezza di $I_k$, ossia $a_{k}-a_{k-1}$.
+\end{definizione}
+
+Seguono alcuni lemmi di immediata dimostrazione ma di cruciale importanza:
+\begin{itemize}
+ \item Per qualunque partizione $\mathcal{P}$ si ha $S^+_{\mathcal{P}}\geq S^-_{\mathcal{P}}$
+ \item Se $\mathcal{P}_2$ è più fine di $\mathcal{P}_1$, $S^+_{\mathcal{P}_2} \leq S^+_{\mathcal{P}_1}$
+ \item  Se $\mathcal{P}_2$ è più fine di $\mathcal{P}_1$, $S^-_{\mathcal{P}_2} \geq S^+_{\mathcal{P}_1}$
+\end{itemize}
+
+\begin{definizione}[Integrale di Riemann]
+I precedenti lemmi comportano l'esistenza e la finitezza sia di $\sup_{\mathcal{P}}S^-_{\mathcal{P}}$, detto \emph{integrale di Riemann inferiore}, che di $\inf_{\mathcal{P}}S^+_{\mathcal{P}}$, detto \emph{integrale di Riemann superiore}. È automatico che l'integrale di Riemann inferiore sia $\leq$ dell'integrale di Riemann superiore, ma non è affatto automatico che tali quantità coincidano. Se coincidono, $f$ è detta \emph{Riemann-integrabile} su $[a,b]$ e il valore di $\sup_{\mathcal{P}}S^-_{\mathcal{P}}=\inf_{\mathcal{P}}S^+_{\mathcal{P}}$ è denotato come 
+$$ \int_{a}^{b} f(x)\,dx. $$
+\end{definizione}
+
+\begin{theorem} Ogni $f\in C^0([a,b])$ è Riemann-integrabile su $[a,b]$ e realizza 
+$$ \int_{a}^{b} f(x)\,dx = \lim_{N\to +\infty}\frac{b-a}{N}\sum_{k=1}^{N}f\left(a+\frac{k}{N}(b-a)\right) = \lim_{N\to +\infty}\frac{b-a}{N}\sum_{k=0}^{N-1}f\left(a+\frac{k}{N}(b-a)\right).$$
+\end{theorem}
+\begin{proof} Per Heine-Cantor $f$ è uniformemente continua su $[a,b]$, ossia per ogni $\epsilon > 0$ esiste un $\delta > 0$ che assicura 
+$$ |x_1-x_2|\leq \delta\quad\Longrightarrow\quad |f(x_1)-f(x_2)|\leq \varepsilon.$$
+Per qualunque partizione $\mathcal{P}$ di calibro $\leq \delta$ si ha pertanto che 
+$$ S^+_{\mathcal{P}}- S^-_{\mathcal{P}} = \sum_{k=1}^{n}\mu(I_k)\left(\sup_{x\in I_k}f(x)-\inf_{x\in I_k}f(x)\right)= \sum_{k=1}^{n}\mu(I_k)\left(\max_{x\in I_k}f(x)-\min_{x\in I_k}f(x)\right)\leq \sum_{k=1}^{n}\mu(I_k)\epsilon = \epsilon (b-a). $$
+Data l'arbitrarietà di $\epsilon$ si ha che l'integrale di Riemann inferiore e l'integrale di Riemann superiore hanno distanza arbitrariamente piccola, cioè nulla, visto che $\R$ è un campo archimedeo, dunque privo di infinitesimi. Ciò comporta la Riemann-integrabilità di $f$. L'uniforme continuità di $f$ comporta anche che l'integrale $\int_{a}^{b} f(x)\,dx$ coincida con il $\sup_{\mathcal{P}\in U} S^-_{\mathcal{P}}$ e con l'$\inf_{\mathcal{P}\in U} S^+_{\mathcal{P}}$ sull'insieme $U$ delle \emph{partizioni uniformi}, ossia quelle in cui tutti gli intervalli hanno lunghezza pari al calibro. All'interno dell'insieme di queste partizioni, nuovamente per uniforme continuità di $f$, sia 
+
+$$ S^+_{\mathcal{P}}-\sum_{k=1}^{n}\mu(I_k) f(\max I_k)\quad\text{che}\quad S^-_{\mathcal{P}}-\sum_{k=1}^{n}\mu(I_k) f(\min I_k) $$
+possono essere resi arbitrariamente vicini a zero in modulo. Questo prova le ultime due uguaglianze. 
+\end{proof}
+\begin{definizione}
+    Sia $X$ un intervallo di $\R$, e sia $f:X\to\R$ una funzione. Si dice che $F:X\to\R$ è una primitiva di $f$ in $X$ se per ogni $x\in X$ $F$ è derivabile e $F-(x)=f(x)$ e si denota con $$\int f = F$$
+\end{definizione}
+\begin{theorem}
+Le primitive di funzioni integrabili secondo Riemann godono delle seguenti proprietà:
+\begin{itemize}
+    \item $$\int_{\R} (f+g)= \int_{\R} f + \int_{\R} g \quad \forall f,g$$
+    \item $$\int_{\R}(\alpha f)=\alpha\int_{\R} f \quad \forall f\quad\forall\alpha\in\R$$
+    \item $$\text{se } f\leq g \Rightarrow \int_{\R}f\leq \int_{\R}g$$
+\end{itemize}
+Questo si traduce nel fatto che l'operatore $\int$ è \emph{lineare}, e \emph{monotono}.
+\end{theorem}
+\begin{theorem}
+    Sia $[a,b]\in\R$ un intervallo e sia $f:[a,b]\in\R$ Riemann integrabile in $[a,b]$ e sia $c\in[a,b]$ fissato. Vale che:\\
+    1) la funzione integrale di $f$ di punto iniziale $c$, $\int_c^xf(t)dt$ è localmente lipschitziana e quindi continua in $[a,b]$ \\
+    2) (Torricelli) Se $f$ è continua in $x\in[a,b]$ allora $\int_c^xf(t)dt$ è derivabile in $x$ e si ha: $$\left(\int_c^xf(t)dt\right)' =f(x)$$
+\end{theorem}
+\begin{proof}
+    Iniziamo a dimostrare la continuità. Sia $[a,b]$ un intervallo fissato, sia $\lambda=sup{|f(x)|\quad |\quad x\in[a.b]}$. Mostriamo che $\lambda$ è la costante di lipschitz cercata su $[a,b]$:
+    $$\left|\int_c^xf(x_2)dx-\int_c^xf(x_1)dx\right|=\left|\int_{x_1}^{x_2}f(t)dt\right|\leq\left|\int_{x_1}^{x_2}|f(t)|dt\right|\leq\left|\int_{x_1}^{x_2}\lambda dt\right|$$ \\
+    $$=\lambda|x_2-x_1|$$
+    Introduciamo per semplicità la notazione: $\int_c^xf(t)dt=I_cf(t)$ \\
+    Per quanto riguarda la parte dovuta a Torricelli bisogna provare che: 
+    $$\lim_{h\to x}\left|\frac{I_cf(h)-I_cf(x)}{h-x}-f(x)\right|=0$$
+    Bisogna quindi dimostrare che fissato $\epsilon>0$ esiste $\delta>0$ tali che:
+    $$\left|\frac{I_cf(h)-I_cf(x)}{h-x}-f(x)\right|\leq\epsilon\quad &\text{ se } & 0<|h-x|\leq\delta, h\in[a,b]$$
+    $I_cf(h)-I_cf(x)$ si può scrivere come $\int_x^hf(t)dt$, inoltre 
+    $$f(x)=f(x)\cdot 1 = f(x)\left(\frac{1}{h-x}\int_x^h dt\right)=\frac{1}{h-x}\int_x^hf(x)dt$$
+    Essendo $f(x)$ costante rispetto alla variabile di integrazione $t$ si ha che:
+    $$\left|\frac{I_cf(h)-I_cf(x)}{h-x}-f(x)\right|=\left|\frac{1}{h-x}\int_x^hf(t)dt -\frac{1}{h-x}\int_x^hf(x)dt\right|$$
+    $$=\frac{1}{|h-x|}\left|\int_x^h(f(t)-f(x)dt\right|\leq\frac{1}{|h-x|}\left|\int_x^h|(f(t)-f(x)|dt\right|$$.
+    Essendo $f$ per ipotesi continua in $x$ vale che $|f(h)-f(x)\leq\epsilon$ se $h\in[a,b]$ tale che $0<h-x\leq\delta$. Si ha quindi:
+    $$\frac{1}{|h-x|}\left|\int_x^h|(f(t)-f(x)|dt\right|\leq\frac{1}{|h-x|}\left|\int_x^h\epsilon dt\right|=\frac{1}{|h-x|}\epsilon|h-x|=\epsilon$$
+\end{proof}
+Dopo tutta questa fatica, almeno, il teorema seguente è gratuito.
+\begin{theorem}[Teorema Fondamentale del Calcolo Integrale]
+Sia $[a,b]$ in $\R$ un intervallo e sia $f:[a,b]\to\R$ una funzione integrabile secondi Riemann. Allora l'insieme degli integrali indefiniti di $f$ coincide con l'insieme delle primitive di $f$ ovvero: $$F(x)=c+\int_c^x f(t)dt$$    
+\end{theorem}
+\begin{proof}
+    Sia $c\in [a,b]$ ho che $\int_{a}^{b}f = F + c$, e differisce da tutte le altre primitive per una costante, per la continuita di $f$ e per il punto 2 del teorema precedente concludo.
+\end{proof}
+Tra i vari metodi per calcolare le primitive di una funzione torna spesso utile manipolarla per avere una forma più facile da maneggiare. Ci si appoggia quindi al
+\begin{theorem}[Cambio di Variabile]
+    Se $F:X\to\R$ e $\phi:T\to X$ sono di classe $C^1$, si ha che $f\circ\phi:T\to\R$ è di classe $C^1$, e che $(F\cicl\phi)'(t)=F'(\phi(t))\phi'(t)$.
+    E dunque, sia $f:X\to\R$ continua si ha che
+    $$\left(\int f(x)dx\right) \circ \phi(t)= \int f\circ\phi(t)\phi'(t)\quad \forall t\in T$$
+\end{theorem}
 \subsection{Sostituzioni da ricordare}
 Nella pratica è piuttosto frequente imbattersi in integrali dove la funzione integranda coinvolge la radice quadrata di un polinomio di secondo grado. A seconda che tale polinomio abbia discriminante positivo o negativo è opportuno ricordare alcune sostituzioni notevoli.
 \begin{itemize}
@@ -942,7 +980,7 @@ $$ \frac{1}{6}\left(\arcsinh{1}+\cosh(\arcsinh{1})\right) = \frac{\sqrt{2}+\arcs
 \subsection{Integrazione per Parti}
 Nell'ipotesi che le funzioni integrande in ambo i membri siano continue su $[a,b]$ si ha che 
 $$ \int_{a}^{b} f(x)g(x) = \left[ F(x)g(x)\right]_{a}^{b}-\int_{a}^{b} F(x)g'(x)\,dx $$
-dove $F(x)$ denota \emph{una} primitiva (alias antiderivata) di $f(x)$.
+dove $F(x)$ denota \emph{una} primitiva di $f(x)$.
 \begin{ex} Si dimostri che per ogni $t\in\R^+$ la quantità 
 $$ \int_{0}^{t}\frac{\sin x}{x}\,dx $$
 è positiva. 
@@ -950,10 +988,6 @@ $$ \int_{0}^{t}\frac{\sin x}{x}\,dx $$
 \textbf{Soluzione}. Scegliendo $1-\cos x = 2\sin^2\frac{x}{2}$ come antiderivata del seno ed applicando integrazione per parti si ha che 
 $$ \int_{0}^{t}\frac{\sin x}{x}\,dx = \frac{1-\cos t}{t}+2\int_{0}^{t}\left(\frac{\sin\frac{x}{2}}{x}\right)^2\,dx $$
 dove il primo addendo nel membro destro è sicuramente non negativo e il secondo addendo è sicuramente positivo.
-
-
-
-
 
 \subsection{Un Caso Interessante}
 Seguono gli integrali delle potenze del coseno, \emph{talvolta} utili:
