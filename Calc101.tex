@@ -1115,7 +1115,16 @@ $$ \lim_{M\to +\infty} \int_{a}^{b} f_M(x)\,dx, $$
 posto ovviamente che tale limite esista.\\
 
 \textbf{Caso \#3: funzione illimitata su dominio illimitato}, $\int_{0}^{+\infty}\frac{dx}{e^x\sqrt{x}}$.\\
-In questo caso combiniamo le precedenti estensioni: è un esercizio tedioso ma non difficile verificare che l'esito è il medesimo indipendentemente dalla scelta di approssimare per primo il dominio di integrazione o la funzione integranda.
+In questo caso combiniamo le precedenti estensioni: è un esercizio tedioso ma non difficile verificare che l'esito è il medesimo indipendentemente dalla scelta di approssimare per primo il dominio di integrazione o la funzione integranda.\\
+
+Un ulteriore esercizio tedioso è verificare che restano valide le meccaniche di integrazione per parti o mediante sostituzioni, ma l'integrale di Riemann in senso improprio non coincide necessariamente con il limite delle somme di Riemann, come evidenziato nell'esercizio \textbf{J33}.
+
+\begin{ex}[Integrale di Fresnel] Si dimostri che la funzione $f(x)=\sin(x^2)$ è impropriamente Riemann-integrabile su $\R^+$ e si determini esplicitamente il valore dell'integrale. 
+\end{ex}
+\textbf{Soluzione}. La sostituzione $x=\sqrt{t}$ conduce a 
+$$ I=\int_{0}^{+\infty}\sin(x^2)\,dx = \frac{1}{2}\int_{0}^{+\infty}\frac{\sin t}{\sqrt{t}}\,dt $$ 
+dove l'ultimo integrale esiste finito per il criterio di Abel-Dirichlet. Esprimendo $\frac{1}{\sqrt{t}}$ come $\int_{0}^{+\infty}\frac{1}{\sqrt{\pi x}} e^{-tx}\,dx$ ed invocando il Teorema di Fubini abbiamo inoltre che 
+$$ I = \frac{1}{2\sqrt{\pi}}\int_{0}^{+\infty}\frac{1}{\sqrt{x}}\int_{0}^{+\infty}\sin(t)e^{-tx}\,dt \,dx = \frac{1}{2\sqrt{\pi}}\int_{0}^{+\infty}\frac{dx}{(x^2+1)\sqrt{x}}\stackrel{x\mapsto z^2}{=}\frac{1}{\sqrt{\pi}}\int_{0}^{+\infty}\frac{dz}{z^4+1}={\color{blue}\sqrt{\frac{\pi}{8}}}. $$
 
 \section{Successioni per ricorrenza}
 Lo studio di successioni in cui il termine generale $a_n$ dipende in qualche modo dai precedenti è di fondamentale importanza non solo dal punto di vista strettamente teorico, ma anche da quello fisico-ingegneristico, visto che è piuttosto raro essere in grado di ricostruire esplicitamente la soluzione di un'equazione differenziale, ma si hanno migliori chances di successo nella trattazione (eventualmente numerica) dei corrispondenti problemi \emph{linearizzati} o altrimenti \emph{discretizzati}. Il primo caso che ci apprestiamo a trattare è quello delle successioni per ricorrenza \emph{lineari} ed \emph{autonome}, dove il termine generale $a_n$ è una fissata combinazione lineare dei precedenti $k$ termini.
@@ -1150,6 +1159,13 @@ Gli ultimi due approcci sono immediatamente generalizzabili al caso in cui una s
 \begin{ex} La successione $\{a_n\}_{n\geq 0}$ è definita dalla condizioni iniziali $a_0=1, a_1=2, a_2=5$ e dalla ricorrenza $a_{n+3}=3 a_{n+2}-4 a_n$, valida per ogni $n\in\N$. Si determini un'espressione esplicita del termine generale. 
 \end{ex}
 
+\textbf{Soluzione}. Il polinomio caratteristico della ricorrenza è $p(x)=x^3-3x^2+4=(x-2)^2(x+1)$, dunque le successioni $b_n=2^n$ e $c_n=(-1)^n$ soddisfano la ricorrenza. Due elementi non sono sufficienti a generare uno spazio vettoriale di dimensione $3$, ma il ``terzo escluso'' può essere facilmente determinato considerando che la matrice compagna del polinomio $p(x)$ è simile a 
+$$\begin{pmatrix} 2 & 1 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & -1\end{pmatrix}, $$
+dunque lo spazio vettoriale è generato da $2^n, n 2^n$ e $(-1)^n$ e $a_n = A 2^n + B n 2^n + C(-1)^n$ con 
+$$\left\{\begin{array}{rcl}A+C&=& 1 \\ 2A+2B-C&=& 2 \\ 4A+8B+C&=&5\end{array}\right. $$
+che conduce a $A=\frac{8}{9}$, $B=\frac{1}{6}$, $C=\frac{1}{9}$.\qed
+
+\newpage
 
 \section{Equazioni Differenziali}
 Per il Teorema Fondamentale del Calcolo Integrale (T.F.C.I.) possiamo risalire alla funzione $u(t)$ se se ne conosce la derivata, infatti l'equazione $$u'(t)=f(t)$$ ha soluzione $$u(t)=\int_{a}^{t}f(s)ds$$
@@ -1549,6 +1565,8 @@ Formula di \textbf{Taylor con resto integrale} - \href{https://www2.math.upenn.e
 \textbf{Prodotti di Wallis, Weierstrass ed Eulero} - \url{https://mathb.in/75959}
 
 \textbf{Approssimazione di Stirling} - \url{https://mathb.in/75976}
+
+\textbf{Funzione Gamma di Eulero} - \href{https://quisirisolve.com/analisi-matematica/funzioni-speciali/funzione-gamma-di-eulero/teoria-ed-esercizi-sulla-funzione-gamma-di-eulero/}{Note di Jack per quisirisolve.it}
 
 
 \subsection{Riferimenti bibliografici}
