@@ -316,15 +316,15 @@ $$|z-x|<\delta\Longrightarrow|f(z)-f(x)|<\epsilon.$$
 \end{proof}
 
 
-\begin{definizione}[Modulo di Continuità]
-Sia $f:(a,b)\to\R$ una funzione a valori in $\R$, e sia $\delta$ un numero reale positivo. Si definisce Modulo di Continuità locale di $f$ in $x_0$ una funzione $\omega_0:\R^+\to\R^+$  tale che:\\
+\begin{definizione}[Modulo di continuità]
+Sia $f:(a,b)\to\R$ una funzione a valori in $\R$, e sia $\delta$ un numero reale positivo. Si definisce \emph{modulo di continuità} locale di $f$ in $x_0$ una funzione $\omega_0:\R^+\to\R^+$  tale che:\\
 $$|f(x_0)-f(x)|\leq\omega_{x_0}(\delta),\forall x\in(a,b):|x_0-x|\leq\delta$$ è detto modulo di continuità globale invece:
 $$|f(x_0)-f(x)|\leq\omega_{x_0}(\delta),\forall x,x_0\in(a,b):|x_0-x|\leq\delta$$
 \end{definizione}
 
 
 
-Il modulo di Continuità misura l'uniforme continuità di $f$, in particolare valgono le seguenti proprietà:
+Il modulo di continuità misura l'uniforme continuità di $f$, in particolare valgono le seguenti proprietà:
 \begin{itemize}
  \item $f$ è continua in $x_0$ se e solo se essa ammette un modulo di continuità locale $\omega_{x_0}$ tale che $\lim_{\delta\to0}\omega_{x_0}(\delta)=0$
  \item una funzione è uniformemente continua se e solo se ammette un modulo di continuità globale $\omega_f$ tale che $\lim_{\delta\to 0}\omega_f(\delta)=0$
@@ -353,15 +353,15 @@ Sia $X$ un insieme e sia $d:X \times X\to [0,+\infty]$ una funzione che ad ogni 
 \item $d(x,y)=d(y,x)\quad\forall x,y\in X$
 \item $d(x,y)\leq d(x,z)+d(z,y)\quad\forall x,y,z\in X$
 \end{itemize}
-L'ultima condizione prende il nome di \textbf{Disuguaglianza Triangolare}.\\
-La coppia $(X,d)$ si dice \textbf{Spazio Metrico} se $d$ è una distanza (o metrica).
+L'ultima condizione prende il nome di \textbf{disuguaglianza triangolare}.\\
+La coppia $(X,d)$ si dice \textbf{spazio metrico} se $d$ è una distanza (o metrica).
 
 \begin{definizione}[Intorno circolare]
 Per ogni $x_0\in X$ e per ogni $r>0$, si chiama Intorno Circolare (Intorno Sferico o Palla Aperta) di centro $x_0$ e di raggio $r$ l'insieme $$B_r(x_0)=\{x\in X: d(x,x_0)<r\}.$$
 \end{definizione}
 
 \begin{definizione}[Aperti e Topologia]
-Un insieme $A\subseteq X$ Si dice aperto se ogni suo punto è centro di una palla aperta contenuta in $A$, cioè se per ogni suo punto $x_0\in A$ esiste $r>0$ tale che $B_r(x_0)\subseteq A$ (si assume il vuoto come un insieme aperto). Un insieme $C\subseteq X$ si dice chiuso se il suo complementare, $A=X\setminus C$ è aperto. L'insieme di tutti gli aperti di uno spazio metrico $(X,d)$ si dice \textbf{Topologia Generata dalla metrica $d$}.
+Un insieme $A\subseteq X$ Si dice aperto se ogni suo punto è centro di una palla aperta contenuta in $A$, cioè se per ogni suo punto $x_0\in A$ esiste $r>0$ tale che $B_r(x_0)\subseteq A$ (si assume il vuoto come un insieme aperto). Un insieme $C\subseteq X$ si dice chiuso se il suo complementare, $A=X\setminus C$ è aperto. L'insieme di tutti gli aperti di uno spazio metrico $(X,d)$ si dice \textbf{topologia generata dalla metrica $d$}.
 \end{definizione}
 
 \textbf{Proposizione}. In uno spazio metrico, tutti le palle aperte, le unioni arbitrarie di aperti e le intersezioni finite di aperti sono aperte.\\
@@ -791,7 +791,7 @@ $$\sum_{n=0}^{N}\left(a_n - a_{n+1}\right) = a_0 - a_{N+1}$$
 per massiccia cancellazione: il membro sinistro corrisponde alla differenza tra la prima quantità sommata e l'ultima quantità sottratta.
 
 \subsection{Criteri}
-Seguiranno i principali criteri di convergenza per le Serie.
+Seguiranno i principali criteri di convergenza per le serie.
 \subsubsection{Serie a termini definitivamente non negativi}
 \textbf{Criterio del Confronto} \\
 Sia
@@ -883,6 +883,7 @@ Questo torna utile in quanto è moderatamente comune sostituire ad una funzione 
 \subsection{Creatività e Serie Telescopiche}
 Un metodo importante è quello di trasformare Serie apparentemente complesse in Serie Telescopiche o combinazioni lineari di serie telescopiche.
 Tipicamente per questo tipo di lavoro bisogna farci l'occhio e sapere un po' dove mettere le mani, ma diventa abbastanza intuitivo velocemente.\\ (serve appunto un po' di creatività)\\
+\textsc{Ce lo mettiamo qualche esempio, Biagio? Così il paragrafo è sufficientemente vago da risultare circa inutile.}
 \newpage
 \section{Integrazione secondo Riemann}
 Questo paragrafo, dopo un breve recap, si concentrerà nell'illustrare degli integrali più complessi e meritevoli di particolare attenzione, oltre che a tecniche di integrazione un po' più oscure. Ad avviso mio e di Jack, i metodi che mostreremo sono abbastanza importanti da avere a portata di mano in caso di necessità. Alcuni argomenti che saranno trattati sono l'utilizzo della convergenza dominata (vedere paragrafo sui criteri delle serie), Integrali complessi, \emph{abuso} di rappresentazioni integrali etc.
@@ -934,9 +935,9 @@ possono essere resi arbitrariamente vicini a zero in modulo. Questo prova le ult
 \begin{theorem}
 Le primitive di funzioni integrabili secondo Riemann godono delle seguenti proprietà:
 \begin{itemize}
-    \item $$\int_{\R} (f+g)= \int_{\R} f + \int_{\R} g \quad \forall f,g$$
-    \item $$\int_{\R}(\alpha f)=\alpha\int_{\R} f \quad \forall f\quad\forall\alpha\in\R$$
-    \item $$\text{se } f\leq g \Rightarrow \int_{\R}f\leq \int_{\R}g$$
+    \item $$\int_{\R} (f+g)= \int_{\R} f + \int_{\R} g $$
+    \item $$\forall \alpha\in\R,\quad \int_{\R}(\alpha f)=\alpha\int_{\R} f $$
+    \item $$f\leq g \Longrightarrow \int_{\R}f\leq \int_{\R}g$$
 \end{itemize}
 Questo si traduce nel fatto che l'operatore $\int$ è \emph{lineare} e \emph{monotono}.
 \end{theorem}
@@ -1117,7 +1118,7 @@ posto ovviamente che tale limite esista.\\
 \textbf{Caso \#3: funzione illimitata su dominio illimitato}, $\int_{0}^{+\infty}\frac{dx}{e^x\sqrt{x}}$.\\
 In questo caso combiniamo le precedenti estensioni: è un esercizio tedioso ma non difficile verificare che l'esito è il medesimo indipendentemente dalla scelta di approssimare per primo il dominio di integrazione o la funzione integranda.\\
 
-Un ulteriore esercizio tedioso è verificare che restano valide le meccaniche di integrazione per parti o mediante sostituzioni, ma l'integrale di Riemann in senso improprio non coincide necessariamente con il limite delle somme di Riemann, come evidenziato nell'esercizio \textbf{J33}.
+Un ulteriore esercizio tedioso è verificare che restano valide le proprietà di linearità e monotonia e le meccaniche di integrazione per parti o mediante sostituzioni, ma l'integrale di Riemann in senso improprio non coincide necessariamente con il limite delle somme di Riemann, come evidenziato nell'esercizio \textbf{J33}.
 
 \begin{ex}[Integrale di Fresnel] Si dimostri che la funzione $f(x)=\sin(x^2)$ è impropriamente Riemann-integrabile su $\R^+$ e si determini esplicitamente il valore dell'integrale. 
 \end{ex}
@@ -1125,6 +1126,19 @@ Un ulteriore esercizio tedioso è verificare che restano valide le meccaniche di
 $$ I=\int_{0}^{+\infty}\sin(x^2)\,dx = \frac{1}{2}\int_{0}^{+\infty}\frac{\sin t}{\sqrt{t}}\,dt $$ 
 dove l'ultimo integrale esiste finito per il criterio di Abel-Dirichlet. Esprimendo $\frac{1}{\sqrt{t}}$ come $\int_{0}^{+\infty}\frac{1}{\sqrt{\pi x}} e^{-tx}\,dx$ ed invocando il Teorema di Fubini abbiamo inoltre che 
 $$ I = \frac{1}{2\sqrt{\pi}}\int_{0}^{+\infty}\frac{1}{\sqrt{x}}\int_{0}^{+\infty}\sin(t)e^{-tx}\,dt \,dx = \frac{1}{2\sqrt{\pi}}\int_{0}^{+\infty}\frac{dx}{(x^2+1)\sqrt{x}}\stackrel{x\mapsto z^2}{=}\frac{1}{\sqrt{\pi}}\int_{0}^{+\infty}\frac{dz}{z^4+1}={\color{blue}\sqrt{\frac{\pi}{8}}}. $$
+
+\begin{ex} Si determini per quali valori dei parametri $\alpha,\beta > 0$ si ha che l'integrale 
+$$ I(\alpha,\beta) = \int_{1}^{+\infty}\frac{dx}{x^\alpha \ln^\beta x}$$
+esiste finito. 
+\end{ex}
+\textbf{Soluzione}. In virtù della sostituzione $x\mapsto\exp t$ si ha che 
+$$ I(\alpha,\beta) = \int_{0}^{+\infty}t^{-\beta} e^{-(\alpha-1)t}\,dt $$
+dove l'ultima funzione integranda si comporta come $t^{-\beta}$ in un intorno destro dell'origine. Su tale insieme la Riemann-integrabilità è equivalente alla condizione $\beta < 1$, e per avere Riemann-integrabilità anche in un intorno sinistro di $+\infty$ è necessario e sufficiente che si abbia $\alpha>1$. In queste ipotesi 
+$$ I(\alpha,\beta) = \frac{1}{(\alpha-1)^{\beta+1}}\int_{0}^{+\infty} z^{-\beta} e^{-z}\,dz = \frac{\Gamma(1-\beta)}{(\alpha-1)^{\beta+1}}.$$
+
+\begin{ex}[Fallacia dei Fisici] Si dimostri che una funzione positiva e impropriamente Riemann-integrabile su $\R^+$ non ha necessariamente limite zero all'infinito. 
+\end{ex}
+\emph{Sketch di controesempio}: $f(x) = \sum_{n\geq 1} n\exp\left(-n^6(x-n)^2\right)$ è positiva e impropriamente Riemann-integrabile su $\R^+$, ma $f(n)\geq n$ per ogni $n\in\N^+$ mentre $\lim_{n\to +\infty} f\left(n+\frac{1}{2}\right)=0$.
 
 \section{Successioni per ricorrenza}
 Lo studio di successioni in cui il termine generale $a_n$ dipende in qualche modo dai precedenti è di fondamentale importanza non solo dal punto di vista strettamente teorico, ma anche da quello fisico-ingegneristico, visto che è piuttosto raro essere in grado di ricostruire esplicitamente la soluzione di un'equazione differenziale, ma si hanno migliori chances di successo nella trattazione (eventualmente numerica) dei corrispondenti problemi \emph{linearizzati} o altrimenti \emph{discretizzati}. Il primo caso che ci apprestiamo a trattare è quello delle successioni per ricorrenza \emph{lineari} ed \emph{autonome}, dove il termine generale $a_n$ è una fissata combinazione lineare dei precedenti $k$ termini.
