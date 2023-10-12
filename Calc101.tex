@@ -1097,6 +1097,26 @@ $$ S = \frac{1}{4}+\int_{0}^{1}x^2(1-x)\log(1-x)\,dx = \frac{1}{4}+\int_{0}^{1}(
 e per integrazione per parti 
 $$ S = \frac{1}{4}+\left[\left(\frac{z^2}{2}-\frac{2z^3}{3}+\frac{z^4}{4}\right)\log z\right]_{0}^{1}-\int_{0}^{1}\left(\frac{z}{2}-\frac{2z^2}{3}+\frac{z^3}{4}\right)\,dz=\frac{1}{4}-\frac{1}{4}+\frac{2}{9}-\frac{1}{16} = \frac{23}{144}.\qed$$
 
+\subsection{Integrale di Riemann improprio}
+L'integrale di Riemann in senso proprio è definito a partire da funzioni limitate su domini limitati. Nella pratica è tuttavia frequente confrontarsi con funzioni o domini illimitati, ed è bene aver chiaro come gestire tali situazioni, in particolare conoscere quali proprietà algebriche dell'integrale proprio restano valide e quali cessano di essere valide.\\
+
+\textbf{Caso \#1: funzione limitata su dominio illimitato}, $\int_{a}^{+\infty}f(x)\,dx, \int_{-\infty}^{b}f(x)\,dx, \int_{-\infty}^{+\infty}f(x)\,dx.$\\
+È il caso di più semplice gestione: considerata una \emph{esaustione in compatti} $K_1\subset K_2 \subset K_3 \subset \ldots \to D$ del dominio di integrazione, definiamo $\int_D f(x)\,dx$ come $\lim_{n\to +\infty}\int_{K_n}f(x)\,dx$, posto ovviamente che questo esista. Nel caso in cui il dominio di integrazione sia illimitato soltanto da un lato, questo è equivalente a porre
+$$ \int_{a}^{+\infty}f(x)\,dx = \lim_{b\to +\infty}\int_{a}^{b}f(x)\,dx,\qquad \int_{-\infty}^{b}f(x)\,dx = \lim_{a\to -\infty}\int_{a}^{b}f(x)\,dx. $$
+Nel caso in cui il dominio di integrazione sia illimitato da ambo i lati, ossia coincida con $\R$, ciò \textbf{non è} equivalente a porre $\int_{\R}f(x)\,dx = \lim_{M\to +\infty}\int_{-M}^{M}f(x)\,dx$, che fornisce solo l'integrale in senso simmetrico, o nel senso del \emph{valore principale} di Cauchy. Risulta 
+$$ \int_{\R}f(x)\,dx = \int_{-\infty}^{0}f(x)\,dx + \int_{0}^{+\infty} f(x)\,dx $$
+solo a patto che entrambi gli addendi nel membro destro siano finiti. Per intenderci: per quanto $\sin x$ sia una funzione limitata e dispari, l'integrale di Riemann improprio $\int_{\R}\sin(x)\,dx$ \textbf{non esiste}.\\
+
+\textbf{Caso \#2: funzione illimitata su dominio limitato}, $\int_{0}^{1}\frac{dx}{\sqrt{x}}$.\\
+In questo caso, anziché ``approssimare dall'interno'' il dominio di integrazione, approssimiamo dall'interno il sottografico dell'integranda. Per ogni $M>0$ poniamo
+$$ f_M(x) = \left\{\begin{array}{rcl}-M &\text{se}& f(x)\leq -M \\ f(x) & \text{se} & |f(x)|\leq M \\ M &\text{se}& f(x)\geq M\end{array}\right. $$
+e definiamo l'integrale improprio $\int_{a}^{b}f(x)\,dx$ come 
+$$ \lim_{M\to +\infty} \int_{a}^{b} f_M(x)\,dx, $$
+posto ovviamente che tale limite esista.\\
+
+\textbf{Caso \#3: funzione illimitata su dominio illimitato}, $\int_{0}^{+\infty}\frac{dx}{e^x\sqrt{x}}$.\\
+In questo caso combiniamo le precedenti estensioni: è un esercizio tedioso ma non difficile verificare che l'esito è il medesimo indipendentemente dalla scelta di approssimare per primo il dominio di integrazione o la funzione integranda.
+
 \section{Successioni per ricorrenza}
 Lo studio di successioni in cui il termine generale $a_n$ dipende in qualche modo dai precedenti è di fondamentale importanza non solo dal punto di vista strettamente teorico, ma anche da quello fisico-ingegneristico, visto che è piuttosto raro essere in grado di ricostruire esplicitamente la soluzione di un'equazione differenziale, ma si hanno migliori chances di successo nella trattazione (eventualmente numerica) dei corrispondenti problemi \emph{linearizzati} o altrimenti \emph{discretizzati}. Il primo caso che ci apprestiamo a trattare è quello delle successioni per ricorrenza \emph{lineari} ed \emph{autonome}, dove il termine generale $a_n$ è una fissata combinazione lineare dei precedenti $k$ termini.
 
@@ -1127,7 +1147,7 @@ Dal principio di identità delle funzioni analitiche (diretta estensione del pri
 
 Gli ultimi due approcci sono immediatamente generalizzabili al caso in cui una successione per ricorrenza lineare ed autonoma abbia ordine $k\geq 2$. Il primo approccio è praticabile solo se le radici del polinomio caratteristico sono tutte distinte: altrimenti si manifestano problemi di \emph{risonanza}, legati alle potenze di una matrice non diagonalizzabile, o ai \emph{poli} di funzioni razionali con ordine maggiore di $1$. Vediamone un esempio.
 
-\begin{ex} La successione $\{a_n\}_{n\geq 0}$ è definita dalla condizioni iniziali $a_0=1, a_1=2, a_2=4$ e dalla ricorrenza $a_{n+3}=3 a_{n+2}-4 a_n$, valida per ogni $n\in\N$. Si determini un'espressione esplicita del termine generale. 
+\begin{ex} La successione $\{a_n\}_{n\geq 0}$ è definita dalla condizioni iniziali $a_0=1, a_1=2, a_2=5$ e dalla ricorrenza $a_{n+3}=3 a_{n+2}-4 a_n$, valida per ogni $n\in\N$. Si determini un'espressione esplicita del termine generale. 
 \end{ex}
 
 
