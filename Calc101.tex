@@ -678,6 +678,10 @@ Prima di avventurarsi in Matematica raffinata è opportuno familiarizzare con i 
  \item \textbf{Logaritmo naturale}. Su $(-1,1)$ abbiamo $\frac{d}{dx}\left(-\ln(1-x)\right)=\frac{1}{1-x}$. Per integrazione termine a termine della serie geometrica segue che sul precedente intervallo vale 
  $$ -\ln(1-x) = \sum_{n\geq 1}\frac{x^n}{n}. $$
  Per sommazione per parti (alias \emph{lemma di Abel}) l'identità continua a valere anche nell'estremo sinistro del dominio di convergenza, producendo $\ln 2 = \sum_{n\geq 1}\frac{(-1)^{n+1}}{n}$.
+ \item \textbf{Arcotangente}. Vale $\frac{d}{dx}\arctan x=\frac{1}{1+x^2}$, che per $|x|<1$ può essere espressa come $\sum_{n\geq 0}(-1)^n x^{2n}$.\\
+ Per integrazione termine a termine segue che su $(-1,1)$ vale 
+ $$ \arctan(x) = \sum_{n\geq 0}\frac{(-1)^n}{2n+1} x^{2n+1}. $$
+ Per sommazione per parti l'identità continua a valere anche in $x=1$,\\ producendo $\pi = 4\sum_{n\geq 0}\frac{(-1)^n}{2n+1}$ (\emph{serie di Gregory}).
  
 \end{itemize}
 
