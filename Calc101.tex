@@ -706,22 +706,22 @@ Da quanto collezionato segue che al quart'ordine $\sin(x)\arcsin(x)$ è indistin
 \newpage
 
 \section{Binomiali \& Friends}
-Come spero sia noto il binomiale $\binom{n}{k}$, letto \emph{$n$ su $k$}, rappresenta il numero di sottoinsiemi di cardinalità $k$ in un insieme di $n$ elementi.
+Il coefficiente binomiale $\binom{n}{k}$, letto ``\emph{$n$ su $k$}'', rappresenta il numero di sottoinsiemi di cardinalità $k$ in un insieme di $n$ elementi.
 Questo è esplicitamente:\\
-$$\binom{n}{k} = \frac{n!}{(n-k)!k!}$$    
-
-Proprietà dei binomiali sono: \\
+$$\binom{n}{k} = \frac{n!}{(n-k)!k!}.$$
+Proprietà dei binomiali, di immediata dimostrazione dalla definizione combinatoria, sono:
 \begin{itemize}
-    \item $\binom{n}{k}=\binom{n}{n-k}$
-    \item $\binom{n+1}{k+1}=\binom{n}{k+1} + \binom{n}{k}$
-    \item $2^n= \sum_{k=0}^{n}\binom{n}{k}$
-    \item $0 = \sum_{k=0}^{n}\binom{n}{k}(-1)^k$
+    \item $\binom{n}{k}=\binom{n}{n-k}$ (ci sono tanti modi di scegliere $k$ elementi tra $n$ quanti modi di \emph{non} scegliere $n-k$ elementi tra $n$)
+    \item $\binom{n+1}{k+1}=\binom{n}{k+1} + \binom{n}{k}$ (distinguendo i sottoinsiemi che contengono $n$ da quelli che non lo contengono)
+    \item $2^n= \sum_{k=0}^{n}\binom{n}{k}$ (i sottoinsiemi totali sono quelli che sono)
+    \item $0 = \sum_{k=0}^{n}\binom{n}{k}(-1)^k$ (ci sono tanti sottoinsiemi di cardinalità pari quanti sottoinsiemi di cardinalità dispari)
 \end{itemize}
 
 \subsection{Teorema Binomiale di Newton e applicazioni utili}
-Il binomio di Newton è usato per calcolare le potenze $n$-esime dei binomi:
+L'identità nota come \emph{binomio di Newton} è immediata conseguenza della proprietà distributiva:
 $$(a+b)^n=\sum_{k=0}^{n}\binom{n}{k}a^{n-k}b^k.$$
-\\
+Uno dei meriti di Newton è stato provare che $(a+b)^m=\sum_{k\geq 0}\binom{m}{k}a^{m-k}b^k$ continua a valere anche per $m$ non intero, ridefinendo opportunamente $\binom{m}{k}$.
+
 \subsection{Stars \& Bars}
 Un importante tecnica di conteggio è appunto \textbf{Stars \& Bars}:
 $$\left|\{(x_1,\ldots,x_k)\in(\N^+)^k: x_1+\ldots+x_k = n\}\right|=[x^n]\left(\frac{x}{1-x}\right)^k = \binom{n-1}{k-1},$$
@@ -1182,6 +1182,12 @@ $$\begin{pmatrix} 2 & 1 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & -1\end{pmatrix}, $$
 dunque lo spazio vettoriale è generato da $2^n, n 2^n$ e $(-1)^n$ e $a_n = A 2^n + B n 2^n + C(-1)^n$ con 
 $$\left\{\begin{array}{rcl}A+C&=& 1 \\ 2A+2B-C&=& 2 \\ 4A+8B+C&=&5\end{array}\right. $$
 che conduce a $A=\frac{8}{9}$, $B=\frac{1}{6}$, $C=\frac{1}{9}$.\qed
+
+\begin{ex}[Tribonacci] In funzione di $n\in\N^+$ si determini il numero $T_n$ di stringhe binarie di lunghezza $n$ all'interno delle quali non sono mai presenti tre caratteri $1$ consecutivi. Si determini infine una buona approssimazione numerica del limite $\lim_{n\to +\infty}\sqrt[n]{T_n}$.
+ 
+\end{ex}
+
+
 
 \newpage
 
