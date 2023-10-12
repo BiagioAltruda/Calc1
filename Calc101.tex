@@ -747,6 +747,21 @@ $$\binom{n+1}{r+1}=\sum_{j=r}^{n}\binom{j}{r}$$
 \begin{proof}
  Fissato $r$, è sufficiente procedere per induzione su $n$. In alternativa, è sufficiente catalogare i sottoinsiemi di taglia $r+1$ di $\{1,2,\ldots,n+1\}$ in base al loro elemento massimo.
 \end{proof}
+Dalla HSI è semplice ricostruire le formule per la somma di potenze consecutive, una cui immediata conseguenza è ad esempio $\int_{0}^{t}x^n\,dx = \frac{t^{n+1}}{n+1}$ per ogni $t\in\R$ ed ogni $n\in\N$. Vediamo il caso $n=3$:
+\begin{ex}[Identità di Nicomaco] Si determini esplicitamente, in funzione di $N$, il valore della somma 
+$$ \sum_{n=1}^{N} n^3. $$
+ 
+\end{ex}
+\textbf{Soluzione}. Osserviamo che $n^3$ è un polinomio di grado $\leq 3$ della variabile $n$, così come $\binom{n}{k}$ per $k\in[0,3]$.\\ In particolare $n^3$ è una combinazione lineare a coefficienti costanti dei precedenti binomiali, $n^3=\sum_{k=0}^{3}\binom{n}{k}c_k$.\\
+I valori dei coefficienti $c_k$ possono essere ricostruiti per eliminazione, o più efficientemente per differenze in avanti:
+$$\begin{array}{ccccccc} 0 && 1 && 8 && 27 \\ 
+& 1 && 7 && 19 & \\
+&& 6 && 12 && \\
+&&& 6 &&&
+\end{array} $$
+fornisce $n^3=6\binom{n}{3}+6\binom{n}{2}+1\binom{n}{1}$ (i coefficienti così trovati sono legati ai \emph{numeri di Stirling del secondo tipo}).\\ Dalla HSI abbiamo pertanto
+$$ \sum_{n=1}^{N}n^3 = 6\sum_{n=1}^{N}\binom{n}{3}+6\sum_{n=1}^{N}\binom{n}{2}+\sum_{n=1}^{N}\binom{n}{1}=6\binom{N+1}{4}+6\binom{N+1}{3}+\binom{N+1}{2}={\color{blue}\left(\frac{N(N+1)}{2}\right)^2}=\left(\sum_{n=1}^{N}n\right)^2.$$
+
 
     \section{Criteri e Metodi per Serie Numeriche}
     \subsection{Serie Importanti}
@@ -1017,7 +1032,7 @@ $$ \int_{0}^{t}\frac{\sin x}{x}\,dx $$
 $$ \int_{0}^{t}\frac{\sin x}{x}\,dx = \frac{1-\cos t}{t}+2\int_{0}^{t}\left(\frac{\sin\frac{x}{2}}{x}\right)^2\,dx $$
 dove il primo addendo nel membro destro è sicuramente non negativo e il secondo addendo è sicuramente positivo.
 
-\subsection{Un Caso Interessante}
+\subsection{Un caso interessante}
 Seguono gli integrali delle potenze del coseno, \emph{talvolta} utili:
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n}d\theta=\frac{\pi}{2\cdot4^n}\binom{2n}{n}$$
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n+1}d\theta= \frac{4^n}{(2n+1)\binom{2n}{n}}$$
