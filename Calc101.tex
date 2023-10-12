@@ -911,7 +911,7 @@ $$ S^+_{\mathcal{P}}-\sum_{k=1}^{n}\mu(I_k) f(\max I_k)\quad\text{che}\quad S^-_
 possono essere resi arbitrariamente vicini a zero in modulo. Questo prova le ultime due uguaglianze. 
 \end{proof}
 \begin{definizione}
-    Sia $X$ un intervallo di $\R$, e sia $f:X\to\R$ una funzione. Si dice che $F:X\to\R$ è una primitiva di $f$ in $X$ se per ogni $x\in X$ $F$ è derivabile e $F-(x)=f(x)$ e si denota con $$\int f = F$$
+    Sia $X$ un intervallo di $\R$, e sia $f:X\to\R$ una funzione. Si dice che $F:X\to\R$ è una primitiva di $f$ in $X$ se per ogni $x\in X$ $F$ è derivabile e $F'(x)=f(x)$ e si denota con $$\int f = F$$
 \end{definizione}
 \begin{theorem}
 Le primitive di funzioni integrabili secondo Riemann godono delle seguenti proprietà:
@@ -920,43 +920,64 @@ Le primitive di funzioni integrabili secondo Riemann godono delle seguenti propr
     \item $$\int_{\R}(\alpha f)=\alpha\int_{\R} f \quad \forall f\quad\forall\alpha\in\R$$
     \item $$\text{se } f\leq g \Rightarrow \int_{\R}f\leq \int_{\R}g$$
 \end{itemize}
-Questo si traduce nel fatto che l'operatore $\int$ è \emph{lineare}, e \emph{monotono}.
+Questo si traduce nel fatto che l'operatore $\int$ è \emph{lineare} e \emph{monotono}.
 \end{theorem}
 \begin{theorem}
-    Sia $[a,b]\in\R$ un intervallo e sia $f:[a,b]\in\R$ Riemann integrabile in $[a,b]$ e sia $c\in[a,b]$ fissato. Vale che:\\
-    1) la funzione integrale di $f$ di punto iniziale $c$, $\int_c^xf(t)dt$ è localmente lipschitziana e quindi continua in $[a,b]$ \\
-    2) (Torricelli) Se $f$ è continua in $x\in[a,b]$ allora $\int_c^xf(t)dt$ è derivabile in $x$ e si ha: $$\left(\int_c^xf(t)dt\right)' =f(x)$$
+    Sia $[a,b]\in\R$ un intervallo e sia $f:[a,b]\in\R$ Riemann integrabile in $[a,b]$ e sia $c\in[a,b]$ fissato.\\ Vale che:\\
+    1) La funzione integrale di $f$ di punto iniziale $c$, $\int_c^x f(t)\,dt$ è localmente lipschitziana e quindi continua in $[a,b]$ \\
+    2) (Torricelli) Se $f$ è continua in $x\in[a,b]$ allora $\int_c^x f(t)\,dt$ è derivabile in $x$ e si ha: $$\left(\int_c^x f(t)\,dt\right)' =f(x)$$
 \end{theorem}
 \begin{proof}
-    Iniziamo a dimostrare la continuità. Sia $[a,b]$ un intervallo fissato, sia $\lambda=sup{|f(x)|\quad |\quad x\in[a.b]}$. Mostriamo che $\lambda$ è la costante di lipschitz cercata su $[a,b]$:
-    $$\left|\int_c^xf(x_2)dx-\int_c^xf(x_1)dx\right|=\left|\int_{x_1}^{x_2}f(t)dt\right|\leq\left|\int_{x_1}^{x_2}|f(t)|dt\right|\leq\left|\int_{x_1}^{x_2}\lambda dt\right|$$ \\
-    $$=\lambda|x_2-x_1|$$
-    Introduciamo per semplicità la notazione: $\int_c^xf(t)dt=I_cf(t)$ \\
+    Iniziamo a dimostrare la continuità. Sia $[a,b]$ un intervallo fissato, sia $\lambda=\sup_{x\in[a,b]}|f(x)|$.\\ Mostriamo che $\lambda$ è la costante di Lipschitz cercata su $[a,b]$:
+    $$\left|\int_c^xf(x_2)\,dx-\int_c^xf(x_1)\,dx\right|=\left|\int_{x_1}^{x_2}f(t)\,dt\right|\leq\left|\int_{x_1}^{x_2}|f(t)|\,dt\right|\leq\left|\int_{x_1}^{x_2}\lambda dt\,\right|=\lambda|x_2-x_1|$$
+    Introduciamo per semplicità la notazione: $\int_c^xf(t)\,dt= I_c f(x).$ \\
     Per quanto riguarda la parte dovuta a Torricelli bisogna provare che: 
-    $$\lim_{h\to x}\left|\frac{I_cf(h)-I_cf(x)}{h-x}-f(x)\right|=0$$
-    Bisogna quindi dimostrare che fissato $\epsilon>0$ esiste $\delta>0$ tali che:
-    $$\left|\frac{I_cf(h)-I_cf(x)}{h-x}-f(x)\right|\leq\epsilon\quad &\text{ se } & 0<|h-x|\leq\delta, h\in[a,b]$$
+    $$\lim_{h\to x}\left|\frac{I_cf(h)-I_cf(x)}{h-x}-f(x)\right|=0.$$
+    Bisogna quindi dimostrare che fissato $\epsilon>0$ esiste $\delta>0$ tale che:
+    $$\left|\frac{I_cf(h)-I_cf(x)}{h-x}-f(x)\right|\leq\epsilon\quad \text{ se }  0<|h-x|\leq\delta, h\in[a,b]$$
     $I_cf(h)-I_cf(x)$ si può scrivere come $\int_x^hf(t)dt$, inoltre 
-    $$f(x)=f(x)\cdot 1 = f(x)\left(\frac{1}{h-x}\int_x^h dt\right)=\frac{1}{h-x}\int_x^hf(x)dt$$
+    $$f(x)=f(x)\cdot 1 = f(x)\left(\frac{1}{h-x}\int_x^h dt\right)=\frac{1}{h-x}\int_x^h f(x)\,dt.$$
     Essendo $f(x)$ costante rispetto alla variabile di integrazione $t$ si ha che:
-    $$\left|\frac{I_cf(h)-I_cf(x)}{h-x}-f(x)\right|=\left|\frac{1}{h-x}\int_x^hf(t)dt -\frac{1}{h-x}\int_x^hf(x)dt\right|$$
-    $$=\frac{1}{|h-x|}\left|\int_x^h(f(t)-f(x)dt\right|\leq\frac{1}{|h-x|}\left|\int_x^h|(f(t)-f(x)|dt\right|$$.
-    Essendo $f$ per ipotesi continua in $x$ vale che $|f(h)-f(x)\leq\epsilon$ se $h\in[a,b]$ tale che $0<h-x\leq\delta$. Si ha quindi:
-    $$\frac{1}{|h-x|}\left|\int_x^h|(f(t)-f(x)|dt\right|\leq\frac{1}{|h-x|}\left|\int_x^h\epsilon dt\right|=\frac{1}{|h-x|}\epsilon|h-x|=\epsilon$$
+    $$\left|\frac{I_cf(h)-I_cf(x)}{h-x}-f(x)\right|=\left|\frac{1}{h-x}\int_x^h f(t)\,dt -\frac{1}{h-x}\int_x^h f(x)\,dt\right|$$
+    $$=\frac{1}{|h-x|}\left|\int_x^h(f(t)-f(x))\,dt\right|\leq\frac{1}{|h-x|}\left|\int_x^h|f(t)-f(x)|\,dt\right|.$$
+    Essendo $f$ per ipotesi continua in $x$ vale che $|f(h)-f(x)|\leq\epsilon$ se $h\in[a,b]$ tale che $0<h-x\leq\delta$. Si ha quindi:
+    $$\frac{1}{|h-x|}\left|\int_x^h|f(t)-f(x)|\,dt\right|\leq\frac{1}{|h-x|}\left|\int_x^h\epsilon\, dt\right|=\frac{1}{|h-x|}\epsilon|h-x|=\epsilon$$
 \end{proof}
 Dopo tutta questa fatica, almeno, il teorema seguente è gratuito.
 \begin{theorem}[Teorema Fondamentale del Calcolo Integrale]
-Sia $[a,b]$ in $\R$ un intervallo e sia $f:[a,b]\to\R$ una funzione integrabile secondi Riemann. Allora l'insieme degli integrali indefiniti di $f$ coincide con l'insieme delle primitive di $f$ ovvero: $$F(x)=c+\int_c^x f(t)dt$$    
+Sia $f:[a,b]\to\R$ una funzione integrabile secondo Riemann. Allora l'insieme degli integrali indefiniti di $f$ coincide con l'insieme delle primitive di $f$, ovvero: $$F(x)=c+\int_c^x f(t)\,dt.$$    
 \end{theorem}
 \begin{proof}
-    Sia $c\in [a,b]$ ho che $\int_{a}^{b}f = F + c$, e differisce da tutte le altre primitive per una costante, per la continuita di $f$ e per il punto 2 del teorema precedente concludo.
+    Assumendo $c\in [a,b]$ si ha che $\int_{a}^{b}f = F + c$, che differisce da tutte le altre primitive per una costante. Per la continuità di $f$ e per il punto $2$ del teorema precedente si conclude.
 \end{proof}
-Tra i vari metodi per calcolare le primitive di una funzione torna spesso utile manipolarla per avere una forma più facile da maneggiare. Ci si appoggia quindi al
-\begin{theorem}[Cambio di Variabile]
-    Se $F:X\to\R$ e $\phi:T\to X$ sono di classe $C^1$, si ha che $f\circ\phi:T\to\R$ è di classe $C^1$, e che $(F\cicl\phi)'(t)=F'(\phi(t))\phi'(t)$.
-    E dunque, sia $f:X\to\R$ continua si ha che
-    $$\left(\int f(x)dx\right) \circ \phi(t)= \int f\circ\phi(t)\phi'(t)\quad \forall t\in T$$
+
+Nella determinazione esplicita della primitiva di una funzione è spesso opportuno o necessario utilizzare sostituzioni. Il seguente risultato ne regola la meccanica.
+
+\begin{theorem}[Cambio di variabile]
+Supponiamo che $f:[a,b]\to\R$ sia continua e\\ $\varphi:[c,d]\to[a,b]$ sia un'applicazione di classe $C^1$ con inversa di classe $C^1$. In queste ipotesi si ha
+$$ \int_{a}^{b} f(x)\,dx \stackrel{x\mapsto\varphi(t)}{=}\int_{c}^{d}\varphi'(t) f(\varphi(t))\,dt = \int_{\varphi^{-1}(a)}^{\varphi^{-1}(b)}\varphi'(t) f(\varphi(t))\,dt.$$
 \end{theorem}
+\begin{proof}
+Cominciamo con l'osservare che la tesi è ovvia nel caso in cui $\varphi$ sia una mappa affine e invertibile, $\varphi(t)=mt+q$ con $m\neq 0$:
+
+$$ \int_{a}^{b}f(x)\,dx = \int_{a-q}^{b-q}f(y+q)\,dy = m \int_{\frac{a-q}{m}}^{\frac{b-q}{m}}f(mt+q)\,dt = \int_{\varphi^{-1}(a)}^{\varphi^{-1}(b)}\varphi'(t) f(\varphi(t))\,dt.$$
+Per le proprietà algebriche dell'integrale la tesi resta vera nel caso in cui $\varphi:[c,d]\to[a,b]$ sia una funzione continua, lineare a tratti e strettamente monotona: in tal caso il grafico di $\varphi$ è una spezzata e $\varphi^{-1}$ è a sua volta una funzione continua, lineare a tratti e strettamente monotona. In questo caso $\varphi'(t)$ può non essere definita negli estremi dei lati della spezzata, ma poiché l'insieme dei punti di non derivabilità di $\varphi$ è un insieme discreto, il valore dell'integrale non ne risente. In virtù di quanto osservato, non è restrittivo assumere che nelle ipotesi del teorema che si abbia $[c,d]=[0,1]$. Dato $\varphi:[0,1]\to[a,b]$ diffeomorfismo di classe $C^1$, definiamo una sua approssimazione 
+
+$$\varphi_n(t) = (1-\lambda)\varphi\left(\frac{\lfloor nt\rfloor}{n}\right)+\lambda \varphi\left(\frac{\lceil nt\rceil }{n}\right),\qquad \lambda= t-\frac{\lfloor nt\rfloor}{n} $$
+che ha per grafico una spezzata ed è una funzione continua, lineare a tratti e strettamente monotona. Laddove è definita (ossia su tutto l'intervallo $[0,1]$, a meno dell'insieme discreto dato dai multipli interi di $\frac{1}{n}$) $\varphi_n'(t)$ dista da $\varphi'(t)$ al più il modulo di continuità di $\varphi'$ su intervalli di lunghezza $\frac{1}{n}$. Segue che $\varphi_n(t)$ converge uniformemente a $\varphi(t)$ su $[0,1]$ e si ha 
+
+$$ \int_{a}^{b} f(x)\,dx = \int_{0}^{1}\varphi_n'(t)f(\varphi_n(t))\,dt = \lim_{n\to +\infty}\int_{0}^{1}\varphi_n'(t)f(\varphi_n(t))\,dt = \int_{0}^{1}\lim_{n\to +\infty}\varphi_n'(t)f(\varphi_n(t))\,dt = \int_{0}^{1}\varphi'(t)f(\varphi(t))\,dt.$$
+
+\end{proof}
+
+\textbf{Nota}: la dimostrazione appena esposta si estende abbastanza agilmente al caso di funzioni di più variabili. Inoltre l'idea di approssimare funzioni sufficientemente regolari con funzioni lineari a tratti può essere utilizzata (come fatto da Lebesgue) anche per dimostrare quanto segue:
+
+\begin{theorem}[Di approssimazione di Weierstrass]. Rispetto alla norma del $\sup$ i polinomi sono densi in $C([a,b])$. In termini equivalenti, per qualunque funzione continua $f:[a,b]\to\R$ e per qualunque $\epsilon > 0$ esiste un polinomio $p(x)$ che realizza $|f(x)-p(x)|\leq\epsilon$ per ogni $x\in[a,b]$. 
+\end{theorem}
+
+Alla luce di questo risultato di \emph{densità}, in molti esercizi teorici sull'integrabilità secondo Riemann non è restrittivo supporre che la funzione integranda sia polinomiale.
+
+
 \subsection{Sostituzioni da ricordare}
 Nella pratica è piuttosto frequente imbattersi in integrali dove la funzione integranda coinvolge la radice quadrata di un polinomio di secondo grado. A seconda che tale polinomio abbia discriminante positivo o negativo è opportuno ricordare alcune sostituzioni notevoli.
 \begin{itemize}
@@ -974,7 +995,14 @@ e il problema è così ricondotto alla determinazione di
 $$ \frac{1}{3}\int_{0}^{1}\sqrt{1+z^2}\,dz \stackrel{z\mapsto \sinh t}{=} \frac{1}{3}\int_{0}^{\arcsinh 1}\cosh^2(t)\,dt=\frac{1}{6}\int_{0}^{\arcsinh 1}\left(1+\cosh(2t)\right)\,dt=\frac{1}{6}\left[t+\sinh(t)\cosh(t)\right]_{0}^{\arcsinh 1}$$
 che equivale a 
 $$ \frac{1}{6}\left(\arcsinh{1}+\cosh(\arcsinh{1})\right) = \frac{\sqrt{2}+\arcsinh{1}}{6}={\color{blue}\frac{\sqrt{2}+\log(1+\sqrt{2})}{6}}\approx 0.3826. $$
-
+Un'altra sostituzione che è bene tenere a mente, specie nel caso in cui la funzione integranda sia strettamente correlata alle funzioni trigonometriche elementari, è la sostituzione $\theta=\arctan t$. La analizziamo nel prossimo esempio.
+\begin{ex} Si determini esplicitamente il valore dell'integrale 
+$$ I = \int_{0}^{\pi}\frac{d\theta}{5+\cos\theta}.$$
+\end{ex}
+\textbf{Soluzione}. Per traslazione della variabile di integrazione e simmetria si ha 
+$$ I = \int_{-\pi/2}^{\pi/2}\frac{d\theta}{5-\sin\theta} = \int_{0}^{\pi/2}\left(\frac{1}{5-\sin\theta}+\frac{1}{5+\sin\theta}\right)\,d\theta = 10\int_{0}^{\pi/2}\frac{d\theta}{25-\sin^2\theta}=10\int_{0}^{\pi/2}\frac{d\theta}{25-\cos^2\theta}. $$
+Invocando la sostituzione $\theta=\arctan t$, per cui $d\theta=\frac{dt}{1+t^2}$ e $\cos^2(\arctan t)=\frac{1}{1+t^2}$, ci riconduciamo immediatamente a
+$$ I = 10\int_{0}^{+\infty}\frac{dt}{25(1+t^2)-1}=\frac{2}{5}\int_{0}^{+\infty}\frac{dt}{t^2+\frac{24}{25}}\stackrel{t=\sqrt{\frac{24}{25}}u}{=}\frac{2}{5}\sqrt{\frac{24}{25}}\int_{0}^{+\infty}\frac{du}{\frac{24}{25}(u^2+1)}=\frac{2}{5}\sqrt{\frac{25}{24}}\frac{\pi}{2} = {\color{blue}\frac{\pi}{2\sqrt{6}}}. $$
 
 
 \subsection{Integrazione per Parti}
