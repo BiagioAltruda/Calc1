@@ -299,7 +299,7 @@ Per quanto concerne la seconda parte, consideriamo una generica $f:I\to\mathbb{R
 \end{proof}
 
 
-\begin{definizione}[Continuità Uniforme]
+\begin{definizione}[Continuità uniforme]
 Si dice che $f:I\to\R$ è uniformemente continua in $I$ se 
 
 
@@ -389,7 +389,7 @@ Sia $(X,d)$ uno spazio metrico e sia $x_0$ un fissato punto di $X$. Allora la fu
     $$|d(x_k,x_0)-d(x,x_0)|\leq d(x_k,x)$$
     e perciò $d(x_k,x_0)\to d(x,x_0)\text{ per } k\to\infty$.
 \end{proof}
-\begin{definizione}[Spazio Normato]
+\begin{definizione}[Spazio normato]
 Sia $V$ uno spazio vettoriale. Una norma su $V$ è una funzione che ad ogni vettore $x\in V$ associa un reale $\|x\|\geq 0$ che verifica le seguenti condizioni:
 \begin{itemize}
     \item $\|x\|=0 \text{ se e solo se } x=0 \qquad \forall x\in V$
@@ -439,7 +439,7 @@ contro la minimalità di $m$. Questo prova che $f$ ha necessariamente un punto f
 Per contrattività di $f$ la successione $\{g(x_n)\}_{n\geq 0}$ è strettamente decrescente, dunque converge al suo $\inf$.\\ Poiché $g(x_{n_k})\to g(\overline{x}) = 0$, il precedente $\inf$ è nullo e $d(x_n,f(x_n))$ converge a zero.\\ Per unicità del punto fisso di $f$, $x_n\to\overline{x}$.\end{proof}
 
 \subsection{Compattezza}
-\begin{definizione}[Insieme Compatto]
+\begin{definizione}[Insieme compatto]
     Un sottoinsime $K$ dello spazio metrico $(X,d)$ si dice (sequenzialmente) compatto se da ogni successione $\{x_k\}$ di punti di $K$ si può estrarre una sottosuccessione convergente verso un punto $x\in K$.
 \end{definizione}
 Osservimo che, se $K\subseteq X$ è un insieme compatto, si dice, secondo questa definizione, che è \emph{compatto per successioni}, a dispetto della definizione di compattezza data attraverso dei \emph{ricoprimenti aperti}. In ogni caso, le due definizioni risultano equivalenti.
@@ -466,7 +466,7 @@ Sia $f:[a,b]\to\R$ una funzione continua e derivabile in $(a,b)$ e tale che $f(a
     il minimo e il massimo sono prorprio gli estremi dell'intervallo $[a,b]$, allora il massimo di $f$ coincide col suo minimo, quindi la funzione vale costantemente $f(x_M)=f(x_m)=k$, cioè ha derivata costantemente nulla. \\
     Alternativamente almeno uno tra $x_m$ e $x_M$ cade in $(a,b)$, quindi la derivata si annulla in almeno in quel punto.
 \end{proof}
-\begin{theorem}[Lagrange o Valor Medio]
+\begin{theorem}[Lagrange o Valor medio]
 Sia $f:[a,b]\to\R$ e derivabile in $(a,b)$. Esiste un punto $\xi\in(a,b)$ tale che $$f(b)-f(a)=f'(\xi)(b-a).$$
 \end{theorem}
 \begin{proof}
@@ -622,6 +622,7 @@ Oltre che nella fabbricazione di stime accurate, la convessità è di grande aus
 \begin{itemize}
  \item $f$ assume massimo negli estremi di $I$.
  \item Se $I$ è chiuso l'insieme dei punti di minimo di $f$ su $I$ è un convesso.\\ Più in generale, è convesso qualunque sottolivello non vuoto.
+ \item Se $E\subset\R^n$ è un convesso compatto, è ben definita e continua la \emph{proiezione} su $E$ data da $\pi:\R^n\setminus E \to \partial E$,\\ che associa ad ogni $x\in\R^n\setminus E$ il punto di $E$ con la minima distanza da $x$.
  \item L'equazione $f(x)=\kappa$ ha al più due soluzioni distinte in $I$.
  \item Se $f$ è composta o sommata a qualunque altra funzione convessa resta convessa.
 \end{itemize}
@@ -698,6 +699,8 @@ e
 $$ \arcsin x = \sum_{n\geq 0}\frac{\binom{2n}{n}}{2n+1}x^{2n+1} = x + \frac{x^3}{6} + o(x^4).$$
 Da quanto collezionato segue che al quart'ordine $\sin(x)\arcsin(x)$ è indistinguibile da $\left(x-\frac{x^3}{6}\right)\left(x+\frac{x^3}{6}\right)=x^2+o(x^4)$, dunque anche il valore di $f^{(IV)}(0)$ è $\color{blue}0$.
 
+\newpage
+
 \section{Binomiali \& Friends}
 Come spero sia noto il binomiale $\binom{n}{k}$, letto \emph{$n$ su $k$}, rappresenta il numero di sottoinsiemi di cardinalità $k$ in un insieme di $n$ elementi.
 Questo è esplicitamente:\\
@@ -713,7 +716,7 @@ Proprietà dei binomiali sono: \\
 
 \subsection{Teorema Binomiale di Newton e applicazioni utili}
 Il binomio di Newton è usato per calcolare le potenze $n$-esime dei binomi:
-$$(a+b)^n=\sum_{k=0}^{n}\binom{n}{k}a^{n-k}b^k$$
+$$(a+b)^n=\sum_{k=0}^{n}\binom{n}{k}a^{n-k}b^k.$$
 \\
 \subsection{Stars \& Bars}
 Un importante tecnica di conteggio è appunto \textbf{Stars \& Bars}:
@@ -763,15 +766,15 @@ fornisce $n^3=6\binom{n}{3}+6\binom{n}{2}+1\binom{n}{1}$ (i coefficienti così t
 $$ \sum_{n=1}^{N}n^3 = 6\sum_{n=1}^{N}\binom{n}{3}+6\sum_{n=1}^{N}\binom{n}{2}+\sum_{n=1}^{N}\binom{n}{1}=6\binom{N+1}{4}+6\binom{N+1}{3}+\binom{N+1}{2}={\color{blue}\left(\frac{N(N+1)}{2}\right)^2}=\left(\sum_{n=1}^{N}n\right)^2.$$
 
 
-    \section{Criteri e Metodi per Serie Numeriche}
-    \subsection{Serie Importanti}
+    \section{Criteri e metodi per Serie Numeriche}
+    \subsection{Serie importanti}
 Seguono le più importanti Serie Numeriche convergenti, utili nella stima di altre serie e nella verifica della loro convergenza.\\
-\textbf{Serie Armonica Generalizzata}
+\textbf{Serie armonica generalizzata}
 $$\sum_{n=0}^{\infty}\frac{1}{n^\alpha}$$
 è una serie convergente se e solo se
 $\alpha\in\R>1$
 \\
-\textbf{Serie Geometrica}
+\textbf{Serie geometrica}
 $$S=\sum_{n=0}^{\infty}x^n$$
 Ha il seguente comportamento:
 \begin{equation*}
@@ -782,11 +785,11 @@ Ha il seguente comportamento:
     
 \end{cases}
 \end{equation*}
-\textbf{Serie Telescopica}
+\textbf{Serie telescopica}
 Ogni somma/serie in cui il termine generale si può esprimere come differenza di termini consecutivi (o quasi) si calcola, infatti vale
 $$\sum_{n=0}^{N}\left(a_n - a_{n+1}\right) = a_0 - a_{N+1}$$
 per massiccia cancellazione: il membro sinistro corrisponde alla differenza tra la prima quantità sommata e l'ultima quantità sottratta.
-\newpage
+
 \subsection{Criteri}
 Seguiranno i principali criteri di convergenza per le Serie.
 \subsubsection{Serie a termini definitivamente non negativi}
@@ -799,7 +802,7 @@ Eventualmente in combinazione con somme telescopiche, questo criterio prova la c
 $$ \sum_{n\geq 1}\frac{1}{n^2} = 1+\sum_{n\geq 2}\frac{1}{n^2} \leq 1+\sum_{n\geq 2}\left(\frac{1}{n-1}-\frac{1}{n}\right) = 2 $$
 e un discorso analogo può essere applicato anche alla serie armonica generalizzata.\\
 
-\textbf{Criterio del Confronto Asintotico} \\
+\textbf{Criterio del Confronto asintotico} \\
 È una forma più generale del precedente criterio. Se due successioni a termini non negativi $\{a_n\}_{n\geq 1}$ e $\{b_n\}_{n\geq 1}$ \\sono tali per cui $\lim_{n\to+\infty}\frac{a_n}{b_n}$ esiste finito, le serie 
 $$ \sum_{n\geq 1} a_n,\qquad \sum_{n\geq 1} b_n $$
 sono entrambe convergenti o entrambe positivamente divergenti.\\
@@ -853,11 +856,11 @@ Sarebbe molto comodo in questo caso ricondursi ad una serie geometrica.
 Ipotizzando che esista una applicazione lineare e continua $T$ tale da mandare $x^n$ in $f(n)$ otteniamo:
 $$S=\sum_{n\geq 0}\frac{f(n)}{k^n}=\sum_{n\geq 0}\frac{T(x^n)}{k^n}= T\left(  \sum_{n\geq 0}\left(\frac{x}{k}\right)^n \right)= T \left(\frac{1}{1-\frac{x}{k}}\right)$$ \\
 in base alla scelta/costruzione di $T$ possiamo calcolare esplicitamente tute le serie di questo tipo.
-(Possibili applicazioni lineari che farebbero al caso nostro sono: Derivazione, Integrazione, Somma, Prodotto, Valutazione e tutte le loro composizioni)\\
+(Possibili applicazioni lineari che farebbero al caso nostro sono: derivazione, integrazione, somma, prodotto, valutazione e tutte le loro composizioni). 
 Un esempio di utilizzo di questo metodo è calcolare esplicitamente la serie:
 $$\sum_{n\geq 0}^{}\frac{n^2}{4^n}$$
 utilizzando come operatore $T$ la somma delle prime due derivate valutata in $1$ (esercizio per il lettore).\\
-In generale questo metodo è utile ogni qual volta si sta trattando una Serie i cui termini, a meno di un fattore, coincidono con quelli di una serie che già sappiamo calcolare.\\
+In generale questo metodo è utile ogni qual volta si sta trattando una serie i cui termini, a meno di un fattore, coincidono con quelli di una serie che già sappiamo calcolare.\\
 A onor del vero, per quanto potente è raro che tale metodo sia \emph{l'unico} in grado di esplicitare un'assegnata serie. 
 Tornando all'esempio precedente, è ovvio che la serie presentata sia convergente, in quanto definitivamente $\frac{n^2}{4^n}\in\left(0,\frac{1}{3^n}\right]$. 
 Sono allora lecite tutte le seguenti manipolazioni (basate unicamente su moltiplicazioni per $4$ e \emph{reindexing}):
@@ -873,7 +876,7 @@ dalle quali segue $S=\frac{20}{27}$.
 
 \subsubsection{Criterio Cannonata}
 
-Per il \textbf{Criterio di Convergenza Dominata} tutte Le serie che convergono \emph{abbastanza} velocemente commutano con l'integrale. All'atto pratico ciò comporta che, nelle ipotesi corrette, è lecito scrivere:
+Per il \textbf{Criterio di Convergenza Dominata} tutte le serie che convergono \emph{abbastanza} velocemente commutano con l'integrale. All'atto pratico ciò comporta che, nelle ipotesi corrette, è lecito scrivere:
 $$\sum_{n\geq 0}^{}\int_{a}^{b}f(x)dx =\int_{a}^{b}\sum_{n\geq 0}^{}f(x) dx.$$ 
 Questo torna utile in quanto è moderatamente comune sostituire ad una funzione una sua \textbf{Rappresentazione integrale}.
 (Non esattamente collegato, ma per farsi un'idea dell'utilità di questo fatto vedere l'esercizio \textbf{J17})
@@ -1020,10 +1023,17 @@ Invocando la sostituzione $\theta=\arctan t$, per cui $d\theta=\frac{dt}{1+t^2}$
 $$ I = 10\int_{0}^{+\infty}\frac{dt}{25(1+t^2)-1}=\frac{2}{5}\int_{0}^{+\infty}\frac{dt}{t^2+\frac{24}{25}}\stackrel{t=\sqrt{\frac{24}{25}}u}{=}\frac{2}{5}\sqrt{\frac{24}{25}}\int_{0}^{+\infty}\frac{du}{\frac{24}{25}(u^2+1)}=\frac{2}{5}\sqrt{\frac{25}{24}}\frac{\pi}{2} = {\color{blue}\frac{\pi}{2\sqrt{6}}}. $$
 
 
-\subsection{Integrazione per Parti}
+\subsection{Integrazione per parti}
+\begin{theorem}[Integrazione per parti]
 Nell'ipotesi che le funzioni integrande in ambo i membri siano continue su $[a,b]$ si ha che 
 $$ \int_{a}^{b} f(x)g(x) = \left[ F(x)g(x)\right]_{a}^{b}-\int_{a}^{b} F(x)g'(x)\,dx $$
 dove $F(x)$ denota \emph{una} primitiva di $f(x)$.
+\end{theorem}
+\begin{proof} È sufficiente considerare, per $c\in[a,b]$, le funzioni 
+$$ \varphi(c) = \int_{a}^{c}f(x)g(x)\,dx,\qquad \psi(c)=[F(x)g(x)]_{a}^{c}-\int_{a}^{c}F(x)g'(x)\,dx.$$
+Per il Teorema fondamentale del calcolo e la regola di Leibniz $\varphi$ e $\psi$ sono funzioni derivabili su $[a,b]$ con la stessa derivata. Poiché $\varphi(a)=\psi(a)=0$, per ogni $c\in[a,b]$ si ha $\varphi(c)=\psi(c)$. 
+\end{proof}
+
 \begin{ex} Si dimostri che per ogni $t\in\R^+$ la quantità 
 $$ \int_{0}^{t}\frac{\sin x}{x}\,dx $$
 è positiva. 
@@ -1036,7 +1046,7 @@ dove il primo addendo nel membro destro è sicuramente non negativo e il secondo
 Seguono gli integrali delle potenze del coseno, \emph{talvolta} utili:
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n}d\theta=\frac{\pi}{2\cdot4^n}\binom{2n}{n}$$
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n+1}d\theta= \frac{4^n}{(2n+1)\binom{2n}{n}}$$
-inaspettatamente questi due integrali sono strettamente legati ai Binomiali Centrali e sono appunto una loro rappresentazione integrale.
+inaspettatamente questi due integrali sono strettamente legati ai binomiali centrali e sono appunto una loro rappresentazione integrale.
 \subsection{Decomposizione in fratti semplici}
 L'integrazione di funzioni razionali (quozienti di polinomi) è puramente algoritmica, in quanto sempre riconducibile all'integrazione di funzioni della forma $\frac{1}{(x-\alpha)^n}$ (eventualmente con $\alpha\in\C$). Analizziamo la situazione attraverso un paio di esempi concreti.
 \begin{ex} Si determini esplicitamente
@@ -1086,6 +1096,40 @@ valida per ogni $x\in(-1,1)$, integrando ambo i membri su $(0,1)$ otteniamo
 $$ S = \frac{1}{4}+\int_{0}^{1}x^2(1-x)\log(1-x)\,dx = \frac{1}{4}+\int_{0}^{1}(1-z)^2 z \log(z)\,dz  $$
 e per integrazione per parti 
 $$ S = \frac{1}{4}+\left[\left(\frac{z^2}{2}-\frac{2z^3}{3}+\frac{z^4}{4}\right)\log z\right]_{0}^{1}-\int_{0}^{1}\left(\frac{z}{2}-\frac{2z^2}{3}+\frac{z^3}{4}\right)\,dz=\frac{1}{4}-\frac{1}{4}+\frac{2}{9}-\frac{1}{16} = \frac{23}{144}.\qed$$
+
+\section{Successioni per ricorrenza}
+Lo studio di successioni in cui il termine generale $a_n$ dipende in qualche modo dai precedenti è di fondamentale importanza non solo dal punto di vista strettamente teorico, ma anche da quello fisico-ingegneristico, visto che è piuttosto raro essere in grado di ricostruire esplicitamente la soluzione di un'equazione differenziale, ma si hanno migliori chances di successo nella trattazione (eventualmente numerica) dei corrispondenti problemi \emph{linearizzati} o altrimenti \emph{discretizzati}. Il primo caso che ci apprestiamo a trattare è quello delle successioni per ricorrenza \emph{lineari} ed \emph{autonome}, dove il termine generale $a_n$ è una fissata combinazione lineare dei precedenti $k$ termini.
+
+\subsection{Successione di Fibonacci e similia}
+Un problema prototipico è quello di determinare una formula esplicita (\emph{formula di Binet}) per la successione (\emph{di Fibonacci}) $\{F_n\}_{n\geq 0}$ definita dalle \emph{condizioni iniziali} $F_0=0, F_1=1$ e dalla (legge di) \emph{ricorrenza} $F_{n+2}=F_{n+1}+F_n$, valida per ogni $n\in\N$. Illustriamo diversi approcci equivalenti.\\
+
+\textbf{Approccio \#1, \emph{rasoio di Occam}}. L'insieme delle successioni $\{a_n\}_{n\geq 0}$ che soddisfano la ricorrenza $a_{n+2}=a_{n+1}+a_n$ è uno \emph{spazio vettoriale}. In uno slancio di ottimismo, cerchiamo elementi ragionevolmente \emph{semplici} di questo spazio vettoriale, ossia \emph{successioni di potenze} $a_n=\alpha^n$ che rispettano la ricorrenza.
+Imporre che si abbia $a_{n+2}=a_{n+1}+a_n$ è equivalente ad imporre che la quantità $\alpha$ soddisfi $\alpha^2=\alpha+1$, ossia risulti radice del \emph{polinomio caratteristico} $p(x)=x^2-x-1$. Per quanto noto dall'antichità più remota sulle proporzioni del pentagono regolare, le radici del precedente polinomio sono il \emph{rapporto aureo} $\varphi=\frac{1+\sqrt{5}}{2}$ e il suo coniugato algebrico $\overline{\varphi}=\frac{1-\sqrt{5}}{2}$. In virtù della struttura di spazio vettoriale, \emph{tutte} le successioni della forma $a_n = A\varphi^n + B\overline{\varphi}^n$ soddisfano la ricorrenza voluta. Nell'ultima espressione abbiamo due gradi di libertà nella scelta dei coefficienti $A,B$, ed auspicabilmente un'opportuna scelta della coppia $(A,B)$ è tale da garantire simultaneamente sia $a_0=F_0=0$ che $a_1=F_1=1$, ossia 
+$$ \left\{\begin{array}{rcl}\varphi^0 A + \overline{\varphi}^0 B &=& 0 \\ \varphi^1 A + \overline{\varphi}^1 B &=& 1.\end{array}\right. $$
+In virtù della regola di Cramer il sistema ha effettivamente soluzione unica, poiché 
+$$ \det \begin{pmatrix} 1 & 1 \\ \varphi & \overline{\varphi} \end{pmatrix}=\overline{\varphi}-\varphi \neq 0, $$
+caso particolare del fatto che tutte le matrici di Vandermonde definite a partire da elementi distinti sono invertibili.\\
+A conti fatti abbiamo $A=-B=\frac{1}{\sqrt{5}}$, dunque la successione $a_n=\frac{\varphi^n-\overline{\varphi}^n}{\sqrt{5}}$ rispetta sia la legge di ricorrenza che le condizioni iniziali volute. Dal principio di induzione segue pertanto $a_n=F_n$, ossia 
+$$ F_n = \frac{\varphi^n-\overline{\varphi}^n}{\sqrt{5}}. $$
+
+\textbf{Approccio \#2, \emph{Jordan}}. Possiamo liberamente definire il vettore $v_n=\begin{pmatrix} F_{n+1} \\ F_{n}\end{pmatrix}$ ed esprimere la ricorrenza nella forma $v_{n+1} = M v_n$, dove $M=\begin{pmatrix} 1 & 1 \\ 1 & 0\end{pmatrix}$. Dal principio di induzione segue $v_n = M^n v_0$, dunque il problema di esplicitare il termine generale della successione si rivela equivalente a quello di esplicitare l'$n$-esima potenza della matrice $M$. Dal Teorema di Jordan si ha $M = J^{-1}\begin{pmatrix}\varphi & 0 \\ 0 & \overline{\varphi}\end{pmatrix} J$ per un'opportuna matrice invertibile $J$, da cui $M^n = J^{-1}\begin{pmatrix}\varphi^n & 0 \\ 0 & \overline{\varphi}^n\end{pmatrix} J$. Segue che il termine generale della successione è una fissata combinazione lineare di $\varphi^n$ e $\overline{\varphi}^n$, dove i coefficienti di questa combinazione lineare possono essere facilmente calcolati per interpolazione, o (meno efficientemente) esplicitando la matrice $J$.\\
+
+\textbf{Approccio \#3, \emph{OGF}}. Questo è un approccio estremamente potente, ma decisamente indiretto: associamo alla successione una funzione regolare, dalla ricorrenza deduciamo proprietà algebriche della funzione, dalle ultime ricostruiamo il comportamento esplicito (o anche solo asintotico) della successione. È immediato realizzare che la successione di Fibonacci è crescente, ma non troppo rapidamente, in quanto si ha $a_{n+1}\leq 2 a_n$ per ogni $n\geq 1$, da cui $F_n \leq 2^{n-1}$.\\ In particolare, posto 
+$$ f(x) = \sum_{n\geq 0} F_n x^n  = x + \sum_{n\geq 2}F_n x^n$$
+si ha che $f(x)$ è una funzione analitica in un intorno circolare dell'origine di raggio almeno $\frac{1}{2}$.\\ Su questo insieme abbiamo 
+
+$$ x^2 f(x) = \sum_{n\geq 0} F_n x^{n+2} = \sum_{n\geq 2} F_{n-2} x^n,\qquad x f(x) = \sum_{n\geq 0} F_n x^{n+1} = \sum_{n\geq 2} F_{n-1} x^n $$
+e dalla relazione $F_{n}=F_{n-1}+F_{n-2}$, valida per ogni $n\geq 2$, deduciamo che 
+$$ f(x) = x + x f(x) + x^2 f(x)\quad\Longrightarrow\quad f(x) = \frac{x}{1-x-x^2}. $$
+Operando una decomposizione in fratti semplici dell'ultima funzione razionale, mediante serie geometriche otteniamo che 
+$$ f(x) = \frac{1}{\sqrt{5}}\left(\frac{1}{1-\varphi x}-\frac{1}{1-\overline{\varphi}x}\right) = \frac{1}{\sqrt{5}}\sum_{n\geq 0}\left(\varphi^n-\overline{\varphi}^n\right) x^n. $$
+Dal principio di identità delle funzioni analitiche (diretta estensione del principio di identità dei polinomi: se due funzioni analitiche coincidono in un intorno dell'origine hanno le medesime derivate in zero e viceversa) segue la formula di Binet. $f(x)$ è detta \emph{funzione generatrice ordinaria (OGF)} della successione $\{F_n\}_{n\geq 0}$ e l'effettivo raggio di convergenza nell'origine è dato dal reciproco del massimo modulo delle radici del polinomio caratteristico (Teorema di Frobenius), nel nostro caso $\frac{1}{\varphi}=\varphi-1\approx 0.618$.\\
+
+Gli ultimi due approcci sono immediatamente generalizzabili al caso in cui una successione per ricorrenza lineare ed autonoma abbia ordine $k\geq 2$. Il primo approccio è praticabile solo se le radici del polinomio caratteristico sono tutte distinte: altrimenti si manifestano problemi di \emph{risonanza}, legati alle potenze di una matrice non diagonalizzabile, o ai \emph{poli} di funzioni razionali con ordine maggiore di $1$. Vediamone un esempio.
+
+\begin{ex} La successione $\{a_n\}_{n\geq 0}$ è definita dalla condizioni iniziali $a_0=1, a_1=2, a_2=4$ e dalla ricorrenza $a_{n+3}=3 a_{n+2}-4 a_n$, valida per ogni $n\in\N$. Si determini un'espressione esplicita del termine generale. 
+\end{ex}
+
 
 \section{Equazioni Differenziali}
 Per il Teorema Fondamentale del Calcolo Integrale (T.F.C.I.) possiamo risalire alla funzione $u(t)$ se se ne conosce la derivata, infatti l'equazione $$u'(t)=f(t)$$ ha soluzione $$u(t)=\int_{a}^{t}f(s)ds$$
