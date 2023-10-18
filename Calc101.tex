@@ -627,8 +627,25 @@ Oltre che nella fabbricazione di stime accurate, la convessità è di grande aus
  \item Se $f$ è composta o sommata a qualunque altra funzione convessa resta convessa.
 \end{itemize}
 
+\subsection{Metodo di Newton}
+Il concetto di convessità dal punto di vista geometrico è anche alla base di uno dei principali stratagemmi numerici per la determinazione di zeri di funzioni, il \emph{metodo delle tangenti} o \emph{metodo di Newton}.
+
+\begin{theorem} Se $f\in C^2([a,b])$ è convessa, con derivata positiva e tale per cui $f(a)f(b)<0$, la successione definita attraverso 
+$$ \xi_0 = b,\qquad \xi_{n+1} = \xi_n - \frac{f(\xi_n)}{f'(\xi_n)} $$
+converge decrescendo all'unico zero di $f$ in $[a,b]$. 
+ 
+\end{theorem}
+\begin{proof}
+Per convessità, il grafico di $f$ su $[a,b]$ è collocato al di sopra di qualunque retta tangente, in particolare si ha $f(x)\geq f'(\xi_n)(x-\xi_n)+f(\xi_n)$ per ogni $x\in[a,b]$. L'ultima retta tangente interseca l'asse delle ascisse in $\xi_{n+1}$, che si trova necessariamente alla sinistra di $\xi_n$ e alla destra dell'unico zero di $f$ in $[a,b]$. La successione $\{\xi_n\}_{n\geq 0}$, in quanto decrescente e inferiormente limitata, converge necessariamente al suo $\inf$, che denominiamo $\xi$. Da $\lim_{n\to +\infty}(\xi_{n+1}-\xi_n)=0$ segue $f(\xi)=0$.
+\end{proof}
+
+\textbf{Nota}: il metodo di Newton applicato alla funzione $f(x)=x^2-n$ è esattamente il metodo babilonese per l'approssimazione di $\sqrt{n}$, in cui si parte con un'approssimazione per eccesso $\alpha \geq \sqrt{n}$ e la si rimpiazza con la media aritmetica tra $\alpha$ ed $\frac{n}{\alpha}$, producendo una nuova approssimazione per eccesso, più piccola e più accurata della precedente.\\
+
+Sotto le precedenti ipotesi di monotonia e convessità la convergenza è rapida, in particolare \emph{quadratica}. A meno di traslazioni non è restrittivo supporre che $0\in[a,b]$ sia l'unico zero di $f$, e dagli sviluppi di Maclaurin di $f(x)$ e della sua derivata, ossia $f(x)=f'(0)x + \frac{1}{2}(f''(0)+o(1))x^2$ e $f'(x)=f'(0)+(f''(0)+o(1))x$, si ha 
+$$ \xi_{n+1} = \xi_n - \frac{f'(0)\xi_n + \frac{1}{2}(f''(0)+o(1))\xi_n^2}{f'(0)+(f''(0)+o(1))\xi_n} = O(\xi_n^2). $$
 
 
+\newpage
 
 \subsection{Teorema di Taylor e resto integrale}
 Sia $I$ un intorno aperto dell'origine e $f$ una funzione di classe $C^d$ su $I$, con $d\geq 1$. Per un qualunque $t\in I$, possiamo considerare che l'applicazione della formula di integrazione produce quanto segue:
