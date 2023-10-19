@@ -1190,6 +1190,55 @@ $$ I(\alpha,\beta) = \frac{1}{(\alpha-1)^{\beta+1}}\int_{0}^{+\infty} z^{-\beta}
 \end{ex}
 \emph{Sketch di controesempio}: $f(x) = \sum_{n\geq 1} n\exp\left(-n^6(x-n)^2\right)$ è positiva e impropriamente Riemann-integrabile su $\R^+$, ma $f(n)\geq n$ per ogni $n\in\N^+$ mentre $\lim_{n\to +\infty} f\left(n+\frac{1}{2}\right)=0$.
 
+\subsection{Elementi di Teoria della Misura}
+Per quanto nella didattica delle scuole superiori sia da tempo in vigore un totale oscurantismo in materia\footnote{All'interno di testi molto diffusi si legge: \emph{due figure si dicono equiestese se hanno la medesima area; l'area è fissata dalle classi di equivalenza della congruenza}. Ovviamente senza specificare né cosa si intenda per \emph{figura}, né cosa si intenda per \emph{congruenza}, né \emph{come} le classi di equivalenza di una relazione assegnino di fatto un valore numerico a sottoinsiemi del piano.}, nel far Matematica è piuttosto importante avere le idee chiare su cosa significhi il termine \emph{area}. In termini assiomatici, seguendo le antiche idee di Eudosso ed Archimede, possiamo associare ad \emph{alcuni} sottoinsiemi del piano (i \emph{misurabili}) un numero reale non negativo postulando quanto segue: 
+\begin{enumerate}
+ \item Qualunque rettangolo ha come area il prodotto delle lunghezze di lati consecutivi
+ \item (Additività) Se $A,B$ sono misurabili disgiunti, $A\cup B$ è misurabile e vale $\mu(A\cup B)=\mu(A)+\mu(B)$
+ \item (Monotonia) Se $A,B$ sono misurabili con $A\subseteq B$, vale $\mu(A)\leq \mu(B)$
+ \item (Invarianza per isometrie) Se $A,B$ sono isometrici e $A$ è misurabile, $B$ è misurabile e realizza $\mu(B)=\mu(A)$.
+\end{enumerate}
+È un semplice esercizio verificare che questi $4$ assiomi fissano l'area di qualunque parallelogramma, dunque l'area di qualunque triangolo, dunque l'area di qualunque poligono. Sfortunatamente, non molt'altro: anche soltanto fissare l'area dei cerchi richiede qualche specifica extra.
+
+\begin{definizione}[Misura interna] Dato $E$, sottoinsieme limitato del piano, definiamo la sua \emph{misura interna} come 
+$$ \mu^-(E)=\sup\{\mu(P): P\text{ poligono}, P\subseteq E\}. $$
+\end{definizione}
+
+\begin{definizione}[Misura esterna] Dato $E$, sottoinsieme limitato del piano, definiamo la sua \emph{misura esterna} come 
+$$ \mu^+(E)=\inf\{\mu(P): P\text{ poligono}, E\subseteq P\}. $$
+\end{definizione}
+
+Nel caso in cui $E$ realizzi $\mu^-(E)=\mu^+(E)$ diciamo che $E$ è misurabile (secondo Peano-Jordan) e la sua area è $\mu(E)=\mu^-(E)=\mu^+(E)$. Non è affatto automatico che la limitatezza di $E$ comporti la misurabilità di $E$.
+\begin{ex} Si dimostri che il ``quadrato barbuto'' dato da
+$$ E=([0,1]\times[0,1])\cup (([0,1]\cap\Q)\times [-1,0]) $$
+ha misura interna $1$ e misura esterna $2$, dunque \emph{non è} misurabile secondo Peano-Jordan. 
+\end{ex}
+Il lemma-chiave che lega la misurabilità secondo Peano-Jordan alla Riemann-integrabilità è il seguente.
+\begin{lemma} Data una $f:[a,b]\to\R^+$ e il sottoinsieme del piano (sottografico) 
+$$ E_f = \left\{(x,y): x\in[a,b], y\in[0,f(x)]\right\} $$
+si ha che $E_f$ è misurabile secondo Peano-Jordan se e solo se $f$ è Riemann-integrabile su $[a,b]$. In tal caso si ha 
+$$ \mu(E_f)=\int_{a}^{b} f(x)\,dx.$$
+\end{lemma}
+
+La Riemann-integrabilità in senso improprio permette pertanto di estendere il concetto di area anche a sottoinsiemi del piano illimitati, come ad esempio il sottografico di $e^{-x}$ su $\R^+$. Rimpiazzando i termini \emph{area}, \emph{rettangolo} e \emph{poligono} con i termini \emph{volume}, \emph{parallelepipedo} e \emph{poliedro} otteniamo la definizione della misura di Peano-Jordan in $\R^3$.\\
+Le relazioni tra continuità e misura sono spinose e non sempre intuitive: è possibile che un misurabile $V\subset\R^3$ abbia una sezione $V\cap\{z=0\}$ che non è misurabile come sottoinsieme del piano. Nei casi in cui questa patologia non si presenta abbiamo tuttavia un risultato ricco di applicazioni.
+
+\begin{theorem}[Principio di Cavalieri] Se $V\subset\R^3$ è misurabile e lo sono anche tutte le sue sezioni, il volume di $V$ è dato dall'integrale dell'area delle sezioni. 
+\end{theorem}
+
+Conseguenze immediate sono ad esempio le seguenti:
+\begin{itemize}
+ \item il volume di un cono circolare retto è dato da $\frac{1}{3}$ del prodotto tra l'area della base e la lunghezza dell'altezza,
+ \item il volume di una sfera di raggio $R$ è $\frac{4\pi}{3}R^3$ e la superficie è $4\pi R^2$, ossia $4$ volte l'area racchiusa da un equatore.
+\end{itemize}
+
+Più in generale, data una $f\in C^{0}([a,b])$ non negativa, il volume del solido ottenuto ruotando il sottografico di $f$ attorno all'asse delle ascisse è dato da $\pi\int_{a}^{b}f(x)^2\,dx$. Se invece abbiamo una $f\in C^0([0,b])$ non negativa e facciamo ruotare il suo sottografico attorno all'asse delle ordinate, per decomposizione in corone cilindriche abbiamo che il volume del solido di rotazione è dato da
+
+$$ V=\lim_{N\to +\infty} \sum_{k=0}^{N-1} f\left(\frac{kb}{N}\right)\left(\pi\left(\frac{(k+1)b}{N}\right)^2-\pi\left(\frac{kb}{N}\right)^2\right)=\pi\lim_{N\to +\infty}\frac{1}{N}\sum_{k=0}^{N-1}f\left(\frac{kb}{N}\right)\frac{(2k+1)b}{N}, $$
+ossia, per corrispondenza tra somme e integrali di Riemann, $2\pi\int_{0}^{b} x f(x)\,dx.$
+
+
+
 \section{Successioni per ricorrenza}
 Lo studio di successioni in cui il termine generale $a_n$ dipende in qualche modo dai precedenti è di fondamentale importanza non solo dal punto di vista strettamente teorico, ma anche da quello fisico-ingegneristico, visto che è piuttosto raro essere in grado di ricostruire esplicitamente la soluzione di un'equazione differenziale, ma si hanno migliori chances di successo nella trattazione (eventualmente numerica) dei corrispondenti problemi \emph{linearizzati} o altrimenti \emph{discretizzati}. Il primo caso che ci apprestiamo a trattare è quello delle successioni per ricorrenza \emph{lineari} ed \emph{autonome}, dove il termine generale $a_n$ è una fissata combinazione lineare dei precedenti $k$ termini.
 
