@@ -644,6 +644,10 @@ Per convessità, il grafico di $f$ su $[a,b]$ è collocato al di sopra di qualun
 Sotto le precedenti ipotesi di monotonia e convessità la convergenza è rapida, in particolare \emph{quadratica}. A meno di traslazioni non è restrittivo supporre che $0\in[a,b]$ sia l'unico zero di $f$, e dagli sviluppi di Maclaurin di $f(x)$ e della sua derivata, ossia $f(x)=f'(0)x + \frac{1}{2}(f''(0)+o(1))x^2$ e $f'(x)=f'(0)+(f''(0)+o(1))x$, si ha 
 $$ \xi_{n+1} = \xi_n - \frac{f'(0)\xi_n + \frac{1}{2}(f''(0)+o(1))\xi_n^2}{f'(0)+(f''(0)+o(1))\xi_n} = O(\xi_n^2). $$
 
+\begin{ex}[Problema di Keplero] Si determini un'accurata approssimazione numerica dell'unico $\theta\in\left[0,\frac{\pi}{2}\right]$\\ che realizza $\theta+\sin\theta = 2$. 
+\end{ex}
+\textbf{Sketch di soluzione}. Da tre passaggi del metodo di Newton con $\theta_0=1$ si ha che $\frac{73}{66}=1.1\overline{06}$ stima la soluzione con un errore assoluto inferiore al milionesimo.
+
 
 \newpage
 
@@ -861,10 +865,10 @@ che è un analogo discreto della formula di integrazione per parti, nota come \t
 
 Dalla formula di integrazione per parti segue l'omonimo criterio per gli integrali: se su $[0,+\infty)$ si ha che $f(x)$ ha primitiva limitata e $g(x)$ è decrescente a zero, $f(x)g(x)$ è impropriamente Riemann-integrabile su $\R^+$.
 
-\subsection{Serie di Potenze}
+\subsection{Serie di potenze}
 Una serie di potenze (centrata nell'origine) è definita come:
 $$\sum_{n=0}^{\infty}a_n x^n$$
-con $x\in\C$, e sia il \textbf{Raggio di Convergenza} \\
+con $x\in\C$, e sia il \textbf{raggio di convergenza} \\
 $$\rho=\frac{1}{\limsup\sqrt[n]{|a_n|}}.$$
 La serie di potenze converge puntualmente nella palla $B_0=\left\{z\in\C : |z|< \rho \right\}$ e uniformemente su ogni compatto contenuto in $B_0$.
 
@@ -895,12 +899,28 @@ $$ 9S = 12S-3S = 4+\sum_{n\geq 0}\frac{(2n+3)-(2n+1)}{4^n} = 4+2\sum_{n\geq 0}\f
 dalle quali segue $S=\frac{20}{27}$.
 
 
-\subsubsection{Criterio Cannonata}
+\subsubsection{Criterio di convergenza dominata}
 
-Per il \textbf{Criterio di Convergenza Dominata} tutte le serie che convergono \emph{abbastanza} velocemente commutano con l'integrale. All'atto pratico ciò comporta che, nelle ipotesi corrette, è lecito scrivere:
-$$\sum_{n\geq 0}^{}\int_{a}^{b}f(x)dx =\int_{a}^{b}\sum_{n\geq 0}^{}f(x) dx.$$ 
-Questo torna utile in quanto è moderatamente comune sostituire ad una funzione una sua \textbf{Rappresentazione integrale}.
-(Non esattamente collegato, ma per farsi un'idea dell'utilità di questo fatto vedere l'esercizio \textbf{J17})
+Per il \textbf{Teorema di convergenza dominata} tutte le serie che convergono \emph{abbastanza} velocemente commutano con l'integrale. All'atto pratico ciò comporta che, nelle ipotesi corrette, è lecito scrivere:
+$$\sum_{n\geq 0}^{}\int_{a}^{b}f_n(x)\,dx =\int_{a}^{b}\sum_{n\geq 0} f_n(x)\, dx.$$ 
+Questo torna utile in quanto è moderatamente comune sostituire ad una funzione una sua \textbf{rappresentazione integrale}, come ad esempio nella soluzione dell'esercizio \textbf{J17}, o del seguente.
+
+\begin{ex} Si determini esplicitamente il valore della serie 
+$$ \sum_{n\geq 1}\frac{1}{n^2+1}. $$
+ 
+\end{ex}
+\textbf{Soluzione}. È pratico osservare preliminarmente che, per integrazione per parti,
+$$ \frac{1}{n^2+1} = \int_{0}^{+\infty}\frac{\sin(nx)}{n}\,e^{-x}\,dx.$$
+Poiché $\sum_{n\geq 1}\frac{z^n}{n}=-\log(1-z)$ vale per ogni $z\in\C$ di modulo $<1$, dal Lemma di Abel segue che $\operatorname{Im}\sum_{n\geq 1}\frac{e^{inx}}{n}=\sum_{n\geq 1}\frac{\sin(nx)}{n}$ è il prolungamento $2\pi$-periodico della funzione che su $(0,2\pi)$ vale $\frac{\pi-x}{2}$ (\emph{onda a dente di sega} o \emph{sawtooth wave}). Invocando il Teorema di convergenza dominata abbiamo la seguente catena di uguaglianze:
+\begin{eqnarray*}
+ \sum_{n\geq 1}\frac{1}{n^2+1}&=&\int_{0}^{+\infty}e^{-x}\sum_{n\geq 1}\frac{\sin(nx)}{n}\,dx = \int_{0}^{+\infty}e^{-x}\left(\frac{\pi-x}{2}\right)_{\text{per}}\,dx = \frac{1}{1-e^{-2\pi}}\int_{0}^{2\pi}\left(\frac{\pi-x}{2}\right)e^{-x}\,dx \\
+ &=& \frac{e^{\pi}}{e^{2\pi}-1}\int_{-\pi}^{\pi}\frac{x}{2}e^{-x}\,dx = \frac{e^{\pi}}{e^{2\pi}-1}\int_{0}^{\pi}x\sinh(x)\,dx = \frac{e^\pi}{e^{2\pi}-1}\left(\left[x\cosh x\right]_{0}^{\pi}-\left[\sinh x\right]_{0}^{\pi}\right)\\
+ &=& \frac{e^\pi}{e^{2\pi}-1}\left(\pi\frac{e^\pi+e^{-\pi}}{2}-\frac{e^\pi-e^{-\pi}}{2}\right) = \frac{\pi}{2}\cdot \frac{e^{2\pi}+1}{e^{2\pi}-1}-\frac{1}{2}={\color{blue}\frac{\pi\coth\pi-1}{2}}.\qed
+\end{eqnarray*}
+
+L'espediente appena utilizzato può essere generalizzato, dando luogo a quanto noto come \emph{formula di sommazione di Poisson}.
+
+
 \subsection{Creative telescoping}
 Un metodo importante è quello di trasformare serie apparentemente complesse in serie telescopiche o combinazioni lineari di serie telescopiche.
 Tipicamente per questo tipo di lavoro bisogna farci l'occhio e sapere un po' dove mettere le mani, ma diventa abbastanza intuitivo velocemente (serve appunto un po' di creatività). Un esempio classico riguarda il problema di Basilea, ossia la determinazione di $\zeta(2)=\sum_{n\geq 1}\frac{1}{n^2}$. Il termine generale della serie non è evidentemente telescopico, ma è prossimo a quello della serie di Mengoli, da cui:
@@ -915,9 +935,6 @@ o, via integrazione per parti, $\zeta(2)=3\int_{0}^{1}\frac{2x-1}{1-x+x^2}\log(x
 $$ \zeta(3) = \frac{5}{2}\sum_{n\geq 1}\frac{(-1)^{n+1}}{n^3\binom{2n}{n}} $$
 per dimostrare nel 1977 che $\zeta(3)\not\in\Q$.\\ La presunta irrazionalità di $\zeta(5),\gamma,\Gamma\left(\frac{1}{5}\right)$ (e molte altre costanti) è tuttora una questione aperta.
 
-
-
-\newpage
 \section{Integrazione secondo Riemann}
 Questo paragrafo, dopo un breve recap, si concentrerà nell'illustrare degli integrali più complessi e meritevoli di particolare attenzione, oltre che a tecniche di integrazione un po' più oscure. Ad avviso mio e di Jack, i metodi che mostreremo sono abbastanza importanti da avere a portata di mano in caso di necessità. Alcuni argomenti che saranno trattati sono l'utilizzo della convergenza dominata (vedere paragrafo sui criteri delle serie), Integrali complessi, \emph{abuso} di rappresentazioni integrali etc.
 \begin{definizione}[Partizione] Dato un intervallo chiuso e limitato della retta reale $[a,b]$, una qualunque sequenza 
