@@ -299,7 +299,7 @@ Per quanto concerne la seconda parte, consideriamo una generica $f:I\to\mathbb{R
 \end{proof}
 
 
-\begin{definizione}[Continuità uniforme]
+\begin{definizione}[Continuità Uniforme]
 Si dice che $f:I\to\R$ è uniformemente continua in $I$ se 
 
 
@@ -316,15 +316,15 @@ $$|z-x|<\delta\Longrightarrow|f(z)-f(x)|<\epsilon.$$
 \end{proof}
 
 
-\begin{definizione}[Modulo di continuità]
-Sia $f:(a,b)\to\R$ una funzione a valori in $\R$, e sia $\delta$ un numero reale positivo. Si definisce \emph{modulo di continuità} locale di $f$ in $x_0$ una funzione $\omega_0:\R^+\to\R^+$  tale che:\\
+\begin{definizione}[Modulo di Continuità]
+Sia $f:(a,b)\to\R$ una funzione a valori in $\R$, e sia $\delta$ un numero reale positivo. Si definisce Modulo di Continuità locale di $f$ in $x_0$ una funzione $\omega_0:\R^+\to\R^+$  tale che:\\
 $$|f(x_0)-f(x)|\leq\omega_{x_0}(\delta),\forall x\in(a,b):|x_0-x|\leq\delta$$ è detto modulo di continuità globale invece:
 $$|f(x_0)-f(x)|\leq\omega_{x_0}(\delta),\forall x,x_0\in(a,b):|x_0-x|\leq\delta$$
 \end{definizione}
 
 
 
-Il modulo di continuità misura l'uniforme continuità di $f$, in particolare valgono le seguenti proprietà:
+Il modulo di Continuità misura l'uniforme continuità di $f$, in particolare valgono le seguenti proprietà:
 \begin{itemize}
  \item $f$ è continua in $x_0$ se e solo se essa ammette un modulo di continuità locale $\omega_{x_0}$ tale che $\lim_{\delta\to0}\omega_{x_0}(\delta)=0$
  \item una funzione è uniformemente continua se e solo se ammette un modulo di continuità globale $\omega_f$ tale che $\lim_{\delta\to 0}\omega_f(\delta)=0$
@@ -353,15 +353,15 @@ Sia $X$ un insieme e sia $d:X \times X\to [0,+\infty]$ una funzione che ad ogni 
 \item $d(x,y)=d(y,x)\quad\forall x,y\in X$
 \item $d(x,y)\leq d(x,z)+d(z,y)\quad\forall x,y,z\in X$
 \end{itemize}
-L'ultima condizione prende il nome di \textbf{disuguaglianza triangolare}.\\
-La coppia $(X,d)$ si dice \textbf{spazio metrico} se $d$ è una distanza (o metrica).
+L'ultima condizione prende il nome di \textbf{Disuguaglianza Triangolare}.\\
+La coppia $(X,d)$ si dice \textbf{Spazio Metrico} se $d$ è una distanza (o metrica).
 
 \begin{definizione}[Intorno circolare]
 Per ogni $x_0\in X$ e per ogni $r>0$, si chiama Intorno Circolare (Intorno Sferico o Palla Aperta) di centro $x_0$ e di raggio $r$ l'insieme $$B_r(x_0)=\{x\in X: d(x,x_0)<r\}.$$
 \end{definizione}
 
 \begin{definizione}[Aperti e Topologia]
-Un insieme $A\subseteq X$ Si dice aperto se ogni suo punto è centro di una palla aperta contenuta in $A$, cioè se per ogni suo punto $x_0\in A$ esiste $r>0$ tale che $B_r(x_0)\subseteq A$ (si assume il vuoto come un insieme aperto). Un insieme $C\subseteq X$ si dice chiuso se il suo complementare, $A=X\setminus C$ è aperto. L'insieme di tutti gli aperti di uno spazio metrico $(X,d)$ si dice \textbf{topologia generata dalla metrica $d$}.
+Un insieme $A\subseteq X$ Si dice aperto se ogni suo punto è centro di una palla aperta contenuta in $A$, cioè se per ogni suo punto $x_0\in A$ esiste $r>0$ tale che $B_r(x_0)\subseteq A$ (si assume il vuoto come un insieme aperto). Un insieme $C\subseteq X$ si dice chiuso se il suo complementare, $A=X\setminus C$ è aperto. L'insieme di tutti gli aperti di uno spazio metrico $(X,d)$ si dice \textbf{Topologia Generata dalla metrica $d$}.
 \end{definizione}
 
 \textbf{Proposizione}. In uno spazio metrico, tutti le palle aperte, le unioni arbitrarie di aperti e le intersezioni finite di aperti sono aperte.\\
@@ -389,7 +389,7 @@ Sia $(X,d)$ uno spazio metrico e sia $x_0$ un fissato punto di $X$. Allora la fu
     $$|d(x_k,x_0)-d(x,x_0)|\leq d(x_k,x)$$
     e perciò $d(x_k,x_0)\to d(x,x_0)\text{ per } k\to\infty$.
 \end{proof}
-\begin{definizione}[Spazio normato]
+\begin{definizione}[Spazio Normato]
 Sia $V$ uno spazio vettoriale. Una norma su $V$ è una funzione che ad ogni vettore $x\in V$ associa un reale $\|x\|\geq 0$ che verifica le seguenti condizioni:
 \begin{itemize}
     \item $\|x\|=0 \text{ se e solo se } x=0 \qquad \forall x\in V$
@@ -439,7 +439,7 @@ contro la minimalità di $m$. Questo prova che $f$ ha necessariamente un punto f
 Per contrattività di $f$ la successione $\{g(x_n)\}_{n\geq 0}$ è strettamente decrescente, dunque converge al suo $\inf$.\\ Poiché $g(x_{n_k})\to g(\overline{x}) = 0$, il precedente $\inf$ è nullo e $d(x_n,f(x_n))$ converge a zero.\\ Per unicità del punto fisso di $f$, $x_n\to\overline{x}$.\end{proof}
 
 \subsection{Compattezza}
-\begin{definizione}[Insieme compatto]
+\begin{definizione}[Insieme Compatto]
     Un sottoinsime $K$ dello spazio metrico $(X,d)$ si dice (sequenzialmente) compatto se da ogni successione $\{x_k\}$ di punti di $K$ si può estrarre una sottosuccessione convergente verso un punto $x\in K$.
 \end{definizione}
 Osservimo che, se $K\subseteq X$ è un insieme compatto, si dice, secondo questa definizione, che è \emph{compatto per successioni}, a dispetto della definizione di compattezza data attraverso dei \emph{ricoprimenti aperti}. In ogni caso, le due definizioni risultano equivalenti.
@@ -466,7 +466,7 @@ Sia $f:[a,b]\to\R$ una funzione continua e derivabile in $(a,b)$ e tale che $f(a
     il minimo e il massimo sono prorprio gli estremi dell'intervallo $[a,b]$, allora il massimo di $f$ coincide col suo minimo, quindi la funzione vale costantemente $f(x_M)=f(x_m)=k$, cioè ha derivata costantemente nulla. \\
     Alternativamente almeno uno tra $x_m$ e $x_M$ cade in $(a,b)$, quindi la derivata si annulla in almeno in quel punto.
 \end{proof}
-\begin{theorem}[Lagrange o Valor medio]
+\begin{theorem}[Lagrange o Valor Medio]
 Sia $f:[a,b]\to\R$ e derivabile in $(a,b)$. Esiste un punto $\xi\in(a,b)$ tale che $$f(b)-f(a)=f'(\xi)(b-a).$$
 \end{theorem}
 \begin{proof}
@@ -622,34 +622,12 @@ Oltre che nella fabbricazione di stime accurate, la convessità è di grande aus
 \begin{itemize}
  \item $f$ assume massimo negli estremi di $I$.
  \item Se $I$ è chiuso l'insieme dei punti di minimo di $f$ su $I$ è un convesso.\\ Più in generale, è convesso qualunque sottolivello non vuoto.
- \item Se $E\subset\R^n$ è un convesso compatto, è ben definita e continua la \emph{proiezione} su $E$ data da $\pi:\R^n\setminus E \to \partial E$,\\ che associa ad ogni $x\in\R^n\setminus E$ il punto di $E$ con la minima distanza da $x$.
  \item L'equazione $f(x)=\kappa$ ha al più due soluzioni distinte in $I$.
  \item Se $f$ è composta o sommata a qualunque altra funzione convessa resta convessa.
 \end{itemize}
 
-\subsection{Metodo di Newton}
-Il concetto di convessità dal punto di vista geometrico è anche alla base di uno dei principali stratagemmi numerici per la determinazione di zeri di funzioni, il \emph{metodo delle tangenti} o \emph{metodo di Newton}.
-
-\begin{theorem} Se $f\in C^2([a,b])$ è convessa, con derivata positiva e tale per cui $f(a)f(b)<0$, la successione definita attraverso 
-$$ \xi_0 = b,\qquad \xi_{n+1} = \xi_n - \frac{f(\xi_n)}{f'(\xi_n)} $$
-converge decrescendo all'unico zero di $f$ in $[a,b]$. 
- 
-\end{theorem}
-\begin{proof}
-Per convessità, il grafico di $f$ su $[a,b]$ è collocato al di sopra di qualunque retta tangente, in particolare si ha $f(x)\geq f'(\xi_n)(x-\xi_n)+f(\xi_n)$ per ogni $x\in[a,b]$. L'ultima retta tangente interseca l'asse delle ascisse in $\xi_{n+1}$, che si trova necessariamente alla sinistra di $\xi_n$ e alla destra dell'unico zero di $f$ in $[a,b]$. La successione $\{\xi_n\}_{n\geq 0}$, in quanto decrescente e inferiormente limitata, converge necessariamente al suo $\inf$, che denominiamo $\xi$. Da $\lim_{n\to +\infty}(\xi_{n+1}-\xi_n)=0$ segue $f(\xi)=0$.
-\end{proof}
-
-\textbf{Nota}: il metodo di Newton applicato alla funzione $f(x)=x^2-n$ è esattamente il metodo babilonese per l'approssimazione di $\sqrt{n}$, in cui si parte con un'approssimazione per eccesso $\alpha \geq \sqrt{n}$ e la si rimpiazza con la media aritmetica tra $\alpha$ ed $\frac{n}{\alpha}$, producendo una nuova approssimazione per eccesso, più piccola e più accurata della precedente.\\
-
-Sotto le precedenti ipotesi di monotonia e convessità la convergenza è rapida, in particolare \emph{quadratica}. A meno di traslazioni non è restrittivo supporre che $0\in[a,b]$ sia l'unico zero di $f$, e dagli sviluppi di Maclaurin di $f(x)$ e della sua derivata, ossia $f(x)=f'(0)x + \frac{1}{2}(f''(0)+o(1))x^2$ e $f'(x)=f'(0)+(f''(0)+o(1))x$, si ha 
-$$ \xi_{n+1} = \xi_n - \frac{f'(0)\xi_n + \frac{1}{2}(f''(0)+o(1))\xi_n^2}{f'(0)+(f''(0)+o(1))\xi_n} = O(\xi_n^2). $$
-
-\begin{ex}[Problema di Keplero] Si determini un'accurata approssimazione numerica dell'unico $\theta\in\left[0,\frac{\pi}{2}\right]$\\ che realizza $\theta+\sin\theta = 2$. 
-\end{ex}
-\textbf{Sketch di soluzione}. Da tre passaggi del metodo di Newton con $\theta_0=1$ si ha che $\frac{73}{66}=1.1\overline{06}$ stima la soluzione con un errore assoluto inferiore al milionesimo.
 
 
-\newpage
 
 \subsection{Teorema di Taylor e resto integrale}
 Sia $I$ un intorno aperto dell'origine e $f$ una funzione di classe $C^d$ su $I$, con $d\geq 1$. Per un qualunque $t\in I$, possiamo considerare che l'applicazione della formula di integrazione produce quanto segue:
@@ -699,10 +677,6 @@ Prima di avventurarsi in Matematica raffinata è opportuno familiarizzare con i 
  \item \textbf{Logaritmo naturale}. Su $(-1,1)$ abbiamo $\frac{d}{dx}\left(-\ln(1-x)\right)=\frac{1}{1-x}$. Per integrazione termine a termine della serie geometrica segue che sul precedente intervallo vale 
  $$ -\ln(1-x) = \sum_{n\geq 1}\frac{x^n}{n}. $$
  Per sommazione per parti (alias \emph{lemma di Abel}) l'identità continua a valere anche nell'estremo sinistro del dominio di convergenza, producendo $\ln 2 = \sum_{n\geq 1}\frac{(-1)^{n+1}}{n}$.
- \item \textbf{Arcotangente}. Vale $\frac{d}{dx}\arctan x=\frac{1}{1+x^2}$, che per $|x|<1$ può essere espressa come $\sum_{n\geq 0}(-1)^n x^{2n}$.\\
- Per integrazione termine a termine segue che su $(-1,1)$ vale 
- $$ \arctan(x) = \sum_{n\geq 0}\frac{(-1)^n}{2n+1} x^{2n+1}. $$
- Per sommazione per parti l'identità continua a valere anche in $x=1$,\\ producendo $\pi = 4\sum_{n\geq 0}\frac{(-1)^n}{2n+1}$ (\emph{serie di Gregory}).
  
 \end{itemize}
 
@@ -724,25 +698,23 @@ e
 $$ \arcsin x = \sum_{n\geq 0}\frac{\binom{2n}{n}}{2n+1}x^{2n+1} = x + \frac{x^3}{6} + o(x^4).$$
 Da quanto collezionato segue che al quart'ordine $\sin(x)\arcsin(x)$ è indistinguibile da $\left(x-\frac{x^3}{6}\right)\left(x+\frac{x^3}{6}\right)=x^2+o(x^4)$, dunque anche il valore di $f^{(IV)}(0)$ è $\color{blue}0$.
 
-\newpage
-
 \section{Binomiali \& Friends}
-Il coefficiente binomiale $\binom{n}{k}$, letto ``\emph{$n$ su $k$}'', rappresenta il numero di sottoinsiemi di cardinalità $k$ in un insieme di $n$ elementi.
+Come spero sia noto il binomiale $\binom{n}{k}$, letto \emph{$n$ su $k$}, rappresenta il numero di sottoinsiemi di cardinalità $k$ in un insieme di $n$ elementi.
 Questo è esplicitamente:\\
-$$\binom{n}{k} = \frac{n!}{(n-k)!k!}.$$
-Proprietà dei binomiali, di immediata dimostrazione dalla definizione combinatoria, sono:
+$$\binom{n}{k} = \frac{n!}{(n-k)!k!}$$    
+
+Proprietà dei binomiali sono: \\
 \begin{itemize}
-    \item $\binom{n}{k}=\binom{n}{n-k}$ (ci sono tanti modi di scegliere $k$ elementi tra $n$ quanti modi di \emph{non} scegliere $n-k$ elementi tra $n$)
-    \item $\binom{n+1}{k+1}=\binom{n}{k+1} + \binom{n}{k}$ (distinguendo i sottoinsiemi che contengono $n$ da quelli che non lo contengono)
-    \item $2^n= \sum_{k=0}^{n}\binom{n}{k}$ (i sottoinsiemi totali sono quelli che sono)
-    \item $0 = \sum_{k=0}^{n}\binom{n}{k}(-1)^k$ (ci sono tanti sottoinsiemi di cardinalità pari quanti sottoinsiemi di cardinalità dispari)
+    \item $\binom{n}{k}=\binom{n}{n-k}$
+    \item $\binom{n+1}{k+1}=\binom{n}{k+1} + \binom{n}{k}$
+    \item $2^n= \sum_{k=0}^{n}\binom{n}{k}$
+    \item $0 = \sum_{k=0}^{n}\binom{n}{k}(-1)^k$
 \end{itemize}
 
 \subsection{Teorema Binomiale di Newton e applicazioni utili}
-L'identità nota come \emph{binomio di Newton} è immediata conseguenza della proprietà distributiva:
-$$(a+b)^n=\sum_{k=0}^{n}\binom{n}{k}a^{n-k}b^k.$$
-Uno dei meriti di Newton è stato provare che $(a+b)^m=\sum_{k\geq 0}\binom{m}{k}a^{m-k}b^k$ continua a valere anche per $m$ non intero, ridefinendo opportunamente $\binom{m}{k}$.
-
+Il binomio di Newton è usato per calcolare le potenze $n$-esime dei binomi:
+$$(a+b)^n=\sum_{k=0}^{n}\binom{n}{k}a^{n-k}b^k$$
+\\
 \subsection{Stars \& Bars}
 Un importante tecnica di conteggio è appunto \textbf{Stars \& Bars}:
 $$\left|\{(x_1,\ldots,x_k)\in(\N^+)^k: x_1+\ldots+x_k = n\}\right|=[x^n]\left(\frac{x}{1-x}\right)^k = \binom{n-1}{k-1},$$
@@ -791,15 +763,15 @@ fornisce $n^3=6\binom{n}{3}+6\binom{n}{2}+1\binom{n}{1}$ (i coefficienti così t
 $$ \sum_{n=1}^{N}n^3 = 6\sum_{n=1}^{N}\binom{n}{3}+6\sum_{n=1}^{N}\binom{n}{2}+\sum_{n=1}^{N}\binom{n}{1}=6\binom{N+1}{4}+6\binom{N+1}{3}+\binom{N+1}{2}={\color{blue}\left(\frac{N(N+1)}{2}\right)^2}=\left(\sum_{n=1}^{N}n\right)^2.$$
 
 
-    \section{Criteri e metodi per Serie Numeriche}
-    \subsection{Serie importanti}
+    \section{Criteri e Metodi per Serie Numeriche}
+    \subsection{Serie Importanti}
 Seguono le più importanti Serie Numeriche convergenti, utili nella stima di altre serie e nella verifica della loro convergenza.\\
-\textbf{Serie armonica generalizzata}
+\textbf{Serie Armonica Generalizzata}
 $$\sum_{n=0}^{\infty}\frac{1}{n^\alpha}$$
 è una serie convergente se e solo se
 $\alpha\in\R>1$
 \\
-\textbf{Serie geometrica}
+\textbf{Serie Geometrica}
 $$S=\sum_{n=0}^{\infty}x^n$$
 Ha il seguente comportamento:
 \begin{equation*}
@@ -810,13 +782,13 @@ Ha il seguente comportamento:
     
 \end{cases}
 \end{equation*}
-\textbf{Serie telescopica}
+\textbf{Serie Telescopica}
 Ogni somma/serie in cui il termine generale si può esprimere come differenza di termini consecutivi (o quasi) si calcola, infatti vale
 $$\sum_{n=0}^{N}\left(a_n - a_{n+1}\right) = a_0 - a_{N+1}$$
 per massiccia cancellazione: il membro sinistro corrisponde alla differenza tra la prima quantità sommata e l'ultima quantità sottratta.
-
+\newpage
 \subsection{Criteri}
-Seguiranno i principali criteri di convergenza per le serie.
+Seguiranno i principali criteri di convergenza per le Serie.
 \subsubsection{Serie a termini definitivamente non negativi}
 \textbf{Criterio del Confronto} \\
 Sia
@@ -827,7 +799,7 @@ Eventualmente in combinazione con somme telescopiche, questo criterio prova la c
 $$ \sum_{n\geq 1}\frac{1}{n^2} = 1+\sum_{n\geq 2}\frac{1}{n^2} \leq 1+\sum_{n\geq 2}\left(\frac{1}{n-1}-\frac{1}{n}\right) = 2 $$
 e un discorso analogo può essere applicato anche alla serie armonica generalizzata.\\
 
-\textbf{Criterio del Confronto asintotico} \\
+\textbf{Criterio del Confronto Asintotico} \\
 È una forma più generale del precedente criterio. Se due successioni a termini non negativi $\{a_n\}_{n\geq 1}$ e $\{b_n\}_{n\geq 1}$ \\sono tali per cui $\lim_{n\to+\infty}\frac{a_n}{b_n}$ esiste finito, le serie 
 $$ \sum_{n\geq 1} a_n,\qquad \sum_{n\geq 1} b_n $$
 sono entrambe convergenti o entrambe positivamente divergenti.\\
@@ -865,10 +837,10 @@ che è un analogo discreto della formula di integrazione per parti, nota come \t
 
 Dalla formula di integrazione per parti segue l'omonimo criterio per gli integrali: se su $[0,+\infty)$ si ha che $f(x)$ ha primitiva limitata e $g(x)$ è decrescente a zero, $f(x)g(x)$ è impropriamente Riemann-integrabile su $\R^+$.
 
-\subsection{Serie di potenze}
+\subsection{Serie di Potenze}
 Una serie di potenze (centrata nell'origine) è definita come:
 $$\sum_{n=0}^{\infty}a_n x^n$$
-con $x\in\C$, e sia il \textbf{raggio di convergenza} \\
+con $x\in\C$, e sia il \textbf{Raggio di Convergenza} \\
 $$\rho=\frac{1}{\limsup\sqrt[n]{|a_n|}}.$$
 La serie di potenze converge puntualmente nella palla $B_0=\left\{z\in\C : |z|< \rho \right\}$ e uniformemente su ogni compatto contenuto in $B_0$.
 
@@ -881,11 +853,11 @@ Sarebbe molto comodo in questo caso ricondursi ad una serie geometrica.
 Ipotizzando che esista una applicazione lineare e continua $T$ tale da mandare $x^n$ in $f(n)$ otteniamo:
 $$S=\sum_{n\geq 0}\frac{f(n)}{k^n}=\sum_{n\geq 0}\frac{T(x^n)}{k^n}= T\left(  \sum_{n\geq 0}\left(\frac{x}{k}\right)^n \right)= T \left(\frac{1}{1-\frac{x}{k}}\right)$$ \\
 in base alla scelta/costruzione di $T$ possiamo calcolare esplicitamente tute le serie di questo tipo.
-(Possibili applicazioni lineari che farebbero al caso nostro sono: derivazione, integrazione, somma, prodotto, valutazione e tutte le loro composizioni). 
+(Possibili applicazioni lineari che farebbero al caso nostro sono: Derivazione, Integrazione, Somma, Prodotto, Valutazione e tutte le loro composizioni)\\
 Un esempio di utilizzo di questo metodo è calcolare esplicitamente la serie:
 $$\sum_{n\geq 0}^{}\frac{n^2}{4^n}$$
 utilizzando come operatore $T$ la somma delle prime due derivate valutata in $1$ (esercizio per il lettore).\\
-In generale questo metodo è utile ogni qual volta si sta trattando una serie i cui termini, a meno di un fattore, coincidono con quelli di una serie che già sappiamo calcolare.\\
+In generale questo metodo è utile ogni qual volta si sta trattando una Serie i cui termini, a meno di un fattore, coincidono con quelli di una serie che già sappiamo calcolare.\\
 A onor del vero, per quanto potente è raro che tale metodo sia \emph{l'unico} in grado di esplicitare un'assegnata serie. 
 Tornando all'esempio precedente, è ovvio che la serie presentata sia convergente, in quanto definitivamente $\frac{n^2}{4^n}\in\left(0,\frac{1}{3^n}\right]$. 
 Sono allora lecite tutte le seguenti manipolazioni (basate unicamente su moltiplicazioni per $4$ e \emph{reindexing}):
@@ -899,42 +871,16 @@ $$ 9S = 12S-3S = 4+\sum_{n\geq 0}\frac{(2n+3)-(2n+1)}{4^n} = 4+2\sum_{n\geq 0}\f
 dalle quali segue $S=\frac{20}{27}$.
 
 
-\subsubsection{Criterio di convergenza dominata}
+\subsubsection{Criterio Cannonata}
 
-Per il \textbf{Teorema di convergenza dominata} tutte le serie che convergono \emph{abbastanza} velocemente commutano con l'integrale. All'atto pratico ciò comporta che, nelle ipotesi corrette, è lecito scrivere:
-$$\sum_{n\geq 0}^{}\int_{a}^{b}f_n(x)\,dx =\int_{a}^{b}\sum_{n\geq 0} f_n(x)\, dx.$$ 
-Questo torna utile in quanto è moderatamente comune sostituire ad una funzione una sua \textbf{rappresentazione integrale}, come ad esempio nella soluzione dell'esercizio \textbf{J17}, o del seguente.
-
-\begin{ex} Si determini esplicitamente il valore della serie 
-$$ \sum_{n\geq 1}\frac{1}{n^2+1}. $$
- 
-\end{ex}
-\textbf{Soluzione}. È pratico osservare preliminarmente che, per integrazione per parti,
-$$ \frac{1}{n^2+1} = \int_{0}^{+\infty}\frac{\sin(nx)}{n}\,e^{-x}\,dx.$$
-Poiché $\sum_{n\geq 1}\frac{z^n}{n}=-\log(1-z)$ vale per ogni $z\in\C$ di modulo $<1$, dal Lemma di Abel segue che $\operatorname{Im}\sum_{n\geq 1}\frac{e^{inx}}{n}=\sum_{n\geq 1}\frac{\sin(nx)}{n}$ è il prolungamento $2\pi$-periodico della funzione che su $(0,2\pi)$ vale $\frac{\pi-x}{2}$ (\emph{onda a dente di sega} o \emph{sawtooth wave}). Invocando il Teorema di convergenza dominata abbiamo la seguente catena di uguaglianze:
-\begin{eqnarray*}
- \sum_{n\geq 1}\frac{1}{n^2+1}&=&\int_{0}^{+\infty}e^{-x}\sum_{n\geq 1}\frac{\sin(nx)}{n}\,dx = \int_{0}^{+\infty}e^{-x}\left(\frac{\pi-x}{2}\right)_{\text{per}}\,dx = \frac{1}{1-e^{-2\pi}}\int_{0}^{2\pi}\left(\frac{\pi-x}{2}\right)e^{-x}\,dx \\
- &=& \frac{e^{\pi}}{e^{2\pi}-1}\int_{-\pi}^{\pi}\frac{x}{2}e^{-x}\,dx = \frac{e^{\pi}}{e^{2\pi}-1}\int_{0}^{\pi}x\sinh(x)\,dx = \frac{e^\pi}{e^{2\pi}-1}\left(\left[x\cosh x\right]_{0}^{\pi}-\left[\sinh x\right]_{0}^{\pi}\right)\\
- &=& \frac{e^\pi}{e^{2\pi}-1}\left(\pi\frac{e^\pi+e^{-\pi}}{2}-\frac{e^\pi-e^{-\pi}}{2}\right) = \frac{\pi}{2}\cdot \frac{e^{2\pi}+1}{e^{2\pi}-1}-\frac{1}{2}={\color{blue}\frac{\pi\coth\pi-1}{2}}.\qed
-\end{eqnarray*}
-
-L'espediente appena utilizzato può essere generalizzato, dando luogo a quanto noto come \emph{formula di sommazione di Poisson}.
-
-
-\subsection{Creative telescoping}
-Un metodo importante è quello di trasformare serie apparentemente complesse in serie telescopiche o combinazioni lineari di serie telescopiche.
-Tipicamente per questo tipo di lavoro bisogna farci l'occhio e sapere un po' dove mettere le mani, ma diventa abbastanza intuitivo velocemente (serve appunto un po' di creatività). Un esempio classico riguarda il problema di Basilea, ossia la determinazione di $\zeta(2)=\sum_{n\geq 1}\frac{1}{n^2}$. Il termine generale della serie non è evidentemente telescopico, ma è prossimo a quello della serie di Mengoli, da cui:
-$$ \sum_{n\geq 1}\frac{1}{n^2} = \sum_{n\geq 1}\frac{1}{n(n+1)}+\sum_{n\geq 1}\frac{1}{n^2(n+1)} = 1+\sum_{n\geq 1}\frac{1}{n^2(n+1)}. $$
-Alla ``serie residua'' che costituisce l'ultimo termine possiamo applicare una manipolazione analoga, eventualmente scorporando il primo addendo. Ciò conduce a 
-$$ \zeta(2) = 1+\sum_{n\geq 1}\frac{1}{n(n+1)(n+2)}+2\sum_{n\geq 1}\frac{1}{n^2(n+1)(n+2)} = 1+\frac{1}{4}+2\sum_{n\geq 1}\frac{1}{n^2(n+1)(n+2)}. $$
-Iterando il processo si ottiene l'identità 
-$$ \zeta(2)=\sum_{n\geq 1}\frac{1}{n^2} = 3\sum_{n\geq 1}\frac{1}{n^2\binom{2n}{n}}$$
-in cui le somme parziali dell'ultima serie convergono sensibilmente più in fretta delle somme parziali della serie originaria, poiché $\binom{2n}{n}\sim \frac{4^n}{\sqrt{\pi n}}$. Parliamo in questi casi di \emph{accelerazione} di serie convergenti. Dalle rappresentazioni integrali dei binomiali centrali abbiamo inoltre che l'ultima identità comporta
-$$ \zeta(2) = \frac{3}{2}\int_{0}^{1}\sum_{m\geq 0}\frac{(x(1-x))^{m}}{m+1}\,dx = \frac{3}{2}\int_{0}^{1}-\log(1-x+x^2)\left(\frac{1}{x}+\frac{1}{1-x}\right)\,dx \stackrel{\text{sym}}{=}3\int_{0}^{1}\frac{-\log\Phi_6(x)}{x}\,dx $$
-o, via integrazione per parti, $\zeta(2)=3\int_{0}^{1}\frac{2x-1}{1-x+x^2}\log(x)\,dx$. Sebbene Eulero non abbia seguito questa strada, e sebbene sia tecnicamente più semplice applicare l'identità di Parseval a serie di Fourier elementari, da qui si può giungere senza atroci intoppi a provare che $\zeta(2)=\frac{\pi^2}{6}$. La fabbricazione di serie accelerate, in cui il termine generale abbia decorose proprietà aritmetiche, riveste una certa importanza anche in \emph{approssimazione diofantea}, in quanto permette in alcune circostanze di dimostrare l'irrazionalità di fissate costanti. Apery si è ad esempio servito di 
-$$ \zeta(3) = \frac{5}{2}\sum_{n\geq 1}\frac{(-1)^{n+1}}{n^3\binom{2n}{n}} $$
-per dimostrare nel 1977 che $\zeta(3)\not\in\Q$.\\ La presunta irrazionalità di $\zeta(5),\gamma,\Gamma\left(\frac{1}{5}\right)$ (e molte altre costanti) è tuttora una questione aperta.
-
+Per il \textbf{Criterio di Convergenza Dominata} tutte Le serie che convergono \emph{abbastanza} velocemente commutano con l'integrale. All'atto pratico ciò comporta che, nelle ipotesi corrette, è lecito scrivere:
+$$\sum_{n\geq 0}^{}\int_{a}^{b}f(x)dx =\int_{a}^{b}\sum_{n\geq 0}^{}f(x) dx.$$ 
+Questo torna utile in quanto è moderatamente comune sostituire ad una funzione una sua \textbf{Rappresentazione integrale}.
+(Non esattamente collegato, ma per farsi un'idea dell'utilità di questo fatto vedere l'esercizio \textbf{J17})
+\subsection{Creatività e Serie Telescopiche}
+Un metodo importante è quello di trasformare Serie apparentemente complesse in Serie Telescopiche o combinazioni lineari di serie telescopiche.
+Tipicamente per questo tipo di lavoro bisogna farci l'occhio e sapere un po' dove mettere le mani, ma diventa abbastanza intuitivo velocemente.\\ (serve appunto un po' di creatività)\\
+\newpage
 \section{Integrazione secondo Riemann}
 Questo paragrafo, dopo un breve recap, si concentrerà nell'illustrare degli integrali più complessi e meritevoli di particolare attenzione, oltre che a tecniche di integrazione un po' più oscure. Ad avviso mio e di Jack, i metodi che mostreremo sono abbastanza importanti da avere a portata di mano in caso di necessità. Alcuni argomenti che saranno trattati sono l'utilizzo della convergenza dominata (vedere paragrafo sui criteri delle serie), Integrali complessi, \emph{abuso} di rappresentazioni integrali etc.
 \begin{definizione}[Partizione] Dato un intervallo chiuso e limitato della retta reale $[a,b]$, una qualunque sequenza 
@@ -985,9 +931,9 @@ possono essere resi arbitrariamente vicini a zero in modulo. Questo prova le ult
 \begin{theorem}
 Le primitive di funzioni integrabili secondo Riemann godono delle seguenti proprietà:
 \begin{itemize}
-    \item $$\int_{\R} (f+g)= \int_{\R} f + \int_{\R} g $$
-    \item $$\forall \alpha\in\R,\quad \int_{\R}(\alpha f)=\alpha\int_{\R} f $$
-    \item $$f\leq g \Longrightarrow \int_{\R}f\leq \int_{\R}g$$
+    \item $$\int_{\R} (f+g)= \int_{\R} f + \int_{\R} g \quad \forall f,g$$
+    \item $$\int_{\R}(\alpha f)=\alpha\int_{\R} f \quad \forall f\quad\forall\alpha\in\R$$
+    \item $$\text{se } f\leq g \Rightarrow \int_{\R}f\leq \int_{\R}g$$
 \end{itemize}
 Questo si traduce nel fatto che l'operatore $\int$ è \emph{lineare} e \emph{monotono}.
 \end{theorem}
@@ -1074,17 +1020,10 @@ Invocando la sostituzione $\theta=\arctan t$, per cui $d\theta=\frac{dt}{1+t^2}$
 $$ I = 10\int_{0}^{+\infty}\frac{dt}{25(1+t^2)-1}=\frac{2}{5}\int_{0}^{+\infty}\frac{dt}{t^2+\frac{24}{25}}\stackrel{t=\sqrt{\frac{24}{25}}u}{=}\frac{2}{5}\sqrt{\frac{24}{25}}\int_{0}^{+\infty}\frac{du}{\frac{24}{25}(u^2+1)}=\frac{2}{5}\sqrt{\frac{25}{24}}\frac{\pi}{2} = {\color{blue}\frac{\pi}{2\sqrt{6}}}. $$
 
 
-\subsection{Integrazione per parti}
-\begin{theorem}[Integrazione per parti]
+\subsection{Integrazione per Parti}
 Nell'ipotesi che le funzioni integrande in ambo i membri siano continue su $[a,b]$ si ha che 
 $$ \int_{a}^{b} f(x)g(x) = \left[ F(x)g(x)\right]_{a}^{b}-\int_{a}^{b} F(x)g'(x)\,dx $$
 dove $F(x)$ denota \emph{una} primitiva di $f(x)$.
-\end{theorem}
-\begin{proof} È sufficiente considerare, per $c\in[a,b]$, le funzioni 
-$$ \varphi(c) = \int_{a}^{c}f(x)g(x)\,dx,\qquad \psi(c)=[F(x)g(x)]_{a}^{c}-\int_{a}^{c}F(x)g'(x)\,dx.$$
-Per il Teorema fondamentale del calcolo e la regola di Leibniz $\varphi$ e $\psi$ sono funzioni derivabili su $[a,b]$ con la stessa derivata. Poiché $\varphi(a)=\psi(a)=0$, per ogni $c\in[a,b]$ si ha $\varphi(c)=\psi(c)$. 
-\end{proof}
-
 \begin{ex} Si dimostri che per ogni $t\in\R^+$ la quantità 
 $$ \int_{0}^{t}\frac{\sin x}{x}\,dx $$
 è positiva. 
@@ -1097,7 +1036,7 @@ dove il primo addendo nel membro destro è sicuramente non negativo e il secondo
 Seguono gli integrali delle potenze del coseno, \emph{talvolta} utili:
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n}d\theta=\frac{\pi}{2\cdot4^n}\binom{2n}{n}$$
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n+1}d\theta= \frac{4^n}{(2n+1)\binom{2n}{n}}$$
-inaspettatamente questi due integrali sono strettamente legati ai binomiali centrali e sono appunto una loro rappresentazione integrale.
+inaspettatamente questi due integrali sono strettamente legati ai Binomiali Centrali e sono appunto una loro rappresentazione integrale.
 \subsection{Decomposizione in fratti semplici}
 L'integrazione di funzioni razionali (quozienti di polinomi) è puramente algoritmica, in quanto sempre riconducibile all'integrazione di funzioni della forma $\frac{1}{(x-\alpha)^n}$ (eventualmente con $\alpha\in\C$). Analizziamo la situazione attraverso un paio di esempi concreti.
 \begin{ex} Si determini esplicitamente
@@ -1147,157 +1086,54 @@ valida per ogni $x\in(-1,1)$, integrando ambo i membri su $(0,1)$ otteniamo
 $$ S = \frac{1}{4}+\int_{0}^{1}x^2(1-x)\log(1-x)\,dx = \frac{1}{4}+\int_{0}^{1}(1-z)^2 z \log(z)\,dz  $$
 e per integrazione per parti 
 $$ S = \frac{1}{4}+\left[\left(\frac{z^2}{2}-\frac{2z^3}{3}+\frac{z^4}{4}\right)\log z\right]_{0}^{1}-\int_{0}^{1}\left(\frac{z}{2}-\frac{2z^2}{3}+\frac{z^3}{4}\right)\,dz=\frac{1}{4}-\frac{1}{4}+\frac{2}{9}-\frac{1}{16} = \frac{23}{144}.\qed$$
+\section{EQ DIFF}
+Esistono fenomeni la cui rapidità di variazione di una certa quantità è proporzionale, in ogni istante, alla quantità stessa.
+Gli esempi piu' tipici di sono ottenuti spesso e volentieri dalla fisica, e la loro complessita' varia in maniera drammatica in base al contesto. Esempi degni di nota verranno fatti nel paragrafo apposito.
 
-\subsection{Integrale di Riemann improprio}
-L'integrale di Riemann in senso proprio è definito a partire da funzioni limitate su domini limitati. Nella pratica è tuttavia frequente confrontarsi con funzioni o domini illimitati, ed è bene aver chiaro come gestire tali situazioni, in particolare conoscere quali proprietà algebriche dell'integrale proprio restano valide e quali cessano di essere valide.\\
-
-\textbf{Caso \#1: funzione limitata su dominio illimitato}, $\int_{a}^{+\infty}f(x)\,dx, \int_{-\infty}^{b}f(x)\,dx, \int_{-\infty}^{+\infty}f(x)\,dx.$\\
-È il caso di più semplice gestione: considerata una \emph{esaustione in compatti} $K_1\subset K_2 \subset K_3 \subset \ldots \to D$ del dominio di integrazione, definiamo $\int_D f(x)\,dx$ come $\lim_{n\to +\infty}\int_{K_n}f(x)\,dx$, posto ovviamente che questo esista. Nel caso in cui il dominio di integrazione sia illimitato soltanto da un lato, questo è equivalente a porre
-$$ \int_{a}^{+\infty}f(x)\,dx = \lim_{b\to +\infty}\int_{a}^{b}f(x)\,dx,\qquad \int_{-\infty}^{b}f(x)\,dx = \lim_{a\to -\infty}\int_{a}^{b}f(x)\,dx. $$
-Nel caso in cui il dominio di integrazione sia illimitato da ambo i lati, ossia coincida con $\R$, ciò \textbf{non è} equivalente a porre $\int_{\R}f(x)\,dx = \lim_{M\to +\infty}\int_{-M}^{M}f(x)\,dx$, che fornisce solo l'integrale in senso simmetrico, o nel senso del \emph{valore principale} di Cauchy. Risulta 
-$$ \int_{\R}f(x)\,dx = \int_{-\infty}^{0}f(x)\,dx + \int_{0}^{+\infty} f(x)\,dx $$
-solo a patto che entrambi gli addendi nel membro destro siano finiti. Per intenderci: per quanto $\sin x$ sia una funzione limitata e dispari, l'integrale di Riemann improprio $\int_{\R}\sin(x)\,dx$ \textbf{non esiste}.\\
-
-\textbf{Caso \#2: funzione illimitata su dominio limitato}, $\int_{0}^{1}\frac{dx}{\sqrt{x}}$.\\
-In questo caso, anziché ``approssimare dall'interno'' il dominio di integrazione, approssimiamo dall'interno il sottografico dell'integranda. Per ogni $M>0$ poniamo
-$$ f_M(x) = \left\{\begin{array}{rcl}-M &\text{se}& f(x)\leq -M \\ f(x) & \text{se} & |f(x)|\leq M \\ M &\text{se}& f(x)\geq M\end{array}\right. $$
-e definiamo l'integrale improprio $\int_{a}^{b}f(x)\,dx$ come 
-$$ \lim_{M\to +\infty} \int_{a}^{b} f_M(x)\,dx, $$
-posto ovviamente che tale limite esista.\\
-
-\textbf{Caso \#3: funzione illimitata su dominio illimitato}, $\int_{0}^{+\infty}\frac{dx}{e^x\sqrt{x}}$.\\
-In questo caso combiniamo le precedenti estensioni: è un esercizio tedioso ma non difficile verificare che l'esito è il medesimo indipendentemente dalla scelta di approssimare per primo il dominio di integrazione o la funzione integranda.\\
-
-Un ulteriore esercizio tedioso è verificare che restano valide le proprietà di linearità e monotonia e le meccaniche di integrazione per parti o mediante sostituzioni, ma l'integrale di Riemann in senso improprio non coincide necessariamente con il limite delle somme di Riemann, come evidenziato nell'esercizio \textbf{J33}.
-
-\begin{ex}[Integrale di Fresnel] Si dimostri che la funzione $f(x)=\sin(x^2)$ è impropriamente Riemann-integrabile su $\R^+$ e si determini esplicitamente il valore dell'integrale. 
-\end{ex}
-\textbf{Soluzione}. La sostituzione $x=\sqrt{t}$ conduce a 
-$$ I=\int_{0}^{+\infty}\sin(x^2)\,dx = \frac{1}{2}\int_{0}^{+\infty}\frac{\sin t}{\sqrt{t}}\,dt $$ 
-dove l'ultimo integrale esiste finito per il criterio di Abel-Dirichlet. Esprimendo $\frac{1}{\sqrt{t}}$ come $\int_{0}^{+\infty}\frac{1}{\sqrt{\pi x}} e^{-tx}\,dx$ ed invocando il Teorema di Fubini abbiamo inoltre che 
-$$ I = \frac{1}{2\sqrt{\pi}}\int_{0}^{+\infty}\frac{1}{\sqrt{x}}\int_{0}^{+\infty}\sin(t)e^{-tx}\,dt \,dx = \frac{1}{2\sqrt{\pi}}\int_{0}^{+\infty}\frac{dx}{(x^2+1)\sqrt{x}}\stackrel{x\mapsto z^2}{=}\frac{1}{\sqrt{\pi}}\int_{0}^{+\infty}\frac{dz}{z^4+1}={\color{blue}\sqrt{\frac{\pi}{8}}}. $$
-
-\begin{ex} Si determini per quali valori dei parametri $\alpha,\beta > 0$ si ha che l'integrale 
-$$ I(\alpha,\beta) = \int_{1}^{+\infty}\frac{dx}{x^\alpha \ln^\beta x}$$
-esiste finito. 
-\end{ex}
-\textbf{Soluzione}. In virtù della sostituzione $x\mapsto\exp t$ si ha che 
-$$ I(\alpha,\beta) = \int_{0}^{+\infty}t^{-\beta} e^{-(\alpha-1)t}\,dt $$
-dove l'ultima funzione integranda si comporta come $t^{-\beta}$ in un intorno destro dell'origine. Su tale insieme la Riemann-integrabilità è equivalente alla condizione $\beta < 1$, e per avere Riemann-integrabilità anche in un intorno sinistro di $+\infty$ è necessario e sufficiente che si abbia $\alpha>1$. In queste ipotesi 
-$$ I(\alpha,\beta) = \frac{1}{(\alpha-1)^{\beta+1}}\int_{0}^{+\infty} z^{-\beta} e^{-z}\,dz = \frac{\Gamma(1-\beta)}{(\alpha-1)^{\beta+1}}.$$
-
-\begin{ex}[Fallacia dei Fisici] Si dimostri che una funzione positiva e impropriamente Riemann-integrabile su $\R^+$ non ha necessariamente limite zero all'infinito. 
-\end{ex}
-\emph{Sketch di controesempio}: $f(x) = \sum_{n\geq 1} n\exp\left(-n^6(x-n)^2\right)$ è positiva e impropriamente Riemann-integrabile su $\R^+$, ma $f(n)\geq n$ per ogni $n\in\N^+$ mentre $\lim_{n\to +\infty} f\left(n+\frac{1}{2}\right)=0$.
-
-\subsection{Elementi di Teoria della Misura}
-Per quanto nella didattica delle scuole superiori sia da tempo in vigore un totale oscurantismo in materia\footnote{All'interno di testi molto diffusi si legge: \emph{due figure si dicono equiestese se hanno la medesima area; l'area è fissata dalle classi di equivalenza della congruenza}. Ovviamente senza specificare né cosa si intenda per \emph{figura}, né cosa si intenda per \emph{congruenza}, né \emph{come} le classi di equivalenza di una relazione assegnino di fatto un valore numerico a sottoinsiemi del piano.}, nel far Matematica è piuttosto importante avere le idee chiare su cosa significhi il termine \emph{area}. In termini assiomatici, seguendo le antiche idee di Eudosso ed Archimede, possiamo associare ad \emph{alcuni} sottoinsiemi del piano (i \emph{misurabili}) un numero reale non negativo postulando quanto segue: 
-\begin{enumerate}
- \item Qualunque rettangolo ha come area il prodotto delle lunghezze di lati consecutivi
- \item (Additività) Se $A,B$ sono misurabili disgiunti, $A\cup B$ è misurabile e vale $\mu(A\cup B)=\mu(A)+\mu(B)$
- \item (Monotonia) Se $A,B$ sono misurabili con $A\subseteq B$, vale $\mu(A)\leq \mu(B)$
- \item (Invarianza per isometrie) Se $A,B$ sono isometrici e $A$ è misurabile, $B$ è misurabile e realizza $\mu(B)=\mu(A)$.
-\end{enumerate}
-È un semplice esercizio verificare che questi $4$ assiomi fissano l'area di qualunque parallelogramma, dunque l'area di qualunque triangolo, dunque l'area di qualunque poligono. Sfortunatamente, non molt'altro: anche soltanto fissare l'area dei cerchi richiede qualche specifica extra.
-
-\begin{definizione}[Misura interna] Dato $E$, sottoinsieme limitato del piano, definiamo la sua \emph{misura interna} come 
-$$ \mu^-(E)=\sup\{\mu(P): P\text{ poligono}, P\subseteq E\}. $$
-\end{definizione}
-
-\begin{definizione}[Misura esterna] Dato $E$, sottoinsieme limitato del piano, definiamo la sua \emph{misura esterna} come 
-$$ \mu^+(E)=\inf\{\mu(P): P\text{ poligono}, E\subseteq P\}. $$
-\end{definizione}
-
-Nel caso in cui $E$ realizzi $\mu^-(E)=\mu^+(E)$ diciamo che $E$ è misurabile (secondo Peano-Jordan) e la sua area è $\mu(E)=\mu^-(E)=\mu^+(E)$. Non è affatto automatico che la limitatezza di $E$ comporti la misurabilità di $E$.
-\begin{ex} Si dimostri che il ``quadrato barbuto'' dato da
-$$ E=([0,1]\times[0,1])\cup (([0,1]\cap\Q)\times [-1,0]) $$
-ha misura interna $1$ e misura esterna $2$, dunque \emph{non è} misurabile secondo Peano-Jordan. 
-\end{ex}
-Il lemma-chiave che lega la misurabilità secondo Peano-Jordan alla Riemann-integrabilità è il seguente.
-\begin{lemma} Data una $f:[a,b]\to\R^+$ e il sottoinsieme del piano (sottografico) 
-$$ E_f = \left\{(x,y): x\in[a,b], y\in[0,f(x)]\right\} $$
-si ha che $E_f$ è misurabile secondo Peano-Jordan se e solo se $f$ è Riemann-integrabile su $[a,b]$. In tal caso si ha 
-$$ \mu(E_f)=\int_{a}^{b} f(x)\,dx.$$
-\end{lemma}
-
-La Riemann-integrabilità in senso improprio permette pertanto di estendere il concetto di area anche a sottoinsiemi del piano illimitati, come ad esempio il sottografico di $e^{-x}$ su $\R^+$. Rimpiazzando i termini \emph{area}, \emph{rettangolo} e \emph{poligono} con i termini \emph{volume}, \emph{parallelepipedo} e \emph{poliedro} otteniamo la definizione della misura di Peano-Jordan in $\R^3$.\\
-Le relazioni tra continuità e misura sono spinose e non sempre intuitive: è possibile che un misurabile $V\subset\R^3$ abbia una sezione $V\cap\{z=0\}$ che non è misurabile come sottoinsieme del piano. Nei casi in cui questa patologia non si presenta abbiamo tuttavia un risultato ricco di applicazioni.
-
-\begin{theorem}[Principio di Cavalieri] Se $V\subset\R^3$ è misurabile e lo sono anche tutte le sue sezioni, il volume di $V$ è dato dall'integrale dell'area delle sezioni. 
-\end{theorem}
-
-Conseguenze immediate sono ad esempio le seguenti:
-\begin{itemize}
- \item il volume di un cono circolare retto è dato da $\frac{1}{3}$ del prodotto tra l'area della base e la lunghezza dell'altezza,
- \item il volume di una sfera di raggio $R$ è $\frac{4\pi}{3}R^3$ e la superficie è $4\pi R^2$, ossia $4$ volte l'area racchiusa da un equatore.
-\end{itemize}
-
-Più in generale, data una $f\in C^{0}([a,b])$ non negativa, il volume del solido ottenuto ruotando il sottografico di $f$ attorno all'asse delle ascisse è dato da $\pi\int_{a}^{b}f(x)^2\,dx$. Se invece abbiamo una $f\in C^0([0,b])$ non negativa e facciamo ruotare il suo sottografico attorno all'asse delle ordinate, per decomposizione in corone cilindriche abbiamo che il volume del solido di rotazione è dato da
-
-$$ V=\lim_{N\to +\infty} \sum_{k=0}^{N-1} f\left(\frac{kb}{N}\right)\left(\pi\left(\frac{(k+1)b}{N}\right)^2-\pi\left(\frac{kb}{N}\right)^2\right)=\pi\lim_{N\to +\infty}\frac{1}{N}\sum_{k=0}^{N-1}f\left(\frac{kb}{N}\right)\frac{(2k+1)b}{N}, $$
-ossia, per corrispondenza tra somme e integrali di Riemann, $2\pi\int_{0}^{b} x f(x)\,dx.$
-
-
-
-\section{Successioni per ricorrenza}
-Lo studio di successioni in cui il termine generale $a_n$ dipende in qualche modo dai precedenti è di fondamentale importanza non solo dal punto di vista strettamente teorico, ma anche da quello fisico-ingegneristico, visto che è piuttosto raro essere in grado di ricostruire esplicitamente la soluzione di un'equazione differenziale, ma si hanno migliori chances di successo nella trattazione (eventualmente numerica) dei corrispondenti problemi \emph{linearizzati} o altrimenti \emph{discretizzati}. Il primo caso che ci apprestiamo a trattare è quello delle successioni per ricorrenza \emph{lineari} ed \emph{autonome}, dove il termine generale $a_n$ è una fissata combinazione lineare dei precedenti $k$ termini.
-
-\subsection{Successione di Fibonacci e similia}
-Un problema prototipico è quello di determinare una formula esplicita (\emph{formula di Binet}) per la successione (\emph{di Fibonacci}) $\{F_n\}_{n\geq 0}$ definita dalle \emph{condizioni iniziali} $F_0=0, F_1=1$ e dalla (legge di) \emph{ricorrenza} $F_{n+2}=F_{n+1}+F_n$, valida per ogni $n\in\N$. Illustriamo diversi approcci equivalenti.\\
-
-\textbf{Approccio \#1, \emph{rasoio di Occam}}. L'insieme delle successioni $\{a_n\}_{n\geq 0}$ che soddisfano la ricorrenza $a_{n+2}=a_{n+1}+a_n$ è uno \emph{spazio vettoriale}. In uno slancio di ottimismo, cerchiamo elementi ragionevolmente \emph{semplici} di questo spazio vettoriale, ossia \emph{successioni di potenze} $a_n=\alpha^n$ che rispettano la ricorrenza.
-Imporre che si abbia $a_{n+2}=a_{n+1}+a_n$ è equivalente ad imporre che la quantità $\alpha$ soddisfi $\alpha^2=\alpha+1$, ossia risulti radice del \emph{polinomio caratteristico} $p(x)=x^2-x-1$. Per quanto noto dall'antichità più remota sulle proporzioni del pentagono regolare, le radici del precedente polinomio sono il \emph{rapporto aureo} $\varphi=\frac{1+\sqrt{5}}{2}$ e il suo coniugato algebrico $\overline{\varphi}=\frac{1-\sqrt{5}}{2}$. In virtù della struttura di spazio vettoriale, \emph{tutte} le successioni della forma $a_n = A\varphi^n + B\overline{\varphi}^n$ soddisfano la ricorrenza voluta. Nell'ultima espressione abbiamo due gradi di libertà nella scelta dei coefficienti $A,B$, ed auspicabilmente un'opportuna scelta della coppia $(A,B)$ è tale da garantire simultaneamente sia $a_0=F_0=0$ che $a_1=F_1=1$, ossia 
-$$ \left\{\begin{array}{rcl}\varphi^0 A + \overline{\varphi}^0 B &=& 0 \\ \varphi^1 A + \overline{\varphi}^1 B &=& 1.\end{array}\right. $$
-In virtù della regola di Cramer il sistema ha effettivamente soluzione unica, poiché 
-$$ \det \begin{pmatrix} 1 & 1 \\ \varphi & \overline{\varphi} \end{pmatrix}=\overline{\varphi}-\varphi \neq 0, $$
-caso particolare del fatto che tutte le matrici di Vandermonde definite a partire da elementi distinti sono invertibili.\\
-A conti fatti abbiamo $A=-B=\frac{1}{\sqrt{5}}$, dunque la successione $a_n=\frac{\varphi^n-\overline{\varphi}^n}{\sqrt{5}}$ rispetta sia la legge di ricorrenza che le condizioni iniziali volute. Dal principio di induzione segue pertanto $a_n=F_n$, ossia 
-$$ F_n = \frac{\varphi^n-\overline{\varphi}^n}{\sqrt{5}}. $$
-
-\textbf{Approccio \#2, \emph{Jordan}}. Possiamo liberamente definire il vettore $v_n=\begin{pmatrix} F_{n+1} \\ F_{n}\end{pmatrix}$ ed esprimere la ricorrenza nella forma $v_{n+1} = M v_n$, dove $M=\begin{pmatrix} 1 & 1 \\ 1 & 0\end{pmatrix}$. Dal principio di induzione segue $v_n = M^n v_0$, dunque il problema di esplicitare il termine generale della successione si rivela equivalente a quello di esplicitare l'$n$-esima potenza della matrice $M$. Dal Teorema di Jordan si ha $M = J^{-1}\begin{pmatrix}\varphi & 0 \\ 0 & \overline{\varphi}\end{pmatrix} J$ per un'opportuna matrice invertibile $J$, da cui $M^n = J^{-1}\begin{pmatrix}\varphi^n & 0 \\ 0 & \overline{\varphi}^n\end{pmatrix} J$. Segue che il termine generale della successione è una fissata combinazione lineare di $\varphi^n$ e $\overline{\varphi}^n$, dove i coefficienti di questa combinazione lineare possono essere facilmente calcolati per interpolazione, o (meno efficientemente) esplicitando la matrice $J$.\\
-
-\textbf{Approccio \#3, \emph{OGF}}. Questo è un approccio estremamente potente, ma decisamente indiretto: associamo alla successione una funzione regolare, dalla ricorrenza deduciamo proprietà algebriche della funzione, dalle ultime ricostruiamo il comportamento esplicito (o anche solo asintotico) della successione. È immediato realizzare che la successione di Fibonacci è crescente, ma non troppo rapidamente, in quanto si ha $a_{n+1}\leq 2 a_n$ per ogni $n\geq 1$, da cui $F_n \leq 2^{n-1}$.\\ In particolare, posto 
-$$ f(x) = \sum_{n\geq 0} F_n x^n  = x + \sum_{n\geq 2}F_n x^n$$
-si ha che $f(x)$ è una funzione analitica in un intorno circolare dell'origine di raggio almeno $\frac{1}{2}$.\\ Su questo insieme abbiamo 
-
-$$ x^2 f(x) = \sum_{n\geq 0} F_n x^{n+2} = \sum_{n\geq 2} F_{n-2} x^n,\qquad x f(x) = \sum_{n\geq 0} F_n x^{n+1} = \sum_{n\geq 2} F_{n-1} x^n $$
-e dalla relazione $F_{n}=F_{n-1}+F_{n-2}$, valida per ogni $n\geq 2$, deduciamo che 
-$$ f(x) = x + x f(x) + x^2 f(x)\quad\Longrightarrow\quad f(x) = \frac{x}{1-x-x^2}. $$
-Operando una decomposizione in fratti semplici dell'ultima funzione razionale, mediante serie geometriche otteniamo che 
-$$ f(x) = \frac{1}{\sqrt{5}}\left(\frac{1}{1-\varphi x}-\frac{1}{1-\overline{\varphi}x}\right) = \frac{1}{\sqrt{5}}\sum_{n\geq 0}\left(\varphi^n-\overline{\varphi}^n\right) x^n. $$
-Dal principio di identità delle funzioni analitiche (diretta estensione del principio di identità dei polinomi: se due funzioni analitiche coincidono in un intorno dell'origine hanno le medesime derivate in zero e viceversa) segue la formula di Binet. $f(x)$ è detta \emph{funzione generatrice ordinaria (OGF)} della successione $\{F_n\}_{n\geq 0}$ e l'effettivo raggio di convergenza nell'origine è dato dal reciproco del massimo modulo delle radici del polinomio caratteristico (Teorema di Frobenius), nel nostro caso $\frac{1}{\varphi}=\varphi-1\approx 0.618$.\\
-
-Gli ultimi due approcci sono immediatamente generalizzabili al caso in cui una successione per ricorrenza lineare ed autonoma abbia ordine $k\geq 2$. Il primo approccio è praticabile solo se le radici del polinomio caratteristico sono tutte distinte: altrimenti si manifestano problemi di \emph{risonanza}, legati alle potenze di una matrice non diagonalizzabile, o ai \emph{poli} di funzioni razionali con ordine maggiore di $1$. Vediamone un esempio.
-
-\begin{ex} La successione $\{a_n\}_{n\geq 0}$ è definita dalla condizioni iniziali $a_0=1, a_1=2, a_2=5$ e dalla ricorrenza $a_{n+3}=3 a_{n+2}-4 a_n$, valida per ogni $n\in\N$. Si determini un'espressione esplicita del termine generale. 
-\end{ex}
-
-\textbf{Soluzione}. Il polinomio caratteristico della ricorrenza è $p(x)=x^3-3x^2+4=(x-2)^2(x+1)$, dunque le successioni $b_n=2^n$ e $c_n=(-1)^n$ soddisfano la ricorrenza. Due elementi non sono sufficienti a generare uno spazio vettoriale di dimensione $3$, ma il ``terzo escluso'' può essere facilmente determinato considerando che la matrice compagna del polinomio $p(x)$ è simile a 
-$$\begin{pmatrix} 2 & 1 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & -1\end{pmatrix}, $$
-dunque lo spazio vettoriale è generato da $2^n, n 2^n$ e $(-1)^n$ e $a_n = A 2^n + B n 2^n + C(-1)^n$ con 
-$$\left\{\begin{array}{rcl}A+C&=& 1 \\ 2A+2B-C&=& 2 \\ 4A+8B+C&=&5\end{array}\right. $$
-che conduce a $A=\frac{8}{9}$, $B=\frac{1}{6}$, $C=\frac{1}{9}$.\qed
-
-\begin{ex}[Tribonacci] In funzione di $n\in\N^+$ si determini il numero $T_n$ di stringhe binarie di lunghezza $n$ all'interno delle quali non sono mai presenti tre caratteri $1$ consecutivi. Si determini infine una buona approssimazione numerica del limite $\lim_{n\to +\infty}\sqrt[n]{T_n}$.
- 
-\end{ex}
-
-
-
-\newpage
-
-\section{Equazioni Differenziali}
+\subsection{Classificazione ODE}
 Per il Teorema Fondamentale del Calcolo Integrale (T.F.C.I.) possiamo risalire alla funzione $u(t)$ se se ne conosce la derivata, infatti l'equazione $$u'(t)=f(t)$$ ha soluzione $$u(t)=\int_{a}^{t}f(s)ds$$
 In generale, data una funzione di due variabili $f(t,u)$ possiamo porci il problema di trovare una funzione $u(t)$ che verifichi l'equazione differenziale:$$u'(t)=f(t,u(t))$$
 l'equazione di sopra si dice del primo ordine perché coinvolge solo la derivata prima della funzione $u(t)$.
-\subsection{ED a Variabili Separabili}
+\subsubsection{ED a Variabili Separabili}
 si chiamano così le equazioni del tipo: $$u'(t)=a(t)f(u(t))$$ per risolvere queste equazioni basta dividere entrambi i membri per $f(u)$ ed integrare: $$\int\frac{u'(t)}{f(u(t))}dt=\int a(t)dt$$
-\subsection{ED Lineari del Primo ordine}
+\subsubsection{ED Lineari del Primo ordine}
 sono le equazioni del tipo: $$u'(t)=a(t)u(t)+b(t)$$
 con $a(t)$ e $b(t)$ funzioni date.\\
 Indichiamo con $A(t)=\int a(t)dt$ si ha che, se $b(t)=0$ $$log(u(t))=A(t)+p$$ con p costante arbitraria.\\
 quindi $$u(t)= ce^{A(t)}$$
 con $c=e^p$ costante arbitraria
+\subsubsection{Equazione lineare omogenea di primo ordine}
+\begin{theorem}
+    Sia $I$ intervallo di $\R$, sia $a:I\to\K$ una funzione continua; e siano $t_0\in I, \ y_0\in\K$ fissati. Esiste un unica funzione $\phi\in C^1$ tale che 
+    $$\phi'(t)=a(t)\phi(t)\qquad &\text{ per ogni }& t\inI,\phi(t_0)=y_0$$
+    Questa $\phi$ è data dalla formula: 
+    $$\phi(t) =y_0\cdot exp\left(\int_{t_0}^{t_1}a(s)\, ds\right)$$
+\end{theorem}
+\begin{proof}
+    è immediato verificare che la formula definita sopra soddisfa $\phi(t_0)=y_0$, e $\phi'(t)=exp\left(\int_{t_0}^{t}a(s)\, ds\right)\phi(t)$, per il teorema di Torricelli. Per verificare l'unicità supponiamo che sia $\psi'(t)-a(t)\psi(t)=0$ identiticamente in $I$, poiché $t\to exp\left(-\int_{t_0}^{t}a(s)\, ds\right)$ non è mai nulla, si ha:
+    $$\psi'(t)-a(t)\psi(t)=0\Leftrightarrow exp\left(-\int_{t_0}^{t}a(s)\, ds\right)(\psi'(t)-a(t)\psi(t))=0$$
+    Si osservi ora che
+    $$e^{-\int_{t_0}^{t}a(s)\, ds}\psi'(t)-e^{-\int_{t_0}^{t}a(s)\, ds}a(t)\psi(t)=\frac{d}{dt}\left(e^{-\int_{t_0}^{t}a(s)\, ds}\psi(t)\right)$$
+    La relazione precedente si scrive come
+    $$\psi'(t)-a(t)\psi(t)=0\Leftrightarrow \frac{d}{dt}\left(e^{-\int_{t_0}^{t}a(s)\, ds}\psi(t)\right)=0$$
+    poiché una funzione ha derivata nulla in un intervallo solo se é costante deve valere
+    $$\psi'(t)-a(t)\psi(t)=0\Leftrightarrow e^{-\int_{t_0}^{t}a(s)\, ds}\psi(t)=c$$
+    con $c\in\K$ costante. per $t=t_0$ si ha che $e^{-\int_{t_0}^{t}a(s)ds}\psi(t_0)=\psi(t_0)$ e quindi $c=\psi(t_0)$
+\end{proof}
+\begin{cor}
+    Se $I$ è un intervallo di $\R$ ed $a:I\to\K$ è continua, tutte le soluzioni della differenziale $$y'=a(t)y$$
+    sono definite dalla formula:
+    $$y(t)=ce^{A(t)}$$
+    al variare di $c\in\R$ e $A(t)$ una primitiva di $a(t)$ in $I$.
+\end{cor}
+\subsubsection{Equazioni lineare non omogenea del primo ordine}
+Lo stesso metodo porta alla risoluzione delle equazioni differenziali lineari non omogenee di grado 1.
+\begin{theorem}
+    Il problema
+    $$y'=a(t)y+b(t)\quad y(t_0)=y_0$$
+    con $a,b:I\to\K$ funzioni continue e $t_0\in I$ ammette come unica soluzione
+    $$y(t)=y_0e^{\int_{t_0}^{t}a(s)\, ds}+ e^{\int_{t_0}^{t}a(s)\, ds}\int_{t_0}^{t}e^{-\int_{t_0}^{t}a(\sigma)\, d\sigma}\,b(s) ds$$
+\end{theorem}
 \subsection{Esempi}
 \subsubsection{Decadimento Radioattivo}
 è il processo secondo il quale un sostanza radioattiva decade, trasformandosi in un'altra sostanza più leggera a causa della perdita di neutroni.\\
@@ -1324,6 +1160,47 @@ Supponiamo quindi che $\Tilde{x_1}=at^3+bt^2+ct+d$ sia una soluzione, allora der
 $$3at^2+2bt+c + 2at^3+2bt^2+2ct+2d=t^2\Leftrightarrow 3a+2a=1\Rightarrow a=\frac{1}{5}$$
 La soluzione totale è quindi $\Tilde{x}= c_1e^{-2t}+c_2\frac{1}{5}t^3$\\
 Un altro metodo per risolvere alcune differenziali (più difficili delle precedenti) è quello di studiare il comportamento di $u'(t)$ con la sua inversa $v'(t)$, se esiste, o analogamente, se è ben definito, col suo reciproco.
+\\
+\subsection{Equazioni differenziali esatte e fattori integranti}
+Un'altra strada percorribile e' studiare l'\emph{esattezza} di una equazione differenziale. Ma prima definiamo:
+\begin{definizione}
+    Un equazione differenziale scritta in forma normale $f(x,y)$ si dice \emph{chiusa} se: $$\frac{\partial }{\partial y}f(x,y)=\frac{\partial }{\partial x}f(x,y)$$ 
+\end{definizione}
+Non fatevi spaventare! la scrittura $\frac{\partial f}{\partial x}$ vuole semplicemente dire: deriva l'espressione $f$ rispetto alla variabile $x$ e tratta tutto il resto come se fosse costante. per esempio: 
+$\frac{\partial}{\partial x} x^3y= 3x^2y$, oppure $\frac{\partial}{\partial y}x^2e^{2y}=2x^2e^{2y}$
+\begin{oss}
+    Un'equazione differenziale per essere \emph{esatta} deve essere necessariamente chiusa.
+\end{oss}
+\begin{definizione}
+   Un'equazione differenziale si dice \emph{esatta} se essa e' il \emph{differenziale} di una funzione $\phi(x,y)$. cioe': $$d\phi(x,y)=M(x,y)\,dx + N(x,y)\, dy$$. 
+\end{definizione}
+ Ad esempio $$d(x^2+y^2)=\frac{\partial}{\partial x}(x^2+y^2)+\frac{\partial}{\partial y}(x^2+y^2)= 2x + 2y$$
+la funzione $\phi$ e' detta \emph{funzione integrante} dell'ED e le curve di livello $\phi(x,y)=C$ si dicono \emph{curve soluzione}. \\
+Tornando all'esempio di prima, le soluzioni dell'ED $x\, dx + y\, dy= 0$ sono le curve soluzione di $x^2+y^2=C$ dato che $d(x^2+y^2)=2(x\, dx + y\, dy)$
+\begin{ex}
+    Mostrare che la seguente ED e' esatta e risolverla:
+    $$(xy^2+y)\,dx + (x^2y+x)\,dy$$
+\end{ex}
+\textbf{Soluzione.}
+Integrando il pezzo in $dx$ otteniamo come condizione: $\int (xy^2+y)\,dx = \frac{1}{2}x^2y^2+xy +c$. \\
+analogamente per il pezzo in $dy$: $\int(x^2y+x)\,dy=\frac{1}{2}x^2y^2+xy+c$\\
+concludiamo quindi che: $$(xy^2+y)\,dx + (x^2y+x)\,dy= d(\frac{1}{2}x^2y^2 +xy)$$
+L'ED e' dunque esatta e le soluzioni sono le curve di livello: $$\frac{1}{2}x^2y^2 +xy=C$$
+\subsection{Fattori Integranti}
+Un'ED ordinaria del primo ordine puo' sempre essere espressa nella forma differenziale: $M\,dx + N\,dy$, ma questa di rado e' esatta. Puo' pero' accadere che moltiplicando l'equazione per un \emph{fattore integrante} $\mu(x,y)$, l'equazione ottenuta: $$\mu(x,y)(M(x,y)\,dx +N(x,y)\,dy)=0$$ risulti esatta. \\
+Generalmente e' difficile determinare tale fattore, capita pero' che esso sia funzione di una sola variabile, in questo caso si puo' facilmente ricavare dalla condizione di \emph{chiusura} enunciata poco fa. \\
+$\mu(x)$ deve quindi soddisfare l'ODE:
+$$N(x,y)\frac{d\mu}{dx}=\mu(x)(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x})$$
+ovvero:
+$$\frac{1}{\mu(x)}\frac{d\mu}{dx}=\frac{\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}}{N(x,y)}$$
+\begin{ex}
+    Mostrare che $(x+y^2)\,dx + xy\,dy=0$ ha un fattore integrante che dipende solo da $x$, trovarlo e risolvere l'equazione.
+\end{ex}
+\textbf{Soluzione.} in questo caso $M=x+y^2$ e $N=xy$. Quindi:
+$$ \frac{\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}}{N(x,y)}=\frac{2y-y}{xy}=\frac{1}{x}$$ 
+il fattore integrante dipende solo da $x$. Allora $\mu(x)=x$ e' il fattore cercato. Moltiplicando l'ED per $\mu(x)$ otteniamo:
+$$(x^2+xy^2)\,dx + (x^2y)\,dy= d(\frac{x^3}{3}+\frac{x^2y^2}{2})$$.
+Pertanto la soluzione e': $2x^3+3x^2y^2=C$
 \section{Esercizi e simulazioni di pre-test}
 Gli esercizi di seguito riportati con una stella ($\star$) hanno difficoltà paragonabile a quelli del compito, quelli riportati con due stelle ($\star\star$) sono più impegnativi. Quelli con tre stelle ($\star\star\star$) sono estremamente impegnativi, si raccomanda cautela.\\
 
@@ -1684,8 +1561,6 @@ Formula di \textbf{Taylor con resto integrale} - \href{https://www2.math.upenn.e
 \textbf{Prodotti di Wallis, Weierstrass ed Eulero} - \url{https://mathb.in/75959}
 
 \textbf{Approssimazione di Stirling} - \url{https://mathb.in/75976}
-
-\textbf{Funzione Gamma di Eulero} - \href{https://quisirisolve.com/analisi-matematica/funzioni-speciali/funzione-gamma-di-eulero/teoria-ed-esercizi-sulla-funzione-gamma-di-eulero/}{Note di Jack per quisirisolve.it}
 
 
 \subsection{Riferimenti bibliografici}
