@@ -879,9 +879,19 @@ $$\sum_{n\geq 0}^{}\int_{a}^{b}f(x)dx =\int_{a}^{b}\sum_{n\geq 0}^{}f(x) dx.$$
 Questo torna utile in quanto è moderatamente comune sostituire ad una funzione una sua \textbf{Rappresentazione integrale}.
 (Non esattamente collegato, ma per farsi un'idea dell'utilità di questo fatto vedere l'esercizio \textbf{J17})
 \subsection{Creatività e Serie Telescopiche}
-Un metodo importante è quello di trasformare Serie apparentemente complesse in Serie Telescopiche o combinazioni lineari di serie telescopiche.
-Tipicamente per questo tipo di lavoro bisogna farci l'occhio e sapere un po' dove mettere le mani, ma diventa abbastanza intuitivo velocemente.\\ (serve appunto un po' di creatività)\\
-\newpage
+Un metodo importante è quello di trasformare serie apparentemente complesse in serie telescopiche o combinazioni lineari di serie telescopiche.
+Tipicamente per questo tipo di lavoro bisogna farci l'occhio e sapere un po' dove mettere le mani, ma diventa abbastanza intuitivo velocemente (serve appunto un po' di creatività). Un esempio classico riguarda il problema di Basilea, ossia la determinazione di $\zeta(2)=\sum_{n\geq 1}\frac{1}{n^2}$. Il termine generale della serie non è evidentemente telescopico, ma è prossimo a quello della serie di Mengoli, da cui:
+$$ \sum_{n\geq 1}\frac{1}{n^2} = \sum_{n\geq 1}\frac{1}{n(n+1)}+\sum_{n\geq 1}\frac{1}{n^2(n+1)} = 1+\sum_{n\geq 1}\frac{1}{n^2(n+1)}. $$
+Alla ``serie residua'' che costituisce l'ultimo termine possiamo applicare una manipolazione analoga, eventualmente scorporando il primo addendo. Ciò conduce a 
+$$ \zeta(2) = 1+\sum_{n\geq 1}\frac{1}{n(n+1)(n+2)}+2\sum_{n\geq 1}\frac{1}{n^2(n+1)(n+2)} = 1+\frac{1}{4}+2\sum_{n\geq 1}\frac{1}{n^2(n+1)(n+2)}. $$
+Iterando il processo si ottiene l'identità 
+$$ \zeta(2)=\sum_{n\geq 1}\frac{1}{n^2} = 3\sum_{n\geq 1}\frac{1}{n^2\binom{2n}{n}}$$
+in cui le somme parziali dell'ultima serie convergono sensibilmente più in fretta delle somme parziali della serie originaria, poiché $\binom{2n}{n}\sim \frac{4^n}{\sqrt{\pi n}}$. Parliamo in questi casi di \emph{accelerazione} di serie convergenti. Dalle rappresentazioni integrali dei binomiali centrali abbiamo inoltre che l'ultima identità comporta
+$$ \zeta(2) = \frac{3}{2}\int_{0}^{1}\sum_{m\geq 0}\frac{(x(1-x))^{m}}{m+1}\,dx = \frac{3}{2}\int_{0}^{1}-\log(1-x+x^2)\left(\frac{1}{x}+\frac{1}{1-x}\right)\,dx \stackrel{\text{sym}}{=}3\int_{0}^{1}\frac{-\log\Phi_6(x)}{x}\,dx $$
+o, via integrazione per parti, $\zeta(2)=3\int_{0}^{1}\frac{2x-1}{1-x+x^2}\log(x)\,dx$. Sebbene Eulero non abbia seguito questa strada, e sebbene sia tecnicamente più semplice applicare l'identità di Parseval a serie di Fourier elementari, da qui si può giungere senza atroci intoppi a provare che $\zeta(2)=\frac{\pi^2}{6}$. La fabbricazione di serie accelerate, in cui il termine generale abbia decorose proprietà aritmetiche, riveste una certa importanza anche in \emph{approssimazione diofantea}, in quanto permette in alcune circostanze di dimostrare l'irrazionalità di fissate costanti. Apery si è ad esempio servito di 
+$$ \zeta(3) = \frac{5}{2}\sum_{n\geq 1}\frac{(-1)^{n+1}}{n^3\binom{2n}{n}} $$
+per dimostrare nel 1977 che $\zeta(3)\not\in\Q$.\\ La presunta irrazionalità di $\zeta(5),\gamma,\Gamma\left(\frac{1}{5}\right)$ (e molte altre costanti) è tuttora una questione aperta.
+
 \section{Integrazione secondo Riemann}
 Questo paragrafo, dopo un breve recap, si concentrerà nell'illustrare degli integrali più complessi e meritevoli di particolare attenzione, oltre che a tecniche di integrazione un po' più oscure. Ad avviso mio e di Jack, i metodi che mostreremo sono abbastanza importanti da avere a portata di mano in caso di necessità. Alcuni argomenti che saranno trattati sono l'utilizzo della convergenza dominata (vedere paragrafo sui criteri delle serie), Integrali complessi, \emph{abuso} di rappresentazioni integrali etc.
 \begin{definizione}[Partizione] Dato un intervallo chiuso e limitato della retta reale $[a,b]$, una qualunque sequenza 
