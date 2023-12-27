@@ -1119,7 +1119,7 @@ Sono le equazioni del tipo: $$u'(t)=a(t)u(t)+b(t)$$
 con $a(t)$ e $b(t)$ funzioni date.
 \subsubsection{Equazione lineare omogenea di primo ordine}
 \begin{theorem}
-    Sia $I$ intervallo di $\R$, sia $a:I \to \K$ una funzione continua; e siano $t_0\in I$ e $y_0\in\K$ fissati.\\ Esiste un'unica funzione $\phi\in C^1$ tale che 
+    Sia $I$ intervallo di $\R$, sia $a:I \to \R$ una funzione continua; e siano $t_0\in I$ e $y_0\in\R$ fissati.\\ Esiste un'unica funzione $\phi\in C^1$ tale che 
     $$\phi'(t)=a(t)\phi(t)\qquad \text{ per ogni } t\in I,\phi(t_0)=y_0$$
     Questa $\phi$ è data dalla formula: 
     $$\phi(t) =y_0\cdot \exp\left(\int_{t_0}^{t_1}a(s)\,ds\right).$$
@@ -1133,16 +1133,14 @@ con $a(t)$ e $b(t)$ funzioni date.
     $$\psi'(t)-a(t)\psi(t)=0\Leftrightarrow \frac{d}{dt}\left(e^{-\int_{t_0}^{t}a(s)\, ds}\psi(t)\right)=0$$
     poiché una funzione ha derivata nulla in un intervallo solo se è costante deve valere
     $$\psi'(t)-a(t)\psi(t)=0\Leftrightarrow e^{-\int_{t_0}^{t}a(s)\, ds}\psi(t)=c$$
-    con $c\in\K$ costante. per $t=t_0$ si ha che $e^{-\int_{t_0}^{t}a(s)ds}\psi(t_0)=\psi(t_0)$ e quindi $c=\psi(t_0)$.
+    con $c\in\R$ costante. per $t=t_0$ si ha che $e^{-\int_{t_0}^{t}a(s)ds}\psi(t_0)=\psi(t_0)$ e quindi $c=\psi(t_0)$.
 \end{proof}
 \begin{cor}
-    Se $I$ è un intervallo di $\R$ ed $a:I\to\K$ è continua, tutte le soluzioni della differenziale $$y'=a(t)y$$
+    Se $I$ è un intervallo di $\R$ ed $a:I\to\R$ è continua, tutte le soluzioni della differenziale $$y'=a(t)y$$
     sono definite dalla formula:
     $$y(t)=ce^{A(t)}$$
     al variare di $c\in\R$, con $A(t)$ primitiva di $a(t)$ su $I$.
 \end{cor}
-
-({\color{red} Meglio rimpiazzare $\K$ con $\R$, sia perché non abbiamo definito l'integrazione su un campo generico (non è neppure detto che abbia senso), sia perché non abbiamo definito l'esponenziale su un campo generico.})
 
 
 \subsubsection{Equazioni lineare non omogenea del primo ordine}
@@ -1150,10 +1148,27 @@ Lo stesso metodo porta alla risoluzione delle equazioni differenziali lineari no
 \begin{theorem}
     Il problema
     $$y'=a(t)y+b(t)\quad y(t_0)=y_0$$
-    con $a,b:I\to\K$ funzioni continue e $t_0\in I$ ammette come unica soluzione
-    $$y(t)=y_0e^{\int_{t_0}^{t}a(s)\, ds}+ e^{\int_{t_0}^{t}a(s)\, ds}\int_{t_0}^{t}e^{-\int_{t_0}^{t}a(\sigma)\, d\sigma}\,b(s) ds.$$
-\color{red}{La verifica che 'sta roba funzioni è semplice, ma qual è l'idea per arrivare a questa espressione esplicita?\\ Non pretenderemo che le persone la ricordino a memoria...}
+    con $a,b:I\to\R$ funzioni continue e $t_0\in I$ ammette come unica soluzione
+    $$y(t)=y_0e^{\int_{t_0}^{t}a(s)\, ds}+ e^{\int_{t_0}^{t}a(s)\, ds}\int_{t_0}^{t}e^{-\int_{t_0}^{s}a(\sigma)\, d\sigma}\,b(s) ds.$$ 
 \end{theorem}
+
+Non è difficile verificare che l'ultima funzione è effettivamente soluzione dell'ED $y'=a(t)\,y+b(t)$, e che questa è unica in virtù del Teorema di Cauchy-Lipschitz. Tuttavia è preferibile padroneggiare l'\emph{idea} che permette di ricondurre un'equazione differenziale non omogenea ad una omogenea, che è semplicemente quella di utilizzare opportune sostituzioni. Se poniamo $y(t)=M(t)f(t)$ abbiamo 
+$$y'(t)=M'(t)f(t)+M(t)f'(t)=a(t)M(t)f(t)+b(t)$$
+e possiamo scegliere $M(t)$ in modo che si abbia $M'(t)=a(t)M(t)$, in modo da ricondurre il problema alla risoluzione di $M(t)f'(t)=b(t)$, che è a variabili separabili. A meno di traslazioni dell'argomento possiamo inoltre sempre assumere, senza perdita di generalità, che si abbia $t_0=0$. Vediamo un esempio esplicito.
+\begin{ex} Si determini la soluzione di $y'(t) = t\cdot y(t)+t^2$ che soddisfa $y(1)=1$. 
+\end{ex}
+\textbf{Soluzione}. Poniamo da subito $y(t)=f(t-1)$, in modo da ricondurci al problema 
+$$ f'(t) = (t+1) f(t)+(t+1)^2,\qquad f(0)=1.$$
+Una soluzione di $M'(t)=(t+1)M(t)$ è data da $\exp\left(\frac{t^2}{2}+t\right)$: poniamo dunque $f(t)=\exp\left(-\frac{t^2}{2}-t\right)g(t)$ e osserviamo che questa sostituzione ci permette di ricondurci alla risoluzione di 
+$$ (t+1)\exp\left(\frac{t^2}{2}+t\right)g(t) + \exp\left(\frac{t^2}{2}+t\right)g'(t) = (t+1)\exp\left(\frac{t^2}{2}+t\right)g(t)+(t+1)^2,\qquad g(0)=1,$$
+ossia alla risoluzione di 
+$$  g'(t) = (t+1)^2 \exp\left(-t-\frac{t^2}{2}\right),\qquad g(0)=1,$$
+che fornisce $g(t)=1+\int_{0}^{t}(s+1)^2 \exp\left(-s-\frac{s^2}{2}\right)\,ds$. In questo caso $g$ non ha un'espressione chiusa in termini di funzioni elementari (dipende dalla funzione $\operatorname{Erf}$, ossia dai quantili della distribuzione normale), ma al di là di questo è certo che si abbia 
+$$f(t) = \exp\left(\frac{t^2}{2}+t\right)+\exp\left(\frac{t^2}{2}+t\right)\int_{0}^{t}(s+1)^2 \exp\left(-s-\frac{s^2}{2}\right)\,ds$$
+e $y(t)=f(t-1)$.
+
+
+
 \subsection{Esempi}
 \subsubsection{Decadimento Radioattivo}
 È il processo secondo il quale un sostanza radioattiva decade, trasformandosi in un'altra sostanza più leggera a causa della perdita di neutroni.
