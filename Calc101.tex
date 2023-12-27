@@ -1093,12 +1093,27 @@ Gli esempi più tipici di sono ottenuti spesso e volentieri dalla Fisica, e la l
 
 \subsection{Classificazione ODE}
 Per il Teorema Fondamentale del Calcolo Integrale (TFCI), sotto opportune ipotesi di regolarità possiamo ricostruire $u(t)$ dalla sua derivata $u'(t)$ e dal valore di $u$ in un punto. L'equazione $u'(t)=f(t)$ ha infatti soluzione $$u(t)=\int_{a}^{t}f(s)\,ds.$$
-In generale, data una funzione di due variabili $f(t,u)$ possiamo porci il problema di trovare una funzione $u(t)$ che verifichi l'equazione differenziale:$$u'(t)=f(t,u(t))$$
-l'equazione di sopra si dice del primo ordine perché coinvolge solo la derivata prima della funzione $u(t)$.
+In generale, data una funzione di due variabili $f(t,u)$ possiamo porci il problema di trovare una funzione $u(t)$ che verifichi l'equazione differenziale:$$u'(t)=f(t,u(t)).$$
+L'equazione di sopra si dice del primo ordine perché coinvolge solo la derivata prima della funzione $u(t)$.
 \subsubsection{ED a variabili separabili}
 Si chiamano così le equazioni del tipo: $$u'(t)=a(t)f(u(t)).$$ 
 Per risolvere queste equazioni basta dividere entrambi i membri per $f(u)$ ed integrare: $$\int\frac{u'(t)}{f(u(t))}\,dt=\int a(t)\,dt.$$
-In particolare, posto di saper determinare esplicitamente la primitiva di $a$ l'inversa della primitiva di $\frac{1}{f}$\\ (condizione talvolta piuttosto gravosa), questi problemi sono di semplice risoluzione.
+In particolare, posto di saper determinare esplicitamente la primitiva di $a$ e  l'inversa della primitiva di $\frac{1}{f}$\\ (condizione talvolta piuttosto gravosa), questi problemi sono di semplice risoluzione.
+
+\begin{ex} Si determini una soluzione di $f'(t)=f(t)^2+1$ che soddisfa $f(0)=1$, e il più grande intorno dell'origine su cui questa soluzione risulta continua. 
+\end{ex}
+\textbf{Soluzione}. Possiamo osservare che, posto che $f$ sia definita, $f(t)^2+1\geq 1$, dunque ogni soluzione è continua e crescente in un intorno dell'origine e su tale intorno $f$ risulta invertibile. Integrando ambo i membri di $\frac{f'(t)}{f(t)^2+1}=1$ sul generico intervallo $[0,\alpha]$ otteniamo $\arctan(f(\alpha))-\arctan(f(0))=\alpha$, equivalente a $\arctan(f(\alpha))=\alpha+\frac{\pi}{4}$ e a
+$$ f(\alpha)=\tan\left(\alpha+\frac{\pi}{4}\right)=\frac{1+\tan(\alpha)}{1-\tan(\alpha)},$$
+il cui intorno massimale di iniettività è dato da $\left(-\frac{3\pi}{4},\frac{\pi}{4}\right)$.
+
+\begin{ex} Si determini l'intervallo di esistenza della soluzione di $f'(t)=f(t)^2+f(t)$ che soddisfa $f(0)=1$. 
+\end{ex}
+\textbf{Soluzione}. Con l'idea di procedere come nel caso precedente, procuriamoci dapprima una primitiva di $\frac{1}{u^2+u}$.\\ Per decomposizione in fratti semplici 
+$$ \int \frac{du}{u^2+u} = \int\left(\frac{1}{u}-\frac{1}{u+1}\right)\,du = \log(u)-\log(u+1) = -\log\left(1+\frac{1}{u}\right), $$
+per cui integrando ambo i membri di $\frac{f'(t)}{f(t)^2+f(t)}=1$ sul generico intervallo $[0,\alpha]$ abbiamo $\log(2)-\log\left(1+\frac{1}{f(\alpha)}\right)=\alpha$, equivalente a $1+\frac{1}{f(\alpha)}=\exp\left(\log 2-\alpha\right)$ e a $\frac{1}{f(\alpha)}=-1+2 e^{-\alpha}$, da cui 
+$$ f(\alpha) = \frac{e^{\alpha}}{2-e^{\alpha}}. $$
+Segue che l'intervallo di esistenza della soluzione è dato da $(-\infty,\log 2)$.
+
 \subsubsection{ED lineari del primo ordine}
 Sono le equazioni del tipo: $$u'(t)=a(t)u(t)+b(t)$$
 con $a(t)$ e $b(t)$ funzioni date.
