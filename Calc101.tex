@@ -596,7 +596,7 @@ Si provi che se $p>q>0$ allora $M_p \geq M_q$.
 
 
 
-\begin{theorem}[Disuguaglianza di Hermite-Hadamard]
+\begin{theorem}[Disuguaglianza di Hermite-Hadamard]\label{HermiteHadamard}
 Se $f:[a,b]\to\mathbb{R}$ è una funzione convessa,
 $$ f\left(\frac{a+b}{2}\right) \leq \frac{1}{b-a}\int_{a}^{b}f(x)\,dx \leq \frac{f(a)+f(b)}{2}.$$
 \end{theorem}
@@ -627,6 +627,27 @@ Oltre che nella fabbricazione di stime accurate, la convessità è di grande aus
  \item Se $f$ è composta o sommata a qualunque altra funzione convessa resta convessa.
 \end{itemize}
 
+
+\subsection{Metodo di Newton}
+Il concetto di convessità dal punto di vista geometrico è anche alla base di uno dei principali stratagemmi numerici per la determinazione di zeri di funzioni, il \emph{metodo delle tangenti} o \emph{metodo di Newton}.
+
+\begin{theorem} Se $f\in C^2([a,b])$ è convessa, con derivata positiva e tale per cui $f(a)f(b)<0$, la successione definita attraverso 
+$$ \xi_0 = b,\qquad \xi_{n+1} = \xi_n - \frac{f(\xi_n)}{f'(\xi_n)} $$
+converge decrescendo all'unico zero di $f$ in $[a,b]$. 
+ 
+\end{theorem}
+\begin{proof}
+Per convessità, il grafico di $f$ su $[a,b]$ è collocato al di sopra di qualunque retta tangente, in particolare si ha $f(x)\geq f'(\xi_n)(x-\xi_n)+f(\xi_n)$ per ogni $x\in[a,b]$. L'ultima retta tangente interseca l'asse delle ascisse in $\xi_{n+1}$, che si trova necessariamente alla sinistra di $\xi_n$ e alla destra dell'unico zero di $f$ in $[a,b]$. La successione $\{\xi_n\}_{n\geq 0}$, in quanto decrescente e inferiormente limitata, converge necessariamente al suo $\inf$, che denominiamo $\xi$. Da $\lim_{n\to +\infty}(\xi_{n+1}-\xi_n)=0$ segue $f(\xi)=0$.
+\end{proof}
+
+\textbf{Nota}: il metodo di Newton applicato alla funzione $f(x)=x^2-n$ è esattamente il metodo babilonese per l'approssimazione di $\sqrt{n}$, in cui si parte con un'approssimazione per eccesso $\alpha \geq \sqrt{n}$ e la si rimpiazza con la media aritmetica tra $\alpha$ ed $\frac{n}{\alpha}$, producendo una nuova approssimazione per eccesso, più piccola e più accurata della precedente.\\
+
+Sotto le precedenti ipotesi di monotonia e convessità la convergenza è rapida, in particolare \emph{quadratica}. A meno di traslazioni non è restrittivo supporre che $0\in[a,b]$ sia l'unico zero di $f$, e dagli sviluppi di Maclaurin di $f(x)$ e della sua derivata, ossia $f(x)=f'(0)x + \frac{1}{2}(f''(0)+o(1))x^2$ e $f'(x)=f'(0)+(f''(0)+o(1))x$, si ha 
+$$ \xi_{n+1} = \xi_n - \frac{f'(0)\xi_n + \frac{1}{2}(f''(0)+o(1))\xi_n^2}{f'(0)+(f''(0)+o(1))\xi_n} = O(\xi_n^2). $$
+
+\begin{ex}[Problema di Keplero] Si determini un'accurata approssimazione numerica dell'unico $\theta\in\left[0,\frac{\pi}{2}\right]$\\ che realizza $\theta+\sin\theta = 2$. 
+\end{ex}
+\textbf{Sketch di soluzione}. Da tre passaggi del metodo di Newton con $\theta_0=1$ si ha che $\frac{73}{66}=1.1\overline{06}$ stima la soluzione con un errore assoluto inferiore al milionesimo.
 
 
 
@@ -704,18 +725,15 @@ Come spero sia noto il binomiale $\binom{n}{k}$, letto \emph{$n$ su $k$}, rappre
 Questo è esplicitamente:\\
 $$\binom{n}{k} = \frac{n!}{(n-k)!k!}$$    
 
-Proprietà dei binomiali sono: \\
+Proprietà dei binomiali sono: 
 \begin{itemize}
+    \item \textbf{Binomio di Newton} $(a+b)^n=\sum_{k=0}^{n}\binom{n}{k}a^{n-k}b^k$
     \item $\binom{n}{k}=\binom{n}{n-k}$
     \item $\binom{n+1}{k+1}=\binom{n}{k+1} + \binom{n}{k}$
     \item $2^n= \sum_{k=0}^{n}\binom{n}{k}$
     \item $0 = \sum_{k=0}^{n}\binom{n}{k}(-1)^k$
 \end{itemize}
 
-\subsection{Teorema Binomiale di Newton e applicazioni utili}
-Il binomio di Newton è usato per calcolare le potenze $n$-esime dei binomi:
-$$(a+b)^n=\sum_{k=0}^{n}\binom{n}{k}a^{n-k}b^k$$
-\\
 \subsection{Stars \& Bars}
 Un importante tecnica di conteggio è appunto \textbf{Stars \& Bars}:
 $$\left|\{(x_1,\ldots,x_k)\in(\N^+)^k: x_1+\ldots+x_k = n\}\right|=[x^n]\left(\frac{x}{1-x}\right)^k = \binom{n-1}{k-1},$$
@@ -764,15 +782,15 @@ fornisce $n^3=6\binom{n}{3}+6\binom{n}{2}+1\binom{n}{1}$ (i coefficienti così t
 $$ \sum_{n=1}^{N}n^3 = 6\sum_{n=1}^{N}\binom{n}{3}+6\sum_{n=1}^{N}\binom{n}{2}+\sum_{n=1}^{N}\binom{n}{1}=6\binom{N+1}{4}+6\binom{N+1}{3}+\binom{N+1}{2}={\color{blue}\left(\frac{N(N+1)}{2}\right)^2}=\left(\sum_{n=1}^{N}n\right)^2.$$
 
 
-    \section{Criteri e Metodi per Serie Numeriche}
-    \subsection{Serie Importanti}
-Seguono le più importanti Serie Numeriche convergenti, utili nella stima di altre serie e nella verifica della loro convergenza.\\
-\textbf{Serie Armonica Generalizzata}
+    \section{Criteri e metodi per serie numeriche}
+    \subsection{Serie importanti}
+Seguono le più importanti serie numeriche convergenti, utili nella stima di altre serie e nella verifica della loro convergenza.\\
+\textbf{Serie armonica generalizzata}
 $$\sum_{n=0}^{\infty}\frac{1}{n^\alpha}$$
 è una serie convergente se e solo se
-$\alpha\in\R>1$
+$\alpha\in\R>1$. La dimostrazione è lasciata come \textbf{importante} esercizio.
 \\
-\textbf{Serie Geometrica}
+\textbf{Serie geometrica}
 $$S=\sum_{n=0}^{\infty}x^n$$
 Ha il seguente comportamento:
 \begin{equation*}
@@ -783,15 +801,15 @@ Ha il seguente comportamento:
     
 \end{cases}
 \end{equation*}
-\textbf{Serie Telescopica}
+\textbf{Serie telescopica}
 Ogni somma/serie in cui il termine generale si può esprimere come differenza di termini consecutivi (o quasi) si calcola, infatti vale
 $$\sum_{n=0}^{N}\left(a_n - a_{n+1}\right) = a_0 - a_{N+1}$$
 per massiccia cancellazione: il membro sinistro corrisponde alla differenza tra la prima quantità sommata e l'ultima quantità sottratta.
-\newpage
+
 \subsection{Criteri}
 Seguiranno i principali criteri di convergenza per le Serie.
 \subsubsection{Serie a termini definitivamente non negativi}
-\textbf{Criterio del Confronto} \\
+\textbf{Criterio del confronto} \\
 Sia
 $$\sum_{n=0}^{\infty}a_n<\infty$$
 Se vale che definitamente $0\leq b_n\leq a_n$, allora
@@ -800,12 +818,12 @@ Eventualmente in combinazione con somme telescopiche, questo criterio prova la c
 $$ \sum_{n\geq 1}\frac{1}{n^2} = 1+\sum_{n\geq 2}\frac{1}{n^2} \leq 1+\sum_{n\geq 2}\left(\frac{1}{n-1}-\frac{1}{n}\right) = 2 $$
 e un discorso analogo può essere applicato anche alla serie armonica generalizzata.\\
 
-\textbf{Criterio del Confronto Asintotico} \\
+\textbf{Criterio del confronto asintotico} \\
 È una forma più generale del precedente criterio. Se due successioni a termini non negativi $\{a_n\}_{n\geq 1}$ e $\{b_n\}_{n\geq 1}$ \\sono tali per cui $\lim_{n\to+\infty}\frac{a_n}{b_n}$ esiste finito, le serie 
 $$ \sum_{n\geq 1} a_n,\qquad \sum_{n\geq 1} b_n $$
 sono entrambe convergenti o entrambe positivamente divergenti.\\
 
-\textbf{Criterio del Rapporto} \\
+\textbf{Criterio del rapporto} \\
 Sia
 $$\sum_{n=0}^{\infty}a_n$$
 una serie a termini mai nulli. Se si ha che:
@@ -813,11 +831,18 @@ $$\lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right|=c<1$$
 allora la serie degli $a_n$ converge assolutamente.\\
 È una conseguenza abbastanza immediata della definizione di limite e del criterio del confronto.\\ O, volendo, del criterio successivo, in quanto per il Lemma di Hadamard $\frac{|a_{n+1}|}{|a_n|}\to c$ comporta $\sqrt[n]{|a_n|}\to c$.\\
 
-\textbf{Criterio della Radice} \\
+\textbf{Criterio della radice} \\
 Se $\{a_n\}_{n\geq 1}$ è una successione a valori non negativi tale per cui
 $$ \lim_{n\to +\infty}\sqrt[n]{a_n} = c \in [0,1), $$
 allora la serie $\sum_{n\geq 1}a_n$ converge.\\
-È una conseguenza immediata del confronto con una serie geometrica convergente.
+È una conseguenza immediata del confronto con una serie geometrica convergente.\\
+
+\textbf{Criterio serie-integrale} \\
+Se $f:[1,+\infty)\to\mathbb{R}$ è una funzione non negativa e debolmente decrescente, la serie $\sum_{n\geq 1}f(n)$ converge se e solo se $f$ è impropriamente Riemann-integrabile su $[1,+\infty)$. Per additività dell'integrale e monotonia dell'integranda si ha infatti, per ogni $N\in\N^+$: 
+$$ \sum_{n=1}^{N}f(n) \geq \int_{1}^{N+1}f(x)\,dx $$
+come anche 
+$$ \sum_{n=1}^{N}f(n) \leq f(1)+\int_{1}^{N}f(x)\,dx.$$
+Nel caso in cui $f$ sia convessa la disuguaglianza di Hermite-Hadamard \ref{HermiteHadamard} fornisce stime anche più precise.
 
 \subsubsection{Serie a termini di segno variabile}
 
@@ -872,13 +897,27 @@ $$ 9S = 12S-3S = 4+\sum_{n\geq 0}\frac{(2n+3)-(2n+1)}{4^n} = 4+2\sum_{n\geq 0}\f
 dalle quali segue $S=\frac{20}{27}$.
 
 
-\subsubsection{Criterio Cannonata}
+\subsubsection{Criterio di convergenza dominata}
 
-Per il \textbf{Criterio di Convergenza Dominata} tutte Le serie che convergono \emph{abbastanza} velocemente commutano con l'integrale. All'atto pratico ciò comporta che, nelle ipotesi corrette, è lecito scrivere:
-$$\sum_{n\geq 0}^{}\int_{a}^{b}f(x)dx =\int_{a}^{b}\sum_{n\geq 0}^{}f(x) dx.$$ 
-Questo torna utile in quanto è moderatamente comune sostituire ad una funzione una sua \textbf{Rappresentazione integrale}.
-(Non esattamente collegato, ma per farsi un'idea dell'utilità di questo fatto vedere l'esercizio \textbf{J17})
-\subsection{Creatività e Serie Telescopiche}
+Per il \textbf{Teorema di convergenza dominata} tutte le serie che convergono \emph{abbastanza} velocemente commutano con l'integrale. All'atto pratico ciò comporta che, nelle ipotesi corrette, è lecito scrivere:
+$$\sum_{n\geq 0}^{}\int_{a}^{b}f_n(x)\,dx =\int_{a}^{b}\sum_{n\geq 0} f_n(x)\, dx.$$ 
+Questo torna utile in quanto è moderatamente comune sostituire ad una funzione una sua \textbf{rappresentazione integrale}, come ad esempio nella soluzione dell'esercizio \textbf{J17}, o del seguente.
+
+\begin{ex} Si determini esplicitamente il valore della serie 
+$$ \sum_{n\geq 1}\frac{1}{n^2+1}. $$
+ 
+\end{ex}
+\textbf{Soluzione}. È pratico osservare preliminarmente che, per integrazione per parti,
+$$ \frac{1}{n^2+1} = \int_{0}^{+\infty}\frac{\sin(nx)}{n}\,e^{-x}\,dx.$$
+Poiché $\sum_{n\geq 1}\frac{z^n}{n}=-\log(1-z)$ vale per ogni $z\in\C$ di modulo $<1$, dal Lemma di Abel segue che $\operatorname{Im}\sum_{n\geq 1}\frac{e^{inx}}{n}=\sum_{n\geq 1}\frac{\sin(nx)}{n}$ è il prolungamento $2\pi$-periodico della funzione che su $(0,2\pi)$ vale $\frac{\pi-x}{2}$ (\emph{onda a dente di sega} o \emph{sawtooth wave}). Invocando il Teorema di convergenza dominata abbiamo la seguente catena di uguaglianze:
+\begin{eqnarray*}
+ \sum_{n\geq 1}\frac{1}{n^2+1}&=&\int_{0}^{+\infty}e^{-x}\sum_{n\geq 1}\frac{\sin(nx)}{n}\,dx = \int_{0}^{+\infty}e^{-x}\left(\frac{\pi-x}{2}\right)_{\text{per}}\,dx = \frac{1}{1-e^{-2\pi}}\int_{0}^{2\pi}\left(\frac{\pi-x}{2}\right)e^{-x}\,dx \\
+ &=& \frac{e^{\pi}}{e^{2\pi}-1}\int_{-\pi}^{\pi}\frac{x}{2}e^{-x}\,dx = \frac{e^{\pi}}{e^{2\pi}-1}\int_{0}^{\pi}x\sinh(x)\,dx = \frac{e^\pi}{e^{2\pi}-1}\left(\left[x\cosh x\right]_{0}^{\pi}-\left[\sinh x\right]_{0}^{\pi}\right)\\
+ &=& \frac{e^\pi}{e^{2\pi}-1}\left(\pi\frac{e^\pi+e^{-\pi}}{2}-\frac{e^\pi-e^{-\pi}}{2}\right) = \frac{\pi}{2}\cdot \frac{e^{2\pi}+1}{e^{2\pi}-1}-\frac{1}{2}={\color{blue}\frac{\pi\coth\pi-1}{2}}.\qed
+\end{eqnarray*}
+
+L'espediente appena utilizzato può essere generalizzato, dando luogo a quanto noto come \emph{formula di sommazione di Poisson}.
+\subsection{Creative telescoping}
 Un metodo importante è quello di trasformare serie apparentemente complesse in serie telescopiche o combinazioni lineari di serie telescopiche.
 Tipicamente per questo tipo di lavoro bisogna farci l'occhio e sapere un po' dove mettere le mani, ma diventa abbastanza intuitivo velocemente (serve appunto un po' di creatività). Un esempio classico riguarda il problema di Basilea, ossia la determinazione di $\zeta(2)=\sum_{n\geq 1}\frac{1}{n^2}$. Il termine generale della serie non è evidentemente telescopico, ma è prossimo a quello della serie di Mengoli, da cui:
 $$ \sum_{n\geq 1}\frac{1}{n^2} = \sum_{n\geq 1}\frac{1}{n(n+1)}+\sum_{n\geq 1}\frac{1}{n^2(n+1)} = 1+\sum_{n\geq 1}\frac{1}{n^2(n+1)}. $$
@@ -1097,6 +1136,142 @@ valida per ogni $x\in(-1,1)$, integrando ambo i membri su $(0,1)$ otteniamo
 $$ S = \frac{1}{4}+\int_{0}^{1}x^2(1-x)\log(1-x)\,dx = \frac{1}{4}+\int_{0}^{1}(1-z)^2 z \log(z)\,dz  $$
 e per integrazione per parti 
 $$ S = \frac{1}{4}+\left[\left(\frac{z^2}{2}-\frac{2z^3}{3}+\frac{z^4}{4}\right)\log z\right]_{0}^{1}-\int_{0}^{1}\left(\frac{z}{2}-\frac{2z^2}{3}+\frac{z^3}{4}\right)\,dz=\frac{1}{4}-\frac{1}{4}+\frac{2}{9}-\frac{1}{16} = \frac{23}{144}.\qed$$
+
+
+\subsection{Integrale di Riemann improprio}
+L'integrale di Riemann in senso proprio è definito a partire da funzioni limitate su domini limitati. Nella pratica è tuttavia frequente confrontarsi con funzioni o domini illimitati, ed è bene aver chiaro come gestire tali situazioni, in particolare conoscere quali proprietà algebriche dell'integrale proprio restano valide e quali cessano di essere valide.\\
+
+\textbf{Caso \#1: funzione limitata su dominio illimitato}, $\int_{a}^{+\infty}f(x)\,dx, \int_{-\infty}^{b}f(x)\,dx, \int_{-\infty}^{+\infty}f(x)\,dx.$\\
+È il caso di più semplice gestione: considerata una \emph{esaustione in compatti} $K_1\subset K_2 \subset K_3 \subset \ldots \to D$ del dominio di integrazione, definiamo $\int_D f(x)\,dx$ come $\lim_{n\to +\infty}\int_{K_n}f(x)\,dx$, posto ovviamente che questo esista. Nel caso in cui il dominio di integrazione sia illimitato soltanto da un lato, questo è equivalente a porre
+$$ \int_{a}^{+\infty}f(x)\,dx = \lim_{b\to +\infty}\int_{a}^{b}f(x)\,dx,\qquad \int_{-\infty}^{b}f(x)\,dx = \lim_{a\to -\infty}\int_{a}^{b}f(x)\,dx. $$
+Nel caso in cui il dominio di integrazione sia illimitato da ambo i lati, ossia coincida con $\R$, ciò \textbf{non è} equivalente a porre $\int_{\R}f(x)\,dx = \lim_{M\to +\infty}\int_{-M}^{M}f(x)\,dx$, che fornisce solo l'integrale in senso simmetrico, o nel senso del \emph{valore principale} di Cauchy. Risulta 
+$$ \int_{\R}f(x)\,dx = \int_{-\infty}^{0}f(x)\,dx + \int_{0}^{+\infty} f(x)\,dx $$
+solo a patto che entrambi gli addendi nel membro destro siano finiti. Per intenderci: per quanto $\sin x$ sia una funzione limitata e dispari, l'integrale di Riemann improprio $\int_{\R}\sin(x)\,dx$ \textbf{non esiste}.\\
+
+\textbf{Caso \#2: funzione illimitata su dominio limitato}, $\int_{0}^{1}\frac{dx}{\sqrt{x}}$.\\
+In questo caso, anziché ``approssimare dall'interno'' il dominio di integrazione, approssimiamo dall'interno il sottografico dell'integranda. Per ogni $M>0$ poniamo
+$$ f_M(x) = \left\{\begin{array}{rcl}-M &\text{se}& f(x)\leq -M \\ f(x) & \text{se} & |f(x)|\leq M \\ M &\text{se}& f(x)\geq M\end{array}\right. $$
+e definiamo l'integrale improprio $\int_{a}^{b}f(x)\,dx$ come 
+$$ \lim_{M\to +\infty} \int_{a}^{b} f_M(x)\,dx, $$
+posto ovviamente che tale limite esista.\\
+
+\textbf{Caso \#3: funzione illimitata su dominio illimitato}, $\int_{0}^{+\infty}\frac{dx}{e^x\sqrt{x}}$.\\
+In questo caso combiniamo le precedenti estensioni: è un esercizio tedioso ma non difficile verificare che l'esito è il medesimo indipendentemente dalla scelta di approssimare per primo il dominio di integrazione o la funzione integranda.\\
+
+Un ulteriore esercizio tedioso è verificare che restano valide le proprietà di linearità e monotonia e le meccaniche di integrazione per parti o mediante sostituzioni, ma l'integrale di Riemann in senso improprio non coincide necessariamente con il limite delle somme di Riemann, come evidenziato nell'esercizio \textbf{J33}.
+
+\begin{ex}[Integrale di Fresnel] Si dimostri che la funzione $f(x)=\sin(x^2)$ è impropriamente Riemann-integrabile su $\R^+$ e si determini esplicitamente il valore dell'integrale. 
+\end{ex}
+\textbf{Soluzione}. La sostituzione $x=\sqrt{t}$ conduce a 
+$$ I=\int_{0}^{+\infty}\sin(x^2)\,dx = \frac{1}{2}\int_{0}^{+\infty}\frac{\sin t}{\sqrt{t}}\,dt $$ 
+dove l'ultimo integrale esiste finito per il criterio di Abel-Dirichlet. Esprimendo $\frac{1}{\sqrt{t}}$ come $\int_{0}^{+\infty}\frac{1}{\sqrt{\pi x}} e^{-tx}\,dx$ ed invocando il Teorema di Fubini abbiamo inoltre che 
+$$ I = \frac{1}{2\sqrt{\pi}}\int_{0}^{+\infty}\frac{1}{\sqrt{x}}\int_{0}^{+\infty}\sin(t)e^{-tx}\,dt \,dx = \frac{1}{2\sqrt{\pi}}\int_{0}^{+\infty}\frac{dx}{(x^2+1)\sqrt{x}}\stackrel{x\mapsto z^2}{=}\frac{1}{\sqrt{\pi}}\int_{0}^{+\infty}\frac{dz}{z^4+1}={\color{blue}\sqrt{\frac{\pi}{8}}}. $$
+
+\begin{ex} Si determini per quali valori dei parametri $\alpha,\beta > 0$ si ha che l'integrale 
+$$ I(\alpha,\beta) = \int_{1}^{+\infty}\frac{dx}{x^\alpha \ln^\beta x}$$
+esiste finito. 
+\end{ex}
+\textbf{Soluzione}. In virtù della sostituzione $x\mapsto\exp t$ si ha che 
+$$ I(\alpha,\beta) = \int_{0}^{+\infty}t^{-\beta} e^{-(\alpha-1)t}\,dt $$
+dove l'ultima funzione integranda si comporta come $t^{-\beta}$ in un intorno destro dell'origine. Su tale insieme la Riemann-integrabilità è equivalente alla condizione $\beta < 1$, e per avere Riemann-integrabilità anche in un intorno sinistro di $+\infty$ è necessario e sufficiente che si abbia $\alpha>1$. In queste ipotesi 
+$$ I(\alpha,\beta) = \frac{1}{(\alpha-1)^{\beta+1}}\int_{0}^{+\infty} z^{-\beta} e^{-z}\,dz = \frac{\Gamma(1-\beta)}{(\alpha-1)^{\beta+1}}.$$
+
+\begin{ex}[Fallacia dei Fisici] Si dimostri che una funzione positiva e impropriamente Riemann-integrabile su $\R^+$ non ha necessariamente limite zero all'infinito. 
+\end{ex}
+\emph{Sketch di controesempio}: $f(x) = \sum_{n\geq 1} n\exp\left(-n^6(x-n)^2\right)$ è positiva e impropriamente Riemann-integrabile su $\R^+$, ma $f(n)\geq n$ per ogni $n\in\N^+$ mentre $\lim_{n\to +\infty} f\left(n+\frac{1}{2}\right)=0$.
+
+\subsection{Elementi di Teoria della Misura}
+Per quanto nella didattica delle scuole superiori sia da tempo in vigore un totale oscurantismo in materia\footnote{All'interno di testi molto diffusi si legge: \emph{due figure si dicono equiestese se hanno la medesima area; l'area è fissata dalle classi di equivalenza della congruenza}. Ovviamente senza specificare né cosa si intenda per \emph{figura}, né cosa si intenda per \emph{congruenza}, né \emph{come} le classi di equivalenza di una relazione assegnino di fatto un valore numerico a sottoinsiemi del piano.}, nel far Matematica è piuttosto importante avere le idee chiare su cosa significhi il termine \emph{area}. In termini assiomatici, seguendo le antiche idee di Eudosso ed Archimede, possiamo associare ad \emph{alcuni} sottoinsiemi del piano (i \emph{misurabili}) un numero reale non negativo postulando quanto segue: 
+\begin{enumerate}
+ \item Qualunque rettangolo ha come area il prodotto delle lunghezze di lati consecutivi
+ \item (Additività) Se $A,B$ sono misurabili disgiunti, $A\cup B$ è misurabile e vale $\mu(A\cup B)=\mu(A)+\mu(B)$
+ \item (Monotonia) Se $A,B$ sono misurabili con $A\subseteq B$, vale $\mu(A)\leq \mu(B)$
+ \item (Invarianza per isometrie) Se $A,B$ sono isometrici e $A$ è misurabile, $B$ è misurabile e realizza $\mu(B)=\mu(A)$.
+\end{enumerate}
+È un semplice esercizio verificare che questi $4$ assiomi fissano l'area di qualunque parallelogramma, dunque l'area di qualunque triangolo, dunque l'area di qualunque poligono. Sfortunatamente, non molt'altro: anche soltanto fissare l'area dei cerchi richiede qualche specifica extra.
+
+\begin{definizione}[Misura interna] Dato $E$, sottoinsieme limitato del piano, definiamo la sua \emph{misura interna} come 
+$$ \mu^-(E)=\sup\{\mu(P): P\text{ poligono}, P\subseteq E\}. $$
+\end{definizione}
+
+\begin{definizione}[Misura esterna] Dato $E$, sottoinsieme limitato del piano, definiamo la sua \emph{misura esterna} come 
+$$ \mu^+(E)=\inf\{\mu(P): P\text{ poligono}, E\subseteq P\}. $$
+\end{definizione}
+
+Nel caso in cui $E$ realizzi $\mu^-(E)=\mu^+(E)$ diciamo che $E$ è misurabile (secondo Peano-Jordan) e la sua area è $\mu(E)=\mu^-(E)=\mu^+(E)$. Non è affatto automatico che la limitatezza di $E$ comporti la misurabilità di $E$.
+\begin{ex} Si dimostri che il ``quadrato barbuto'' dato da
+$$ E=([0,1]\times[0,1])\cup (([0,1]\cap\Q)\times [-1,0]) $$
+ha misura interna $1$ e misura esterna $2$, dunque \emph{non è} misurabile secondo Peano-Jordan. 
+\end{ex}
+Il lemma-chiave che lega la misurabilità secondo Peano-Jordan alla Riemann-integrabilità è il seguente.
+\begin{lemma} Data una $f:[a,b]\to\R^+$ e il sottoinsieme del piano (sottografico) 
+$$ E_f = \left\{(x,y): x\in[a,b], y\in[0,f(x)]\right\} $$
+si ha che $E_f$ è misurabile secondo Peano-Jordan se e solo se $f$ è Riemann-integrabile su $[a,b]$. In tal caso si ha 
+$$ \mu(E_f)=\int_{a}^{b} f(x)\,dx.$$
+\end{lemma}
+
+La Riemann-integrabilità in senso improprio permette pertanto di estendere il concetto di area anche a sottoinsiemi del piano illimitati, come ad esempio il sottografico di $e^{-x}$ su $\R^+$. Rimpiazzando i termini \emph{area}, \emph{rettangolo} e \emph{poligono} con i termini \emph{volume}, \emph{parallelepipedo} e \emph{poliedro} otteniamo la definizione della misura di Peano-Jordan in $\R^3$.\\
+Le relazioni tra continuità e misura sono spinose e non sempre intuitive: è possibile che un misurabile $V\subset\R^3$ abbia una sezione $V\cap\{z=0\}$ che non è misurabile come sottoinsieme del piano. Nei casi in cui questa patologia non si presenta abbiamo tuttavia un risultato ricco di applicazioni.
+
+\begin{theorem}[Principio di Cavalieri] Se $V\subset\R^3$ è misurabile e lo sono anche tutte le sue sezioni, il volume di $V$ è dato dall'integrale dell'area delle sezioni. 
+\end{theorem}
+
+Conseguenze immediate sono ad esempio le seguenti:
+\begin{itemize}
+ \item il volume di un cono circolare retto è dato da $\frac{1}{3}$ del prodotto tra l'area della base e la lunghezza dell'altezza,
+ \item il volume di una sfera di raggio $R$ è $\frac{4\pi}{3}R^3$ e la superficie è $4\pi R^2$, ossia $4$ volte l'area racchiusa da un equatore.
+\end{itemize}
+
+Più in generale, data una $f\in C^{0}([a,b])$ non negativa, il volume del solido ottenuto ruotando il sottografico di $f$ attorno all'asse delle ascisse è dato da $\pi\int_{a}^{b}f(x)^2\,dx$. Se invece abbiamo una $f\in C^0([0,b])$ non negativa e facciamo ruotare il suo sottografico attorno all'asse delle ordinate, per decomposizione in corone cilindriche abbiamo che il volume del solido di rotazione è dato da
+
+$$ V=\lim_{N\to +\infty} \sum_{k=0}^{N-1} f\left(\frac{kb}{N}\right)\left(\pi\left(\frac{(k+1)b}{N}\right)^2-\pi\left(\frac{kb}{N}\right)^2\right)=\pi\lim_{N\to +\infty}\frac{1}{N}\sum_{k=0}^{N-1}f\left(\frac{kb}{N}\right)\frac{(2k+1)b}{N}, $$
+ossia, per corrispondenza tra somme e integrali di Riemann, $2\pi\int_{0}^{b} x f(x)\,dx.$
+
+
+
+\section{Successioni per ricorrenza}
+Lo studio di successioni in cui il termine generale $a_n$ dipende in qualche modo dai precedenti è di fondamentale importanza non solo dal punto di vista strettamente teorico, ma anche da quello fisico-ingegneristico, visto che è piuttosto raro essere in grado di ricostruire esplicitamente la soluzione di un'equazione differenziale, ma si hanno migliori chances di successo nella trattazione (eventualmente numerica) dei corrispondenti problemi \emph{linearizzati} o altrimenti \emph{discretizzati}. Il primo caso che ci apprestiamo a trattare è quello delle successioni per ricorrenza \emph{lineari} ed \emph{autonome}, dove il termine generale $a_n$ è una fissata combinazione lineare dei precedenti $k$ termini.
+
+\subsection{Successione di Fibonacci e similia}
+Un problema prototipico è quello di determinare una formula esplicita (\emph{formula di Binet}) per la successione (\emph{di Fibonacci}) $\{F_n\}_{n\geq 0}$ definita dalle \emph{condizioni iniziali} $F_0=0, F_1=1$ e dalla (legge di) \emph{ricorrenza} $F_{n+2}=F_{n+1}+F_n$, valida per ogni $n\in\N$. Illustriamo diversi approcci equivalenti.\\
+
+\textbf{Approccio \#1, \emph{rasoio di Occam}}. L'insieme delle successioni $\{a_n\}_{n\geq 0}$ che soddisfano la ricorrenza $a_{n+2}=a_{n+1}+a_n$ è uno \emph{spazio vettoriale}. In uno slancio di ottimismo, cerchiamo elementi ragionevolmente \emph{semplici} di questo spazio vettoriale, ossia \emph{successioni di potenze} $a_n=\alpha^n$ che rispettano la ricorrenza.
+Imporre che si abbia $a_{n+2}=a_{n+1}+a_n$ è equivalente ad imporre che la quantità $\alpha$ soddisfi $\alpha^2=\alpha+1$, ossia risulti radice del \emph{polinomio caratteristico} $p(x)=x^2-x-1$. Per quanto noto dall'antichità più remota sulle proporzioni del pentagono regolare, le radici del precedente polinomio sono il \emph{rapporto aureo} $\varphi=\frac{1+\sqrt{5}}{2}$ e il suo coniugato algebrico $\overline{\varphi}=\frac{1-\sqrt{5}}{2}$. In virtù della struttura di spazio vettoriale, \emph{tutte} le successioni della forma $a_n = A\varphi^n + B\overline{\varphi}^n$ soddisfano la ricorrenza voluta. Nell'ultima espressione abbiamo due gradi di libertà nella scelta dei coefficienti $A,B$, ed auspicabilmente un'opportuna scelta della coppia $(A,B)$ è tale da garantire simultaneamente sia $a_0=F_0=0$ che $a_1=F_1=1$, ossia 
+$$ \left\{\begin{array}{rcl}\varphi^0 A + \overline{\varphi}^0 B &=& 0 \\ \varphi^1 A + \overline{\varphi}^1 B &=& 1.\end{array}\right. $$
+In virtù della regola di Cramer il sistema ha effettivamente soluzione unica, poiché 
+$$ \det \begin{pmatrix} 1 & 1 \\ \varphi & \overline{\varphi} \end{pmatrix}=\overline{\varphi}-\varphi \neq 0, $$
+caso particolare del fatto che tutte le matrici di Vandermonde definite a partire da elementi distinti sono invertibili.\\
+A conti fatti abbiamo $A=-B=\frac{1}{\sqrt{5}}$, dunque la successione $a_n=\frac{\varphi^n-\overline{\varphi}^n}{\sqrt{5}}$ rispetta sia la legge di ricorrenza che le condizioni iniziali volute. Dal principio di induzione segue pertanto $a_n=F_n$, ossia 
+$$ F_n = \frac{\varphi^n-\overline{\varphi}^n}{\sqrt{5}}. $$
+
+\textbf{Approccio \#2, \emph{Jordan}}. Possiamo liberamente definire il vettore $v_n=\begin{pmatrix} F_{n+1} \\ F_{n}\end{pmatrix}$ ed esprimere la ricorrenza nella forma $v_{n+1} = M v_n$, dove $M=\begin{pmatrix} 1 & 1 \\ 1 & 0\end{pmatrix}$. Dal principio di induzione segue $v_n = M^n v_0$, dunque il problema di esplicitare il termine generale della successione si rivela equivalente a quello di esplicitare l'$n$-esima potenza della matrice $M$. Dal Teorema di Jordan si ha $M = J^{-1}\begin{pmatrix}\varphi & 0 \\ 0 & \overline{\varphi}\end{pmatrix} J$ per un'opportuna matrice invertibile $J$, da cui $M^n = J^{-1}\begin{pmatrix}\varphi^n & 0 \\ 0 & \overline{\varphi}^n\end{pmatrix} J$. Segue che il termine generale della successione è una fissata combinazione lineare di $\varphi^n$ e $\overline{\varphi}^n$, dove i coefficienti di questa combinazione lineare possono essere facilmente calcolati per interpolazione, o (meno efficientemente) esplicitando la matrice $J$.\\
+
+\textbf{Approccio \#3, \emph{OGF}}. Questo è un approccio estremamente potente, ma decisamente indiretto: associamo alla successione una funzione regolare, dalla ricorrenza deduciamo proprietà algebriche della funzione, dalle ultime ricostruiamo il comportamento esplicito (o anche solo asintotico) della successione. È immediato realizzare che la successione di Fibonacci è crescente, ma non troppo rapidamente, in quanto si ha $a_{n+1}\leq 2 a_n$ per ogni $n\geq 1$, da cui $F_n \leq 2^{n-1}$.\\ In particolare, posto 
+$$ f(x) = \sum_{n\geq 0} F_n x^n  = x + \sum_{n\geq 2}F_n x^n$$
+si ha che $f(x)$ è una funzione analitica in un intorno circolare dell'origine di raggio almeno $\frac{1}{2}$.\\ Su questo insieme abbiamo 
+
+$$ x^2 f(x) = \sum_{n\geq 0} F_n x^{n+2} = \sum_{n\geq 2} F_{n-2} x^n,\qquad x f(x) = \sum_{n\geq 0} F_n x^{n+1} = \sum_{n\geq 2} F_{n-1} x^n $$
+e dalla relazione $F_{n}=F_{n-1}+F_{n-2}$, valida per ogni $n\geq 2$, deduciamo che 
+$$ f(x) = x + x f(x) + x^2 f(x)\quad\Longrightarrow\quad f(x) = \frac{x}{1-x-x^2}. $$
+Operando una decomposizione in fratti semplici dell'ultima funzione razionale, mediante serie geometriche otteniamo che 
+$$ f(x) = \frac{1}{\sqrt{5}}\left(\frac{1}{1-\varphi x}-\frac{1}{1-\overline{\varphi}x}\right) = \frac{1}{\sqrt{5}}\sum_{n\geq 0}\left(\varphi^n-\overline{\varphi}^n\right) x^n. $$
+Dal principio di identità delle funzioni analitiche (diretta estensione del principio di identità dei polinomi: se due funzioni analitiche coincidono in un intorno dell'origine hanno le medesime derivate in zero e viceversa) segue la formula di Binet. $f(x)$ è detta \emph{funzione generatrice ordinaria (OGF)} della successione $\{F_n\}_{n\geq 0}$ e l'effettivo raggio di convergenza nell'origine è dato dal reciproco del massimo modulo delle radici del polinomio caratteristico (Teorema di Frobenius), nel nostro caso $\frac{1}{\varphi}=\varphi-1\approx 0.618$.\\
+
+Gli ultimi due approcci sono immediatamente generalizzabili al caso in cui una successione per ricorrenza lineare ed autonoma abbia ordine $k\geq 2$. Il primo approccio è praticabile solo se le radici del polinomio caratteristico sono tutte distinte: altrimenti si manifestano problemi di \emph{risonanza}, legati alle potenze di una matrice non diagonalizzabile, o ai \emph{poli} di funzioni razionali con ordine maggiore di $1$. Vediamone un esempio.
+
+\begin{ex} La successione $\{a_n\}_{n\geq 0}$ è definita dalla condizioni iniziali $a_0=1, a_1=2, a_2=5$ e dalla ricorrenza $a_{n+3}=3 a_{n+2}-4 a_n$, valida per ogni $n\in\N$. Si determini un'espressione esplicita del termine generale. 
+\end{ex}
+
+\textbf{Soluzione}. Il polinomio caratteristico della ricorrenza è $p(x)=x^3-3x^2+4=(x-2)^2(x+1)$, dunque le successioni $b_n=2^n$ e $c_n=(-1)^n$ soddisfano la ricorrenza. Due elementi non sono sufficienti a generare uno spazio vettoriale di dimensione $3$, ma il ``terzo escluso'' può essere facilmente determinato considerando che la matrice compagna del polinomio $p(x)$ è simile a 
+$$\begin{pmatrix} 2 & 1 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & -1\end{pmatrix}, $$
+dunque lo spazio vettoriale è generato da $2^n, n 2^n$ e $(-1)^n$ e $a_n = A 2^n + B n 2^n + C(-1)^n$ con 
+$$\left\{\begin{array}{rcl}A+C&=& 1 \\ 2A+2B-C&=& 2 \\ 4A+8B+C&=&5\end{array}\right. $$
+che conduce a $A=\frac{8}{9}$, $B=\frac{1}{6}$, $C=\frac{1}{9}$.\qed
+
+\begin{ex}[Tribonacci] In funzione di $n\in\N^+$ si determini il numero $T_n$ di stringhe binarie di lunghezza $n$ all'interno delle quali non sono mai presenti tre caratteri $1$ consecutivi. Si determini infine una buona approssimazione numerica del limite $\lim_{n\to +\infty}\sqrt[n]{T_n}$.
+ 
+\end{ex}
+
 \section{Equazioni differenziali}
 Esistono fenomeni in cui rapidità di variazione di una certa quantità è proporzionale, in ogni istante, alla quantità stessa.
 Gli esempi più tipici di sono ottenuti spesso e volentieri dalla Fisica, e la loro complessità varia in maniera drammatica in base al contesto. Esempi degni di nota verranno fatti nel paragrafo apposito.
