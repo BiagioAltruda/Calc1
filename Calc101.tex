@@ -1269,11 +1269,38 @@ $$\left\{\begin{array}{rcl}A+C&=& 1 \\ 2A+2B-C&=& 2 \\ 4A+8B+C&=&5\end{array}\ri
 che conduce a $A=\frac{8}{9}$, $B=\frac{1}{6}$, $C=\frac{1}{9}$.\qed
 
 \begin{ex}[Tribonacci] In funzione di $n\in\N^+$ si determini il numero $T_n$ di stringhe binarie di lunghezza $n$ all'interno delle quali non sono mai presenti tre caratteri $1$ consecutivi. Si determini infine una buona approssimazione numerica del limite $\lim_{n\to +\infty}\sqrt[n]{T_n}$.
- 
 \end{ex}
 
+\begin{ex} Si determini una forma esplicita per il termine generale di $\{a_n\}_{n\geq 1}$, dove $a_1=\frac{\sqrt{3}}{2}$ e $a_{n+1}=\sqrt{\frac{1+a_n}{2}}$ per ogni $n\geq 1$.
+\end{ex}
+\textbf{Soluzione}. Abbiamo in questo caso una successione autonoma, in cui la ricorrenza è intimamente legata alla formula di bisezione del coseno. Posto $a_n=\cos(\theta_n)$ abbiamo infatti $\theta_1=\frac{\pi}{6}$ e $a_{n+1}=\cos\left(\frac{\theta_n}{2}\right)$, da cui facilmente $a_n=\cos\left(\frac{\pi}{3\cdot 2^n}\right)$.
+
+\begin{ex} Si determini una forma esplicita per il termine generale di $\{a_n\}_{n\geq 1}$, dove $a_1=\frac{1}{2}$ e $a_{n+1}=2a_n^2-1$ per ogni $n\geq 1$.
+\end{ex}
+\textbf{Soluzione}. Con la stessa sostituzione utilizzata nell'esercizio precedente, possiamo osservare in questo caso una manifestazione della formula di duplicazione del coseno, che comporta $a_n=\cos\left(\frac{\pi}{6}2^n\right)$ e il fatto che la successione sia definitivamente periodica (in questo caso, addirittura, costante dal secondo termine in poi).
+
+\subsection{Successioni non autonome}
+Nel caso di successioni per ricorrenza \emph{non} autonome è molto raro che si riesca a determinare una formula esplicita per il termine generale. È tuttavia importante conoscere almeno qualche caso in cui ciò \emph{è} possibile: ad esempio situazioni in cui, mediante sostituzioni opportune, ci si può ricondurre alla risoluzione di una ricorrenza autonoma.
+
+\begin{ex} Si determini una forma esplicita per il termine generale di $\{a_n\}_{n\geq 1}$, dove $a_1=1$ e $a_{n+1}=n\cdot a_n$\\ per ogni $n\geq 1$. 
+\end{ex}
+\textbf{Soluzione}. La ricorrenza può essere espressa come $\frac{a_{n+1}}{a_n}=n$, dove il membro sinistro è il termine generale di un prodotto telescopico. In particolare
+$$ \frac{a_{N+1}}{a_1}=\prod_{n=1}^{N}\frac{a_{n+1}}{a_n} = \prod_{n=1}^{N}n = N!$$
+conduce immediatamente a $a_n = (n-1)!$.
+
+\begin{ex} Si determini una forma esplicita per il termine generale di $\{a_n\}_{n\geq 1}$, dove $a_1=1$ e $a_{n+1}=n\cdot a_n + 1$ per ogni $n\geq 1$.
+\end{ex}
+\textbf{Soluzione}. Visto e considerato l'esercizio precedente, poniamo $a_n=(n-1)! b_n$ e osserviamo che per la successione $\{b_n\}_{n\geq 1}$ abbiamo di conseguenza $b_1=1$ e $n!\cdot b_{n+1} = n!\cdot b_n + 1$, ossia $b_{n+1}-b_n=\frac{1}{n!}$. Il membro sinistro dell'ultima equazione è il termine generale di una somma telescopica, da cui 
+$$ b_{N+1}-b_1 = \sum_{n=1}^{N}\left(b_{n+1}-b_n\right) = \sum_{n=1}^{N}\frac{1}{n!}$$
+e di conseguenza $b_{N+1}=\sum_{n=0}^{N}\frac{1}{n!}$, così come $a_n = (n-1)!\sum_{k=0}^{n-1}\frac{1}{k!}$. 
+Questo esercizio è strettamente legato al conteggio delle \emph{dismutazioni} in $S^n$, ossia permutazioni senza punti fissi.\\
+
+
+Più in generale si può cercare di tradurre (e risolvere) una ricorrenza lineare ma non omogenea in una equazione algebrica o differenziale per la funzione generatrice ordinaria (OGF) $\sum a_n z^n$ o per la funzione generatrice esponenziale (EGF) $\sum \frac{a_n}{n!} z^n$. Un caso celebre è dato dalla successione $\{C_n\}_{n\geq 0}$ con $C_0=1$ e $C_n=\sum_{k=1}^{n}C_{k-1}C_{n-k}$, che enumera certi percorsi sotto-diagonali in una griglia quadrata. In questo caso (numeri \emph{di Catalan}) si ha $C_n=\frac{1}{n+1}\binom{2n}{n}$ da semplici manipolazioni applicate alla serie di Maclaurin di $\sqrt{1-z}$. Per approfondimenti rimandiamo al Wilf o al Flajolet.
+
+
 \section{Equazioni differenziali}
-Esistono fenomeni in cui rapidità di variazione di una certa quantità è proporzionale, in ogni istante, alla quantità stessa.
+Esistono fenomeni in cui rapidità di variazione di una certa quantità è proporzionale (o comunque legata algebricamente), in ogni istante, alla quantità stessa.
 Gli esempi più tipici di sono ottenuti spesso e volentieri dalla Fisica, e la loro complessità varia in maniera drammatica in base al contesto. Esempi degni di nota verranno fatti nel paragrafo apposito.
 
 \subsection{Classificazione ODE}
@@ -1375,7 +1402,7 @@ se cerchiamo soluzioni della forma $e^{\lambda t}$ otteniamo l'equazione $\lambd
 dove  $e^{i\omega_0t}$ e $e^{-i\omega_0t}$ stanno per $cos\omega_0t+isen\omega_0t$ e $cos\omega_0t-isen\omega_0t$ \\
 La soluzione generale della differenziale è quindi: $$u(t)=c_1sen\omega_0t+c_2cos\omega_0t$$\\
 ({\color{red} Sistemare la notazione, anche dopo. Così è illeggibile.})
-\subsection{Metodi di Risoluzione di ED non omogenee}
+\subsection{Metodi di risoluzione di ED non omogenee}
 In generale consideriamo $\Tilde{x_{OM}}$ la soluzione dell'omogenea. Allora la soluzione generale sarà del tipo: $$\Tilde{x}= \Tilde{x_{OM}}+ \Tilde{x_1}$$\\
 dove $\Tilde{x_1}$ è la soluzione generale dell'equazione differenziale.\\
 Per trovarla è utile il \textbf{Metodo di Somiglianza} che consiste nel cercare le soluzioni generali a partire dal termine noto dell'equazione.\\
@@ -1422,7 +1449,7 @@ Integrando il pezzo in $dx$ otteniamo come condizione: $\int (xy^2+y)\,dx = \fra
 analogamente per il pezzo in $dy$: $\int(x^2y+x)\,dy=\frac{1}{2}x^2y^2+xy+c$\\
 concludiamo quindi che: $$(xy^2+y)\,dx + (x^2y+x)\,dy= d(\frac{1}{2}x^2y^2 +xy)$$
 L'ED è dunque esatta e le soluzioni sono le curve di livello: $$\frac{1}{2}x^2y^2 +xy=C$$
-\subsection{Fattori Integranti}
+\subsection{Fattori integranti}
 Un'ED ordinaria del primo ordine puo' sempre essere espressa nella forma differenziale: $M\,dx + N\,dy$, ma questa di rado è esatta. Puo' pero' accadere che moltiplicando l'equazione per un \emph{fattore integrante} $\mu(x,y)$, l'equazione ottenuta: $$\mu(x,y)(M(x,y)\,dx +N(x,y)\,dy)=0$$ risulti esatta. \\
 Generalmente è difficile determinare tale fattore, capita pero' che esso sia funzione di una sola variabile, in questo caso si puo' facilmente ricavare dalla condizione di \emph{chiusura} enunciata poco fa. \\
 $\mu(x)$ deve quindi soddisfare l'ODE:
