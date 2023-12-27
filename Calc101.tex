@@ -59,6 +59,7 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\K}{\mathbb{K}}
 \newcommand{\norm}[1]{\left\|#1\right\|}
 \newcommand{\bigo}[1]{O\left(#1\right)}
 \newcommand{\smallo}[1]{o\left(#1\right)}
@@ -1086,68 +1087,74 @@ valida per ogni $x\in(-1,1)$, integrando ambo i membri su $(0,1)$ otteniamo
 $$ S = \frac{1}{4}+\int_{0}^{1}x^2(1-x)\log(1-x)\,dx = \frac{1}{4}+\int_{0}^{1}(1-z)^2 z \log(z)\,dz  $$
 e per integrazione per parti 
 $$ S = \frac{1}{4}+\left[\left(\frac{z^2}{2}-\frac{2z^3}{3}+\frac{z^4}{4}\right)\log z\right]_{0}^{1}-\int_{0}^{1}\left(\frac{z}{2}-\frac{2z^2}{3}+\frac{z^3}{4}\right)\,dz=\frac{1}{4}-\frac{1}{4}+\frac{2}{9}-\frac{1}{16} = \frac{23}{144}.\qed$$
-\section{EQ DIFF}
-Esistono fenomeni la cui rapidità di variazione di una certa quantità è proporzionale, in ogni istante, alla quantità stessa.
-Gli esempi piu' tipici di sono ottenuti spesso e volentieri dalla fisica, e la loro complessita' varia in maniera drammatica in base al contesto. Esempi degni di nota verranno fatti nel paragrafo apposito.
+\section{Equazioni differenziali}
+Esistono fenomeni in cui rapidità di variazione di una certa quantità è proporzionale, in ogni istante, alla quantità stessa.
+Gli esempi più tipici di sono ottenuti spesso e volentieri dalla Fisica, e la loro complessità varia in maniera drammatica in base al contesto. Esempi degni di nota verranno fatti nel paragrafo apposito.
 
 \subsection{Classificazione ODE}
-Per il Teorema Fondamentale del Calcolo Integrale (T.F.C.I.) possiamo risalire alla funzione $u(t)$ se se ne conosce la derivata, infatti l'equazione $$u'(t)=f(t)$$ ha soluzione $$u(t)=\int_{a}^{t}f(s)ds$$
+Per il Teorema Fondamentale del Calcolo Integrale (TFCI), sotto opportune ipotesi di regolarità possiamo ricostruire $u(t)$ dalla sua derivata $u'(t)$ e dal valore di $u$ in un punto. L'equazione $u'(t)=f(t)$ ha infatti soluzione $$u(t)=\int_{a}^{t}f(s)\,ds.$$
 In generale, data una funzione di due variabili $f(t,u)$ possiamo porci il problema di trovare una funzione $u(t)$ che verifichi l'equazione differenziale:$$u'(t)=f(t,u(t))$$
 l'equazione di sopra si dice del primo ordine perché coinvolge solo la derivata prima della funzione $u(t)$.
-\subsubsection{ED a Variabili Separabili}
-si chiamano così le equazioni del tipo: $$u'(t)=a(t)f(u(t))$$ per risolvere queste equazioni basta dividere entrambi i membri per $f(u)$ ed integrare: $$\int\frac{u'(t)}{f(u(t))}dt=\int a(t)dt$$
-\subsubsection{ED Lineari del Primo ordine}
-sono le equazioni del tipo: $$u'(t)=a(t)u(t)+b(t)$$
-con $a(t)$ e $b(t)$ funzioni date.\\
-Indichiamo con $A(t)=\int a(t)dt$ si ha che, se $b(t)=0$ $$log(u(t))=A(t)+p$$ con p costante arbitraria.\\
-quindi $$u(t)= ce^{A(t)}$$
-con $c=e^p$ costante arbitraria
+\subsubsection{ED a variabili separabili}
+Si chiamano così le equazioni del tipo: $$u'(t)=a(t)f(u(t)).$$ 
+Per risolvere queste equazioni basta dividere entrambi i membri per $f(u)$ ed integrare: $$\int\frac{u'(t)}{f(u(t))}\,dt=\int a(t)\,dt.$$
+In particolare, posto di saper determinare esplicitamente la primitiva di $a$ l'inversa della primitiva di $\frac{1}{f}$\\ (condizione talvolta piuttosto gravosa), questi problemi sono di semplice risoluzione.
+\subsubsection{ED lineari del primo ordine}
+Sono le equazioni del tipo: $$u'(t)=a(t)u(t)+b(t)$$
+con $a(t)$ e $b(t)$ funzioni date.
 \subsubsection{Equazione lineare omogenea di primo ordine}
 \begin{theorem}
-    Sia $I$ intervallo di $\R$, sia $a:I\to\K$ una funzione continua; e siano $t_0\in I, \ y_0\in\K$ fissati. Esiste un unica funzione $\phi\in C^1$ tale che 
-    $$\phi'(t)=a(t)\phi(t)\qquad &\text{ per ogni }& t\inI,\phi(t_0)=y_0$$
+    Sia $I$ intervallo di $\R$, sia $a:I \to \K$ una funzione continua; e siano $t_0\in I$ e $y_0\in\K$ fissati.\\ Esiste un'unica funzione $\phi\in C^1$ tale che 
+    $$\phi'(t)=a(t)\phi(t)\qquad \text{ per ogni } t\in I,\phi(t_0)=y_0$$
     Questa $\phi$ è data dalla formula: 
-    $$\phi(t) =y_0\cdot exp\left(\int_{t_0}^{t_1}a(s)\, ds\right)$$
+    $$\phi(t) =y_0\cdot \exp\left(\int_{t_0}^{t_1}a(s)\,ds\right).$$
 \end{theorem}
 \begin{proof}
-    è immediato verificare che la formula definita sopra soddisfa $\phi(t_0)=y_0$, e $\phi'(t)=exp\left(\int_{t_0}^{t}a(s)\, ds\right)\phi(t)$, per il teorema di Torricelli. Per verificare l'unicità supponiamo che sia $\psi'(t)-a(t)\psi(t)=0$ identiticamente in $I$, poiché $t\to exp\left(-\int_{t_0}^{t}a(s)\, ds\right)$ non è mai nulla, si ha:
-    $$\psi'(t)-a(t)\psi(t)=0\Leftrightarrow exp\left(-\int_{t_0}^{t}a(s)\, ds\right)(\psi'(t)-a(t)\psi(t))=0$$
+    È immediato verificare che la formula definita sopra soddisfa $\phi(t_0)=y_0$, e $\phi'(t)=\exp\left(\int_{t_0}^{t}a(s)\, ds\right)\phi(t)$, per il teorema di Torricelli. Per verificare l'unicità supponiamo che sia $\psi'(t)-a(t)\psi(t)=0$ identiticamente in $I$, poiché $t\to \exp\left(-\int_{t_0}^{t}a(s)\, ds\right)$ non è mai nulla, si ha:
+    $$\psi'(t)-a(t)\psi(t)=0\Leftrightarrow \exp\left(-\int_{t_0}^{t}a(s)\, ds\right)(\psi'(t)-a(t)\psi(t))=0$$
     Si osservi ora che
     $$e^{-\int_{t_0}^{t}a(s)\, ds}\psi'(t)-e^{-\int_{t_0}^{t}a(s)\, ds}a(t)\psi(t)=\frac{d}{dt}\left(e^{-\int_{t_0}^{t}a(s)\, ds}\psi(t)\right)$$
     La relazione precedente si scrive come
     $$\psi'(t)-a(t)\psi(t)=0\Leftrightarrow \frac{d}{dt}\left(e^{-\int_{t_0}^{t}a(s)\, ds}\psi(t)\right)=0$$
-    poiché una funzione ha derivata nulla in un intervallo solo se é costante deve valere
+    poiché una funzione ha derivata nulla in un intervallo solo se è costante deve valere
     $$\psi'(t)-a(t)\psi(t)=0\Leftrightarrow e^{-\int_{t_0}^{t}a(s)\, ds}\psi(t)=c$$
-    con $c\in\K$ costante. per $t=t_0$ si ha che $e^{-\int_{t_0}^{t}a(s)ds}\psi(t_0)=\psi(t_0)$ e quindi $c=\psi(t_0)$
+    con $c\in\K$ costante. per $t=t_0$ si ha che $e^{-\int_{t_0}^{t}a(s)ds}\psi(t_0)=\psi(t_0)$ e quindi $c=\psi(t_0)$.
 \end{proof}
 \begin{cor}
     Se $I$ è un intervallo di $\R$ ed $a:I\to\K$ è continua, tutte le soluzioni della differenziale $$y'=a(t)y$$
     sono definite dalla formula:
     $$y(t)=ce^{A(t)}$$
-    al variare di $c\in\R$ e $A(t)$ una primitiva di $a(t)$ in $I$.
+    al variare di $c\in\R$, con $A(t)$ primitiva di $a(t)$ su $I$.
 \end{cor}
+
+({\color{red} Meglio rimpiazzare $\K$ con $\R$, sia perché non abbiamo definito l'integrazione su un campo generico (non è neppure detto che abbia senso), sia perché non abbiamo definito l'esponenziale su un campo generico.})
+
+
 \subsubsection{Equazioni lineare non omogenea del primo ordine}
 Lo stesso metodo porta alla risoluzione delle equazioni differenziali lineari non omogenee di grado 1.
 \begin{theorem}
     Il problema
     $$y'=a(t)y+b(t)\quad y(t_0)=y_0$$
     con $a,b:I\to\K$ funzioni continue e $t_0\in I$ ammette come unica soluzione
-    $$y(t)=y_0e^{\int_{t_0}^{t}a(s)\, ds}+ e^{\int_{t_0}^{t}a(s)\, ds}\int_{t_0}^{t}e^{-\int_{t_0}^{t}a(\sigma)\, d\sigma}\,b(s) ds$$
+    $$y(t)=y_0e^{\int_{t_0}^{t}a(s)\, ds}+ e^{\int_{t_0}^{t}a(s)\, ds}\int_{t_0}^{t}e^{-\int_{t_0}^{t}a(\sigma)\, d\sigma}\,b(s) ds.$$
+\color{red}{La verifica che 'sta roba funzioni è semplice, ma qual è l'idea per arrivare a questa espressione esplicita?\\ Non pretenderemo che le persone la ricordino a memoria...}
 \end{theorem}
 \subsection{Esempi}
 \subsubsection{Decadimento Radioattivo}
-è il processo secondo il quale un sostanza radioattiva decade, trasformandosi in un'altra sostanza più leggera a causa della perdita di neutroni.\\
-Il carattere fondamentale di questa reazione è che non si può predire quando avverà, ma si può dare una probabilità a questo evento. Questa probabilità è $pdt$ proporzionale all'intervallo di tempo $dt$, indicando con $n(t)$ il numero di neutroni presenti al tempo $t$ tra $t$ e $t*dt$ se ne disintegreranno $n(t)pdt$. Il numero complessivo di neutroni diminuirà, ottendo quindi:$$\frac{n(p+dt)-n(t)}{dt}=-pn(t)$$
-facendo tendere $dt$ a $0$ otteniamo: $$n'(t)=n_0e^{-pt}$$\\
-il numero di neutroni decresce quindi esponenzialmente e si denota con $\tau=\frac{log2}{p}$ il tempo di dimezzamento
+È il processo secondo il quale un sostanza radioattiva decade, trasformandosi in un'altra sostanza più leggera a causa della perdita di neutroni.
+Il carattere fondamentale di questa reazione è che non si può predire quando avverà, ma si può dare una probabilità a questo evento ({\color{red} QUALE evento?}). Questa probabilità ({\color{red}probabilità che avvenga COSA?}) è $p\cdot dt$ proporzionale all'intervallo di tempo $dt$. Indicando con $n(t)$ il numero di neutroni presenti al tempo $t$, tra $t$ e $t+dt$ se ne disintegreranno $n(t)p\,dt$. Il numero complessivo di neutroni diminuirà, ottendo quindi:$$\frac{n(p+dt)-n(t)}{dt}=-pn(t).$$
+Facendo tendere $dt$ a $0$ otteniamo: $$n'(t)=n(0)e^{-pt}.$$
+Il numero di neutroni decresce quindi esponenzialmente e si denota con $\tau=\frac{\log 2}{p}$ il tempo di dimezzamento.\\
+{\color{red}Per come è descritto dall'equazione differenziale, questo processo non ha nulla di probabilistico o stocastico, è perfettamente deterministico, il che contraddice quanto espresso nell'introduzione.}
 \subsubsection{Oscillatore Armonico}
-Con questo termine si indica un sistema costituito da un punto materiale di massa $m$ che si muove su una rett, soggette ad una forza di richiamo, proporzionale alla distanza dal punto $0$. \\
-indicando con $u(t)$ la posizione del corpo al tempo $t$, la forza totale che agisce sul corpo sarà: $f=-ku-hu'$ e l'equazione del moto $f=ma$ si scrive: $$mu''(t)+hu'(t)+ku(t)=0$$\\
+Con questo termine si indica un sistema costituito da un punto materiale di massa $m$ che si muove su una retta, soggetto ad una forza di richiamo, la cui intensità è proporzionale alla distanza dall'origine. \\
+Indicando con $u(t)$ la posizione del corpo al tempo $t$, la forza totale che agisce sul corpo sarà: $f=-ku-hu'$ ({\color{red} Ma non abbiamo appena detto che la forza dipende soltanto dalla posizione? Da dove salta fuori $u'$?}) e l'equazione del moto $f=ma$ si scrive: $$mu''(t)+hu'(t)+ku(t)=0$$\\
 ponendo $\omega_0^2=\frac{k}{m}$ e $a=\frac{h}{2m}$.\\
 $$u''(t)+2au'(t)+\omega_0^2u=0$$ \\
 se cerchiamo soluzioni della forma $e^{\lambda t}$ otteniamo l'equazione $\lambda^2 + \omega_0^2=0$ che ha radici complesse $i\omega_0t$ e $-i\omega_0t$ che corrispondono alle soluzioni : $e^{i\omega_0t}$ e $e^{-i\omega_0t}$\\
 dove  $e^{i\omega_0t}$ e $e^{-i\omega_0t}$ stanno per $cos\omega_0t+isen\omega_0t$ e $cos\omega_0t-isen\omega_0t$ \\
 La soluzione generale della differenziale è quindi: $$u(t)=c_1sen\omega_0t+c_2cos\omega_0t$$\\
+({\color{red} Sistemare la notazione, anche dopo. Così è illeggibile.})
 \subsection{Metodi di Risoluzione di ED non omogenee}
 In generale consideriamo $\Tilde{x_{OM}}$ la soluzione dell'omogenea. Allora la soluzione generale sarà del tipo: $$\Tilde{x}= \Tilde{x_{OM}}+ \Tilde{x_1}$$\\
 dove $\Tilde{x_1}$ è la soluzione generale dell'equazione differenziale.\\
@@ -1162,12 +1169,15 @@ La soluzione totale è quindi $\Tilde{x}= c_1e^{-2t}+c_2\frac{1}{5}t^3$\\
 Un altro metodo per risolvere alcune differenziali (più difficili delle precedenti) è quello di studiare il comportamento di $u'(t)$ con la sua inversa $v'(t)$, se esiste, o analogamente, se è ben definito, col suo reciproco.
 \\
 \subsection{Equazioni differenziali esatte e fattori integranti}
-Un'altra strada percorribile e' studiare l'\emph{esattezza} di una equazione differenziale. Ma prima definiamo:
+Un'altra strada percorribile è studiare l'\emph{esattezza} di una equazione differenziale. Ma prima definiamo:
 \begin{definizione}
-    Un equazione differenziale scritta in forma normale $f(x,y)$ si dice \emph{chiusa} se: $$\frac{\partial }{\partial y}f(x,y)=\frac{\partial }{\partial x}f(x,y)$$ 
+    Un'equazione differenziale scritta in forma normale ({\color{red}Cos'è?}) $f(x,y)$ si dice \emph{chiusa} se: $$\frac{\partial }{\partial y}f(x,y)=\frac{\partial }{\partial x}f(x,y)$$ 
 \end{definizione}
-Non fatevi spaventare! la scrittura $\frac{\partial f}{\partial x}$ vuole semplicemente dire: deriva l'espressione $f$ rispetto alla variabile $x$ e tratta tutto il resto come se fosse costante. per esempio: 
+Non fatevi spaventare! la scrittura $\frac{\partial f}{\partial x}$ vuole semplicemente dire: deriva l'espressione $f$ rispetto alla variabile $x$ e tratta tutto il resto come se fosse costante. Per esempio: 
 $\frac{\partial}{\partial x} x^3y= 3x^2y$, oppure $\frac{\partial}{\partial y}x^2e^{2y}=2x^2e^{2y}$
+
+{\color{red} Di seguito si fa una confusione bestiale tra EQUAZIONI differenziali e FORME differenziali.\\ Una forma non è una funzione e una funzione non è un'equazione. Va fatta chiarezza.}
+
 \begin{oss}
     Un'equazione differenziale per essere \emph{esatta} deve essere necessariamente chiusa.
 \end{oss}
@@ -1175,12 +1185,15 @@ $\frac{\partial}{\partial x} x^3y= 3x^2y$, oppure $\frac{\partial}{\partial y}x^
    Un'equazione differenziale si dice \emph{esatta} se essa e' il \emph{differenziale} di una funzione $\phi(x,y)$. cioe': $$d\phi(x,y)=M(x,y)\,dx + N(x,y)\, dy$$. 
 \end{definizione}
  Ad esempio $$d(x^2+y^2)=\frac{\partial}{\partial x}(x^2+y^2)+\frac{\partial}{\partial y}(x^2+y^2)= 2x + 2y$$
-la funzione $\phi$ e' detta \emph{funzione integrante} dell'ED e le curve di livello $\phi(x,y)=C$ si dicono \emph{curve soluzione}. \\
-Tornando all'esempio di prima, le soluzioni dell'ED $x\, dx + y\, dy= 0$ sono le curve soluzione di $x^2+y^2=C$ dato che $d(x^2+y^2)=2(x\, dx + y\, dy)$
+{\color{red}Non è vero: il differenziale totale di $x^2+y^2$ è la $1$-forma $2x\,dx+2y\,dy$.} 
+
+La funzione $\phi$ è detta \emph{funzione integrante} dell'ED ({\color{red}Quale?}) e le curve di livello $\phi(x,y)=C$ si dicono \emph{curve soluzione}. \\
+Tornando all'esempio di prima, le soluzioni dell'ED $x\, dx + y\, dy= 0$ ({\color{red}Non è una ED, per la definizione data di ED}) sono le curve soluzione di $x^2+y^2=C$ dato che $d(x^2+y^2)=2(x\, dx + y\, dy)$
 \begin{ex}
     Mostrare che la seguente ED e' esatta e risolverla:
     $$(xy^2+y)\,dx + (x^2y+x)\,dy$$
 \end{ex}
+({\color{red} Non è un'equazione, dunque non può essere una ED.})
 \textbf{Soluzione.}
 Integrando il pezzo in $dx$ otteniamo come condizione: $\int (xy^2+y)\,dx = \frac{1}{2}x^2y^2+xy +c$. \\
 analogamente per il pezzo in $dy$: $\int(x^2y+x)\,dy=\frac{1}{2}x^2y^2+xy+c$\\
