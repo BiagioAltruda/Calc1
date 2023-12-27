@@ -167,8 +167,8 @@ $$ \sup_N A_N = \frac{1+\cos\tfrac{1}{2}}{2\sin\tfrac{1}{2}} = \frac{2\cos^2\tfr
 \\
 
 \section{Limiti e Continuità}
-\subsection{Limiti di Successioni}
-Saranno date per buone le definizioni di Spazio Metrico e Topologico.
+\subsection{Limiti di successioni}
+Saranno date per buone le definizioni di spazio metrico e topologico.
 
 \begin{definizione}
 Una successione $\{a_n\}_{n\in\N}$ si dice: \\
@@ -296,7 +296,7 @@ Una funzione continua $f$ da un intervallo chiuso $I$ in $\R$ è invertibile se 
 \begin{proof}
 
 Se $f:I\to \R$ continua e invertibile non fosse strettamente monotona, esisterebbero tre punti ${x_1<x_2<x_3}$ in $I$ tali che $f(x_2)\leq \min(f(x_1),f(x_3))$ oppure $f(x_2)\geq \max(f(x_1),f(x_3))$. In entrambi i casi, dal Teorema dei valori intermedi seguirebbe $f(\alpha)=f(\beta)$ con $\alpha\in[x_1,x_2]$, $\beta\in[x_2,x_3]$ e $\alpha\neq\beta$, contro l'iniettività di $f$.\\
-Per quanto concerne la seconda parte, consideriamo una generica $f:I\to\mathbb{R}$ continua e strettamente monotona. Per Bolzano-Weierstrass questa manda i punti dell'intervallo $I$ nei punti di un intervallo $J$, e a meno di ``rovesciare'' gli elementi del dominio possiamo supporre che $f$ mandi con continuità $I$ in $J$ preservando l'ordine stretto. Questo ci dà immediatamente la stretta monotonia della funzione inversa $g:J\to I$, e resta da provare unicamente la continuità di $g$. Supponiamo che $\{y_n\}_{n\geq 1}$ sia una successione di elementi di $J$ convergente a $\overline{y}\in J$, e poniamo $x_n=g(y_n)$, equivalente a $y_n=f(x_n)$. Per Bolzano-Weierstrass $\{x_n\}_{n\geq 1}$ ammette una estratta $\{x_{n_k}\}_{k\geq 1}$ che è sia strettamente monotona che convergente a $\overline{x}\in I$. Per continuità di $f$ la successione $\{y_{n_k}\}_{k\geq 1}$ converge a $f(\overline{x})$. Poiché $\{y_n\}_{n\geq 1}$ è convergente per ipotesi, qualunque sua estratta deve ammettere lo stesso limite, $\overline{y}=f(\overline{x})$. Segue che l'intera successione $\{x_n\}_{n\geq 1}$ converge a $\overline{x}$ e che $g$ manda successioni convergenti in successioni convergenti, ossia è (sequenzialmente) continua. Se infatti $\{x_n\}_{n\geq 1}$ ammettesse estratte convergenti a punti diversi, per continuità e stretta monotonia di $f$ lo stesso varrebbe per $\{y_n\}_{n\geq 1}$, contro le ipotesi.
+Per quanto concerne la seconda parte, consideriamo una generica $f:I\to\mathbb{R}$ continua e strettamente monotona. Per Bolzano-Weierstrass questa manda i punti dell'intervallo $I$ nei punti di un intervallo $J$, e a meno di ``rovesciarè' gli elementi del dominio possiamo supporre che $f$ mandi con continuità $I$ in $J$ preservando l'ordine stretto. Questo ci dà immediatamente la stretta monotonia della funzione inversa $g:J\to I$, e resta da provare unicamente la continuità di $g$. Supponiamo che $\{y_n\}_{n\geq 1}$ sia una successione di elementi di $J$ convergente a $\overline{y}\in J$, e poniamo $x_n=g(y_n)$, equivalente a $y_n=f(x_n)$. Per Bolzano-Weierstrass $\{x_n\}_{n\geq 1}$ ammette una estratta $\{x_{n_k}\}_{k\geq 1}$ che è sia strettamente monotona che convergente a $\overline{x}\in I$. Per continuità di $f$ la successione $\{y_{n_k}\}_{k\geq 1}$ converge a $f(\overline{x})$. Poiché $\{y_n\}_{n\geq 1}$ è convergente per ipotesi, qualunque sua estratta deve ammettere lo stesso limite, $\overline{y}=f(\overline{x})$. Segue che l'intera successione $\{x_n\}_{n\geq 1}$ converge a $\overline{x}$ e che $g$ manda successioni convergenti in successioni convergenti, ossia è (sequenzialmente) continua. Se infatti $\{x_n\}_{n\geq 1}$ ammettesse estratte convergenti a punti diversi, per continuità e stretta monotonia di $f$ lo stesso varrebbe per $\{y_n\}_{n\geq 1}$, contro le ipotesi.
 \end{proof}
 
 
@@ -402,11 +402,11 @@ L'ultima disequazione prende il nome di \emph{disuguaglianza triangolare}.
 \begin{definizione}[Spazio di Banach]
 Sia $(X,d)$ uno spazio normato, se esso risulta completo come spazio metrico rispetto alla distanza: $$d(x,y)=\|x-y\|_V$$ generata dalla norma $\|\cdot\|_V$, diremo che $V$ è uno spazio di Banach.    
 \end{definizione}
-\subsection{Funzioni Lipschitziane e teorema delle contrazioni}
-\begin{definizione}[Funzione L-Lip]
+\subsection{Funzioni lipschitziane e Teorema delle contrazioni}
+\begin{definizione}[Funzione l-lip]
 Siano $(X,d_X)$ e $(Y,d_Y)$ due spazi metrici e sia $f:X\to Y$ una funzione.\\ Diremo che $f$ è lipschitziana se esiste una costante $L$ tale che: $$d_Y(f(x),f(y))\leq L\cdot d_X(x,y)\qquad \forall x,y\in X$$    
 \end{definizione}
-Se $f:X\to Y$ è L-Lip chiaramente è anche continua in $X$.
+Se $f:X\to Y$ è l-lip chiaramente è anche continua in $X$.
 \begin{definizione}[Contrazione]
 Una $f:X\to X$ Lipschitziana con costante $L<1$, cioè tale per cui
 $$\exists L\in[0,1): d(f(x),f(y))\leq L\cdot d(x,y)\qquad\forall x,y\in X$$
@@ -747,7 +747,7 @@ e valutando ambo i membri in corrispondenza di $x=\frac{1}{4}$ si ha immediatame
 $$ \sum_{n\geq 0}\frac{n^2}{4^n} = 2\left(\frac{4}{3}\right)^3-3\left(\frac{4}{3}\right)^2+\left(\frac{4}{3}\right)=\frac{20}{27}.$$
 \\
 
-\subsection{Binomiale Centrale}
+\subsection{Binomiale centrale}
 I coefficienti binomiali centrali sono i binomiali del tipo:
 $$\binom{2n}{n}=\frac{(2n)!}{n!^2}=\frac{2^n(2n-1)!!}{n!}$$
 così chiamati perché occupano le posizioni centrali del triangolo di Tartaglia.\\ I binomiali centrali figurano nell'\emph{identità di Vandermonde}
@@ -863,7 +863,7 @@ che è un analogo discreto della formula di integrazione per parti, nota come \t
 
 Dalla formula di integrazione per parti segue l'omonimo criterio per gli integrali: se su $[0,+\infty)$ si ha che $f(x)$ ha primitiva limitata e $g(x)$ è decrescente a zero, $f(x)g(x)$ è impropriamente Riemann-integrabile su $\R^+$.
 
-\subsection{Serie di Potenze}
+\subsection{Serie di potenze}
 Una serie di potenze (centrata nell'origine) è definita come:
 $$\sum_{n=0}^{\infty}a_n x^n$$
 con $x\in\C$, e sia il \textbf{Raggio di Convergenza} \\
@@ -871,19 +871,19 @@ $$\rho=\frac{1}{\limsup\sqrt[n]{|a_n|}}.$$
 La serie di potenze converge puntualmente nella palla $B_0=\left\{z\in\C : |z|< \rho \right\}$ e uniformemente su ogni compatto contenuto in $B_0$.
 
 \subsection{Metodi creativi per il calcolo esplicito}
-Vediamo adesso come abusare della linearità delle Serie per calcolare esplicitamente una classe di queste. \\
+Vediamo adesso come abusare della linearità delle serie per calcolare esplicitamente una classe di queste. \\
 Sia
 $$S=\sum_{n\geq 0}^{}\frac{f(n)}{k^n}$$
 con $k\in\N \wedge k\geq 2$.
 Sarebbe molto comodo in questo caso ricondursi ad una serie geometrica.
 Ipotizzando che esista una applicazione lineare e continua $T$ tale da mandare $x^n$ in $f(n)$ otteniamo:
 $$S=\sum_{n\geq 0}\frac{f(n)}{k^n}=\sum_{n\geq 0}\frac{T(x^n)}{k^n}= T\left(  \sum_{n\geq 0}\left(\frac{x}{k}\right)^n \right)= T \left(\frac{1}{1-\frac{x}{k}}\right)$$ \\
-in base alla scelta/costruzione di $T$ possiamo calcolare esplicitamente tute le serie di questo tipo.
-(Possibili applicazioni lineari che farebbero al caso nostro sono: Derivazione, Integrazione, Somma, Prodotto, Valutazione e tutte le loro composizioni)\\
+in base alla scelta/costruzione di $T$ possiamo calcolare esplicitamente tutte le serie di questo tipo.
+(Possibili applicazioni lineari che farebbero al caso nostro sono: derivazione, integrazione, somma, prodotto, valutazione e tutte le loro composizioni)\\
 Un esempio di utilizzo di questo metodo è calcolare esplicitamente la serie:
 $$\sum_{n\geq 0}^{}\frac{n^2}{4^n}$$
 utilizzando come operatore $T$ la somma delle prime due derivate valutata in $1$ (esercizio per il lettore).\\
-In generale questo metodo è utile ogni qual volta si sta trattando una Serie i cui termini, a meno di un fattore, coincidono con quelli di una serie che già sappiamo calcolare.\\
+In generale questo metodo è utile ogni qual volta si sta trattando una serie i cui termini, a meno di un fattore, coincidono con quelli di una serie che già sappiamo calcolare.\\
 A onor del vero, per quanto potente è raro che tale metodo sia \emph{l'unico} in grado di esplicitare un'assegnata serie. 
 Tornando all'esempio precedente, è ovvio che la serie presentata sia convergente, in quanto definitivamente $\frac{n^2}{4^n}\in\left(0,\frac{1}{3^n}\right]$. 
 Sono allora lecite tutte le seguenti manipolazioni (basate unicamente su moltiplicazioni per $4$ e \emph{reindexing}):
@@ -917,7 +917,7 @@ Poiché $\sum_{n\geq 1}\frac{z^n}{n}=-\log(1-z)$ vale per ogni $z\in\C$ di modul
 \end{eqnarray*}
 
 L'espediente appena utilizzato può essere generalizzato, dando luogo a quanto noto come \emph{formula di sommazione di Poisson}.
-\subsection{Creative telescoping}
+\subsubsection{Creative telescoping}
 Un metodo importante è quello di trasformare serie apparentemente complesse in serie telescopiche o combinazioni lineari di serie telescopiche.
 Tipicamente per questo tipo di lavoro bisogna farci l'occhio e sapere un po' dove mettere le mani, ma diventa abbastanza intuitivo velocemente (serve appunto un po' di creatività). Un esempio classico riguarda il problema di Basilea, ossia la determinazione di $\zeta(2)=\sum_{n\geq 1}\frac{1}{n^2}$. Il termine generale della serie non è evidentemente telescopico, ma è prossimo a quello della serie di Mengoli, da cui:
 $$ \sum_{n\geq 1}\frac{1}{n^2} = \sum_{n\geq 1}\frac{1}{n(n+1)}+\sum_{n\geq 1}\frac{1}{n^2(n+1)} = 1+\sum_{n\geq 1}\frac{1}{n^2(n+1)}. $$
@@ -1070,7 +1070,7 @@ Invocando la sostituzione $\theta=\arctan t$, per cui $d\theta=\frac{dt}{1+t^2}$
 $$ I = 10\int_{0}^{+\infty}\frac{dt}{25(1+t^2)-1}=\frac{2}{5}\int_{0}^{+\infty}\frac{dt}{t^2+\frac{24}{25}}\stackrel{t=\sqrt{\frac{24}{25}}u}{=}\frac{2}{5}\sqrt{\frac{24}{25}}\int_{0}^{+\infty}\frac{du}{\frac{24}{25}(u^2+1)}=\frac{2}{5}\sqrt{\frac{25}{24}}\frac{\pi}{2} = {\color{blue}\frac{\pi}{2\sqrt{6}}}. $$
 
 
-\subsection{Integrazione per Parti}
+\subsection{Integrazione per parti}
 Nell'ipotesi che le funzioni integrande in ambo i membri siano continue su $[a,b]$ si ha che 
 $$ \int_{a}^{b} f(x)g(x) = \left[ F(x)g(x)\right]_{a}^{b}-\int_{a}^{b} F(x)g'(x)\,dx $$
 dove $F(x)$ denota \emph{una} primitiva di $f(x)$.
@@ -1086,7 +1086,7 @@ dove il primo addendo nel membro destro è sicuramente non negativo e il secondo
 Seguono gli integrali delle potenze del coseno, \emph{talvolta} utili:
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n}d\theta=\frac{\pi}{2\cdot4^n}\binom{2n}{n}$$
 $$\int_{0}^{\frac{\pi}{2}}(\cos \theta)^{2n+1}d\theta= \frac{4^n}{(2n+1)\binom{2n}{n}}$$
-inaspettatamente questi due integrali sono strettamente legati ai Binomiali Centrali e sono appunto una loro rappresentazione integrale.
+inaspettatamente questi due integrali sono strettamente legati ai binomiali centrali e sono appunto una loro rappresentazione integrale.
 \subsection{Decomposizione in fratti semplici}
 L'integrazione di funzioni razionali (quozienti di polinomi) è puramente algoritmica, in quanto sempre riconducibile all'integrazione di funzioni della forma $\frac{1}{(x-\alpha)^n}$ (eventualmente con $\alpha\in\C$). Analizziamo la situazione attraverso un paio di esempi concreti.
 \begin{ex} Si determini esplicitamente
@@ -1302,7 +1302,7 @@ Segue che l'intervallo di esistenza della soluzione è dato da $(-\infty,\log 2)
 \subsubsection{ED lineari del primo ordine}
 Sono le equazioni del tipo: $$u'(t)=a(t)u(t)+b(t)$$
 con $a(t)$ e $b(t)$ funzioni date.
-\subsubsection{Equazione lineare omogenea di primo ordine}
+\subsubsection{Equazioni lineari omogenee del primo ordine}
 \begin{theorem}
     Sia $I$ intervallo di $\R$, sia $a:I \to \R$ una funzione continua; e siano $t_0\in I$ e $y_0\in\R$ fissati.\\ Esiste un'unica funzione $\phi\in C^1$ tale che 
     $$\phi'(t)=a(t)\phi(t)\qquad \text{ per ogni } t\in I,\phi(t_0)=y_0$$
@@ -1328,7 +1328,7 @@ con $a(t)$ e $b(t)$ funzioni date.
 \end{cor}
 
 
-\subsubsection{Equazioni lineare non omogenea del primo ordine}
+\subsubsection{Equazioni lineari non omogenee del primo ordine}
 Lo stesso metodo porta alla risoluzione delle equazioni differenziali lineari non omogenee di grado 1.
 \begin{theorem}
     Il problema
@@ -1355,13 +1355,18 @@ e $y(t)=f(t-1)$.
 
 
 \subsection{Esempi}
-\subsubsection{Decadimento Radioattivo}
+\subsubsection{Decadimento radioattivo}
 È il processo secondo il quale un sostanza radioattiva decade, trasformandosi in un'altra sostanza più leggera a causa della perdita di neutroni.
 Il carattere fondamentale di questa reazione è che non si può predire quando avverà, ma si può dare una probabilità a questo evento ({\color{red} QUALE evento?}). Questa probabilità ({\color{red}probabilità che avvenga COSA?}) è $p\cdot dt$ proporzionale all'intervallo di tempo $dt$. Indicando con $n(t)$ il numero di neutroni presenti al tempo $t$, tra $t$ e $t+dt$ se ne disintegreranno $n(t)p\,dt$. Il numero complessivo di neutroni diminuirà, ottendo quindi:$$\frac{n(p+dt)-n(t)}{dt}=-pn(t).$$
 Facendo tendere $dt$ a $0$ otteniamo: $$n'(t)=n(0)e^{-pt}.$$
 Il numero di neutroni decresce quindi esponenzialmente e si denota con $\tau=\frac{\log 2}{p}$ il tempo di dimezzamento.\\
 {\color{red}Per come è descritto dall'equazione differenziale, questo processo non ha nulla di probabilistico o stocastico, è perfettamente deterministico, il che contraddice quanto espresso nell'introduzione.}
-\subsubsection{Oscillatore Armonico}
+
+\subsubsection{Moto in presenza di attrito viscoso}
+
+\subsubsection{Problemi di Gravitazione}
+
+\subsubsection{Oscillatore armonico}
 Con questo termine si indica un sistema costituito da un punto materiale di massa $m$ che si muove su una retta, soggetto ad una forza di richiamo, la cui intensità è proporzionale alla distanza dall'origine. \\
 Indicando con $u(t)$ la posizione del corpo al tempo $t$, la forza totale che agisce sul corpo sarà: $f=-ku-hu'$ ({\color{red} Ma non abbiamo appena detto che la forza dipende soltanto dalla posizione? Da dove salta fuori $u'$?}) e l'equazione del moto $f=ma$ si scrive: $$mu''(t)+hu'(t)+ku(t)=0$$\\
 ponendo $\omega_0^2=\frac{k}{m}$ e $a=\frac{h}{2m}$.\\
@@ -1382,7 +1387,10 @@ Supponiamo quindi che $\Tilde{x_1}=at^3+bt^2+ct+d$ sia una soluzione, allora der
 $$3at^2+2bt+c + 2at^3+2bt^2+2ct+2d=t^2\Leftrightarrow 3a+2a=1\Rightarrow a=\frac{1}{5}$$
 La soluzione totale è quindi $\Tilde{x}= c_1e^{-2t}+c_2\frac{1}{5}t^3$\\
 Un altro metodo per risolvere alcune differenziali (più difficili delle precedenti) è quello di studiare il comportamento di $u'(t)$ con la sua inversa $v'(t)$, se esiste, o analogamente, se è ben definito, col suo reciproco.
-\\
+
+\subsection{Trasformata di Laplace}
+
+
 \subsection{Equazioni differenziali esatte e fattori integranti}
 Un'altra strada percorribile è studiare l'\emph{esattezza} di una equazione differenziale. Ma prima definiamo:
 \begin{definizione}
@@ -1397,7 +1405,7 @@ $\frac{\partial}{\partial x} x^3y= 3x^2y$, oppure $\frac{\partial}{\partial y}x^
     Un'equazione differenziale per essere \emph{esatta} deve essere necessariamente chiusa.
 \end{oss}
 \begin{definizione}
-   Un'equazione differenziale si dice \emph{esatta} se essa e' il \emph{differenziale} di una funzione $\phi(x,y)$. cioe': $$d\phi(x,y)=M(x,y)\,dx + N(x,y)\, dy$$. 
+   Un'equazione differenziale si dice \emph{esatta} se essa è il \emph{differenziale} di una funzione $\phi(x,y)$. cioè: $$d\phi(x,y)=M(x,y)\,dx + N(x,y)\, dy$$. 
 \end{definizione}
  Ad esempio $$d(x^2+y^2)=\frac{\partial}{\partial x}(x^2+y^2)+\frac{\partial}{\partial y}(x^2+y^2)= 2x + 2y$$
 {\color{red}Non è vero: il differenziale totale di $x^2+y^2$ è la $1$-forma $2x\,dx+2y\,dy$.} 
@@ -1405,7 +1413,7 @@ $\frac{\partial}{\partial x} x^3y= 3x^2y$, oppure $\frac{\partial}{\partial y}x^
 La funzione $\phi$ è detta \emph{funzione integrante} dell'ED ({\color{red}Quale?}) e le curve di livello $\phi(x,y)=C$ si dicono \emph{curve soluzione}. \\
 Tornando all'esempio di prima, le soluzioni dell'ED $x\, dx + y\, dy= 0$ ({\color{red}Non è una ED, per la definizione data di ED}) sono le curve soluzione di $x^2+y^2=C$ dato che $d(x^2+y^2)=2(x\, dx + y\, dy)$
 \begin{ex}
-    Mostrare che la seguente ED e' esatta e risolverla:
+    Mostrare che la seguente ED è esatta e risolverla:
     $$(xy^2+y)\,dx + (x^2y+x)\,dy$$
 \end{ex}
 ({\color{red} Non è un'equazione, dunque non può essere una ED.})
@@ -1413,10 +1421,10 @@ Tornando all'esempio di prima, le soluzioni dell'ED $x\, dx + y\, dy= 0$ ({\colo
 Integrando il pezzo in $dx$ otteniamo come condizione: $\int (xy^2+y)\,dx = \frac{1}{2}x^2y^2+xy +c$. \\
 analogamente per il pezzo in $dy$: $\int(x^2y+x)\,dy=\frac{1}{2}x^2y^2+xy+c$\\
 concludiamo quindi che: $$(xy^2+y)\,dx + (x^2y+x)\,dy= d(\frac{1}{2}x^2y^2 +xy)$$
-L'ED e' dunque esatta e le soluzioni sono le curve di livello: $$\frac{1}{2}x^2y^2 +xy=C$$
+L'ED è dunque esatta e le soluzioni sono le curve di livello: $$\frac{1}{2}x^2y^2 +xy=C$$
 \subsection{Fattori Integranti}
-Un'ED ordinaria del primo ordine puo' sempre essere espressa nella forma differenziale: $M\,dx + N\,dy$, ma questa di rado e' esatta. Puo' pero' accadere che moltiplicando l'equazione per un \emph{fattore integrante} $\mu(x,y)$, l'equazione ottenuta: $$\mu(x,y)(M(x,y)\,dx +N(x,y)\,dy)=0$$ risulti esatta. \\
-Generalmente e' difficile determinare tale fattore, capita pero' che esso sia funzione di una sola variabile, in questo caso si puo' facilmente ricavare dalla condizione di \emph{chiusura} enunciata poco fa. \\
+Un'ED ordinaria del primo ordine puo' sempre essere espressa nella forma differenziale: $M\,dx + N\,dy$, ma questa di rado è esatta. Puo' pero' accadere che moltiplicando l'equazione per un \emph{fattore integrante} $\mu(x,y)$, l'equazione ottenuta: $$\mu(x,y)(M(x,y)\,dx +N(x,y)\,dy)=0$$ risulti esatta. \\
+Generalmente è difficile determinare tale fattore, capita pero' che esso sia funzione di una sola variabile, in questo caso si puo' facilmente ricavare dalla condizione di \emph{chiusura} enunciata poco fa. \\
 $\mu(x)$ deve quindi soddisfare l'ODE:
 $$N(x,y)\frac{d\mu}{dx}=\mu(x)(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x})$$
 ovvero:
@@ -1426,9 +1434,9 @@ $$\frac{1}{\mu(x)}\frac{d\mu}{dx}=\frac{\frac{\partial M}{\partial y}-\frac{\par
 \end{ex}
 \textbf{Soluzione.} in questo caso $M=x+y^2$ e $N=xy$. Quindi:
 $$ \frac{\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}}{N(x,y)}=\frac{2y-y}{xy}=\frac{1}{x}$$ 
-il fattore integrante dipende solo da $x$. Allora $\mu(x)=x$ e' il fattore cercato. Moltiplicando l'ED per $\mu(x)$ otteniamo:
+il fattore integrante dipende solo da $x$. Allora $\mu(x)=x$ è il fattore cercato. Moltiplicando l'ED per $\mu(x)$ otteniamo:
 $$(x^2+xy^2)\,dx + (x^2y)\,dy= d(\frac{x^3}{3}+\frac{x^2y^2}{2})$$.
-Pertanto la soluzione e': $2x^3+3x^2y^2=C$
+Pertanto la soluzione è: $2x^3+3x^2y^2=C$
 \section{Esercizi e simulazioni di pre-test}
 Gli esercizi di seguito riportati con una stella ($\star$) hanno difficoltà paragonabile a quelli del compito, quelli riportati con due stelle ($\star\star$) sono più impegnativi. Quelli con tre stelle ($\star\star\star$) sono estremamente impegnativi, si raccomanda cautela.\\
 
