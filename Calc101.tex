@@ -1379,6 +1379,17 @@ che fornisce $g(t)=1+\int_{0}^{t}(s+1)^2 \exp\left(-s-\frac{s^2}{2}\right)\,ds$.
 $$f(t) = \exp\left(\frac{t^2}{2}+t\right)+\exp\left(\frac{t^2}{2}+t\right)\int_{0}^{t}(s+1)^2 \exp\left(-s-\frac{s^2}{2}\right)\,ds$$
 e $y(t)=f(t-1)$.
 
+\subsubsection{Equazioni lineari ordinarie a coefficienti costanti}
+Un caso di grande interesse teorico e pratico è quello delle equazioni differenziali in cui una combinazione lineare, a coefficienti costanti, di $f(x)$ e di una quantità finita di sue derivate coincida con zero (caso omogeneo) o con una funzione assegnata (caso non omogeneo). Vedremo più avanti (nella sezione \emph{Trasformata di Laplace}) che la risoluzione del problema di ordine $n$
+$$ f(x) + c_1 f'(x) + \ldots + c_n f^{(n)}(x) = 0$$
+è di fatto equivalente alla determinazione della forma esplicita di una successione per ricorrenza, lineare ed autonoma, di ordine $n$. Se $n=1$ abbiamo una ED a variabili separabili. Più in generale ($n\geq 2$) possiamo osservare che, posto d'ufficio $u(x)=\left(f(x),f'(x),\ldots,f^{(n-1)}(x)\right)\in\R^{n-1}$, il precedente problema può essere espresso come 
+$$ u'(x) = M\,u(x) $$
+dove $M$ è la \textbf{matrice compagna} del \textbf{polinomio caratteristico}
+$$ p(\lambda) = c_n \lambda^n + \ldots + c_1 \lambda + 1. $$
+In analogia con il caso scalare, la soluzione di $u'(x)=M\,u(x)$ è determinata dall'esponenziale di $M$, definito come la serie $1+M+\frac{M^2}{2!}+\frac{M^3}{3!}+\ldots$. Dall'Algebra Lineare (forma normale di Jordan) abbiamo che $M$ è coniugata ad una matrice triangolare superiore avente sulla diagonale gli autovalori di $M$, ossia le radici (potenzialmente complesse) del polinomio $p(\lambda)$, contate con molteplicità. Il Teorema di Cayley-Hamilton comporta allora che $e^M$ sia coniugata ad una matrice triangolare superiore, che ha sulla diagonale gli esponenziali delle radici di $p(\lambda)$. Nel caso in cui $p(\lambda)$ abbia radici distinte (ovvero discriminante non nullo) è automatico che $M$ sia diagonalizzabile, dunque che la soluzione generale sia della forma 
+$$ f(x) = \kappa_1 e^{\lambda_1 x}+\ldots+\kappa_n e^{\lambda_n x}, $$
+con $\lambda_1,\ldots,\lambda_n$ radici del polinomio caratteristico e $\kappa_1,\ldots,\kappa_n$ scalari fissati dalle condizioni iniziali.\\
+Le soluzioni dell'equazione omogenea restano uno spazio vettoriale di dimensione $n$ anche nel caso in cui $M$ non sia diagonalizzabile, ma se $p(\lambda)$ ha una radice $\eta$ di molteplicità $k\geq 2$, questa contribuisce alla soluzione attraverso i termini $\kappa_1 e^{\eta x}+\kappa_2 x e^{\eta x}+\ldots+\kappa_k x^k e^{\eta x}$, dunque la soluzione generale diviene una combinazione lineare non di soli esponenziali, ma di esponenziali moltiplicati per opportuni monomi. Quest'ultimo fatto può essere dimostrato considerando la struttura delle potenze di un generico blocco di Jordan o, forse più agevolmente, attraverso la trasformata di Laplace, come vedremo più avanti.
 
 
 \subsection{Esempi}
