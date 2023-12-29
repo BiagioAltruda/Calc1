@@ -1448,6 +1448,26 @@ che ci fornisce immediatamente ed esplicitamente la trasformata di Laplace della
 $$ (\mathcal{L}f)(s) = \frac{1}{(s^2+1)(s-1)^2}+\frac{s-2}{(s-1)^2}. $$
 Il membro destro è una funzione razionale con un polo doppio in $s=1$ e poli semplici in $s=\pm i$.\\ Applicando una decomposizione in fratti semplici e successivamente $\mathcal{L}^{-1}$ concludiamo che 
 $$ f(x) = \frac{\cos(x)+(1-x)e^x}{2}. $$
+\\
+Vediamo anche un'altra applicazione uber-celebre.
+\begin{ex}[Integrale di Dirichlet] Si determini esplicitamente il valore dell'integrale di Riemann improprio $$\int_{0}^{+\infty}\frac{\sin x}{x}\,dx.$$
+\end{ex}
+\textbf{Soluzione}. L'integrale è finito per il criterio di Abel-Dirichlet: $\sin x$ ha primitiva limitata e $\frac{1}{x}$ è decrescente a zero su $\R^+$. Possiamo inoltre osservare che $\frac{1}{s}$ è la trasformata di Laplace della funzione che vale identicamente $1$. Dall'auto-aggiunzione della trasformata di Laplace segue allora che 
+$$ \int_{0}^{+\infty}\frac{\sin x}{x}\,dx = \int_{0}^{+\infty}\sin(s)\cdot(\mathcal{L} 1)(s)\,ds = \int_{0}^{+\infty}(\mathcal{L}\sin(x))(s)\cdot 1\,ds = \int_{0}^{+\infty}\frac{ds}{1+s^2}={\color{blue}\frac{\pi}{2}}. $$
+
+\textbf{Nota}: la tecnica appena implementata è anche più potente di quanto possa sembrare a prima vista. Nel caso di integrali calcolabili mediante applicazione del Teorema dei residui (Cauchy) l'auto-aggiunzione della trasformata di Laplace permette spesso di giungere alle medesime conclusioni senza la necessità di dare la caccia a opportuni circuiti di integrazione nel piano complesso.\\
+
+Un'ulteriore applicazione della trasformata di Laplace è la determinazione puntuale di serie di Fourier.
+\begin{ex}[\emph{Sawtooth wave}] Si determini il limite per $x\to 0^+$ della funzione $f(x)$ definita da
+$$ f(x) = \sum_{n\geq 1}\frac{\sin(nx)}{n}. $$
+\end{ex}
+\textbf{Soluzione}. Per sommazione per parti $f(x)$ è limitata e periodica, ma non è detto che sia continua.\\ In ogni caso la limitatezza comporta che 
+$$ \lim_{x\to 0^+}f(x) = \lim_{s\to +\infty}\int_{0}^{+\infty}f(x)\cdot s e^{-sx}\,dx = \lim_{s\to +\infty} s\cdot(\mathcal{L} f)(s). $$
+Dalla linearità di $\mathcal{L}$ si ha che 
+$$ s\cdot(\mathcal{L}f)(s) = \sum_{n\geq 1}\frac{s}{n^2+s^2} = \frac{-1+\pi s\coth(\pi s)}{2s},$$
+da cui $\lim_{x\to 0^+}f(x)=\frac{\pi}{2}$, che conferma il sospetto sulla non-continuità di $f$.
+
+
 
 \subsection{Equazioni differenziali esatte e fattori integranti}
 Un'altra strada percorribile è studiare l'\emph{esattezza} di una equazione differenziale. Ma prima definiamo:
