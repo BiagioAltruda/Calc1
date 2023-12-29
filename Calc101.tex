@@ -1389,7 +1389,7 @@ $$ p(\lambda) = c_n \lambda^n + \ldots + c_1 \lambda + 1. $$
 In analogia con il caso scalare, la soluzione di $u'(x)=M\,u(x)$ è determinata dall'esponenziale di $M$, definito come la serie $1+M+\frac{M^2}{2!}+\frac{M^3}{3!}+\ldots$. Dall'Algebra Lineare (forma normale di Jordan) abbiamo che $M$ è coniugata ad una matrice triangolare superiore avente sulla diagonale gli autovalori di $M$, ossia le radici (potenzialmente complesse) del polinomio $p(\lambda)$, contate con molteplicità. Il Teorema di Cayley-Hamilton comporta allora che $e^M$ sia coniugata ad una matrice triangolare superiore, che ha sulla diagonale gli esponenziali delle radici di $p(\lambda)$. Nel caso in cui $p(\lambda)$ abbia radici distinte (ovvero discriminante non nullo) è automatico che $M$ sia diagonalizzabile, dunque che la soluzione generale sia della forma 
 $$ f(x) = \kappa_1 e^{\lambda_1 x}+\ldots+\kappa_n e^{\lambda_n x}, $$
 con $\lambda_1,\ldots,\lambda_n$ radici del polinomio caratteristico e $\kappa_1,\ldots,\kappa_n$ scalari fissati dalle condizioni iniziali.\\
-Le soluzioni dell'equazione omogenea restano uno spazio vettoriale di dimensione $n$ anche nel caso in cui $M$ non sia diagonalizzabile, ma se $p(\lambda)$ ha una radice $\eta$ di molteplicità $k\geq 2$, questa contribuisce alla soluzione attraverso i termini $\kappa_1 e^{\eta x}+\kappa_2 x e^{\eta x}+\ldots+\kappa_k x^k e^{\eta x}$, dunque la soluzione generale diviene una combinazione lineare non di soli esponenziali, ma di esponenziali moltiplicati per opportuni monomi. Quest'ultimo fatto può essere dimostrato considerando la struttura delle potenze di un generico blocco di Jordan o, forse più agevolmente, attraverso la trasformata di Laplace, come vedremo più avanti.
+Le soluzioni dell'equazione omogenea restano uno spazio vettoriale di dimensione $n$ anche nel caso in cui $M$ non sia diagonalizzabile, ma se $p(\lambda)$ ha una radice $\eta$ di molteplicità $k\geq 2$, questa contribuisce alla soluzione attraverso i termini $\kappa_1 e^{\eta x}+\kappa_2 x e^{\eta x}+\ldots+\kappa_{k-1} x^{k-1} e^{\eta x}$, dunque la soluzione generale diviene una combinazione lineare non di soli esponenziali, ma di esponenziali moltiplicati per opportuni monomi. Quest'ultimo fatto può essere dimostrato considerando la struttura delle potenze di un generico blocco di Jordan o, forse più agevolmente, attraverso la trasformata di Laplace, come vedremo più avanti.
 
 
 \subsection{Esempi}
@@ -1427,7 +1427,27 @@ La soluzione totale è quindi $\Tilde{x}= c_1e^{-2t}+c_2\frac{1}{5}t^3$\\
 Un altro metodo per risolvere alcune differenziali (più difficili delle precedenti) è quello di studiare il comportamento di $u'(t)$ con la sua inversa $v'(t)$, se esiste, o analogamente, se è ben definito, col suo reciproco.
 
 \subsection{Trasformata di Laplace}
+La trasformata di Laplace è uno strumento essenziale in Teoria dei Numeri, Teoria dei Controlli, Probabilità e Analisi Armonica. È un operatore lineare definito come segue: data $f:\R^+\to\R$, la sua trasformata di Laplace $\mathcal{L}f:\R^+\to \R$ è data da
+$$ (\mathcal{L} f)(s) = \int_{0}^{+\infty} f(x) e^{-sx}\,dx. $$
+La questione riguardo il dominio massimale dell'operatore $\mathcal{L}$ e la corrispondente immagine è affrontata e risolta dai Teoremi di Schwartz e Paley-Wiener, ma per i nostri scopi è sufficiente restringere l'indagine alle funzioni $f:\R^+\to\R^+$ continue e tali per cui $f(x)e^{-sx}$ sia impropriamente Riemann-integrabile su $\R^+$ per ogni $s>0$. Su questo spazio di partenza non è difficile provare che l'operatore $\mathcal{L}$ è iniettivo, e che inoltre gode di interessanti proprietà algebriche, tra cui:
+\begin{itemize}
+ \item $\mathcal{L}$ trasforma equazioni differenziali lineari ordinarie a coefficienti costanti in equazioni algebriche, poiché per integrazione per parti si ha che la trasformata di Laplace di $f^{(n)}(x)$ è la somma tra un polinomio di grado $(n-1)$ della variabile $s$ e $s^n\cdot(\mathcal{L}f)(s)$;
+ \item $\mathcal{L}$ è un operatore autoaggiunto, ossia $\int_{0}^{+\infty}f(x)\cdot(\mathcal{L}g)(x)\,dx = \int_{0}^{+\infty}(\mathcal{L} f)(x)\cdot g(x)\,dx.$ (Per Fubini) 
+\end{itemize}
+Tramite integrazione per parti non è difficile procurarsi la trasformata di Laplace della generica soluzione di una ED lineare ordinaria a coefficienti costanti:
+$$ \mathcal{L}\left( x^n e^{-\lambda x} \right)(s) = \frac{n!}{(\lambda+s)^{n+1}}$$
+e l'ultima identità, interpretata ``alla rovescia'', fornisce anche l'anti-trasformata di Laplace di qualunque funzione razionale che sia decomponibile in fratti semplici\footnote{E in verità anche qualcosa in più, visto che $n$ non è strettamente vincolato ad essere un naturale.}. Vediamone subito un'applicazione, anche per chiarire quanto anticipato nei paragrafi precedenti.
+\begin{ex} Si determini la soluzione dell'equazione differenziale 
+$$ f''(x)-2f'(x)+f(x)=\sin(x) $$
+che soddisfa $f(0)=1$ e $f'(0)=0$.
+\end{ex}
+\textbf{Soluzione}. Applicando $\mathcal{L}$ ad ambo i membri dell'ED in questione\footnote{Legittimo in quanto la limitatezza del seno assicura che le soluzioni dell'equazione differenziale rientrino a pieno titolo nel dominio ristretto di $\mathcal{L}$ che abbiamo considerato a inizio sezione.} otteniamo 
 
+$$ (s-1)^2\cdot(\mathcal{L}f)(s)+(2-s) = \frac{1}{1+s^2} $$
+che ci fornisce immediatamente ed esplicitamente la trasformata di Laplace della soluzione:
+$$ (\mathcal{L}f)(s) = \frac{1}{(s^2+1)(s-1)^2}+\frac{s-2}{(s-1)^2}. $$
+Il membro destro è una funzione razionale con un polo doppio in $s=1$ e poli semplici in $s=\pm i$.\\ Applicando una decomposizione in fratti semplici e successivamente $\mathcal{L}^{-1}$ concludiamo che 
+$$ f(x) = \frac{\cos(x)+(1-x)e^x}{2}. $$
 
 \subsection{Equazioni differenziali esatte e fattori integranti}
 Un'altra strada percorribile è studiare l'\emph{esattezza} di una equazione differenziale. Ma prima definiamo:
