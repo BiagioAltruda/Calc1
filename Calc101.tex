@@ -300,7 +300,7 @@ Per quanto concerne la seconda parte, consideriamo una generica $f:I\to\mathbb{R
 \end{proof}
 
 
-\begin{definizione}[Continuità Uniforme]
+\begin{definizione}[Continuità uniforme]
 Si dice che $f:I\to\R$ è uniformemente continua in $I$ se 
 
 
@@ -354,15 +354,15 @@ Sia $X$ un insieme e sia $d:X \times X\to [0,+\infty]$ una funzione che ad ogni 
 \item $d(x,y)=d(y,x)\quad\forall x,y\in X$
 \item $d(x,y)\leq d(x,z)+d(z,y)\quad\forall x,y,z\in X$
 \end{itemize}
-L'ultima condizione prende il nome di \textbf{Disuguaglianza Triangolare}.\\
-La coppia $(X,d)$ si dice \textbf{Spazio Metrico} se $d$ è una distanza (o metrica).
+L'ultima condizione prende il nome di \textbf{disuguaglianza triangolare}.\\
+La coppia $(X,d)$ si dice \textbf{spazio metrico} se $d$ è una distanza (o metrica).
 
 \begin{definizione}[Intorno circolare]
-Per ogni $x_0\in X$ e per ogni $r>0$, si chiama Intorno Circolare (Intorno Sferico o Palla Aperta) di centro $x_0$ e di raggio $r$ l'insieme $$B_r(x_0)=\{x\in X: d(x,x_0)<r\}.$$
+Per ogni $x_0\in X$ e per ogni $r>0$, si chiama intorno circolare (intorno sferico o palla aperta) di centro $x_0$ e di raggio $r$ l'insieme $$B_r(x_0)=\{x\in X: d(x,x_0)<r\}.$$
 \end{definizione}
 
 \begin{definizione}[Aperti e Topologia]
-Un insieme $A\subseteq X$ Si dice aperto se ogni suo punto è centro di una palla aperta contenuta in $A$, cioè se per ogni suo punto $x_0\in A$ esiste $r>0$ tale che $B_r(x_0)\subseteq A$ (si assume il vuoto come un insieme aperto). Un insieme $C\subseteq X$ si dice chiuso se il suo complementare, $A=X\setminus C$ è aperto. L'insieme di tutti gli aperti di uno spazio metrico $(X,d)$ si dice \textbf{Topologia Generata dalla metrica $d$}.
+Un insieme $A\subseteq X$ Si dice aperto se ogni suo punto è centro di una palla aperta contenuta in $A$, cioè se per ogni suo punto $x_0\in A$ esiste $r>0$ tale che $B_r(x_0)\subseteq A$ (si assume il vuoto come un insieme aperto). Un insieme $C\subseteq X$ si dice chiuso se il suo complementare, $A=X\setminus C$ è aperto. L'insieme di tutti gli aperti di uno spazio metrico $(X,d)$ si dice \textbf{Topologia generata dalla metrica $d$}.
 \end{definizione}
 
 \textbf{Proposizione}. In uno spazio metrico, tutti le palle aperte, le unioni arbitrarie di aperti e le intersezioni finite di aperti sono aperte.\\
@@ -390,7 +390,7 @@ Sia $(X,d)$ uno spazio metrico e sia $x_0$ un fissato punto di $X$. Allora la fu
     $$|d(x_k,x_0)-d(x,x_0)|\leq d(x_k,x)$$
     e perciò $d(x_k,x_0)\to d(x,x_0)\text{ per } k\to\infty$.
 \end{proof}
-\begin{definizione}[Spazio Normato]
+\begin{definizione}[Spazio normato]
 Sia $V$ uno spazio vettoriale. Una norma su $V$ è una funzione che ad ogni vettore $x\in V$ associa un reale $\|x\|\geq 0$ che verifica le seguenti condizioni:
 \begin{itemize}
     \item $\|x\|=0 \text{ se e solo se } x=0 \qquad \forall x\in V$
@@ -412,7 +412,7 @@ Una $f:X\to X$ Lipschitziana con costante $L<1$, cioè tale per cui
 $$\exists L\in[0,1): d(f(x),f(y))\leq L\cdot d(x,y)\qquad\forall x,y\in X$$
 prende il nome di \emph{contrazione} sullo spazio $(X,d)$.
 \end{definizione}
-\begin{theorem}[Teorema delle Contrazioni (Banach)]
+\begin{theorem}[Teorema delle contrazioni (Banach)]
 Sia $(X,d)$ uno spazio metrico completo e sia $f:X\to X$\\ una contrazione. Allora esiste uno ed un solo punto $x\in X$ tale che $f(x)=x$. $x$ si chiama \emph{punto fisso}.    
 \end{theorem}
 \begin{proof} A partire da un qualunque $x_0\in X$ possiamo definire una successione a valori in $X$\\ attraverso $x_{n+1}=f(x_n)$. Si ha che 
@@ -440,7 +440,7 @@ contro la minimalità di $m$. Questo prova che $f$ ha necessariamente un punto f
 Per contrattività di $f$ la successione $\{g(x_n)\}_{n\geq 0}$ è strettamente decrescente, dunque converge al suo $\inf$.\\ Poiché $g(x_{n_k})\to g(\overline{x}) = 0$, il precedente $\inf$ è nullo e $d(x_n,f(x_n))$ converge a zero.\\ Per unicità del punto fisso di $f$, $x_n\to\overline{x}$.\end{proof}
 
 \subsection{Compattezza}
-\begin{definizione}[Insieme Compatto]
+\begin{definizione}[Compatto]
     Un sottoinsime $K$ dello spazio metrico $(X,d)$ si dice (sequenzialmente) compatto se da ogni successione $\{x_k\}$ di punti di $K$ si può estrarre una sottosuccessione convergente verso un punto $x\in K$.
 \end{definizione}
 Osservimo che, se $K\subseteq X$ è un insieme compatto, si dice, secondo questa definizione, che è \emph{compatto per successioni}, a dispetto della definizione di compattezza data attraverso dei \emph{ricoprimenti aperti}. In ogni caso, le due definizioni risultano equivalenti.
@@ -458,16 +458,16 @@ Un sottoinsieme $K$ di $\R^n$ è compatto se e solo se è chiuso e limitato.
  Essendo $K$ chiuso ne segue che $x\in K$ e quindi $K$ è compatto.\\ Viceversa se $K$ è compatto esso è chiuso per la proposizione precedente. Se $K$ non fosse limitato, esisterebbe una successione $\{x_k\}_{k\geq 1}$ di punti di $K$ tale che: $$\lim_{k\to\infty}|x_k|=+\infty$$ e da questa non si potrebbe estrarre alcuna successione convergente, contro l'ipotesi che $K$ sia compatto.
 \end{proof}
 \subsection{Calcolo differenziale}
-Saranno elencati i principali risultati sulle funzioni continue e derivabili in intervalli, dei must have in ogni corso di Analisi 1.
+Saranno elencati i principali risultati sulle funzioni continue e derivabili in intervalli, dei \emph{must have} in ogni corso di Analisi 1.
 \begin{theorem}[Rolle]
 Sia $f:[a,b]\to\R$ una funzione continua e derivabile in $(a,b)$ e tale che $f(a)=f(b)$.\\ Allora esiste un punto $c\in(a,b)$ tale che $f'(c)=0$.   
 \end{theorem}
 \begin{proof}
-    Per il teorema di Weierstrass f ammette massimo e minimo in $[a,b]$, rispettivamente $x_M$ e $x_m$. Abbiamo quindi 2 casi:
+    Per il teorema di Weierstrass $f$ ammette massimo e minimo in $[a,b]$, rispettivamente $x_M$ e $x_m$. Abbiamo quindi 2 casi:
     il minimo e il massimo sono prorprio gli estremi dell'intervallo $[a,b]$, allora il massimo di $f$ coincide col suo minimo, quindi la funzione vale costantemente $f(x_M)=f(x_m)=k$, cioè ha derivata costantemente nulla. \\
     Alternativamente almeno uno tra $x_m$ e $x_M$ cade in $(a,b)$, quindi la derivata si annulla in almeno in quel punto.
 \end{proof}
-\begin{theorem}[Lagrange o Valor Medio]
+\begin{theorem}[Lagrange o Valor medio]
 Sia $f:[a,b]\to\R$ e derivabile in $(a,b)$. Esiste un punto $\xi\in(a,b)$ tale che $$f(b)-f(a)=f'(\xi)(b-a).$$
 \end{theorem}
 \begin{proof}
@@ -1392,6 +1392,8 @@ con $\lambda_1,\ldots,\lambda_n$ radici del polinomio caratteristico e $\kappa_1
 Le soluzioni dell'equazione omogenea restano uno spazio vettoriale di dimensione $n$ anche nel caso in cui $M$ non sia diagonalizzabile, ma se $p(\lambda)$ ha una radice $\eta$ di molteplicità $k\geq 2$, questa contribuisce alla soluzione attraverso i termini $\kappa_1 e^{\eta x}+\kappa_2 x e^{\eta x}+\ldots+\kappa_{k-1} x^{k-1} e^{\eta x}$, dunque la soluzione generale diviene una combinazione lineare non di soli esponenziali, ma di esponenziali moltiplicati per opportuni monomi. Quest'ultimo fatto può essere dimostrato considerando la struttura delle potenze di un generico blocco di Jordan o, forse più agevolmente, attraverso la trasformata di Laplace, come vedremo più avanti.
 
 
+{\color{red} Inserire il fatto che la soluzione di differenziali lineari, la risoluzioni di ricorrenze lineari e il calcolo di potenze di matrici sono lo stesso problema.}
+
 \subsection{Esempi}
 \subsubsection{Decadimento radioattivo}
 È il processo secondo il quale un sostanza radioattiva decade, trasformandosi in un'altra sostanza più leggera a causa della perdita di neutroni. Indicando con $n(t)$ il numero di neutroni presenti al tempo $t$, il modello prevede che durante l'istante $dt$ una percentuale $p$ fissata di $n(t)$ decada, dando luogo all'equazione
@@ -1437,9 +1439,9 @@ Con questo termine si indica un sistema costituito da un punto materiale di mass
 Indicando con $x(t)$ la posizione del corpo al tempo $t$, l'equazione differenziale che regola il moto è
 $$ m\ddot{x} + k x = 0 $$
 con $m$ e $k$ scalari positivi. Questa è una ED lineare, omogenea, a coefficienti costanti di ordine $2$, con polinomio caratteristico $p(\lambda)=m\lambda^2+k$. Le radici del polinomio caratteristico sono $\pm i\sqrt{\frac{k}{m}}$, dunque la soluzione generale è data da una combinazione lineare di $\sin\left(\sqrt{\frac{k}{m}}\,t\right)$ e $\cos\left(\sqrt{\frac{k}{m}}\,t\right)$, ossia è della forma 
-$$ x(t) = A \sin\left(\varphi_0 + \omega t\right) $$
+$$ x(t) = A \cos\left(\varphi_0 + \omega t\right) $$
 dove la pulsazione $\omega$ corrisponde a $\sqrt{\frac{k}{m}}$. In particolare ogni soluzione è periodica di periodo $\frac{2\pi}{\omega} = 2\pi\sqrt{\frac{m}{k}}$, come prevedibile anche dal fatto che le orbite nel piano delle fasi sono ellissi centrate nell'origine:
-$$ 2m\dot{x}\ddot{x} + 2k x \dot{x}=0\quad\Longrightarrow\quad \frac{d}{dt}\left(m\dot{x}^2+k x^2\right) = 0.$$
+$$ 2m\dot{x}\ddot{x} + 2k x \dot{x}=0\quad\Longrightarrow\quad \frac{d}{dt}\left(m\dot{x}^2+k x^2\right) = 0\quad \Longrightarrow\quad \dot{x}^2+(\omega x)^2=\text{costante}.$$
 
 
 
