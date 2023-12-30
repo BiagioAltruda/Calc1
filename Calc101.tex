@@ -1434,13 +1434,16 @@ che al primo ordine è $1+\frac{H}{2R}$ volte il tempo di caduta in presenza di 
 
 \subsubsection{Oscillatore armonico}
 Con questo termine si indica un sistema costituito da un punto materiale di massa $m$ che si muove su una retta, soggetto ad una forza di richiamo, la cui intensità è proporzionale alla distanza dall'origine. \\
-Indicando con $u(t)$ la posizione del corpo al tempo $t$, la forza totale che agisce sul corpo sarà: $f=-ku-hu'$ ({\color{red} Ma non abbiamo appena detto che la forza dipende soltanto dalla posizione? Da dove salta fuori $u'$?}) e l'equazione del moto $f=ma$ si scrive: $$mu''(t)+hu'(t)+ku(t)=0$$\\
-ponendo $\omega_0^2=\frac{k}{m}$ e $a=\frac{h}{2m}$.\\
-$$u''(t)+2au'(t)+\omega_0^2u=0$$ \\
-se cerchiamo soluzioni della forma $e^{\lambda t}$ otteniamo l'equazione $\lambda^2 + \omega_0^2=0$ che ha radici complesse $i\omega_0t$ e $-i\omega_0t$ che corrispondono alle soluzioni : $e^{i\omega_0t}$ e $e^{-i\omega_0t}$\\
-dove  $e^{i\omega_0t}$ e $e^{-i\omega_0t}$ stanno per $cos\omega_0t+isen\omega_0t$ e $cos\omega_0t-isen\omega_0t$ \\
-La soluzione generale della differenziale è quindi: $$u(t)=c_1sen\omega_0t+c_2cos\omega_0t$$\\
-({\color{red} Sistemare la notazione, anche dopo. Così è illeggibile.})
+Indicando con $x(t)$ la posizione del corpo al tempo $t$, l'equazione differenziale che regola il moto è
+$$ m\ddot{x} + k x = 0 $$
+con $m$ e $k$ scalari positivi. Questa è una ED lineare, omogenea, a coefficienti costanti di ordine $2$, con polinomio caratteristico $p(\lambda)=m\lambda^2+k$. Le radici del polinomio caratteristico sono $\pm i\sqrt{\frac{k}{m}}$, dunque la soluzione generale è data da una combinazione lineare di $\sin\left(\sqrt{\frac{k}{m}}\,t\right)$ e $\cos\left(\sqrt{\frac{k}{m}}\,t\right)$, ossia è della forma 
+$$ x(t) = A \sin\left(\varphi_0 + \omega t\right) $$
+dove la pulsazione $\omega$ corrisponde a $\sqrt{\frac{k}{m}}$. In particolare ogni soluzione è periodica di periodo $\frac{2\pi}{\omega} = 2\pi\sqrt{\frac{m}{k}}$, come prevedibile anche dal fatto che le orbite nel piano delle fasi sono ellissi centrate nell'origine:
+$$ 2m\dot{x}\ddot{x} + 2k x \dot{x}=0\quad\Longrightarrow\quad \frac{d}{dt}\left(m\dot{x}^2+k x^2\right) = 0.$$
+
+
+
+
 
 \subsubsection{Pendolo fisico}
 
