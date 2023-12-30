@@ -1433,6 +1433,13 @@ $$T\approx \sqrt{\frac{R+H}{2g}}\left(2\left(\frac{H}{R}\right)^{1/2}+\left(\fra
 che al primo ordine è $1+\frac{H}{2R}$ volte il tempo di caduta in presenza di accelerazione costante.
 
 \subsubsection{Moto in presenza di attrito viscoso}
+Un altro problema interessante è quello della caduta di un grave in presenza di accelerazione costante, ma anche di attrito viscoso, forza dissipativa di intensità direttamente proporzionale alla velocità. Nel riferimento in cui ${x(0)=H>0}$ e $\dot{x}(0)=0$ l'equazione differenziale che regola il moto è dunque 
+$$ \ddot{x} = -g-\eta \dot{x}, $$
+ED lineare ordinaria di ordine $2$, che attraverso la sostituzione $y=\dot{x}+\eta x$ è ricondotta ad una equazione a variabili separabili, $\dot{y}=-g$, che comporta $y=-\eta H-gt$ e 
+$$ \dot{x}-\eta x = \eta H -gt, $$
+ED lineare del primo ordine a coefficienti costanti, non omogenea, che ha per soluzione 
+$$ x(t) = H + \frac{g}{\eta^2}\left(1-\eta t-e^{-\eta t}\right),\qquad \dot{x}(t)=-\frac{g}{\eta}\left(1-e^{-\eta t}\right). $$
+In questa situazione fisica il modulo della velocità non può superare la velocità limite $\frac{g}{\eta}$ e il tempo di caduta è dato dalla soluzione di un'equazione trascendente, esplicitabile mediante la funzione di Lambert $W$ (inversa di $xe^x$).
 
 \subsubsection{Oscillatore armonico}
 Con questo termine si indica un sistema costituito da un punto materiale di massa $m$ che si muove su una retta, soggetto ad una forza di richiamo, la cui intensità è proporzionale alla distanza dall'origine. \\
@@ -1448,6 +1455,21 @@ $$ 2m\dot{x}\ddot{x} + 2k x \dot{x}=0\quad\Longrightarrow\quad \frac{d}{dt}\left
 
 
 \subsubsection{Pendolo fisico}
+Supponiamo che un punto materiale di massa $m$ sia vincolato all'estremità libera di un'asta rigida di lunghezza $\ell$, supponiamo che l'asta abbia massa trascurabile e abbia l'altra estremità incerneriata nel punto del piano di coordinate $(0,\ell)$. Se nella configurazione iniziale l'asta determina un angolo $\theta_0\in[0,\pi/2]$ con la verticale, la conservazione dell'energia meccanica conduce all'equazione differenziale 
+$$ \frac{m}{2}\left(\ell\dot{\theta}\right)^2 + mg\ell(1-\cos\theta) = mg\ell(1-\cos\theta_0) $$
+equivalente a 
+$$ \dot{\theta}^2  = \frac{2g}{\ell}(\cos\theta-\cos\theta_0) $$
+che comporta
+$$ \dot{\theta}+\frac{g}{\ell}\sin\theta = 0. $$
+Nell'assunzione che l'angolo iniziale $\theta_0$ sia sufficientemente piccolo è dunque sensato aspettarsi che il sistema si evolva in maniera analoga a quello determinato da $\dot{\theta}+\frac{g}{\ell}\theta = 0$, ossia un oscillatore armonico di periodo $2\pi\sqrt{\frac{\ell}{g}}$, indipendente da $\theta_0$ (isocronia del pendolo per le piccole oscillazioni). Senza rimpiazzare il potenziale con la sua approssimazione al second'ordine possiamo comunque osservare che 
+$$ \left|\frac{dt}{d\theta}\right| = \sqrt{\frac{\ell}{2g}}\cdot\frac{1}{\sqrt{\cos\theta-\cos\theta_0}} $$
+dunque per simmetria il periodo esatto è dato da 
+$$ T = \sqrt{\frac{\ell}{2g}}\cdot 4\int_{0}^{\theta_0}\frac{d\theta}{\sqrt{\cos\theta-\cos\theta_0}}=4\sqrt{\frac{\ell}{g}}\int_{0}^{\pi/2}\frac{d\varphi}{\sqrt{1-\sin^2\frac{\theta_0}{2}\sin^2\varphi}}. $$
+L'ultimo integrale è un \emph{integrale ellittico completo del primo tipo}. Per quanto dimostrato da Gauss questi oggetti sono direttamente collegati alla \emph{media aritmo-geometrica ($\operatorname{AGM}$)}. Per il pendolo fisico vale in particolare che 
+$$ T = \frac{2\pi\sqrt{\frac{\ell}{g}}}{\operatorname{AGM}\left(1,\cos\frac{\theta_0}{2}\right)}\in 2\pi\sqrt{\frac{\ell}{g}}\left(\frac{2}{1+\cos\frac{\theta_0}{2}},\frac{1}{\sqrt{\cos\frac{\theta_0}{2}}}\right). $$
+Troncando al second'ordine, la dipendenza del periodo dall'angolo iniziale è della forma $T\approx 2\pi\sqrt{\frac{\ell}{g}}\left(1+\frac{\theta_0^2}{16}\right).$
+
+\newpage
 
 \subsection{Metodi di risoluzione di ED lineari non omogenee}
 
@@ -1934,3 +1956,13 @@ Per quanto concerne gli esercizi consigliamo, oltre ai $69$ sovrastanti,
 
 
 \end{document}
+
+Calcolo di limiti
+o e O
+problemi di minmax
+Cauchy-Lipschitz
+Frobenius f''(x) = x f(x)
+
+
+
+
