@@ -1303,6 +1303,19 @@ Più in generale si può cercare di tradurre (e risolvere) una ricorrenza linear
 Esistono fenomeni in cui rapidità di variazione di una certa quantità è proporzionale (o comunque legata algebricamente), in ogni istante, alla quantità stessa.
 Gli esempi più tipici di sono ottenuti spesso e volentieri dalla Fisica, e la loro complessità varia in maniera drammatica in base al contesto. Esempi degni di nota verranno fatti nel paragrafo apposito.
 
+\subsection{Teorema di Cauchy-Lipschitz}
+Il più importante risultato sull'esistenza e l'unicità delle soluzioni di equazioni differenziali è il seguente.
+\begin{theo}[Cauchy-Lipschitz] Dato il \emph{problema di Cauchy}
+$$\left\{\begin{array}{rcl}y'(t) &=& f(t,y(t)) \\ y(0)&=&y_0 \end{array}\right. $$
+con $f$ funzione continua nel primo argomento (il tempo) e lipschitziana nel secondo argomento (la $y$),\\ allora il problema ammette soluzione unica in un intorno dell'origine. 
+\end{theo}
+\textbf{Idea della dimostrazione}. La prima condizione può essere espressa come $y(x)=y_0+\int_{0}^{x}f(t,y(t))\,dt$. Possiamo dunque considerare un operatore (di Volterra) $T$ che manda una generica $g$, continua in un intorno dell'origine, in 
+$$ (T g)(x) = y_0 + \int_{0}^{x} f(t,g(t))\,dt $$
+ed applicare il metodo di punto fisso che consiste nel definire una successione di funzioni $y_0(x)=y_0, y_n(x)=Ty_n(x)$, sperabilmente convergente all'unica soluzione del problema di Cauchy. I tecnicismi della dimostrazione sono finalizzati a provare che, nelle ipotesi su $f$, l'operatore di Volterra è effettivamente una contrazione, il che permette di concludere invocando il Teorema di Banach-Caccioppoli.  
+
+
+
+
 \subsection{Classificazione delle principali equazioni differenziali}
 Per il Teorema Fondamentale del Calcolo Integrale (TFCI), sotto opportune ipotesi di regolarità possiamo ricostruire $u(t)$ dalla sua derivata $u'(t)$ e dal valore di $u$ in un punto. L'equazione $u'(t)=f(t)$ ha infatti soluzione $$u(t)=\int_{a}^{t}f(s)\,ds.$$
 In generale, data una funzione di due variabili $f(t,u)$ possiamo porci il problema di trovare una funzione $u(t)$ che verifichi l'equazione differenziale:$$u'(t)=f(t,u(t)).$$
