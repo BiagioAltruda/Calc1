@@ -1303,7 +1303,7 @@ Più in generale si può cercare di tradurre (e risolvere) una ricorrenza linear
 Esistono fenomeni in cui rapidità di variazione di una certa quantità è proporzionale (o comunque legata algebricamente), in ogni istante, alla quantità stessa.
 Gli esempi più tipici di sono ottenuti spesso e volentieri dalla Fisica, e la loro complessità varia in maniera drammatica in base al contesto. Esempi degni di nota verranno fatti nel paragrafo apposito.
 
-\subsection{Classificazione ODE}
+\subsection{Classificazione delle principali equazioni differenziali}
 Per il Teorema Fondamentale del Calcolo Integrale (TFCI), sotto opportune ipotesi di regolarità possiamo ricostruire $u(t)$ dalla sua derivata $u'(t)$ e dal valore di $u$ in un punto. L'equazione $u'(t)=f(t)$ ha infatti soluzione $$u(t)=\int_{a}^{t}f(s)\,ds.$$
 In generale, data una funzione di due variabili $f(t,u)$ possiamo porci il problema di trovare una funzione $u(t)$ che verifichi l'equazione differenziale:$$u'(t)=f(t,u(t)).$$
 L'equazione di sopra si dice del primo ordine perché coinvolge solo la derivata prima della funzione $u(t)$.
@@ -1355,7 +1355,7 @@ con $a(t)$ e $b(t)$ funzioni date.
 \end{cor}
 
 
-\subsubsection{Equazioni lineari non omogenee del primo ordine}
+\subsubsection{ED lineari non omogenee del primo ordine}
 Lo stesso metodo porta alla risoluzione delle equazioni differenziali lineari non omogenee di grado 1.
 \begin{theorem}
     Il problema
@@ -1379,7 +1379,7 @@ che fornisce $g(t)=1+\int_{0}^{t}(s+1)^2 \exp\left(-s-\frac{s^2}{2}\right)\,ds$.
 $$f(t) = \exp\left(\frac{t^2}{2}+t\right)+\exp\left(\frac{t^2}{2}+t\right)\int_{0}^{t}(s+1)^2 \exp\left(-s-\frac{s^2}{2}\right)\,ds$$
 e $y(t)=f(t-1)$.
 
-\subsubsection{Equazioni lineari ordinarie a coefficienti costanti}
+\subsubsection{ED lineari ordinarie a coefficienti costanti}
 Un caso di grande interesse teorico e pratico è quello delle equazioni differenziali in cui una combinazione lineare, a coefficienti costanti, di $f(x)$ e di una quantità finita di sue derivate coincida con zero (caso omogeneo) o con una funzione assegnata (caso non omogeneo). Vedremo più avanti (nella sezione \emph{Trasformata di Laplace}) che la risoluzione del problema di ordine $n$
 $$ f(x) + c_1 f'(x) + \ldots + c_n f^{(n)}(x) = 0$$
 è di fatto equivalente alla determinazione della forma esplicita di una successione per ricorrenza, lineare ed autonoma, di ordine $n$. Se $n=1$ abbiamo una ED a variabili separabili. Più in generale ($n\geq 2$) possiamo osservare che, posto d'ufficio $u(x)=\left(f(x),f'(x),\ldots,f^{(n-1)}(x)\right)\in\R^{n-1}$, il precedente problema può essere espresso come 
@@ -1467,7 +1467,9 @@ dunque per simmetria il periodo esatto è dato da
 $$ T = \sqrt{\frac{\ell}{2g}}\cdot 4\int_{0}^{\theta_0}\frac{d\theta}{\sqrt{\cos\theta-\cos\theta_0}}=4\sqrt{\frac{\ell}{g}}\int_{0}^{\pi/2}\frac{d\varphi}{\sqrt{1-\sin^2\frac{\theta_0}{2}\sin^2\varphi}}. $$
 L'ultimo integrale è un \emph{integrale ellittico completo del primo tipo}. Per quanto dimostrato da Gauss questi oggetti sono direttamente collegati alla \emph{media aritmo-geometrica ($\operatorname{AGM}$)}. Per il pendolo fisico vale in particolare che 
 $$ T = \frac{2\pi\sqrt{\frac{\ell}{g}}}{\operatorname{AGM}\left(1,\cos\frac{\theta_0}{2}\right)}\in 2\pi\sqrt{\frac{\ell}{g}}\left(\frac{2}{1+\cos\frac{\theta_0}{2}},\frac{1}{\sqrt{\cos\frac{\theta_0}{2}}}\right). $$
-Troncando al second'ordine, la dipendenza del periodo dall'angolo iniziale è della forma $T\approx 2\pi\sqrt{\frac{\ell}{g}}\left(1+\frac{\theta_0^2}{16}\right).$
+Troncando al second'ordine, la dipendenza del periodo dall'angolo iniziale è della forma $T\approx 2\pi\sqrt{\frac{\ell}{g}}\left(1+\frac{\theta_0^2}{16}\right).$\\
+Se l'angolo iniziale è esattamente $\frac{\pi}{2}$, a causa di valori speciali dell'integrale ellittico completo del primo tipo\\ si ha esattamente $T=\Gamma^2\left(\frac{1}{4}\right)\sqrt{\frac{\pi\ell}{4g}}$, cioè circa $\frac{13}{7}$ del periodo delle piccole oscillazioni.
+
 
 \newpage
 
@@ -1484,7 +1486,7 @@ La soluzione generale è quindi $u(t)= p(t) + c_1 e^{-2t}$.\\
 Un altro metodo per risolvere alcune differenziali (più complesse delle precedenti) 
 è quello di ricorrere ad opportune sostituzioni, della variabile indipendente o della funzione obiettivo, ad esempio considerando l'equazione differenziale soddisfatta dalla funzione inversa di una soluzione (si vedano a tal proposito le \textbf{condizioni di Osgood}).\\
 
-{\color{red} Inserire ANNICHILATORI e casi di RISONANZA}
+{\color{red} Inserire ANNICHILATORI e casi di RISONANZA, anche se la sezione successiva rende tutto obsoleto}
 
 
 \subsection{Trasformata di Laplace}
@@ -1527,8 +1529,39 @@ $$ \lim_{x\to 0^+}f(x) = \lim_{s\to +\infty}\int_{0}^{+\infty}f(x)\cdot s e^{-sx
 Dalla linearità di $\mathcal{L}$ si ha che 
 $$ s\cdot(\mathcal{L}f)(s) = \sum_{n\geq 1}\frac{s}{n^2+s^2} = \frac{-1+\pi s\coth(\pi s)}{2s},$$
 da cui $\lim_{x\to 0^+}f(x)=\frac{\pi}{2}$, che conferma il sospetto sulla non-continuità di $f$.
+\newpage
 
+Evidenziamo infine come i seguenti tre problemi siano di fatto equivalenti:
+\begin{itemize}
+ \item soluzione di una ED lineare a coefficienti costanti 
+ \item soluzione di una equazione per ricorrenza lineare ed autonoma
+ \item determinazione delle potenze o dell'esponenziale di una matrice.
+\end{itemize}
 
+Data infatti una ricorrenza della forma 
+$$ a_{n+k} = c_1 a_{n+k-1} + c_2 a_{n+k-2} + \ldots + c_k a_n $$
+possiamo definire il vettore colonna 
+$$ v_n = \left(a_{n+k-1},a_{n+k-2},\ldots,a_n\right)^t $$
+ed esprimere la ricorrenza come 
+$$ v_{n+1} = \begin{pmatrix}c_1 & c_2 & c_3 & \ldots & c_k \\ 
+                            1 & 0 & 0 &\ldots & 0 \\
+                            0 & 1 & 0 &\ldots & 0 \\
+                            0 & 0 & \ddots & \ldots & 0 \\
+                            0 & 0 & \ldots & 1 & 0\end{pmatrix} v_n = M v_n $$
+da cui segue, per induzione, $v_n = M^n v_0$. Il polinomio caratteristico di $M$ è esattamente lo stesso del polinomio caratteristico della ricorrenza: $M$ è infatti coniugata alla matrice che rappresenta la moltiplicazione per $x$ nell'anello quoziente $\R[x]/(p(x))$, dove $p(x)=x^k-c_1 x^{k-1}-\ldots-c_k$. Segue che il termine generale $a_n$ è fissato da $M^n$, ed è dunque combinazione lineare di termini della forma $n^j \lambda^n$ con $\lambda$ autovalore di $M$ (ossia radice di $p$) e $j$ che varia da $0$ fino alla molteplicità algebrica di $\lambda$ diminuita di $1$. D'altra parte la ricorrenza può essere interpretata come un'equazione differenziale. Posto infatti $f(x)=\sum_{n\geq 0}\frac{a_n}{n!}x^n$, ossia considerata la funzione generatrice esponenziale della successione $\{a_n\}_{n\geq 0}$, si ha quanto segue:
+$$ [x^n]f^{(k)}(x) = [x^n]\frac{d^k}{dx^k}\sum_{n\geq k}\frac{a_n}{n!}x^n=[x^n]\sum_{n\geq k}\frac{a_n}{(n-k)!}x^{n-k}=\frac{a_{n+k}}{n!}$$
+per cui la ricorrenza risulta equivalente alla ED
+$$ f^{(k)}(x) = c_1 f^{(k-1)}(x) + c_2 f^{(k-1)}(x) + \ldots + c_k f(x) $$
+e passando in trasformata 
+$$ s^k (\mathcal{L}f)(s) = \left(c_1 s^{k-1}+\ldots c_k\right)(\mathcal{L}f)(s)+Q(s) $$
+con $Q(s)$ polinomio di grado $\leq (k-1)$ che dipende unicamente dalle condizioni iniziali (ossia da $v_0$).\\
+Da semplici manipolazioni algebriche segue 
+$$ f(x) = \mathcal{L}^{-1}\left(\frac{Q(s)}{s^k-c_1 s^{k-1}-\ldots-c_k}\right)(x) $$
+e la decomposizione in fratti semplici dell'ultima funzione razionale entro parentesi chiude il circolo di equivalenze.
+
+\newpage
+
+{\color{red}\underline{Modificare in: accenni di Analisi 2 e Sistemi Dinamici, integrali primi e funzioni di Lyapunov.}}
 
 \subsection{Equazioni differenziali esatte e fattori integranti}
 Un'altra strada percorribile è studiare l'\emph{esattezza} di una equazione differenziale. Ma prima definiamo:
