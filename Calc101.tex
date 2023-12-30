@@ -624,7 +624,7 @@ Oltre che nella fabbricazione di stime accurate, la convessità è di grande aus
  \item $f$ assume massimo negli estremi di $I$.
  \item Se $I$ è chiuso l'insieme dei punti di minimo di $f$ su $I$ è un convesso.\\ Più in generale, è convesso qualunque sottolivello non vuoto.
  \item L'equazione $f(x)=\kappa$ ha al più due soluzioni distinte in $I$.
- \item Se $f$ è composta o sommata a qualunque altra funzione convessa resta convessa.
+ \item Sommando o componendo funzioni crescenti e convesse si ha ancora una funzione crescente e convessa.
 \end{itemize}
 
 
@@ -695,7 +695,7 @@ Prima di avventurarsi in Matematica raffinata è opportuno familiarizzare con i 
  $$ (1+x)^a = \sum_{k\geq 0}\frac{(a)_k}{k!} x^k\qquad\text{dove }(a)_k = a(a-1)\cdot\ldots\cdot (a-k+1) $$
  generalizzando il binomio di Newton a esponenti qualunque. Nel caso di esponenti interi e negativi l'identità 
  $$ \frac{1}{(1-x)^{m+1}} = \sum_{n\geq 0}\binom{n+m}{m} x^n $$
- può anche essere vista come conseguenza dell'espediente combinatorio noto come \emph{stars\&bars}.
+ può anche essere vista come conseguenza dell'espediente combinatorio noto come \emph{Stars\&Bars}.
  \item \textbf{Logaritmo naturale}. Su $(-1,1)$ abbiamo $\frac{d}{dx}\left(-\ln(1-x)\right)=\frac{1}{1-x}$. Per integrazione termine a termine della serie geometrica segue che sul precedente intervallo vale 
  $$ -\ln(1-x) = \sum_{n\geq 1}\frac{x^n}{n}. $$
  Per sommazione per parti (alias \emph{lemma di Abel}) l'identità continua a valere anche nell'estremo sinistro del dominio di convergenza, producendo $\ln 2 = \sum_{n\geq 1}\frac{(-1)^{n+1}}{n}$.
@@ -738,7 +738,7 @@ Proprietà dei binomiali sono:
 Un importante tecnica di conteggio è appunto \textbf{Stars \& Bars}:
 $$\left|\{(x_1,\ldots,x_k)\in(\N^+)^k: x_1+\ldots+x_k = n\}\right|=[x^n]\left(\frac{x}{1-x}\right)^k = \binom{n-1}{k-1},$$
 $$ \frac{1}{(1-x)^{k+1}}=\sum_{n\geq 0}\binom{n+k}{k}x^n. $$
-L'interpretazione grafica è data dal rispondere alla domanda: in quanti modi possiamo mettere $k-1$ barrette nelle intercapedini tra $n$ oggetti adiacenti? Eccone anche un'applicazione ad un esercizio già visto, ossia la determinazione di $\sum_{n\geq 0}\frac{n^2}{4^n}$. Abbiamo in primo luogo che $n^2$ è certamente una combinazione lineare di $\binom{n+2}{2},\binom{n+1}{1}$ e $\binom{n}{0}=1$.\\ In particolare, per eliminazione gaussiana (o differenze in avanti) vale $n^2=2\binom{n+2}{2}-3\binom{n+1}{1}+\binom{n}{0}$.\\ Da stars\&bars segue allora che 
+L'interpretazione grafica è data dal rispondere alla domanda: in quanti modi possiamo mettere $k-1$ barrette nelle intercapedini tra $n$ oggetti adiacenti? Eccone anche un'applicazione ad un esercizio già visto, ossia la determinazione di $\sum_{n\geq 0}\frac{n^2}{4^n}$. Abbiamo in primo luogo che $n^2$ è certamente una combinazione lineare di $\binom{n+2}{2},\binom{n+1}{1}$ e $\binom{n}{0}=1$.\\ In particolare, per eliminazione gaussiana (o differenze in avanti) vale $n^2=2\binom{n+2}{2}-3\binom{n+1}{1}+\binom{n}{0}$.\\ Da Stars\&Bars segue allora che 
 
 $$ \sum_{n\geq 0} n^2 x^n = \frac{2}{(1-x)^3}-\frac{3}{(1-x)^2}+\frac{1}{1-x} $$
 
@@ -866,7 +866,7 @@ Dalla formula di integrazione per parti segue l'omonimo criterio per gli integra
 \subsection{Serie di potenze}
 Una serie di potenze (centrata nell'origine) è definita come:
 $$\sum_{n=0}^{\infty}a_n x^n$$
-con $x\in\C$, e sia il \textbf{Raggio di Convergenza} \\
+con $x\in\C$, e sia il \textbf{raggio di convergenza} \\
 $$\rho=\frac{1}{\limsup\sqrt[n]{|a_n|}}.$$
 La serie di potenze converge puntualmente nella palla $B_0=\left\{z\in\C : |z|< \rho \right\}$ e uniformemente su ogni compatto contenuto in $B_0$.
 
@@ -1394,15 +1394,43 @@ Le soluzioni dell'equazione omogenea restano uno spazio vettoriale di dimensione
 
 \subsection{Esempi}
 \subsubsection{Decadimento radioattivo}
-È il processo secondo il quale un sostanza radioattiva decade, trasformandosi in un'altra sostanza più leggera a causa della perdita di neutroni.
-Il carattere fondamentale di questa reazione è che non si può predire quando avverà, ma si può dare una probabilità a questo evento ({\color{red} QUALE evento?}). Questa probabilità ({\color{red}probabilità che avvenga COSA?}) è $p\cdot dt$ proporzionale all'intervallo di tempo $dt$. Indicando con $n(t)$ il numero di neutroni presenti al tempo $t$, tra $t$ e $t+dt$ se ne disintegreranno $n(t)p\,dt$. Il numero complessivo di neutroni diminuirà, ottendo quindi:$$\frac{n(p+dt)-n(t)}{dt}=-pn(t).$$
-Facendo tendere $dt$ a $0$ otteniamo: $$n'(t)=n(0)e^{-pt}.$$
-Il numero di neutroni decresce quindi esponenzialmente e si denota con $\tau=\frac{\log 2}{p}$ il tempo di dimezzamento.\\
-{\color{red}Per come è descritto dall'equazione differenziale, questo processo non ha nulla di probabilistico o stocastico, è perfettamente deterministico, il che contraddice quanto espresso nell'introduzione.}
+È il processo secondo il quale un sostanza radioattiva decade, trasformandosi in un'altra sostanza più leggera a causa della perdita di neutroni. Indicando con $n(t)$ il numero di neutroni presenti al tempo $t$, il modello prevede che durante l'istante $dt$ una percentuale $p$ fissata di $n(t)$ decada, dando luogo all'equazione
 
-\subsubsection{Moto in presenza di attrito viscoso}
+$$ n(t+dt)-n(t) = -p\cdot n(t)\, dt\quad\Leftrightarrow\quad n'(t) = -p\cdot n(t) $$ 
+
+che è una ED a variabile separabili, con soluzione data da 
+
+$$ n(t) = n(0)\cdot e^{-pt}. $$
+
+Si ha in particolare che durante ogni intervallo di durata $\tau=\frac{\log 2}{p}$ il numero di neutroni presenti nella sostanza si dimezza. Pertanto $\tau$ è detto \emph{tempo di dimezzamento}.
 
 \subsubsection{Problemi di Gravitazione}
+
+Il più semplice problema di Gravitazione è quello in cui si suppone che un punto materiale, inizialmente fermo e a distanza $H$ dal suolo, cada verso il suolo per effetto di una accelerazione di modulo $g$ costante. Nel sistema di riferimento in cui la posizione $x=0$ corrisponde al suolo, il problema è dunque descritto da 
+$$ \ddot{x}=-g,\qquad \dot x = -gt,\qquad x(t) = H-\frac{1}{2}gt^2 $$
+e il tempo di caduta $T$ è dato dalla soluzione positiva di $x(t)=0$, ossia $T=\sqrt{\frac{2H}{g}}$.\\
+Alla medesima conclusione si può pervenire osservando che nell'ultima situazione, così come in tutti i problemi di cinematica in cui intervengono solo forze conservative, una certa funzione delle variabili $x$ e $\dot{x}$ (che determinano il \emph{piano delle fasi}) è costante nel tempo. Considerata infatti $f(x,\dot{x})=2g x+\dot{x}^2$ abbiamo 
+$$ \dot{f} = 2g\dot{x} + 2\dot{x}\ddot{x} = 2\dot{x}(g+\ddot{x}) = 0. $$
+Ciò fornisce un legame esplicito tra la posizione del punto materiale e la sua velocità: in corrispondenza di una qualunque posizione $x\in[0,H]$ la velocità del punto materiale è $\dot{x}=-\sqrt{2g(H-x)}$. Questa corrispondenza può essere espressa anche come $\frac{dx}{dt}=-\sqrt{2g(H-x)}$, e il Teorema della funzione implicita/inversa assicura la validità della seguente manipolazione algebrica dell'ultima identità:
+$$ \frac{dx}{\sqrt{2g(H-x)}} = -dt. $$
+Integrando ambo i membri dell'ultima identità tra la posizione iniziale e quella finale abbiamo che 
+$$ T = \frac{1}{\sqrt{2g}}\int_{0}^{H}\frac{dx}{\sqrt{H-x}}\stackrel{x\mapsto Hz}{=}\frac{H}{\sqrt{2g}}\int_{0}^{1}\frac{dz}{\sqrt{H}\sqrt{1-z}}\stackrel{z\mapsto 1-z}{=}\sqrt{\frac{H}{2g}}\int_{0}^{1}\frac{dz}{\sqrt{z}}\stackrel{z\mapsto u^2}{=}\sqrt{\frac{H}{2g}}\int_{0}^{1}2\,du = \sqrt{\frac{2H}{g}}. $$
+Nel caso di accelerazione costante l'ultimo approccio per la determinazione di $T$ è evidentemente meno efficiente rispetto alla semplice risoluzione di un'equazione di secondo grado, ma ha il pregio di essere incredibilmente più generale. Se infatti affrontiamo il problema della caduta di un grave dove l'accelerazione risponde alla legge di gravitazione universale, nelle stesse ipotesi di inizio sezione abbiamo 
+$$ \ddot{x} = -\frac{g}{\left(1+\frac{x}{R}\right)^2} $$
+dove $R$ indica il raggio terrestre. Normalizzando le lunghezze in base a quest'ultimo possiamo ricondurci all'equazione differenziale $\ddot{x} = -\frac{c}{(1+x)^2}$, e in questo caso è evidente quanto \emph{non sia} immediato dedurre la legge oraria. È comunque piuttosto semplice ricavare l'espressione esplicita di $\dot{x}(t)$: come in tutti i casi in cui $\ddot{x}=g(x)$ possiamo osservare che si ha
+$$ 2\dot{x}\ddot{x} = -2c\frac{\dot{x}}{(1+x)^2}\quad\Longleftrightarrow\quad \frac{d}{dt}\dot{x}^2 = 2c\cdot\frac{d}{dt}\left(\frac{1}{1+x}\right) $$
+dunque $\dot{x}^2-\frac{2c}{1+x}$ (che è il rapporto tra il doppio dell'energia meccanica del punto materiale e la massa del punto materiale) non varia nel tempo, restando pari a $-\frac{2c}{1+x(0)}$. Di nuovo, ciò comporta un legame tra posizione e velocità (ossia il fatto che il moto sia descritto da una specifica curva nel piano delle fasi):
+$$ \dot{x}^2 = 2c\left(\frac{1}{1+x}-\frac{1}{1+x(0)}\right). $$
+E di nuovo, dall'ultima equazione possiamo dedurre come varia il tempo al variare della posizione:
+$$ \frac{dt}{dx} = -\frac{1}{\sqrt{2c}}\left(\frac{1}{1+x}-\frac{1}{1+x(0)}\right)^{-1/2}. $$
+Integrando ambo i membri tra la posizione iniziale $x(0)>1$ e la posizione finale $x(T)=1$ abbiamo 
+$$ T = \frac{1}{\sqrt{2c}}\int_{1}^{x(0)}\left(\frac{1}{1+x}-\frac{1}{1+x(0)}\right)^{-1/2}\,dx=\frac{1}{\sqrt{2g}}\int_{0}^{H}\left(\frac{1}{1+\frac{x}{R}}-\frac{1}{1+\frac{H}{R}}\right)^{-1/2}\,dx,$$
+$$T=\sqrt{\frac{R+H}{2g}}\left(\sqrt{\frac{H}{R}}+\left(1+\frac{H}{R}\right)\arctan\sqrt{\frac{H}{R}}\right). $$
+Per altezze iniziali inferiori al raggio terrestre abbiamo
+$$T\approx \sqrt{\frac{R+H}{2g}}\left(2\left(\frac{H}{R}\right)^{1/2}+\left(\frac{H}{R}\right)^{3/2}\right) $$
+che al primo ordine è $1+\frac{H}{2R}$ volte il tempo di caduta in presenza di accelerazione costante.
+
+\subsubsection{Moto in presenza di attrito viscoso}
 
 \subsubsection{Oscillatore armonico}
 Con questo termine si indica un sistema costituito da un punto materiale di massa $m$ che si muove su una retta, soggetto ad una forza di richiamo, la cui intensità è proporzionale alla distanza dall'origine. \\
@@ -1413,10 +1441,15 @@ se cerchiamo soluzioni della forma $e^{\lambda t}$ otteniamo l'equazione $\lambd
 dove  $e^{i\omega_0t}$ e $e^{-i\omega_0t}$ stanno per $cos\omega_0t+isen\omega_0t$ e $cos\omega_0t-isen\omega_0t$ \\
 La soluzione generale della differenziale è quindi: $$u(t)=c_1sen\omega_0t+c_2cos\omega_0t$$\\
 ({\color{red} Sistemare la notazione, anche dopo. Così è illeggibile.})
+
+\subsubsection{Pendolo fisico}
+
+
+
 \subsection{Metodi di risoluzione di ED non omogenee}
 In generale consideriamo $\Tilde{x_{OM}}$ la soluzione dell'omogenea. Allora la soluzione generale sarà del tipo: $$\Tilde{x}= \Tilde{x_{OM}}+ \Tilde{x_1}$$\\
 dove $\Tilde{x_1}$ è la soluzione generale dell'equazione differenziale.\\
-Per trovarla è utile il \textbf{Metodo di Somiglianza} che consiste nel cercare le soluzioni generali a partire dal termine noto dell'equazione.\\
+Per trovarla è utile il \textbf{metodo di somiglianza} che consiste nel cercare le soluzioni generali a partire dal termine noto dell'equazione.\\
 Se per esempio stiamo cercando di risolvere l'equazione:
 $$u'(t)+2u(t)=t^2$$
 Cerchiamo prima la base delle soluzione dell'omogenea:$$u'(t)+2u(t)=0\Rightarrow \lambda +2 =0 \Rightarrow \lambda=-2 \Rightarrow \Tilde{x_{OM}}=e^{-2t}$$
@@ -1501,8 +1534,8 @@ analogamente per il pezzo in $dy$: $\int(x^2y+x)\,dy=\frac{1}{2}x^2y^2+xy+c$\\
 concludiamo quindi che: $$(xy^2+y)\,dx + (x^2y+x)\,dy= d(\frac{1}{2}x^2y^2 +xy)$$
 L'ED è dunque esatta e le soluzioni sono le curve di livello: $$\frac{1}{2}x^2y^2 +xy=C$$
 \subsection{Fattori integranti}
-Un'ED ordinaria del primo ordine puo' sempre essere espressa nella forma differenziale: $M\,dx + N\,dy$, ma questa di rado è esatta. Puo' pero' accadere che moltiplicando l'equazione per un \emph{fattore integrante} $\mu(x,y)$, l'equazione ottenuta: $$\mu(x,y)(M(x,y)\,dx +N(x,y)\,dy)=0$$ risulti esatta. \\
-Generalmente è difficile determinare tale fattore, capita pero' che esso sia funzione di una sola variabile, in questo caso si puo' facilmente ricavare dalla condizione di \emph{chiusura} enunciata poco fa. \\
+Un'ED ordinaria del primo ordine può sempre essere espressa nella forma differenziale: $M\,dx + N\,dy$, ma questa di rado è esatta. Può però accadere che moltiplicando l'equazione per un \emph{fattore integrante} $\mu(x,y)$, l'equazione ottenuta: $$\mu(x,y)(M(x,y)\,dx +N(x,y)\,dy)=0$$ risulti esatta. \\
+Generalmente è difficile determinare tale fattore, capita però che esso sia funzione di una sola variabile, in questo caso si può facilmente ricavare dalla condizione di \emph{chiusura} enunciata poco fa. \\
 $\mu(x)$ deve quindi soddisfare l'ODE:
 $$N(x,y)\frac{d\mu}{dx}=\mu(x)(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x})$$
 ovvero:
@@ -1844,7 +1877,7 @@ Concetto di \textbf{area} - \url{https://mathb.in/76086}
 
 Formule di \textbf{Viète} - \url{https://mathb.in/75995}
 
-\textbf{Somme di potenze consecutive} via HSI o stars\&bars - \url{https://mathb.in/75975}
+\textbf{Somme di potenze consecutive} via HSI o Stars\&Bars - \url{https://mathb.in/75975}
 
 \textbf{Esponenziale} e dintorni - \url{https://mathb.in/75935}
 
