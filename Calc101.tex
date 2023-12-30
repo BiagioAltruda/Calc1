@@ -1452,9 +1452,8 @@ formano uno spazio vettoriale, le soluzioni di
 $$ f(t) + c_1(t) f'(t) + \ldots + c_n(t) f^{(n)}(t) = g(t) $$
 costituiscono uno spazio affine, dunque ogni soluzione dell'ultima ED è data dalla somma tra una soluzione particolare di $ f(t) + c_1(t) f'(t) + \ldots + c_n(t) f^{(n)}(t) = g(t) $ e una combinazione lineare delle soluzioni dell'equazione omogenea. Nel caso (piuttosto comune) in cui $g(t)$ sia una combinazione lineare di termini della forma $t^n e^{\lambda t}$ (con $n\in\N$ e $\lambda\in\C$), una tecnica per determinare una soluzione particolare è il \textbf{metodo di somiglianza}, che consiste nel ricercare soluzioni $f(t)$ che abbiano la stessa ``struttura algebrica'' di $g(t)$.\footnote{L'\emph{handwaving} di questa sezione è rimosso dalla sezione successiva.} Nella risoluzione di  
 $$ u'(t)+2u(t) = t^2$$
-cerchiamo ad esempio soluzioni particolari che siano polinomi. Per come l'operatore di derivazione agisce sullo spazio dei polinomi (ossia riducendo di $1$ il grado dei polinomi non costanti) possiamo assumere senza perdita di generalità che una soluzione particolare sia della forma $at^3+bt^2+ct+d$.  Derivando otteniamo: $u'(t)=3at^2+2bt+c$ e utilizzando la relazione data dalla differenziale sappiamo che:
-$$3at^2+2bt+c + 2at^3+2bt^2+2ct+2d=t^2\Leftrightarrow 3a+2a=1\Rightarrow a=\frac{1}{5}$$
-La soluzione generale è quindi $u(t)= c_1 e^{-2t}+c_2\frac{1}{5}t^3$.\\
+cerchiamo ad esempio soluzioni particolari che siano polinomi. Per come l'operatore di derivazione agisce sullo spazio dei polinomi (ossia riducendo di $1$ il grado dei polinomi non costanti) possiamo assumere senza perdita di generalità che una soluzione particolare sia della forma $at^3+bt^2+ct+d$.  Derivando otteniamo $u'(t)=3at^2+2bt+c$: utilizzando la relazione data dalla differenziale e risolvendo un semplice sistema lineare otteniamo che $p(t)=\frac{1}{4}(2t^2-2t+1)$ è soluzione particolare.
+La soluzione generale è quindi $u(t)= p(t) + c_1 e^{-2t}$.\\
 Un altro metodo per risolvere alcune differenziali (più complesse delle precedenti) 
 è quello di ricorrere ad opportune sostituzioni, della variabile indipendente o della funzione obiettivo, ad esempio considerando l'equazione differenziale soddisfatta dalla funzione inversa di una soluzione (si vedano a tal proposito le \textbf{condizioni di Osgood}).
 
