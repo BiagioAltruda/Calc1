@@ -317,7 +317,7 @@ $$|z-x|<\delta\Longrightarrow|f(z)-f(x)|<\epsilon.$$
 \end{proof}
 
 
-\begin{definizione}[Modulo di Continuità]
+\begin{definizione}[Modulo di continuità]
 Sia $f:(a,b)\to\R$ una funzione a valori in $\R$, e sia $\delta$ un numero reale positivo. Si definisce Modulo di Continuità locale di $f$ in $x_0$ una funzione $\omega_0:\R^+\to\R^+$  tale che:\\
 $$|f(x_0)-f(x)|\leq\omega_{x_0}(\delta),\forall x\in(a,b):|x_0-x|\leq\delta$$ è detto modulo di continuità globale invece:
 $$|f(x_0)-f(x)|\leq\omega_{x_0}(\delta),\forall x,x_0\in(a,b):|x_0-x|\leq\delta$$
@@ -325,7 +325,7 @@ $$|f(x_0)-f(x)|\leq\omega_{x_0}(\delta),\forall x,x_0\in(a,b):|x_0-x|\leq\delta$
 
 
 
-Il modulo di Continuità misura l'uniforme continuità di $f$, in particolare valgono le seguenti proprietà:
+Il modulo di continuità misura l'uniforme continuità di $f$, in particolare valgono le seguenti proprietà:
 \begin{itemize}
  \item $f$ è continua in $x_0$ se e solo se essa ammette un modulo di continuità locale $\omega_{x_0}$ tale che $\lim_{\delta\to0}\omega_{x_0}(\delta)=0$
  \item una funzione è uniformemente continua se e solo se ammette un modulo di continuità globale $\omega_f$ tale che $\lim_{\delta\to 0}\omega_f(\delta)=0$
@@ -345,7 +345,61 @@ Per quanto la dimostrazione richieda elementi di Teoria della Misura, è importa
 \begin{theorem}[Riemann-Lebesgue] Se $f:[a,b]\to\mathbb{R}$ è Riemann-integrabile, l'insieme dei punti di discontinuità di $f$ ha misura di Lebesgue nulla. 
 \end{theorem}
 
+\newpage
 
+\subsection{Notazione di Landau e notazione di Vinogradov}
+\begin{definizione}
+Siano $f$ e $g$ due funzioni definite su un intorno di $a\in\R\cup\{\infty,+\infty\}$ a valori in $\R$. Scriviamo
+$$ f = O(g)\quad\mbox{oppure}\quad f\ll g $$
+se si verifica:
+$$ \limsup_{x\to a}\left|\frac{f(x)}{g(x)}\right| < +\infty, $$
+ossia se esiste una costante positiva $k$ per cui, in ogni intorno di $a$ sufficientemente piccolo, vale:
+$$ |f(x)|\leq k\cdot |g(x)|. $$
+\end{definizione}
+
+\begin{definizione}
+Siano $f$ e $g$ due funzioni definite su un intorno di $a\in\R\cup\{\infty,+\infty\}$ a valori in $\R$. Scriviamo
+$$ f = \Omega(g)\quad\mbox{oppure}\quad f\gg g $$
+se si verifica:
+$$ \liminf_{x\to a}\left|\frac{f(x)}{g(x)}\right| > 0, $$
+ossia se esiste una costante positiva $k$ per cui, in ogni intorno di $a$ sufficientemente piccolo, vale:
+$$ |f(x)|\geq k\cdot |g(x)|.$$
+\end{definizione}
+
+\begin{definizione}
+Siano $f$ e $g$ due funzioni definite su un intorno di $a\in\R\cup\{\infty,+\infty\}$ a valori in $\R$. Se in ogni intorno di $a$ sufficientemente piccolo il rapporto $\left|\frac{f(x)}{g(x)}\right|$ è limitato, 
+valgono simultaneamente $f=O(g)$ e $f=\Omega(g)$, e scriviamo:
+$$ f = \Theta(g). $$
+\end{definizione}
+
+\begin{definizione}
+Siano $f$ e $g$ due funzioni definite su un intorno di $a\in\R\cup\{\infty,+\infty\}$ a valori in $\R$.\\ Se il rapporto $\frac{f(x)}{g(x)}$ ammette limite $0$ per $x\to a$, scriviamo:
+$$ f = o(g).$$ 
+\end{definizione}
+
+\begin{definizione}
+Siano $f$ e $g$ due funzioni definite su un intorno di $a\in\R\cup\{\infty,+\infty\}$ a valori in $\R$.\\ Se il rapporto $\frac{f(x)}{g(x)}$ ammette limite $1$ per $x\to a$, scriviamo:
+$$ f \sim g,$$
+e diciamo che $f$ è \emph{asintotica} a $g$. 
+\end{definizione}
+
+\begin{framed}
+\begin{ex}
+Si provi che se $p\in\R[x]$ è un polinomio monico, per $x\to +\infty$ vale:
+$$ p(x) \sim x^{\partial p}. $$
+\end{ex}
+\begin{ex}
+Si provi che:
+$$ f\sim g\quad\Longleftrightarrow\quad (f-g)=o(g). $$
+\end{ex}
+\begin{ex}
+Si provi che, se $f\ll g$ e $g\ll h$, si verificano:
+$$ g\gg f,\qquad h\gg g,\qquad f\ll h,\qquad h\gg f.$$
+\end{ex}
+
+\end{framed}
+
+\subsection{Limiti di funzioni}
 
 \subsection{Spazi metrici e di Banach}
 Sia $X$ un insieme e sia $d:X \times X\to [0,+\infty]$ una funzione che ad ogni coppia $(x,y)$ di punti in $X$ associa un numero reale $d(x,y)\geq0$. Si dice che $d$ è una distanza o metrica su $X$ se sono verificate le seguenti:
@@ -384,7 +438,7 @@ Sia $(X,d)$ uno spazio metrico e sia $x_0$ un fissato punto di $X$. Allora la fu
 è continua da $X$ verso $\R$ (dotato della metrica euclidea)
 \end{theorem}
 \begin{proof}
-    Applicando la disuguaglianza di Lipschitzianità della distanza si ha che per $x,y\in A$:
+    Applicando la disuguaglianza di lipschitzianità della distanza si ha che per $x,y\in A$:
     $$|d(y,x_0)-d(x,x_0)|\leq d(x,y)$$
     Allora se $x_0$ è una successione di punti convergenti ad $x$, si ha: 
     $$|d(x_k,x_0)-d(x,x_0)|\leq d(x_k,x)$$
@@ -408,7 +462,7 @@ Siano $(X,d_X)$ e $(Y,d_Y)$ due spazi metrici e sia $f:X\to Y$ una funzione.\\ D
 \end{definizione}
 Se $f:X\to Y$ è l-lip chiaramente è anche continua in $X$.
 \begin{definizione}[Contrazione]
-Una $f:X\to X$ Lipschitziana con costante $L<1$, cioè tale per cui
+Una $f:X\to X$ lipschitziana con costante $L<1$, cioè tale per cui
 $$\exists L\in[0,1): d(f(x),f(y))\leq L\cdot d(x,y)\qquad\forall x,y\in X$$
 prende il nome di \emph{contrazione} sullo spazio $(X,d)$.
 \end{definizione}
@@ -649,7 +703,7 @@ $$ \xi_{n+1} = \xi_n - \frac{f'(0)\xi_n + \frac{1}{2}(f''(0)+o(1))\xi_n^2}{f'(0)
 \end{ex}
 \textbf{Sketch di soluzione}. Da tre passaggi del metodo di Newton con $\theta_0=1$ si ha che $\frac{73}{66}=1.1\overline{06}$ stima la soluzione con un errore assoluto inferiore al milionesimo.
 
-
+\subsection{Problemi di massimo o minimo}
 
 \subsection{Teorema di Taylor e resto integrale}
 Sia $I$ un intorno aperto dell'origine e $f$ una funzione di classe $C^d$ su $I$, con $d\geq 1$. Per un qualunque $t\in I$, possiamo considerare che l'applicazione della formula di integrazione produce quanto segue:
@@ -1293,7 +1347,7 @@ conduce immediatamente a $a_n = (n-1)!$.
 \textbf{Soluzione}. Visto e considerato l'esercizio precedente, poniamo $a_n=(n-1)! b_n$ e osserviamo che per la successione $\{b_n\}_{n\geq 1}$ abbiamo di conseguenza $b_1=1$ e $n!\cdot b_{n+1} = n!\cdot b_n + 1$, ossia $b_{n+1}-b_n=\frac{1}{n!}$. Il membro sinistro dell'ultima equazione è il termine generale di una somma telescopica, da cui 
 $$ b_{N+1}-b_1 = \sum_{n=1}^{N}\left(b_{n+1}-b_n\right) = \sum_{n=1}^{N}\frac{1}{n!}$$
 e di conseguenza $b_{N+1}=\sum_{n=0}^{N}\frac{1}{n!}$, così come $a_n = (n-1)!\sum_{k=0}^{n-1}\frac{1}{k!}$. 
-Questo esercizio è strettamente legato al conteggio delle \emph{dismutazioni} in $S^n$, ossia permutazioni senza punti fissi.\\
+Questo esercizio è strettamente legato al conteggio delle \emph{dismutazioni} in $S_n$, ossia permutazioni senza punti fissi.\\
 
 
 Più in generale si può cercare di tradurre (e risolvere) una ricorrenza lineare ma non omogenea in una equazione algebrica o differenziale per la funzione generatrice ordinaria (OGF) $\sum a_n z^n$ o per la funzione generatrice esponenziale (EGF) $\sum \frac{a_n}{n!} z^n$. Un caso celebre è dato dalla successione $\{C_n\}_{n\geq 0}$ con $C_0=1$ e $C_n=\sum_{k=1}^{n}C_{k-1}C_{n-k}$, che enumera certi percorsi sotto-diagonali in una griglia quadrata. In questo caso (numeri \emph{di Catalan}) si ha $C_n=\frac{1}{n+1}\binom{2n}{n}$ da semplici manipolazioni applicate alla serie di Maclaurin di $\sqrt{1-z}$. Per approfondimenti rimandiamo al Wilf o al Flajolet.
@@ -1403,9 +1457,6 @@ In analogia con il caso scalare, la soluzione di $u'(x)=M\,u(x)$ è determinata 
 $$ f(x) = \kappa_1 e^{\lambda_1 x}+\ldots+\kappa_n e^{\lambda_n x}, $$
 con $\lambda_1,\ldots,\lambda_n$ radici del polinomio caratteristico e $\kappa_1,\ldots,\kappa_n$ scalari fissati dalle condizioni iniziali.\\
 Le soluzioni dell'equazione omogenea restano uno spazio vettoriale di dimensione $n$ anche nel caso in cui $M$ non sia diagonalizzabile, ma se $p(\lambda)$ ha una radice $\eta$ di molteplicità $k\geq 2$, questa contribuisce alla soluzione attraverso i termini $\kappa_1 e^{\eta x}+\kappa_2 x e^{\eta x}+\ldots+\kappa_{k-1} x^{k-1} e^{\eta x}$, dunque la soluzione generale diviene una combinazione lineare non di soli esponenziali, ma di esponenziali moltiplicati per opportuni monomi. Quest'ultimo fatto può essere dimostrato considerando la struttura delle potenze di un generico blocco di Jordan o, forse più agevolmente, attraverso la trasformata di Laplace, come vedremo più avanti.
-
-
-{\color{red} Inserire il fatto che la soluzione di differenziali lineari, la risoluzioni di ricorrenze lineari e il calcolo di potenze di matrici sono lo stesso problema.}
 
 \subsection{Esempi}
 \subsubsection{Decadimento radioattivo}
@@ -1572,11 +1623,11 @@ Da semplici manipolazioni algebriche segue
 $$ f(x) = \mathcal{L}^{-1}\left(\frac{Q(s)}{s^k-c_1 s^{k-1}-\ldots-c_k}\right)(x) $$
 e la decomposizione in fratti semplici dell'ultima funzione razionale entro parentesi chiude il circolo di equivalenze.
 
+\subsection{Accenno al metodo di Frobenius}
+
 \newpage
 
-{\color{red}\underline{Modificare in: accenni di Analisi 2 e Sistemi Dinamici, integrali primi e funzioni di Lyapunov.}}
-
-\subsection{Equazioni differenziali esatte e fattori integranti}
+\subsection{Accenni di Analisi 2 e Sistemi Dinamici, integrali primi e funzioni di Lyapunov}
 Un'altra strada percorribile è studiare l'\emph{esattezza} di una equazione differenziale. Ma prima definiamo:
 \begin{definizione}
     Un'equazione differenziale scritta in forma normale ({\color{red}Cos'è?}) $f(x,y)$ si dice \emph{chiusa} se: $$\frac{\partial }{\partial y}f(x,y)=\frac{\partial }{\partial x}f(x,y)$$ 
@@ -2003,11 +2054,6 @@ Per quanto concerne gli esercizi consigliamo, oltre ai $69$ sovrastanti,
 
 \end{document}
 
-Calcolo di limiti
-o e O
-problemi di minmax
-Cauchy-Lipschitz
-Frobenius f''(x) = x f(x)
 
 
 
