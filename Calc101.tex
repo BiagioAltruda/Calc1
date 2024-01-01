@@ -227,8 +227,8 @@ Per definizione di limite, si ha che, comunque fissato $\epsilon >0$, definitiva
 \begin{definizione} Una \emph{sottosuccessione} di $\{a_n\}$ è una qualunque successione della forma $\{a_{n_k}\}_{k\geq 1}$\\ con $n_1 < n_2 < n_3 < \ldots$. 
 \end{definizione}
 
-\begin{theorem}[Bolzano-Weierstrass]
-Ogni successione di numeri reali contenuta in un intervallo limitato $[a,b]$ possiede una sottosuccessione convergente in $[a,b]$.\end{theorem}
+\begin{theo}[Bolzano-Weierstrass]
+Ogni successione di numeri reali contenuta in un intervallo limitato $[a,b]$\\ possiede una sottosuccessione convergente in $[a,b]$.\end{theo}
 \begin{proof}
 Sia $\{x_n\}$ la nostra successione, Dividiamo l'intervallo $[a,b]$ in due sotto intervalli di uguale ampiezza. Almeno uno di questi intervalli conterrà infiniti elementi di $\{x_n\}$, scegliamone uno, $x_0$. Chiamiamo questo intervallo $[a_1,b_1]$, peschiamo un elemento da $[a_1,b_1]$, $x_1$ e procediamo così ottenendo una successione di intervalli $[a_k,b_k]$ e una sottosuccessione $x_{n_k}$ con le seguenti proprietà:
 \begin{itemize}
@@ -272,8 +272,8 @@ Osservando che $a_n - b_n\to 0$ abbiamo che $l_1=l_2=l$, dunque $f(l)=0$.
 \end{proof}
 
 
-\begin{theorem}[Weierstrass]
-Se $f:[a,b]\to \R$ una funzione continua, allora $f$ assume massimo e minimo in $[a,b]$.\end{theorem}
+\begin{theo}[Weierstrass]
+Se $f:[a,b]\to \R$ una funzione continua, allora $f$ assume massimo e minimo in $[a,b]$.\end{theo}
 \begin{proof} È sufficiente provare che per qualche $c\in[a,b]$ si ha $f(c)=\sup_{x\in[a,b]}f(x)$, per poi applicare il medesimo lemma a $-f(x)$. Proviamo preliminarmente che $f$ è necessariamente superiormente limitata. Se così non fosse, esisterebbe una qualche successione $\{x_n\}_{n\geq 1}$ di elementi di $[a,b]$ tale per cui $f(x_n)\geq n$ per ogni $n\in\N^+$.\\ Per Bolzano-Weierstrass esisterebbe una estratta $\{x_{n_k}\}_{k\geq 1}$ convergente a $\overline{x}\in[a,b]$, e dalla continuità di $f$ si avrebbe 
 $$f(\overline{x})=\lim_{k\to +\infty} f(x_{n_k}) = +\infty, $$
 contro l'ipotesi che $f$ abbia valori reali in tutti i punti di $[a,b]$. Provato che l'immagine di $[a,b]$ secondo $f$ è superiormente limitata, poniamo $\Gamma=\sup_{x\in[a,b]}f(x)$. Per definizione di $\sup$, per ogni $n\in\N^+$ esiste un $x_n\in[a,b]$ tale per cui $f(x_n)\geq \Gamma-\frac{1}{n}$. Analogamente a prima, dalla successione $\{x_n\}_{n\geq 1}$ è possibile estrarre una sottosuccessione $\{x_{n_k}\}_{k\geq 1}$ convergente a $\overline{x}\in[a,b]$, e dalla continuità di $f$ segue 
@@ -333,9 +333,10 @@ Il modulo di continuità misura l'uniforme continuità di $f$, in particolare va
 \end{itemize}
 
 
-\begin{theorem}[Integrabilità delle funzioni continue]
+\begin{theo}[Integrabilità delle funzioni continue]$\phantom{}$
+\\
 Se $f:[a,b]\to\R$ è continua, allora è Riemann-integrabile su $[a,b]$.
-\end{theorem}
+\end{theo}
 \begin{proof}
 Data una partizione di $[a,b]$ di calibro $\delta$, l'uniforme continuità di $f$ assicura che su ogni componente della partizione si abbia $\sup f-\inf f \leq \epsilon$. In particolare la differenza tra l'$\inf$ delle somme di Riemann superiori e il $\sup$ delle somme di Riemann superiori è controllato da $\epsilon(b-a)$. Dall'arbitrarietà di $\epsilon$ segue la Riemann-integrabilità di $f$. 
 \end{proof}
@@ -484,8 +485,8 @@ La stessi tesi vale in ipotesi leggermente meno forti.
 \begin{definizione}[Funzione contrattiva o contrazione debole] Se $(X,d)$ è uno spazio metrico e $f:X\to X$ è tale per cui  $d(f(x),f(y))<d(x,y)$ per ogni $x,y$ distinti in $X$, $f$ è detta \emph{funzione contrattiva} o \emph{contrazione debole}. 
 \end{definizione}
 
-\begin{theorem}[Teorema delle contrazioni deboli (Banach-Caccioppoli)] Se $(X,d)$ è uno spazio metrico compatto rispetto alla topologia indotta da $d$) e $f:X\to X$ è una contrazione debole, per ogni $x_0\in X$ la successione definita da $x_{n+1}=f(x_n)$ converge all'unico punto fisso di $f$. 
-\end{theorem}
+\begin{theo}[Teorema delle contrazioni deboli (Banach-Caccioppoli)] Se $(X,d)$ è uno spazio metrico compatto rispetto alla topologia indotta da $d$) e $f:X\to X$ è una contrazione debole, per ogni $x_0\in X$ la successione definita da $x_{n+1}=f(x_n)$ converge all'unico punto fisso di $f$. 
+\end{theo}
 
 \begin{proof}
 In quanto funzione $1$-Lip, $f$ è uniformemente continua e lo stesso vale per $g(x)=d(f(x),x)$.\\ Per il Teorema di Weierstrass una funzione continua su un compatto ammette minimo, e il minimo di $g(x)$ su $X$ deve essere necessariamente zero. Se infatti il valore minimo di $g$ fosse $m>0$, assunto in $\overline{x}$, per contrattività di $f$ si avrebbe 
@@ -504,9 +505,9 @@ Osservimo che, se $K\subseteq X$ è un insieme compatto, si dice, secondo questa
 \begin{proof}
     sia $x_k$ una successione di punti di $K$ convergente verso il punto $x\in X$. Dimostriamo che $x\in K$. Essendo $K$ compatto estraiamo da $x_k$ una sottosuccessione $x_{k_h}$, questa è convergente verso il punto $x_0\in K$. Necessariamente $x=x_0$ e si ha che $x\in K$
 \end{proof}
-\begin{theorem}[Heine-Borel]
+\begin{theo}[Heine-Borel]
 Un sottoinsieme $K$ di $\R^n$ è compatto se e solo se è chiuso e limitato.    
-\end{theorem}
+\end{theo}
 \begin{proof}
  Se $K$ è chiuso e limitato, sia $\{x_k\}_{k\geq 1}=\{\left(x_{k_1},x_{k_2},\dots,x_{k_n}\right)\}_{k\geq 1}$ una successione di punti di $K$.\\ Le successioni $\{x_{k_i}\}_{k\geq 1}$ sono successioni limitate di reali. Per il teorema di Bolzano-Weierstrass dalla successione $\{x_k\}_{k\geq 1}$ se ne può estrarre una avente la prima coordinata convergente; da questa un'altra con seconda coordinata convergente, e così via fino ad $n$. Si ottiene così una successione strettamente crescente $\{k_h\}_{h\geq 1}$ di numeri naturali tale che  $x_{k_h,i}\to x_i$ per ogni $i=1,2,3,\dots,n$. Pertanto $x_k\to x=(x_1,x_2,\dots,x_n)$.\\
  Essendo $K$ chiuso ne segue che $x\in K$ e quindi $K$ è compatto.\\ Viceversa se $K$ è compatto esso è chiuso per la proposizione precedente. Se $K$ non fosse limitato, esisterebbe una successione $\{x_k\}_{k\geq 1}$ di punti di $K$ tale che: $$\lim_{k\to\infty}|x_k|=+\infty$$ e da questa non si potrebbe estrarre alcuna successione convergente, contro l'ipotesi che $K$ sia compatto.
@@ -650,10 +651,10 @@ Si provi che se $p>q>0$ allora $M_p \geq M_q$.
 
 
 
-\begin{theorem}[Disuguaglianza di Hermite-Hadamard]\label{HermiteHadamard}
+\begin{theo}[Disuguaglianza di Hermite-Hadamard]\label{HermiteHadamard}
 Se $f:[a,b]\to\mathbb{R}$ è una funzione convessa,
 $$ f\left(\frac{a+b}{2}\right) \leq \frac{1}{b-a}\int_{a}^{b}f(x)\,dx \leq \frac{f(a)+f(b)}{2}.$$
-\end{theorem}
+\end{theo}
 \begin{proof} La convessità di $f$ comporta la sua continuità su $(a,b)$, da cui la sua Riemann-integrabilità. A meno di rimpiazzare $f(x)$ con $f(x)+c$ possiamo assumere senza perdita di generalità che si abbia $f\geq 0$ su $[a,b]$. Sempre per convessità, il sottografico di $f$ su $[a,b]$ è contenuto all'interno del trapezio avente vertici in $(a,0),(b,0),(b,f(b)),(a,f(a))$, da cui la maggiorazione.
 E nuovamente per convessità, esiste una retta per $\left(\frac{a+b}{2},f\left(\frac{a+b}{2}\right)\right)$ che sull'intervallo $[a,b]$ giace al di sotto del grafico della funzione (se $f$ è derivabile nel punto medio dell'intervallo $[a,b]$, basta considerare la retta con coefficiente angolare $f'\left(\frac{a+b}{2}\right)$). L'area del trapezio delimitato dall'asse delle $x$, da $x=a$, da $x=b$ e dalla precedente retta ha area $(b-a)f\left(\frac{a+b}{2}\right)$, il che prova la minorazione.\end{proof}
 
@@ -685,11 +686,10 @@ Oltre che nella fabbricazione di stime accurate, la convessità è di grande aus
 \subsection{Metodo di Newton}
 Il concetto di convessità dal punto di vista geometrico è anche alla base di uno dei principali stratagemmi numerici per la determinazione di zeri di funzioni, il \emph{metodo delle tangenti} o \emph{metodo di Newton}.
 
-\begin{theorem} Se $f\in C^2([a,b])$ è convessa, con derivata positiva e tale per cui $f(a)f(b)<0$, la successione definita attraverso 
+\begin{theo} Se $f\in C^2([a,b])$ è convessa, con derivata positiva e tale per cui $f(a)f(b)<0$,\\ la successione definita attraverso 
 $$ \xi_0 = b,\qquad \xi_{n+1} = \xi_n - \frac{f(\xi_n)}{f'(\xi_n)} $$
-converge decrescendo all'unico zero di $f$ in $[a,b]$. 
- 
-\end{theorem}
+converge decrescendo all'unico zero di $f$ in $[a,b]$.  
+\end{theo}
 \begin{proof}
 Per convessità, il grafico di $f$ su $[a,b]$ è collocato al di sopra di qualunque retta tangente, in particolare si ha $f(x)\geq f'(\xi_n)(x-\xi_n)+f(\xi_n)$ per ogni $x\in[a,b]$. L'ultima retta tangente interseca l'asse delle ascisse in $\xi_{n+1}$, che si trova necessariamente alla sinistra di $\xi_n$ e alla destra dell'unico zero di $f$ in $[a,b]$. La successione $\{\xi_n\}_{n\geq 0}$, in quanto decrescente e inferiormente limitata, converge necessariamente al suo $\inf$, che denominiamo $\xi$. Da $\lim_{n\to +\infty}(\xi_{n+1}-\xi_n)=0$ segue $f(\xi)=0$.
 \end{proof}
@@ -717,9 +717,9 @@ dove $(d-1)_k$ indica il simbolo di Pochhammer decrescente, ossia $k!\binom{d-1}
 $$ \frac{1}{(d-1)!}\int_{0}^{t}(t-x)^{d-1}f^{(d)}(x)\,dx = -\sum_{j=1}^{d-1}\frac{f^{(j)}(0)}{j!}\,t^j + f(t)-f(0). $$
 
 Una immediata conseguenza è la \textbf{formula di Taylor con resto integrale} per funzioni di classe $C^d$ in un intorno dell'origine:
-\begin{theorem}
+\begin{theo}[Formula di Taylor con resto integrale]
  $$ f(t) = \sum_{j=0}^{d-1}\frac{f^{(j)}(0)}{j!}\,t^j + \frac{1}{(d-1)!}\int_{0}^{t}(t-x)^{d-1}f^{(d)}(x)\,dx. $$
-\end{theorem}
+\end{theo}
 Il primo addendo nel membro destro è detto \emph{polinomio di Taylor} di ordine $d-1$, ed è l'unico polinomio di grado $\leq (d-1)$ le cui derivate nell'origine, fino alla $(d-1)$-esima, coincidono con quelle di $f$.\\
 Supponendo che $f^{(d)}(x)$ su $[0,t]$ assuma valori compresi tra $m$ ed $M$ abbiamo che il termine di resto è compreso tra $m$ volte ed $M$ volte la seguente quantità:
 $$ \frac{1}{(d-1)!}\int_{0}^{t}(t-x)^{d-1}\,dx = \frac{t^d}{d!}. $$
@@ -799,7 +799,6 @@ $$ \sum_{n\geq 0} n^2 x^n = \frac{2}{(1-x)^3}-\frac{3}{(1-x)^2}+\frac{1}{1-x} $$
 e valutando ambo i membri in corrispondenza di $x=\frac{1}{4}$ si ha immediatamente 
 
 $$ \sum_{n\geq 0}\frac{n^2}{4^n} = 2\left(\frac{4}{3}\right)^3-3\left(\frac{4}{3}\right)^2+\left(\frac{4}{3}\right)=\frac{20}{27}.$$
-\\
 
 \subsection{Binomiale centrale}
 I coefficienti binomiali centrali sono i binomiali del tipo:
@@ -1072,10 +1071,10 @@ Sia $f:[a,b]\to\R$ una funzione integrabile secondo Riemann. Allora l'insieme de
 
 Nella determinazione esplicita della primitiva di una funzione è spesso opportuno o necessario utilizzare sostituzioni. Il seguente risultato ne regola la meccanica.
 
-\begin{theorem}[Cambio di variabile]
+\begin{theo}[Cambio di variabile]
 Supponiamo che $f:[a,b]\to\R$ sia continua e\\ $\varphi:[c,d]\to[a,b]$ sia un'applicazione di classe $C^1$ con inversa di classe $C^1$. In queste ipotesi si ha
 $$ \int_{a}^{b} f(x)\,dx \stackrel{x\mapsto\varphi(t)}{=}\int_{c}^{d}\varphi'(t) f(\varphi(t))\,dt = \int_{\varphi^{-1}(a)}^{\varphi^{-1}(b)}\varphi'(t) f(\varphi(t))\,dt.$$
-\end{theorem}
+\end{theo}
 \begin{proof}
 Cominciamo con l'osservare che la tesi è ovvia nel caso in cui $\varphi$ sia una mappa affine e invertibile, $\varphi(t)=mt+q$ con $m\neq 0$:
 
@@ -1123,11 +1122,13 @@ $$ I = \int_{-\pi/2}^{\pi/2}\frac{d\theta}{5-\sin\theta} = \int_{0}^{\pi/2}\left
 Invocando la sostituzione $\theta=\arctan t$, per cui $d\theta=\frac{dt}{1+t^2}$ e $\cos^2(\arctan t)=\frac{1}{1+t^2}$, ci riconduciamo immediatamente a
 $$ I = 10\int_{0}^{+\infty}\frac{dt}{25(1+t^2)-1}=\frac{2}{5}\int_{0}^{+\infty}\frac{dt}{t^2+\frac{24}{25}}\stackrel{t=\sqrt{\frac{24}{25}}u}{=}\frac{2}{5}\sqrt{\frac{24}{25}}\int_{0}^{+\infty}\frac{du}{\frac{24}{25}(u^2+1)}=\frac{2}{5}\sqrt{\frac{25}{24}}\frac{\pi}{2} = {\color{blue}\frac{\pi}{2\sqrt{6}}}. $$
 
+\newpage
 
 \subsection{Integrazione per parti}
 Nell'ipotesi che le funzioni integrande in ambo i membri siano continue su $[a,b]$ si ha che 
+\begin{theo}[Formula di integrazione per parti]
 $$ \int_{a}^{b} f(x)g(x) = \left[ F(x)g(x)\right]_{a}^{b}-\int_{a}^{b} F(x)g'(x)\,dx $$
-dove $F(x)$ denota \emph{una} primitiva di $f(x)$.
+dove $F(x)$ denota \emph{una} primitiva di $f(x)$.\end{theo}
 \begin{ex} Si dimostri che per ogni $t\in\R^+$ la quantità 
 $$ \int_{0}^{t}\frac{\sin x}{x}\,dx $$
 è positiva. 
