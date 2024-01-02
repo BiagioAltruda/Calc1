@@ -638,14 +638,18 @@ $$ \varphi\left(\frac{1}{b-a}\int_{a}^{b}f(x)\,dx\right) \leq \frac{1}{b-a}\int_
 \begin{proof} Segue dal risultato precedente interpretando gli integrali come limiti di somme di Riemann.\\ In Probabilità la disuguaglianza è spesso espressa in forma più concisa come $\varphi(\mathbb{E}[X])\leq \mathbb{E}[\varphi(X)]$. 
 \end{proof}
 
+\begin{shaded}
 \begin{ex}[AM-GM] Si dimostri che se $a_1,\ldots,a_n$ sono quantità positive si ha 
 $$ \text{AM}\left(a_1,\ldots,a_n\right) = \frac{1}{n}\sum_{k=1}^{n}a_k \geq \sqrt[n]{\prod_{k=1}^{n}a_k} = \text{GM}\left(a_1,\ldots,a_n\right). $$ 
 \end{ex}
+\end{shaded}
 \textbf{Soluzione}. Posto $a_k = \exp\left(b_k\right)$ si ha che la disuguaglianza in questione è la disuguaglianza di Jensen generalizzata per $f(x)=e^x$ e $\lambda_1=\ldots=\lambda_n=\frac{1}{n}$. In particolare è sufficiente invocare il fatto che $e^x$ è una funzione convessa, poiché continua e convessa per punti medi, o poiché positiva e coincidente con la propria derivata seconda.\qed
 
+\begin{shaded}
 \begin{ex}[Cauchy-Schwarz] Si provi che per ogni $\vec{a},\vec{b}\in\R^n$ si ha $\langle \vec{a},\vec{b}\rangle^2 \leq \|\vec{a}\|^2\|\vec{b}\|^2$, ossia 
 $$ \left(\sum_{k=1}^{n} a_k b_k\right)^2 \leq \sum_{k=1}^{n} a_k^2 \sum_{k=1}^{n} b_k^2. $$
 \end{ex}
+\end{shaded}
 \textbf{Soluzione}. La distanza dall'origine è una funzione convessa in quanto ha per epigrafico un cono. Ne consegue che 
 $$\forall \lambda\in[0,1],\qquad \|\lambda\vec{a}+(1-\lambda)\vec{b}\| \leq \lambda\|\vec{a}\|+(1-\lambda)\|\vec{b}\|. $$
 Elevando al quadrato ambo i membri (certamente non negativi) abbiamo che 
@@ -712,6 +716,8 @@ $$ \xi_{n+1} = \xi_n - \frac{f'(0)\xi_n + \frac{1}{2}(f''(0)+o(1))\xi_n^2}{f'(0)
 \end{ex}
 \textbf{Sketch di soluzione}. Da tre passaggi del metodo di Newton con $\theta_0=1$ si ha che $\frac{73}{66}=1.1\overline{06}$ stima la soluzione con un errore assoluto inferiore al milionesimo.
 
+\newpage
+
 \subsection{Problemi di massimo o minimo}
 
 \begin{shaded}
@@ -774,6 +780,7 @@ Per decomposizione in fratti semplici si ha
 $$ I(\alpha) = \frac{2\pi}{\alpha^2+4} $$
 con una interessante interpretazione probabilistica: la somma di due variabili aleatorie indipendenti e di Cauchy è ancora di Cauchy.
 
+\newpage
 
 \subsection{Teorema di Taylor e resto integrale}
 Sia $I$ un intorno aperto dell'origine e $f$ una funzione di classe $C^d$ su $I$, con $d\geq 1$. Per un qualunque $t\in I$, possiamo considerare che l'applicazione della formula di integrazione produce quanto segue:
@@ -844,6 +851,8 @@ e
 $$ \arcsin x = \sum_{n\geq 0}\frac{\binom{2n}{n}}{2n+1}x^{2n+1} = x + \frac{x^3}{6} + o(x^4).$$
 Da quanto collezionato segue che al quart'ordine $\sin(x)\arcsin(x)$ è indistinguibile da $\left(x-\frac{x^3}{6}\right)\left(x+\frac{x^3}{6}\right)=x^2+o(x^4)$, dunque anche il valore di $f^{(IV)}(0)$ è $\color{blue}0$.
 
+\newpage
+
 \section{Binomiali \& Friends}
 Come spero sia noto il binomiale $\binom{n}{k}$, letto \emph{$n$ su $k$}, rappresenta il numero di sottoinsiemi di cardinalità $k$ in un insieme di $n$ elementi.
 Questo è esplicitamente:\\
@@ -904,6 +913,7 @@ $$\begin{array}{ccccccc} 0 && 1 && 8 && 27 \\
 fornisce $n^3=6\binom{n}{3}+6\binom{n}{2}+1\binom{n}{1}$ (i coefficienti così trovati sono legati ai \emph{numeri di Stirling del secondo tipo}).\\ Dalla HSI abbiamo pertanto
 $$ \sum_{n=1}^{N}n^3 = 6\sum_{n=1}^{N}\binom{n}{3}+6\sum_{n=1}^{N}\binom{n}{2}+\sum_{n=1}^{N}\binom{n}{1}=6\binom{N+1}{4}+6\binom{N+1}{3}+\binom{N+1}{2}={\color{blue}\left(\frac{N(N+1)}{2}\right)^2}=\left(\sum_{n=1}^{N}n\right)^2.$$
 
+\newpage
 
     \section{Criteri e metodi per serie numeriche}
     \subsection{Serie importanti}
@@ -1743,9 +1753,10 @@ $$\sum_{\substack{n\geq 0\\ 3\mid n}}\Gamma\left(\tfrac{n+1}{3}
 Infine, rimpiazzando $z$ con $x\sqrt[3]{3}$ si ha 
 $$ f(x) = \frac{1}{\Gamma\left(\frac{1}{3}\right)\sqrt[3]{3}}\int_{0}^{+\infty}e^{-u^3/3}\left(e^{xu}+e^{\omega xu}+e^{\overline{\omega} xu}\right)\,du  = \frac{1}{\Gamma\left(\frac{1}{3}\right)\sqrt[3]{3}}\int_{0}^{+\infty}e^{-u^3/3}\left(e^{xu}+2e^{-xu/2}\cos\left(\frac{xu\sqrt{3}}{2}\right)\right)\,du.$$
 Dall'ultima rappresentazione integrale, finalmente, è facile vedere che se $x<0$ predomina la parte oscillante, mentre se $x>0$ la maggior parte della massa dell'integrale si trova in prossimità di $u=\sqrt{x}$, e la soluzione si comporta come $C\cdot x^{-1/4}\exp\left(\frac{2}{3}x^{3/2}\right)$. Le \emph{funzioni di Airy} sono esempi di funzioni intere con ordine non intero, e il metodo risolutivo esposto (mediante serie e rappresentazioni integrali di queste) è detto \emph{metodo di Frobenius}.
-\newpage
 
 \subsection{Accenni di Analisi 2 e Sistemi Dinamici, integrali primi e funzioni di Lyapunov}
+
+\newpage
 
 \section{Esercizi e simulazioni di pre-test}
 Gli esercizi di seguito riportati con una stella ($\star$) hanno difficoltà paragonabile a quelli del compito, quelli riportati con due stelle ($\star\star$) sono più impegnativi. Quelli con tre stelle ($\star\star\star$) sono estremamente impegnativi, si raccomanda cautela.\\
