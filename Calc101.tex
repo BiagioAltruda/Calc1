@@ -538,6 +538,15 @@ Sia $f:[a,b]\to\R$ e derivabile in $(a,b)$. Esiste un punto $\xi\in(a,b)$ tale c
 \begin{proof}
     La funzione: $$h(x)=[g(b)-g(a)]f(x)-[f(b)-f(a)]g(x)$$ verifica tutte le ipotesi del teorema di Rolle, allora esiste un punto $\xi\in(a,b)$ in cui questa si annulla. 
 \end{proof}
+
+\begin{framed}
+ \textbf{Nota}. Una maniera elegante di provare che sia il Teorema di Lagrange che quello di Cauchy seguono dal Teorema di Rolle è considerare, per un generica tripla di funzioni $f(x),g(x),h(x)$, continue su $[a,b]$ e derivabili in $(a,b)$, la funzione 
+ $$ D(x)=\det\begin{pmatrix} f(x) & g(x) & h(x) \\ f(a) & g(a) & h(a) \\ f(b) & g(b) & h(b)\end{pmatrix}. $$
+ Dalla regola di Laplace si ha che $D(x)$ è continua su $[a,b]$ e derivabile in $(a,b)$, con 
+  $$ D'(x)=\det\begin{pmatrix} f'(x) & g'(x) & h'(x) \\ f(a) & g(a) & h(a) \\ f(b) & g(b) & h(b)\end{pmatrix}. $$
+ È palese che $D(a)=D(b)=0$, in quanto in tal caso stiamo considerando il determinante di una matrice con due righe coincidenti. Da Rolle segue dunque $D'(c)=0$ per qualche $c\in(a,b)$: con la scelta $h(x)=1$ questo è il Teorema di Cauchy; con le scelte $h(x)=1$ e $g(x)=x$ questo è il Teorema di Lagrange.
+\end{framed}
+
 \begin{theorem}[De l'H\^opital 1]
     Siano $f(x)$ e $g(x)$ continue in $[a,b]$ e derivabili in $(a,b)$, con la possibile eccezione di un punto $x_0$. Supponiamo $f(x_0)=g(x_0)=0$ e che $g(x)$ e $g'(x)$ non si annullino mai per  $x\neq x_0$. Supponiamo anche che esista finito il limite del rapporto delle derivate: $$\lim_{x\to x_0}\frac{f'(x)}{g'(x)}=L.$$ Allora esiste anche il rapporto delle funzioni ed è uguale al precedente: $$\lim_{x\to x_0}\frac{f(x)}{g(x)}=L.$$ 
 \end{theorem}
@@ -704,6 +713,24 @@ $$ \xi_{n+1} = \xi_n - \frac{f'(0)\xi_n + \frac{1}{2}(f''(0)+o(1))\xi_n^2}{f'(0)
 \textbf{Sketch di soluzione}. Da tre passaggi del metodo di Newton con $\theta_0=1$ si ha che $\frac{73}{66}=1.1\overline{06}$ stima la soluzione con un errore assoluto inferiore al milionesimo.
 
 \subsection{Problemi di massimo o minimo}
+
+\begin{shaded}
+\begin{ex} Si provi che tra tutte le curve rettificabili che hanno estremi in due assegnati e distinti punti del piano, il segmento realizza la lunghezza minima. 
+\end{ex}
+\end{shaded}
+\begin{proof} Poiché la lunghezza è invariante per isometrie, e poiché ogni dilatazione di fattore $\lambda$ scala le lunghezze di un fattore $|\lambda|$, non è restrittivo assumere che i punti del piano in questione siano l'origine e $(1,0)$. Abbiamo dunque da studiare le applicazioni rettificabili $\varphi:[0,1]\to[0,1]\subset\R^2$ che realizzano $\varphi(0)=(0,0)$ e $\varphi(1)=(1,0)$. L'applicazione identica realizza un segmento di lunghezza $1$. Supponiamo ora che per una qualche $\varphi$ rettificabile e un qualche $c\in(0,1)$ la seconda componente di $\varphi(c)$ sia non nulla, $\varphi(c)=(x,y)$ con $y\neq 0$. Per definizione di lunghezza di una curva si ha 
+$$ L(\varphi) \geq \sqrt{x^2+y^2}+\sqrt{(1-x)^2+y^2}=|y|\sqrt{1+y^2/x^2}+|1-x|\sqrt{1+y^2/(1-x)^2} $$
+e poiché su $\R$ si ha $\sqrt{1+z^2}=1+\frac{z^2}{1+\sqrt{1+z^2}}\geq 1+\frac{z^2}{2+\frac{z^2}{2}}$ per \text{AM-GM}, $L(\varphi)$ supera strettamente $1$.\\
+Segue che se l'immagine di $\varphi$ realizza la lunghezza minima, l'immagine di $\varphi$ coincide con il segmento $[0,1]\subset\R^2$.
+\end{proof}
+
+\begin{ex} Si determini qual è la massima percentuale del volume occupata da un cilindro contenuto in una sfera di raggio $1$. 
+\end{ex}
+\textbf{Soluzione}. Per questioni di continuità e simmetria è chiaro che, dato una qualunque cilindro contenuto nella sfera, è possibile trovarne uno inscritto con volume uguale o maggiore rispetto al primo. Limitando lo studio ai cilindri inscritti non è restrittivo fissare la direzione dell'asse e constatare che il volume è una funzione continua dell'angolo $\varphi\in[0,\pi/2]$ che fissa i paralleli di base. Se il raggio di base è $\cos\varphi$ e l'altezza è $2\sin\varphi$, il volume del cilindro inscritto è $2\pi\cos^2\varphi\sin\varphi$, dunque il problema è analogo a determinare 
+$$ \frac{3}{4\pi}\cdot\max_{\varphi\in[0,\pi/2]}2\pi\cos^2\varphi\sin\varphi = \frac{3}{2}\cdot\max_{\varphi\in[0,\pi/2]}\cos^2\varphi\sin\varphi$$
+o, equivalentemente 
+$$ \frac{3}{2}\max_{x\in[0,1]} x^2\sqrt{1-x^2}=\frac{3}{2}\max_{z\in[0,1]} z\sqrt{1-z} = \frac{3}{2}\sqrt{\max_{z\in[0,1]}z^2(1-z)}=3\sqrt{\max_{z\in[0,1]}\frac{z}{2}\cdot\frac{z}{2}\cdot(1-z)}. $$
+Poiché $\frac{z}{2}+\frac{z}{2}+(1-z)=1$, per AM-GM il massimo è realizzato quando $\frac{z}{2}=(1-z)$, ossia quando $z=\cos^2\varphi=\frac{2}{3}$.\\ La percentuale cercata è $\frac{1}{\sqrt{3}}\approx {\color{blue}57.735\%}$.
 
 \subsection{Teorema di Taylor e resto integrale}
 Sia $I$ un intorno aperto dell'origine e $f$ una funzione di classe $C^d$ su $I$, con $d\geq 1$. Per un qualunque $t\in I$, possiamo considerare che l'applicazione della formula di integrazione produce quanto segue:
@@ -1367,9 +1394,19 @@ con $f$ funzione continua nel primo argomento (il tempo) e lipschitziana nel sec
 \textbf{Idea della dimostrazione}. La prima condizione può essere espressa come $y(x)=y_0+\int_{0}^{x}f(t,y(t))\,dt$. Possiamo dunque considerare un operatore (di Volterra) $T$ che manda una generica $g$, continua in un intorno dell'origine, in 
 $$ (T g)(x) = y_0 + \int_{0}^{x} f(t,g(t))\,dt $$
 ed applicare il metodo di punto fisso che consiste nel definire una successione di funzioni $y_0(x)=y_0, y_n(x)=Ty_n(x)$, sperabilmente convergente all'unica soluzione del problema di Cauchy. I tecnicismi della dimostrazione sono finalizzati a provare che, nelle ipotesi su $f$, l'operatore di Volterra è effettivamente una contrazione, il che permette di concludere invocando il Teorema di Banach-Caccioppoli.  
+\begin{proof} Definiamo preliminarmente un intorno chiuso di $(0,y_0)$ costituito dai $(t,g(t))$ per cui $|t|\leq A$\\ e $\|g-y_0\|_{\infty}\leq B$, con $A$ e $B$ costanti positive. Su questo intorno possiamo assumere di avere $|f|\leq M$\\ e che $f$ sia $L$-lipschitziana rispetto alla seconda variabile. Osserviamo che 
+$$ \left|(Tg)(x)-y_0\right|=\left|\int_{0}^{x}f(t,g(t))\,dt\right| \leq \int_{0}^{x}\left|f(t,g(t))\right|\,dt \leq M|x| $$
+dunque a meno di rimpiazzare $A$ con $\min\left(A,\frac{B}{M}\right)$ abbiamo che l'operatore $T$ manda elementi dell'intorno iniziale in elementi dell'intorno iniziale. Osserviamo poi che 
+$$\left|(Tg_1)(x)-(Tg_2)(x)\right|=\left|\int_{0}^{x}f(t,g_1(t))-f(t,g_2(t))\,dt\right| \leq \int_{0}^{x}L|g_1(t)-g_2(t)|\,dt \leq L|x|\cdot\|g_1-g_2\|_{\infty}$$
+dunque a meno di rimpiazzare $A$ con $\min\left(A,\frac{1}{L}\right)$ abbiamo che $T$ è una contrazione debole sull'intorno di partenza.\\
+Da Banach-Caccioppoli segue che l'operatore $T$ ha un unico punto fisso, dato ad esempio dal limite puntuale della successione definita attraverso $y_0(t)=y_0$ e $y_{n+1}(t)=(Ty_n)(t)$. Poiché i punti fissi dell'operatore di Volterra sono esattamente le soluzioni del problema di Cauchy, il Teorema è dimostrato.
+\end{proof}
 
+\textbf{Nota \#1}: riguardo l'intervallo massimale su cui è unicamente definita la soluzione, possiamo rimuovere la dipendenza da $L$ osservando che 
+$$ \left\| T^m \varphi_1(t)- T^m\varphi_2(t)\right\|_{\infty}\leq \frac{L^m|t|^m}{m!}\|\varphi_1-\varphi_2\|_{\infty} $$
+per ogni $t$ tale che $|t|\leq\min\left(A,\frac{B}{M}\right)$. Vista la rapidità con cui cresce il fattoriale, il membro destro è sicuramente dominato da $\|\varphi_1-\varphi_2\|_{\infty} $ per qualche $m\in\N$. In particolare possiamo replicare la precedente dimostrazione rimpiazzando l'operatore $T$ con $T^m$, ottendendo che l'intervallo massimale di esistenza e unicità delle soluzioni dipende unicamente dall'insieme di definizione del campo $f$ e dal massimo modulo del campo $f$, ma non dalla sua costante di Lipschitz.\\
 
-
+\textbf{Nota \#2}: concatenando tra loro più istanze di esistenza e unicità \emph{in piccolo} possiamo in molti casi provare la \emph{globalità} di una soluzione. Se ad esempio il campo $f$ è sublineare rispetto alla seconda variabile, è automatico che le soluzioni del problema di Cauchy siano globali: questo ad esempio comporta che tutte le soluzioni di ED lineari omogenee a coefficienti costanti siano globali\footnote{In verità questo è palese anche come conseguenza del metodo di Frobenius, che accennerremo più avanti: le soluzioni delle ED lineari omogenee a coefficienti costanti sono funzioni intere di ordine $1$, ben più che $C^{\infty}$ e globali.}. Ovviamente non è vero il viceversa, ma il Teorema di Okamura fornisce sia condizioni sufficienti che necessarie per l'esistenza e unicità della soluzione di un problema di Cauchy: fondamentalmente, l'esistenza di un'opportuna funzione di Lyapunov.
 
 \subsection{Classificazione delle principali equazioni differenziali}
 Per il Teorema Fondamentale del Calcolo Integrale (TFCI), sotto opportune ipotesi di regolarità possiamo ricostruire $u(t)$ dalla sua derivata $u'(t)$ e dal valore di $u$ in un punto. L'equazione $u'(t)=f(t)$ ha infatti soluzione $$u(t)=\int_{a}^{t}f(s)\,ds.$$
@@ -1535,9 +1572,6 @@ $$ T = \frac{2\pi\sqrt{\frac{\ell}{g}}}{\operatorname{AGM}\left(1,\cos\frac{\the
 Troncando al second'ordine, la dipendenza del periodo dall'angolo iniziale è della forma $T\approx 2\pi\sqrt{\frac{\ell}{g}}\left(1+\frac{\theta_0^2}{16}\right).$\\
 Se l'angolo iniziale è esattamente $\frac{\pi}{2}$, a causa di valori speciali dell'integrale ellittico completo del primo tipo\\ si ha esattamente $T=\Gamma^2\left(\frac{1}{4}\right)\sqrt{\frac{\pi\ell}{4g}}$, cioè circa $\frac{13}{7}$ del periodo delle piccole oscillazioni.
 
-
-\newpage
-
 \subsection{Metodi di risoluzione di ED lineari non omogenee}
 
 Considerando che le soluzioni di 
@@ -1593,8 +1627,7 @@ $$ f(x) = \sum_{n\geq 1}\frac{\sin(nx)}{n}. $$
 $$ \lim_{x\to 0^+}f(x) = \lim_{s\to +\infty}\int_{0}^{+\infty}f(x)\cdot s e^{-sx}\,dx = \lim_{s\to +\infty} s\cdot(\mathcal{L} f)(s). $$
 Dalla linearità di $\mathcal{L}$ si ha che 
 $$ s\cdot(\mathcal{L}f)(s) = \sum_{n\geq 1}\frac{s}{n^2+s^2} = \frac{-1+\pi s\coth(\pi s)}{2s},$$
-da cui $\lim_{x\to 0^+}f(x)=\frac{\pi}{2}$, che conferma il sospetto sulla non-continuità di $f$.
-\newpage
+da cui $\lim_{x\to 0^+}f(x)=\frac{\pi}{2}$, che conferma il sospetto sulla non-continuità di $f$.\\
 
 Evidenziamo infine come i seguenti tre problemi siano di fatto equivalenti:
 \begin{itemize}
