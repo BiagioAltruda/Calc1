@@ -1659,8 +1659,33 @@ La soluzione generale è quindi $u(t)= p(t) + c_1 e^{-2t}$.\\
 Un altro metodo per risolvere alcune differenziali (più complesse delle precedenti) 
 è quello di ricorrere ad opportune sostituzioni, della variabile indipendente o della funzione obiettivo, ad esempio considerando l'equazione differenziale soddisfatta dalla funzione inversa di una soluzione (si vedano a tal proposito le \textbf{condizioni di Osgood}).\\
 
-{\color{red} Inserire ANNICHILATORI e casi di RISONANZA, anche se la sezione successiva rende tutto obsoleto}
+\begin{ex} Si determinino le soluzione dell'equazione differenziale 
+$$ \dot{x}+\frac{x}{t+1} = 6t. $$
+\end{ex}
+\textbf{Soluzione}. Ponendo $x(t)=(t+1)f(t)$ ci riduciamo a risolvere 
+$$ (t+1)f'(t) + 2f(t) = 6t, $$
+ponendo $f(t)=g(t)+2t$ ci riduciamo a risolvere 
+$$ (t+1) g'(t) + 2g(t)  = -2 $$
+e ponendo $g(t)=-1+h(t)$ ci riduciamo a risolvere l'omogenea
+$$ (t+1)h'(t)+2h(t) = 0 $$
+che è a variabili separabili. Da $\frac{h'(t)}{h(t)}=-\frac{2}{t+1}$ abbiamo $\log h(T)-\log h(0)=-2\log(1+T)$ e $h(t)=\frac{C}{(1+t)^2}$,\\ da cui $x(t)=\frac{2t^3+3t^2+C}{t+1}$.\\
 
+Un altro metodo di riferimento per le ED lineari non omogenee è il \textbf{metodo di variazione delle costanti}.
+
+\begin{ex} Si determinino le soluzioni dell'equazione differenziale 
+$$ \ddot{x}+x = \frac{1}{\cos t}. $$
+\end{ex}
+\textbf{Soluzione}. Osserviamo che l'equazione omogenea è quella di un oscillatore armonico, con soluzione generale data da $A\cos t+B\sin t$. In analogia a quanto fatto per risolvere le ED lineari non omogenee del prim'ordine, cerchiamo soluzioni della forma $A(t)\cos t+B(t)\sin t$, rimpiazzando appunto le costanti che figurano nella soluzione generale dell'omogenea con funzioni inizialmente incognite. Con questa sostituzione si ha 
+$$ \dot{x}(t) = B(t)\cos(t)-A(t)\sin(t)+A'(t)\cos(t)+B'(t)\sin(t)$$
+e se imponiamo che valga $A'(t)\cos(t)+B'(t)\sin(t)=0$ abbiamo che l'equazione di partenza è equivalente a 
+$$ B'(t)\cos(t)-A'(t)\sin(t) = \frac{1}{\cos t}.$$
+Risolvendo un sistema lineare otteniamo $A'(t)=-\tan t$ e $B'(t)=1$, da cui la soluzione generale 
+$$ x(t) = (A+\log|\cos t|)\cos(t) + (B+t)\sin t.$$
+
+
+
+
+\newpage
 
 \subsection{Trasformata di Laplace}
 La trasformata di Laplace è uno strumento essenziale in Teoria dei Numeri, Teoria dei Controlli, Probabilità e Analisi Armonica. È un operatore lineare definito come segue: data $f:\R^+\to\R$, la sua trasformata di Laplace $\mathcal{L}f:\R^+\to \R$ è data da
