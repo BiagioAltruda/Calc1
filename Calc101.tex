@@ -767,11 +767,8 @@ $$ I(\alpha) = \int_{-\infty}^{+\infty}\frac{dx}{(x^2+1)((\alpha-x)^2+1)}.$$
 
 $$(x^2+1)((\alpha-x)^2+1) = \alpha^2 + (x(\alpha-x)-1)^2 = (2x-\alpha)^2+(x(x-\alpha)+1)^2$$
 
-
 dunque
 $$ I(\alpha) = \int_{-\infty}^{+\infty}\frac{dx}{(2x-\alpha)^2+\left(x(x-\alpha)-1\right)^2} \stackrel{x\mapsto\frac{\alpha}{2}+x}{=} \int_{-\infty}^{+\infty}\frac{dx}{4x^2+\left(x^2-\frac{\alpha^2}{4}-1\right)^2}$$
-
-
 
 che palesa che $I(\alpha)$ sia una funzione derivabile e pari (anzi dipendente solo da $\frac{\alpha^2}{4}+1$), con $I(0)=\frac{\pi}{2}$.\\ $I(\alpha)$ è evidentemente positivo per ogni $\alpha\in\R$, e inoltre 
 $$ I(\alpha)\stackrel{x\mapsto x\sqrt{\frac{\alpha^2}{4}+1}}{=} \frac{1}{\sqrt{\frac{\alpha^2}{4}+1}}\int_{-\infty}^{+\infty}\frac{dx}{4x^2 + \left(\frac{\alpha^2}{4}+1\right)(x^2-1)^2}\leq \frac{1}{\sqrt{\frac{\alpha^2}{4}+1}}\int_{-\infty}^{+\infty}\frac{dx}{4x^2 + (x^2-1)^2}=\frac{\pi}{\sqrt{\alpha^2+4}}.$$
@@ -780,7 +777,34 @@ Per decomposizione in fratti semplici si ha
 $$ I(\alpha) = \frac{2\pi}{\alpha^2+4} $$
 con una interessante interpretazione probabilistica: la somma di due variabili aleatorie indipendenti e di Cauchy è ancora di Cauchy.
 
-\newpage
+\begin{ex} Data la curva nel piano di equazione $x^2+xy+y^2=12$,
+\begin{itemize}
+ \item si dimostri che questa è un'ellisse
+ \item se ne determinino vertici, fuochi e area racchiusa
+ \item si determini quali punti della curva hanno la massima o minima ascissa o ordinata.
+\end{itemize}
+\end{ex}
+
+\textbf{Soluzione}. Osserviamo preliminarmente che si ha $|xy|\leq\frac{x^2+y^2}{2}$, dunque per ogni punto $(x,y)$ della curva si ha 
+$$ \frac{1}{2}(x^2+y^2) \leq 12 \leq \frac{3}{2}(x^2+y^2) $$
+dunque l'intera curva giace all'interno della corona circolare centrata nell'origine e delimitata dalle circonferenze con raggi $2\sqrt{2}$ e $2\sqrt{6}$. Il punto $(2,2)$ appartiene alla curva, dunque quest'ultima è una ellisse in quanto conica limitata. Le precedenti disuguaglianze valgono come uguaglianze lungo le bisettrici $y=\pm x$, dunque i semiassi dell'ellisse sono precisamente $b=2\sqrt{2}$ e $a=2\sqrt{6}$ e l'area racchiusa è $\pi a b=8\pi\sqrt{3}$. Analogamente la semidistanza focale è $c=\sqrt{a^2-b^2}=4$, dunque \\
+
+\begin{minipage}{0.4\textwidth}
+\includegraphics[scale=1.2]{ellisse.png} 
+\end{minipage}
+\begin{minipage}{0.6\textwidth}
+\begin{itemize}
+ \item i vertici dell'asse minore si trovano in $\pm(2,2)$
+ \item i vertici dell'asse maggiore si trovano in $\pm (2\sqrt{3},-2\sqrt{3})$
+ \item i fuochi si trovano in $\pm(2\sqrt{2},-2\sqrt{2})$.
+\end{itemize}
+
+Per quanto concerne l'ultima parte abbiamo almeno due approcci possibili. Il primo (puramente geometrico) è ricordare che l'\emph{ortottica} (ossia l'insieme dei punti che ``vedono'' la curva sotto un angolo retto) di una ellisse è una circonferenza di raggio $\sqrt{a^2+b^2}$. Nel nostro caso questo comporta che il quadrato di vertici $(\pm 4,\pm 4)$ sia circoscritto all'ellisse.\\
+
+Alternativamente, per un fissato valore di $y$ si ha che l'equazione $x^2+xy+(y^2-12)=0$ ammette un'unica soluzione se e solo se il discriminante dell'equazione è nullo, ossia se e solo se $y^2=16$.
+
+\end{minipage}
+
 
 \subsection{Teorema di Taylor e resto integrale}
 Sia $I$ un intorno aperto dell'origine e $f$ una funzione di classe $C^d$ su $I$, con $d\geq 1$. Per un qualunque $t\in I$, possiamo considerare che l'applicazione della formula di integrazione produce quanto segue:
