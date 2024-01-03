@@ -1742,6 +1742,15 @@ $$ \int_{0}^{+\infty}\frac{\sin x}{x}\,dx = \int_{0}^{+\infty}\sin(s)\cdot(\math
 
 \textbf{Nota}: la tecnica appena implementata è anche più potente di quanto possa sembrare a prima vista. Nel caso di integrali calcolabili mediante applicazione del Teorema dei residui (Cauchy) l'auto-aggiunzione della trasformata di Laplace permette spesso di giungere alle medesime conclusioni senza la necessità di dare la caccia a opportuni circuiti di integrazione nel piano complesso.\\
 
+\begin{ex}[Integrali di Frullani] Si determini esplicitamente il valore dell'integrale di Riemann improprio 
+$$ \int_{0}^{+\infty}\frac{e^{-2x}-e^{-3x}}{x}\,dx.$$ 
+\end{ex}
+\textbf{Soluzione}. Osservando come prima che $\frac{1}{x}$ è la trasformata di Laplace della funzione che vale costantemente $1$ abbiamo 
+$$ \int_{0}^{+\infty}\frac{e^{-2x}-e^{-3x}}{x}\,dx = \int_{0}^{+\infty}\mathcal{L}(e^{-2x}-e^{-3x})(s)\,ds = \int_{0}^{+\infty}\left(\frac{1}{s+2}-\frac{1}{s+3}\right)\,ds=\left[\log\left(\frac{s+2}{s+3}\right)\right]_{0}^{+\infty}={\color{blue}\log\left(\frac{3}{2}\right)}. $$
+Equivalentemente, da Fubini 
+
+$$ \int_{0}^{+\infty}\frac{e^{-2x}-e^{-3x}}{x}\,dx \stackrel{x\mapsto -\log u}{=}\int_{0}^{1}\frac{u^2-u}{\log u}\,du=\int_{0}^{1}\int_{1}^{2}u^\alpha\,d\alpha\,du = \int_{1}^{2}\int_{0}^{1}u^\alpha\,du\,d\alpha = \int_{1}^{2}\frac{d\alpha}{\alpha+1}=\left[\log(\alpha+1)\right]_{1}^{2}. $$
+
 Un'ulteriore applicazione della trasformata di Laplace è la determinazione puntuale di serie di Fourier.
 \begin{ex}[\emph{Sawtooth wave}] Si determini il limite per $x\to 0^+$ della funzione $f(x)$ definita da
 $$ f(x) = \sum_{n\geq 1}\frac{\sin(nx)}{n}. $$
