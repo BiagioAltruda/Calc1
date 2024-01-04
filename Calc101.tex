@@ -1133,21 +1133,25 @@ $$ S^+_{\mathcal{P}}-\sum_{k=1}^{n}\mu(I_k) f(\max I_k)\quad\text{che}\quad S^-_
 possono essere resi arbitrariamente vicini a zero in modulo. Questo prova le ultime due uguaglianze. 
 \end{proof}
 \begin{definizione}
-    Sia $X$ un intervallo di $\R$, e sia $f:X\to\R$ una funzione. Si dice che $F:X\to\R$ è una primitiva di $f$ in $X$ se per ogni $x\in X$ $F$ è derivabile e $F'(x)=f(x)$ e si denota con $$\int f = F$$
+    Sia $I$ un intervallo di $\R$, e sia $f:I\to\R$ una funzione. Si dice che $F:I\to\R$ è una \emph{primitiva}\\ (o \emph{antiderivata}) di $f$ su $X$ se per ogni $x\in X$ $F$ è derivabile e $F'(x)=f(x)$. $F(x)$ si denota inoltre come $\int f(x)\,dx. $
 \end{definizione}
-\begin{theorem}
-Le primitive di funzioni integrabili secondo Riemann godono delle seguenti proprietà:
+
+\textbf{Nota}: una primitiva è fissata a meno dell'addizione di una costante arbitraria.\\ Per intenderci, sia $-\cos(x)$ che $2\sin^2\left(\frac{x}{2}\right)=1-\cos(x)$ sono primitive di $\sin(x)$.
+
+\begin{theorem} 
+Per funzioni $f,g$ Riemann-integrabili sull'intervallo $I$ valgono le seguenti proprietà:
+:
 \begin{itemize}
-    \item $$\int_{\R} (f+g)= \int_{\R} f + \int_{\R} g \quad \forall f,g$$
-    \item $$\int_{\R}(\alpha f)=\alpha\int_{\R} f \quad \forall f\quad\forall\alpha\in\R$$
-    \item $$\text{se } f\leq g \Rightarrow \int_{\R}f\leq \int_{\R}g$$
+    \item $$\int_{I} (f+g)(x)\,dx = \int_{I} f(x) + \int_{I} g(x)$$
+    \item $$\forall\alpha\in\R\qquad \int_{I} \alpha f(x)\,dx =\alpha\int_{I} f(x)\,dx$$
+    \item $$\text{se } f\leq g \Rightarrow \int_{I}f(x)\,dx \leq \int_{I}g(x)\,dx$$
 \end{itemize}
 Questo si traduce nel fatto che l'operatore $\int$ è \emph{lineare} e \emph{monotono}.
 \end{theorem}
 \begin{theorem}
-    Sia $[a,b]\in\R$ un intervallo e sia $f:[a,b]\in\R$ Riemann integrabile in $[a,b]$ e sia $c\in[a,b]$ fissato.\\ Vale che:\\
+    Sia $[a,b]\in\R$ un intervallo e sia $f:[a,b]\to\R$ Riemann-integrabile in $[a,b]$ e sia $c\in[a,b]$ fissato.\\ Vale che:\\
     1) La funzione integrale di $f$ di punto iniziale $c$, $\int_c^x f(t)\,dt$ è localmente lipschitziana e quindi continua in $[a,b]$ \\
-    2) (Torricelli) Se $f$ è continua in $x\in[a,b]$ allora $\int_c^x f(t)\,dt$ è derivabile in $x$ e si ha: $$\left(\int_c^x f(t)\,dt\right)' =f(x)$$
+    2) (Torricelli) Se $f$ è continua in $x\in[a,b]$ allora $\int_c^x f(t)\,dt$ è derivabile in $x$ e si ha: $$\left(\int_c^x f(t)\,dt\right)' =f(x).$$
 \end{theorem}
 \begin{proof}
     Iniziamo a dimostrare la continuità. Sia $[a,b]$ un intervallo fissato, sia $\lambda=\sup_{x\in[a,b]}|f(x)|$.\\ Mostriamo che $\lambda$ è la costante di Lipschitz cercata su $[a,b]$:
@@ -1163,7 +1167,7 @@ Questo si traduce nel fatto che l'operatore $\int$ è \emph{lineare} e \emph{mon
     $$\left|\frac{I_cf(h)-I_cf(x)}{h-x}-f(x)\right|=\left|\frac{1}{h-x}\int_x^h f(t)\,dt -\frac{1}{h-x}\int_x^h f(x)\,dt\right|$$
     $$=\frac{1}{|h-x|}\left|\int_x^h(f(t)-f(x))\,dt\right|\leq\frac{1}{|h-x|}\left|\int_x^h|f(t)-f(x)|\,dt\right|.$$
     Essendo $f$ per ipotesi continua in $x$ vale che $|f(h)-f(x)|\leq\epsilon$ se $h\in[a,b]$ tale che $0<h-x\leq\delta$. Si ha quindi:
-    $$\frac{1}{|h-x|}\left|\int_x^h|f(t)-f(x)|\,dt\right|\leq\frac{1}{|h-x|}\left|\int_x^h\epsilon\, dt\right|=\frac{1}{|h-x|}\epsilon|h-x|=\epsilon$$
+    $$\frac{1}{|h-x|}\left|\int_x^h|f(t)-f(x)|\,dt\right|\leq\frac{1}{|h-x|}\left|\int_x^h\epsilon\, dt\right|=\frac{1}{|h-x|}\epsilon|h-x|=\epsilon.$$
 \end{proof}
 Dopo tutta questa fatica, almeno, il teorema seguente è gratuito.
 \begin{theorem}[Teorema Fondamentale del Calcolo Integrale]
