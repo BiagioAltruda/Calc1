@@ -1372,8 +1372,8 @@ $$ \mu(E_f)=\int_{a}^{b} f(x)\,dx.$$
 La Riemann-integrabilità in senso improprio permette pertanto di estendere il concetto di area anche a sottoinsiemi del piano illimitati, come ad esempio il sottografico di $e^{-x}$ su $\R^+$. Rimpiazzando i termini \emph{area}, \emph{rettangolo} e \emph{poligono} con i termini \emph{volume}, \emph{parallelepipedo} e \emph{poliedro} otteniamo la definizione della misura di Peano-Jordan in $\R^3$.\\
 Le relazioni tra continuità e misura sono spinose e non sempre intuitive: è possibile che un misurabile $V\subset\R^3$ abbia una sezione $V\cap\{z=0\}$ che non è misurabile come sottoinsieme del piano. Nei casi in cui questa patologia non si presenta abbiamo tuttavia un risultato ricco di applicazioni.
 
-\begin{theorem}[Principio di Cavalieri] Se $V\subset\R^3$ è misurabile e lo sono anche tutte le sue sezioni, il volume di $V$ è dato dall'integrale dell'area delle sezioni. 
-\end{theorem}
+\begin{theo}[Principio di Cavalieri] Se $V\subset\R^3$ è misurabile e lo sono anche tutte le sue sezioni perpendicolari ad una direzione fissata, il volume di $V$ è dato dall'integrale dell'area delle sezioni. 
+\end{theo}
 
 Conseguenze immediate sono ad esempio le seguenti:
 \begin{itemize}
@@ -1384,9 +1384,34 @@ Conseguenze immediate sono ad esempio le seguenti:
 Più in generale, data una $f\in C^{0}([a,b])$ non negativa, il volume del solido ottenuto ruotando il sottografico di $f$ attorno all'asse delle ascisse è dato da $\pi\int_{a}^{b}f(x)^2\,dx$. Se invece abbiamo una $f\in C^0([0,b])$ non negativa e facciamo ruotare il suo sottografico attorno all'asse delle ordinate, per decomposizione in corone cilindriche abbiamo che il volume del solido di rotazione è dato da
 
 $$ V=\lim_{N\to +\infty} \sum_{k=0}^{N-1} f\left(\frac{kb}{N}\right)\left(\pi\left(\frac{(k+1)b}{N}\right)^2-\pi\left(\frac{kb}{N}\right)^2\right)=\pi\lim_{N\to +\infty}\frac{1}{N}\sum_{k=0}^{N-1}f\left(\frac{kb}{N}\right)\frac{(2k+1)b}{N}, $$
-ossia, per corrispondenza tra somme e integrali di Riemann, $2\pi\int_{0}^{b} x f(x)\,dx.$
+ossia, per corrispondenza tra somme e integrali di Riemann, $2\pi\int_{0}^{b} x f(x)\,dx.$\\
 
 
+\begin{minipage}{0.25\textwidth}
+\includegraphics[scale=0.06]{Klostergew.png} 
+\end{minipage}
+\begin{minipage}{0.75\textwidth}
+\vspace{4mm}
+\begin{ex} Consideriamo un vassoio da pasticceria determinato dai punti $(x,y,z)$ dello spazio che soddisfano $z\geq 0, x^2+z^2\leq 1, y^2+z^2\leq 1$ (ossia l'intersezione tra due cilindri con assi ortogonali e il semispazio delle $z$ non negative). Qual è il suo volume? 
+\end{ex}
+\textbf{Soluzione}. È semplice osservare che per qualunque $z\in[0,1)$ la sezione orizzontale è un 
+\end{minipage}
+quadrato di area $4(1-z^2)$. Dal principio di Cavalieri segue pertanto che il volume cercato è $4\int_{0}^{1}(1-z^2)\,dz$, ossia $\color{blue}\frac{8}{3}$.
+
+\begin{center}
+\includegraphics[scale=0.18]{Steinmetz.png} 
+\end{center}
+\begin{ex} Consideriamo ora il \emph{solido di Steinmetz} determinato dall'intersezione di \emph{tre} cilindri\\ con assi mutuamente ortogonali, $\{(x,y,z)\in\R^3: x^2+y^2\leq 1, y^2+z^2\leq 1, z^2+x^2\leq 1\}.$ 
+Quanto vale il volume?  
+\end{ex}
+\textbf{Soluzione}. Procedendo come prima abbiamo che la sezione relativa a un certo $z\in(-1,1)$ è quadrata se $|z|\in\left[\frac{1}{\sqrt{2}},1\right]$ ed ha la forma dell'intersezione tra un quadrato ed un cerchio se $|z|<\frac{1}{\sqrt{2}}$. Da una raffigurazione accurata possiamo anche intuire che il solido è decomponibile nell'unione tre un cubo di spigolo $\sqrt{2}$ e $6$ cupole, ognuna delle quali con volume dato da $\int_{1/\sqrt{2}}^{1}4(1-z^2)\,dz=\frac{8-5\sqrt{2}}{3}$. Segue che il volume del solido di Steinmetz è $\color{blue}8(2-\sqrt{2})$: quasi il $12\%$ in più del volume della sfera inscritta, che ha esattamente le stesse proiezioni sui piani coordinati.
+
+\begin{ex} Si provi che la superficie del precedente solido di Steinmetz è $24(2-\sqrt{2})$.
+ 
+\end{ex}
+
+
+\newpage
 
 \section{Successioni per ricorrenza}
 Lo studio di successioni in cui il termine generale $a_n$ dipende in qualche modo dai precedenti è di fondamentale importanza non solo dal punto di vista strettamente teorico, ma anche da quello fisico-ingegneristico, visto che è piuttosto raro essere in grado di ricostruire esplicitamente la soluzione di un'equazione differenziale, ma si hanno migliori chances di successo nella trattazione (eventualmente numerica) dei corrispondenti problemi \emph{linearizzati} o altrimenti \emph{discretizzati}. Il primo caso che ci apprestiamo a trattare è quello delle successioni per ricorrenza \emph{lineari} ed \emph{autonome}, dove il termine generale $a_n$ è una fissata combinazione lineare dei precedenti $k$ termini.
