@@ -1890,7 +1890,18 @@ Dall'ultima rappresentazione integrale, finalmente, è facile vedere che se $x<0
 
 \subsection{Accenni di Analisi 2 e Sistemi Dinamici, integrali primi e funzioni di Lyapunov}
 
-\newpage
+Nello studio di un'equazione differenziale è in verità piuttosto raro riuscire a rinvenire una scrittura esplicita della soluzione. Tuttavia non è raro trovare funzioni che si mantengano costanti nel tempo lungo le soluzioni (\textbf{integrali primi} o \textbf{energie}) o che siano (debolmente) monotone lungo le soluzioni (\textbf{funzioni di Lyapunov}): ciò è di grande ausilio nello studio qualitativo delle soluzioni, nonché nella discussione della stabilità (asintotica) dei punti di equilibrio.
+Ad esempio nel problema $\dot{x}=-x$ possiamo considerare la funzione $V(x)=x^2\geq 0$ e osservare che $\dot{V}(x) = 2\dot{x} x = -2x^2\leq 0$, dunque $V(x)$ è debolmente decrescente lungo le soluzioni e l'origine è un punto asintoticamente stabile.\\
+Analogamente, nel caso del pendolo descritto dall'equazione differenziale $\ddot{x}+\sin x=0$ possiamo porre $y=\dot{x}$, esprimere il problema come $$\left\{\begin{array}{rcl}\dot{x}&=&y\\ \dot{y}&=&-\sin(x)\end{array}\right.$$
+e considerare la funzione $V(x,y)=\frac{y^2}{2}+(1-\cos x)$ che è evidentemente non negativa in un intorno dell'origine. Poiché
+$$ \dot{V}(x,y) = y\dot{y}+\dot{x}\sin(x)=-y\sin(x)+y\sin(x)=0 $$
+abbiamo una energia, dalla quale possiamo dedurre (come già visto) l'appartenenza delle soluzioni alle curve di livello di $V(x,y)$ e la stabilità dell'origine.
+
+\begin{ex} Si stimi il bacino di attrazione dell'origine per il sistema di equazioni differenziali 
+$$ \left\{\begin{array}{rcl}\dot{x}&=&-x+y^2\\\dot{y}&=& -2y+3x^2\end{array}\right. $$
+provando che $V(x,y)=\frac{x^2}{2}+\frac{y^2}{4}$ è una funzione di Lyapunov. 
+\end{ex}
+\textbf{Soluzione}. Abbiamo che $\dot{V}(x,y)= -x^2\left(1-\frac{3}{2}y\right)-y^2 (1-x)$, dunque posto di avere $y\leq\frac{2}{3}$ e $x\leq 1$ la funzione data è sicuramente debolmente decrescente sulle soluzioni. Poiché le curve di livello di $V(x,y)$ sono ellissi con assi $\sqrt{2\alpha}$ e $2\sqrt{\alpha}$, tutti i punti che soddisfano $\frac{x^2}{2}+\frac{y^2}{4}\leq \frac{1}{9}$ appartengono di certo al bacino di attrazione dell'origine.
 
 \section{Esercizi e simulazioni di pre-test}
 Gli esercizi di seguito riportati con una stella ($\star$) hanno difficoltà paragonabile a quelli del compito, quelli riportati con due stelle ($\star\star$) sono più impegnativi. Quelli con tre stelle ($\star\star\star$) sono estremamente impegnativi, si raccomanda cautela.\\
